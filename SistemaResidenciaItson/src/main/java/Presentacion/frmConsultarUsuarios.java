@@ -1,10 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
+import Utilidades.ButtonEditor;
+import Utilidades.ButtonRenderer;
+//import Utilidades.HeaderToolTipRenderer;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -12,12 +13,15 @@ import javax.swing.JFrame;
  */
 public class frmConsultarUsuarios extends javax.swing.JFrame {
 
+    private DefaultTableModel modeloUsuarios;
+
     /**
      * Creates new form frmConsultarUsuarios
      */
     public frmConsultarUsuarios() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarYcargarTabla();
     }
 
     /**
@@ -31,25 +35,24 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
-        lblTitulo1 = new javax.swing.JLabel();
+        lblSubtitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        lblLogo = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        tblUsuarios = new javax.swing.JTable();
+        txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Panel de gestión de usuarios");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTitulo.setText("Residencias ITSON – Panel de Gestión de usuarios");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setText("Residencias ITSON – Panel de gestión de usuarios");
+        lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        lblTitulo1.setText("Consultar Usuarios");
+        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblSubtitulo.setText("Consultar Usuarios");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,60 +63,45 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblUsuarios);
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sources/logo.png"))); // NOI18N
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtBuscarActionPerformed(evt);
             }
         });
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sources/busqueda (2).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1053, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(lblLogo)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(339, 339, 339)
-                        .addComponent(lblTitulo1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(265, 265, 265)
+                        .addComponent(lblTitulo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTitulo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 911, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                        .addGap(451, 451, 451)
+                        .addComponent(lblSubtitulo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblTitulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTitulo1))
-                    .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addGap(31, 31, 31)
+                .addComponent(lblTitulo)
+                .addGap(21, 21, 21)
+                .addComponent(lblSubtitulo)
+                .addGap(44, 44, 44)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,9 +118,65 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    /**
+     * Configura el modelo de la JTable (columnas) y carga datos de ejemplo.
+     */
+    public void configurarYcargarTabla() {
+
+        String[] titulos = {
+            "Rol", "Nombre usuario", "Correo electronico",
+            "Consultar", "Editar", "Inhabilitar"
+        };
+
+        modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column >= 3;  // solo botones
+            }
+        };
+
+        tblUsuarios.setModel(modeloUsuarios);
+
+        // Alto de filas
+        tblUsuarios.setRowHeight(30);
+
+        // Un solo renderer/editor para las 3 columnas
+        Utilidades.ButtonRenderer btnRenderer = new Utilidades.ButtonRenderer();
+        Utilidades.ButtonEditor btnEditor
+                = new Utilidades.ButtonEditor(new javax.swing.JCheckBox(), tblUsuarios);
+
+        // Col 3, 4 y 5 con botones
+        for (int c = 3; c <= 5; c++) {
+            tblUsuarios.getColumnModel().getColumn(c).setCellRenderer(btnRenderer);
+            tblUsuarios.getColumnModel().getColumn(c).setCellEditor(btnEditor);
+        }
+
+        llenarTablaEjemplo();
+    }
+
+    /**
+     * Carga datos simulados de usuarios en el modelo de la tabla.
+     * Posteriormente, esta función se modificará para consultar tu base de
+     * datos.
+     */
+    private void llenarTablaEjemplo() {
+        modeloUsuarios.setRowCount(0);
+
+        Object[][] datosEjemplo = {
+            {"0000226088", "panfilo filomeno", "panfilo@correo.mx", "", "", ""},
+            {"0000226088", "Cesar Adrian Avalos", "cesar@correo.mx", "", "", ""},
+            {"0000226088", "Georgina Aviles", "georgina@correo.mx", "", "", ""},
+            {"0000226088", "Jose Duran", "jose@correo.mx", "", "", ""}
+        };
+
+        for (Object[] fila : datosEjemplo) {
+            modeloUsuarios.addRow(fila);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -170,13 +214,11 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblSubtitulo;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTitulo1;
+    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
