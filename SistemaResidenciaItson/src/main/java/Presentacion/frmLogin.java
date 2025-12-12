@@ -18,7 +18,7 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
+
     }
 
     /**
@@ -30,35 +30,94 @@ public class frmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jplLogin = new javax.swing.JPanel();
         txtCorreoLogin = new javax.swing.JTextField();
         txtContraLogin = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lblContraseñaLogin = new javax.swing.JLabel();
+        lblCorreoElectronicoLogin = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblTitulAunNo = new javax.swing.JLabel();
+        btnRegistroLogin = new javax.swing.JButton();
+        btnIniciarSeion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(txtCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 310, 50));
-        jPanel1.add(txtContraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 310, 50));
+        jplLogin.setBackground(new java.awt.Color(255, 255, 255));
+        jplLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jplLogin.add(txtCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 390, 310, 50));
+        jplLogin.add(txtContraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 520, 310, 50));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sources/LogoResixx.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Login.png"))); // NOI18N
+        jplLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, -1, -1));
+
+        lblContraseñaLogin.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblContraseñaLogin.setText("Contraseña");
+        jplLogin.add(lblContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 480, -1, -1));
+
+        lblCorreoElectronicoLogin.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblCorreoElectronicoLogin.setText("Correo electronico");
+        jplLogin.add(lblCorreoElectronicoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoResixxx.png"))); // NOI18N
+        jplLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 220));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jovenesEstudindo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 280));
+        jplLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 710, 510));
+
+        lblTitulAunNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblTitulAunNo.setText("¿Aun no estas registrado? ");
+        jplLogin.add(lblTitulAunNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 690, -1, -1));
+
+        btnRegistroLogin.setBackground(new java.awt.Color(102, 204, 255));
+        btnRegistroLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistroLogin.setText("Click aqui");
+        btnRegistroLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroLoginActionPerformed(evt);
+            }
+        });
+        jplLogin.add(btnRegistroLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 690, -1, -1));
+
+        btnIniciarSeion.setBackground(new java.awt.Color(51, 153, 255));
+        btnIniciarSeion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnIniciarSeion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSeion.setText("Iniciar Sesion");
+        btnIniciarSeion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSeionActionPerformed(evt);
+            }
+        });
+        jplLogin.add(btnIniciarSeion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 600, 160, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jplLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jplLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistroLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroLoginActionPerformed
+
+    private void btnIniciarSeionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeionActionPerformed
+
+        frmAdminInicio fadmin = new frmAdminInicio();
+
+        fadmin.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_btnIniciarSeionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,8 +155,15 @@ public class frmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIniciarSeion;
+    private javax.swing.JButton btnRegistroLogin;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jplLogin;
+    private javax.swing.JLabel lblContraseñaLogin;
+    private javax.swing.JLabel lblCorreoElectronicoLogin;
+    private javax.swing.JLabel lblTitulAunNo;
     private javax.swing.JTextField txtContraLogin;
     private javax.swing.JTextField txtCorreoLogin;
     // End of variables declaration//GEN-END:variables
