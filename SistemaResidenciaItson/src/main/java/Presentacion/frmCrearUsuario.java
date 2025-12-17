@@ -91,7 +91,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblRol.setText("Rol asignado:");
         jPanel1.add(lblRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 550, -1, 40));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Captura de pantalla 2025-12-12 003820-convertido-a-400x450.jpeg"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVertcalLetrasGrande.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 200, 390, 430));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N

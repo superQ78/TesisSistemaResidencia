@@ -1,24 +1,20 @@
 package Presentacion;
 
-import Utilidades.ButtonEditor;
-import Utilidades.ButtonRenderer;
-//import Utilidades.HeaderToolTipRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
  * @author User
  */
-public class frmConsultarUsuarios extends javax.swing.JFrame {
+public class frmEliminarActa extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
 
     /**
-     * Creates new form frmConsultarUsuarios
+     * Creates new form frmEliminarActa
      */
-    public frmConsultarUsuarios() {
+    public frmEliminarActa() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         configurarYcargarTabla();
@@ -41,21 +37,21 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
         lblLogo = new javax.swing.JLabel();
         lblBuscar = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Panel de gestión de usuarios");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lblTitulo.setText("Residencias ITSON – Panel de gestión de usuarios");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
+        lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
-        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblSubtitulo.setText("Consultar Usuarios");
-        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
+        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubtitulo.setText("Eliminar acta");
+        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, -1, -1));
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,31 +66,42 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUsuarios);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 1120, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 1040, -1));
 
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 870, 35));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 820, 35));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVertical.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 339, -1));
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVerticalLetras.png"))); // NOI18N
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 270, 310, -1));
 
         lblBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblBuscar.setText("Buscar");
-        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 60, -1));
+        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 60, -1));
+
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btnAtras.setBorder(null);
+        btnAtras.setBorderPainted(false);
+        btnAtras.setContentAreaFilled(false);
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1283, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
         );
 
         pack();
@@ -104,38 +111,40 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
 
-    /**
-     * Configura el modelo de la JTable (columnas) y carga datos de ejemplo.
-     */
-    public void configurarYcargarTabla() {
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        frmAdminInicio volver = new frmAdminInicio();
+        volver.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
+    public void configurarYcargarTabla() {
         String[] titulos = {
-            "Id", "Nombre usuario", "Correo electronico",
-            "Consultar", "Editar", "Inhabilitar"
+            "ID", "Nombre residente", "Fecha", "Eliminar"
         };
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column >= 3;  // solo botones
+                // Ahora solo la columna 3 (Eliminar) es editable
+                return column == 3;
             }
         };
 
         tblUsuarios.setModel(modeloUsuarios);
 
-        // Alto de filas
+        // Alto de filas 
         tblUsuarios.setRowHeight(30);
 
-        // Un solo renderer/editor para las 3 columnas
+        // Configurar renderer y editor  del noton solo para la columna 3
         Utilidades.ButtonRenderer btnRenderer = new Utilidades.ButtonRenderer();
-        Utilidades.ButtonEditor btnEditor
-                = new Utilidades.ButtonEditor(new javax.swing.JCheckBox(), tblUsuarios);
+        Utilidades.ButtonEditor btnEditor = new Utilidades.ButtonEditor(new javax.swing.JCheckBox(), tblUsuarios);
 
-        // Col 3, 4 y 5 con botones
-        for (int c = 3; c <= 5; c++) {
-            tblUsuarios.getColumnModel().getColumn(c).setCellRenderer(btnRenderer);
-            tblUsuarios.getColumnModel().getColumn(c).setCellEditor(btnEditor);
-        }
+        // se aplica solo a la columna 3 que es el boton
+        tblUsuarios.getColumnModel().getColumn(3).setCellRenderer(btnRenderer);
+        tblUsuarios.getColumnModel().getColumn(3).setCellEditor(btnEditor);
+
+        // Ajustar el ancho de la columna eliminar 
+        tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);
 
         llenarTablaEjemplo();
     }
@@ -149,10 +158,10 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         modeloUsuarios.setRowCount(0);
 
         Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "panfilo@correo.mx", "", "", ""},
-            {"0000226088", "Cesar Adrian Avalos", "cesar@correo.mx", "", "", ""},
-            {"0000226088", "Georgina Aviles", "georgina@correo.mx", "", "", ""},
-            {"0000226088", "Jose Duran", "jose@correo.mx", "", "", ""}
+            {"0000226088", "panfilo filomeno", "12/12/2025", "ELIMINAR"},
+            {"0000226088", "Cesar Adrian Avalos", "12/12/2025", "ELIMINAR"},
+            {"0000226088", "Georgina Aviles", "15/12/2025", "ELIMINAR"},
+            {"0000226088", "Jose Duran", "16/12/2025", "ELIMINAR"}
         };
 
         for (Object[] fila : datosEjemplo) {
@@ -177,25 +186,26 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmEliminarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmEliminarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmEliminarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmEliminarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmConsultarUsuarios().setVisible(true);
+                new frmEliminarActa().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBuscar;

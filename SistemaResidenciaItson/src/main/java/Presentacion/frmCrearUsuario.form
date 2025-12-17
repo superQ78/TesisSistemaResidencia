@@ -192,7 +192,7 @@
         <Component class="javax.swing.JLabel" name="lblLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Captura de pantalla 2025-12-12 003820-convertido-a-400x450.jpeg"/>
+              <Image iconType="3" name="/Imagenes/LogoVertcalLetrasGrande.png"/>
             </Property>
           </Properties>
           <Constraints>

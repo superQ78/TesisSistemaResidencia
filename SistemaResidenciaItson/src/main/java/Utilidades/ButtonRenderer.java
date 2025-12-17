@@ -18,29 +18,26 @@ public class ButtonRenderer extends JButton implements TableCellRenderer {
     }
 
     @Override
-    public Component getTableCellRendererComponent(
-            JTable table, Object value,
-            boolean isSelected, boolean hasFocus,
-            int row, int column) {
+    public Component getTableCellRendererComponent(JTable table, Object value,
+            boolean isSelected, boolean hasFocus, int row, int column) {
 
-        // Texto y color por columna
-        setForeground(Color.WHITE);
+        // 1. Obtener el texto que viene del modelo de la tabla
+        String texto = (value != null) ? value.toString() : "";
+        setText(texto);
 
-        if (column == 3) {           // Consultar
-            setText("CONSULTAR");
-            setBackground(new Color(60, 51, 255));
-        } else if (column == 4) {    // Editar
-            setText("EDITAR");
-            setBackground(new Color(60, 141, 188));
-        } else if (column == 5) {    // Inhabilitar
-            setText("INHABILITAR");
-            setBackground(new Color(221, 75, 57));
-        }
-
-        // Colores de selección
-        if (isSelected) {
-            setBackground(table.getSelectionBackground());
-            setForeground(table.getSelectionForeground());
+        // 2. Configurar colores según el texto del botón
+        if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("INHABILITAR") || texto.equalsIgnoreCase("X")) {
+            setBackground(new java.awt.Color(221, 75, 57)); // Rojo
+            setForeground(java.awt.Color.WHITE);
+        } else if (texto.equalsIgnoreCase("EDITAR")) {
+            setBackground(new java.awt.Color(0, 166, 90)); // Verde
+            setForeground(java.awt.Color.WHITE);
+        } else if (texto.equalsIgnoreCase("CONSULTAR") || texto.equalsIgnoreCase("SELECT")) {
+            setBackground(new java.awt.Color(60, 141, 188)); // Azul
+            setForeground(java.awt.Color.WHITE);
+        } else {
+            setBackground(javax.swing.UIManager.getColor("Button.background"));
+            setForeground(java.awt.Color.BLACK);
         }
 
         return this;

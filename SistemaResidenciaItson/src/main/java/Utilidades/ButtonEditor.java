@@ -17,6 +17,8 @@ import javax.swing.JTable;
 public class ButtonEditor extends DefaultCellEditor {
 
     private final JButton button;
+    private String label;
+    private boolean isPushed;
     private final JTable tablaUsuarios;
     private int fila;
     private int columna;
@@ -48,26 +50,25 @@ public class ButtonEditor extends DefaultCellEditor {
     }
 
     @Override
-    public Component getTableCellEditorComponent(
-            JTable table, Object value,
+    public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
 
-        this.fila = row;
-        this.columna = column;
+        label = (value == null) ? "" : value.toString();
+        button.setText(label);
 
-        button.setForeground(Color.WHITE);
-
-        if (column == 3) {
-            button.setText("CONSULTAR");
-            button.setBackground(new Color(0, 51, 255));
-        } else if (column == 4) {
-            button.setText("EDITAR");
-            button.setBackground(new Color(60, 141, 188));
-        } else if (column == 5) {
-            button.setText("INHABILITAR");
-            button.setBackground(new Color(221, 75, 57));
+        // Aplicar los mismos colores que el renderer
+        if (label.equalsIgnoreCase("ELIMINAR") || label.equalsIgnoreCase("INHABILITAR")) {
+            button.setBackground(new java.awt.Color(221, 75, 57));
+            button.setForeground(java.awt.Color.WHITE);
+        } else if (label.equalsIgnoreCase("EDITAR")) {
+            button.setBackground(new java.awt.Color(0, 166, 90));
+            button.setForeground(java.awt.Color.WHITE);
+        } else {
+            button.setBackground(new java.awt.Color(60, 141, 188));
+            button.setForeground(java.awt.Color.WHITE);
         }
 
+        isPushed = true;
         return button;
     }
 
