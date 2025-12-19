@@ -62,7 +62,7 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
         lblNombre.setText("Nombre empleado:");
 
         lblNombreEmpleadoText.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreEmpleadoText.setText("Nombre empleado:");
+        lblNombreEmpleadoText.setText("Nombre empleado");
 
         lblCorreoText.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblCorreoText.setText("Correo electronico");
@@ -84,12 +84,9 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(274, 274, 274)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblSubtituloCrear)
-                                .addGap(319, 319, 319))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblFotoPerfil)
-                                .addGap(398, 398, 398))))
+                            .addComponent(lblSubtituloCrear)
+                            .addComponent(lblFotoPerfil))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addComponent(lblTitulo)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +103,6 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
                                     .addComponent(lblCorreoText)
                                     .addComponent(lblTelefonoText))))
                         .addGap(319, 319, 319)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogo)
                 .addGap(89, 89, 89))
         );
