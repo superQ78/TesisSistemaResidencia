@@ -1,11 +1,9 @@
 package Presentacion;
 
-import Utilidades.ButtonEditor;
-import Utilidades.ButtonRenderer;
+
 //import Utilidades.HeaderToolTipRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
