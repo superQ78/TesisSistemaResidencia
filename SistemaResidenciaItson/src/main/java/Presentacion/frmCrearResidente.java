@@ -35,7 +35,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
     private void mostrarSeccion(javax.swing.JPanel panel) {
         panel.setVisible(true);
 
-        // Deja que el layout recalcule el tamaño según el nuevo contenido
+        // Liberar tamaño fijo y recalcular con todo lo visible
         JpnlPrincipal.setPreferredSize(null);
         JpnlPrincipal.revalidate();
         JpnlPrincipal.repaint();
@@ -86,6 +86,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
         txtCelularSoli = new javax.swing.JTextField();
         txtExtensionCelularSoli = new javax.swing.JComboBox<>();
         lblTituloDatosSoli = new javax.swing.JLabel();
+        btnSigDatosSolici = new javax.swing.JButton();
         JpnlDatosTutor = new javax.swing.JPanel();
         txtCiudadTutor = new javax.swing.JTextField();
         txtCelularTutor = new javax.swing.JTextField();
@@ -101,6 +102,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
         lblTelefonoTutor = new javax.swing.JLabel();
         txtEmailTutor = new javax.swing.JTextField();
         lblTituloDatosTutor = new javax.swing.JLabel();
+        btnSigDatosTutor = new javax.swing.JButton();
         JpnlDatosEmergencia = new javax.swing.JPanel();
         lblNombreEmerg = new javax.swing.JLabel();
         lblDomicilioEmerg = new javax.swing.JLabel();
@@ -115,6 +117,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
         cmbxParentescoEmerg = new javax.swing.JComboBox<>();
         lblTelefonoEmerg = new javax.swing.JLabel();
         lblTituloDatosEmerg = new javax.swing.JLabel();
+        btnSigDatosContactEmerg = new javax.swing.JButton();
         JpnlDatosPersConviv = new javax.swing.JPanel();
         lblapdc3 = new javax.swing.JLabel();
         lblapdc5 = new javax.swing.JLabel();
@@ -184,6 +187,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
         lblapdc20 = new javax.swing.JLabel();
         txtApdcInfoResi20 = new javax.swing.JTextField();
         lblTituloDatosAPDC = new javax.swing.JLabel();
+        btnSigDatosPersConviv = new javax.swing.JButton();
         JpnlAspectosAcademicos = new javax.swing.JPanel();
         lblAcademicos1_1 = new javax.swing.JLabel();
         lblAcademicos2 = new javax.swing.JLabel();
@@ -204,6 +208,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaAcademicoRespuesta4 = new javax.swing.JTextArea();
         jLabel93 = new javax.swing.JLabel();
+        btnSigAspectAcad = new javax.swing.JButton();
         JpnlDatosMedicos = new javax.swing.JPanel();
         lblTituloDatosMedicos = new javax.swing.JLabel();
         lblDM8 = new javax.swing.JLabel();
@@ -258,231 +263,119 @@ public class frmCrearResidente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnImprimirCrearresidente = new javax.swing.JButton();
         btnGuardarCrearResidente1 = new javax.swing.JButton();
-        btnImprimirCrearresidente1 = new javax.swing.JButton();
+        btnVaciarCamposCrearResi = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btnAtrasFrmRegistrarResi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Jpnl.setBackground(new java.awt.Color(255, 255, 255));
         Jpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JcrlpCrearResi.setPreferredSize(new java.awt.Dimension(500, 500));
 
         JpnlPrincipal.setPreferredSize(new java.awt.Dimension(1692, 2000));
 
+        JpnlDatosSolicitante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         lblNombreSolicitante.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreSolicitante.setText("Nombre completo:");
+        JpnlDatosSolicitante.add(lblNombreSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 81, -1, -1));
 
         llnlFechaSolicitante.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         llnlFechaSolicitante.setText("Fecha nacimiento:");
+        JpnlDatosSolicitante.add(llnlFechaSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 178, -1, -1));
 
         lblEmailsolicitante.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblEmailsolicitante.setText("Email:");
+        JpnlDatosSolicitante.add(lblEmailsolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 179, -1, -1));
 
         lnlCarreraSolicitate.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lnlCarreraSolicitate.setText("Carrera:");
+        JpnlDatosSolicitante.add(lnlCarreraSolicitate, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 139, -1, -1));
 
         nlIDSolici.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         nlIDSolici.setText("ID ITSON:");
+        JpnlDatosSolicitante.add(nlIDSolici, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 80, -1, -1));
 
         lblSemestreSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestreSoli.setText("Semestre:");
+        JpnlDatosSolicitante.add(lblSemestreSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 138, -1, -1));
 
         lnlCurpSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lnlCurpSoli.setText("CURP:");
+        JpnlDatosSolicitante.add(lnlCurpSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 278, -1, -1));
 
         lblNSSSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNSSSoli.setText("Numero de afiliacion IMSS: ");
+        JpnlDatosSolicitante.add(lblNSSSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 218, -1, -1));
 
         lblSexoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSexoSoli.setText("Sexo:");
+        JpnlDatosSolicitante.add(lblSexoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 231, -1, -1));
 
         lblTelefonoSOli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblTelefonoSOli.setText("Telefono:");
+        JpnlDatosSolicitante.add(lblTelefonoSOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 368, -1, -1));
 
         lblDomsoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDomsoli.setText("Domicilio:");
+        JpnlDatosSolicitante.add(lblDomsoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 258, -1, -1));
 
         lblCiudadSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCiudadSoli.setText("Ciudad, Estado y País de residencia:");
+        JpnlDatosSolicitante.add(lblCiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 328, -1, -1));
 
         lblCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCelularSoli.setText("Celular:");
+        JpnlDatosSolicitante.add(lblCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 368, -1, -1));
 
         cmbxSemestreSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona semestre en curso", "Semestre 0", "Semestre 1", "Semestre 2", "Semestre 3", "Semestre 4", "Semestre 5", "Semestre 6", "Semestre 7", "Semestre 8", "Semestre 9", "Semestre 10" }));
+        JpnlDatosSolicitante.add(cmbxSemestreSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 138, 269, 33));
+        JpnlDatosSolicitante.add(txtEmailSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 183, 333, 30));
+        JpnlDatosSolicitante.add(txtIdSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 80, 269, 34));
+        JpnlDatosSolicitante.add(txtNombreSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 83, 333, 34));
+        JpnlDatosSolicitante.add(txtCarreraSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 143, 333, 30));
 
         ChbxSexoSiSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         ChbxSexoSiSoli.setText("M");
+        JpnlDatosSolicitante.add(ChbxSexoSiSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 231, 95, 30));
 
         ChbxSexoNoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         ChbxSexoNoSoli.setText("F");
+        JpnlDatosSolicitante.add(ChbxSexoNoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 231, 95, 30));
 
         txtDomicilioSoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDomicilioSoliActionPerformed(evt);
             }
         });
+        JpnlDatosSolicitante.add(txtDomicilioSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 258, 354, 30));
+        JpnlDatosSolicitante.add(txtFechaNaciSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 178, 269, 30));
+        JpnlDatosSolicitante.add(txtNSSSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 218, 180, 30));
+        JpnlDatosSolicitante.add(txtCurpsSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 277, 333, 31));
+        JpnlDatosSolicitante.add(txtXiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 328, 612, 30));
+        JpnlDatosSolicitante.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 372, 333, 30));
 
         txtCelularSoli.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCelularSoliFocusLost(evt);
             }
         });
+        JpnlDatosSolicitante.add(txtCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 368, 333, 42));
 
         txtExtensionCelularSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
+        JpnlDatosSolicitante.add(txtExtensionCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 368, -1, 40));
 
         lblTituloDatosSoli.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloDatosSoli.setText("Datos Solicitante");
+        JpnlDatosSolicitante.add(lblTituloDatosSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 18, -1, -1));
 
-        javax.swing.GroupLayout JpnlDatosSolicitanteLayout = new javax.swing.GroupLayout(JpnlDatosSolicitante);
-        JpnlDatosSolicitante.setLayout(JpnlDatosSolicitanteLayout);
-        JpnlDatosSolicitanteLayout.setHorizontalGroup(
-            JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(lblNombreSolicitante)
-                .addGap(18, 18, 18)
-                .addComponent(txtNombreSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221)
-                .addComponent(nlIDSolici)
-                .addGap(96, 96, 96)
-                .addComponent(txtIdSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(lnlCarreraSolicitate)
-                .addGap(14, 14, 14)
-                .addComponent(txtCarreraSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224)
-                .addComponent(lblSemestreSoli)
-                .addGap(95, 95, 95)
-                .addComponent(cmbxSemestreSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(lblEmailsolicitante)
-                .addGap(14, 14, 14)
-                .addComponent(txtEmailSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224)
-                .addComponent(llnlFechaSolicitante)
-                .addGap(14, 14, 14)
-                .addComponent(txtFechaNaciSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(lblSexoSoli))
-                    .addComponent(lnlCurpSoli))
-                .addGap(14, 14, 14)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addComponent(ChbxSexoSiSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ChbxSexoNoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtCurpsSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(224, 224, 224)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addComponent(lblNSSSoli)
-                        .addGap(9, 9, 9)
-                        .addComponent(txtNSSSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addComponent(lblDomsoli)
-                        .addGap(13, 13, 13)
-                        .addComponent(txtDomicilioSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(lblCiudadSoli)
-                .addGap(11, 11, 11)
-                .addComponent(txtXiudadSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(lblTelefonoSOli)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTelefonoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135)
-                .addComponent(lblCelularSoli)
-                .addGap(8, 8, 8)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtExtensionCelularSoli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(txtCelularSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lblTituloDatosSoli))
-        );
-        JpnlDatosSolicitanteLayout.setVerticalGroup(
-            JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(nlIDSolici))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(txtIdSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTituloDatosSoli)
-                        .addGap(27, 27, 27)
-                        .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombreSolicitante))))
-                .addGap(21, 21, 21)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(lnlCarreraSolicitate))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(txtCarreraSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblSemestreSoli)
-                    .addComponent(cmbxSemestreSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(lblEmailsolicitante))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(txtEmailSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(llnlFechaSolicitante)
-                    .addComponent(txtFechaNaciSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNSSSoli)
-                            .addComponent(txtNSSSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDomsoli)
-                            .addComponent(txtDomicilioSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                                .addComponent(lblSexoSoli)
-                                .addGap(17, 17, 17)
-                                .addComponent(lnlCurpSoli))
-                            .addGroup(JpnlDatosSolicitanteLayout.createSequentialGroup()
-                                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ChbxSexoSiSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ChbxSexoNoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16)
-                                .addComponent(txtCurpsSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(20, 20, 20)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCiudadSoli)
-                    .addComponent(txtXiudadSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JpnlDatosSolicitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelefonoSOli)
-                        .addComponent(txtTelefonoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblCelularSoli)
-                    .addComponent(txtExtensionCelularSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCelularSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
+        btnSigDatosSolici.setBackground(new java.awt.Color(51, 204, 255));
+        btnSigDatosSolici.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        btnSigDatosSolici.setForeground(new java.awt.Color(255, 255, 255));
+        btnSigDatosSolici.setText("Siguiente");
+        JpnlDatosSolicitante.add(btnSigDatosSolici, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 432, 165, 33));
 
         lblDomicilioTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDomicilioTutor.setText("Domicilio:");
@@ -518,6 +411,11 @@ public class frmCrearResidente extends javax.swing.JFrame {
 
         lblTituloDatosTutor.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloDatosTutor.setText("Datos Tutor");
+
+        btnSigDatosTutor.setBackground(new java.awt.Color(51, 204, 255));
+        btnSigDatosTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        btnSigDatosTutor.setForeground(new java.awt.Color(255, 255, 255));
+        btnSigDatosTutor.setText("Siguiente");
 
         javax.swing.GroupLayout JpnlDatosTutorLayout = new javax.swing.GroupLayout(JpnlDatosTutor);
         JpnlDatosTutor.setLayout(JpnlDatosTutorLayout);
@@ -559,6 +457,10 @@ public class frmCrearResidente extends javax.swing.JFrame {
             .addGroup(JpnlDatosTutorLayout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(lblTituloDatosTutor))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlDatosTutorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnSigDatosTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(373, 373, 373))
         );
         JpnlDatosTutorLayout.setVerticalGroup(
             JpnlDatosTutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -593,7 +495,10 @@ public class frmCrearResidente extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(JpnlDatosTutorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEmailTutor)
-                    .addComponent(txtEmailTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtEmailTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(btnSigDatosTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         lblNombreEmerg.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -631,6 +536,11 @@ public class frmCrearResidente extends javax.swing.JFrame {
         lblTituloDatosEmerg.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloDatosEmerg.setText("Datos Contacto en caso de emergencia");
 
+        btnSigDatosContactEmerg.setBackground(new java.awt.Color(51, 204, 255));
+        btnSigDatosContactEmerg.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        btnSigDatosContactEmerg.setForeground(new java.awt.Color(255, 255, 255));
+        btnSigDatosContactEmerg.setText("Siguiente");
+
         javax.swing.GroupLayout JpnlDatosEmergenciaLayout = new javax.swing.GroupLayout(JpnlDatosEmergencia);
         JpnlDatosEmergencia.setLayout(JpnlDatosEmergenciaLayout);
         JpnlDatosEmergenciaLayout.setHorizontalGroup(
@@ -656,19 +566,19 @@ public class frmCrearResidente extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(txtCiudadEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpnlDatosEmergenciaLayout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(txtTelfonoEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpnlDatosEmergenciaLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(lblEmailEmerg)
+                        .addGap(97, 97, 97)
+                        .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTelefonoEmerg)
+                            .addComponent(lblEmailEmerg))
                         .addGap(33, 33, 33)
-                        .addComponent(txtEmailEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmailEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelfonoEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JpnlDatosEmergenciaLayout.createSequentialGroup()
-                    .addGap(171, 171, 171)
-                    .addComponent(lblTelefonoEmerg)
-                    .addContainerGap(993, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlDatosEmergenciaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSigDatosContactEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(535, 535, 535))
             .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JpnlDatosEmergenciaLayout.createSequentialGroup()
                     .addGap(94, 94, 94)
@@ -698,23 +608,22 @@ public class frmCrearResidente extends javax.swing.JFrame {
                 .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCiudadEmerg)
                     .addComponent(txtCiudadEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(txtTelfonoEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelfonoEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefonoEmerg))
                 .addGap(10, 10, 10)
                 .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblEmailEmerg)
                     .addComponent(txtEmailEmerg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpnlDatosEmergenciaLayout.createSequentialGroup()
-                    .addContainerGap(225, Short.MAX_VALUE)
-                    .addComponent(lblTelefonoEmerg)
-                    .addGap(48, 48, 48)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSigDatosContactEmerg)
+                .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(JpnlDatosEmergenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JpnlDatosEmergenciaLayout.createSequentialGroup()
                     .addGap(45, 45, 45)
                     .addComponent(lblTituloDatosEmerg)
-                    .addContainerGap(222, Short.MAX_VALUE)))
+                    .addContainerGap(262, Short.MAX_VALUE)))
         );
 
         JpnlDatosPersConviv.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1002,6 +911,12 @@ public class frmCrearResidente extends javax.swing.JFrame {
         lblTituloDatosAPDC.setText("Datos Aspectos personales y de convivencia");
         JpnlDatosPersConviv.add(lblTituloDatosAPDC, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
+        btnSigDatosPersConviv.setBackground(new java.awt.Color(51, 204, 255));
+        btnSigDatosPersConviv.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        btnSigDatosPersConviv.setForeground(new java.awt.Color(255, 255, 255));
+        btnSigDatosPersConviv.setText("Siguiente");
+        JpnlDatosPersConviv.add(btnSigDatosPersConviv, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 1020, -1, -1));
+
         JpnlAspectosAcademicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAcademicos1_1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -1083,187 +998,348 @@ public class frmCrearResidente extends javax.swing.JFrame {
         jLabel93.setText("Aspectos académicos");
         JpnlAspectosAcademicos.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        JpnlDatosMedicos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnSigAspectAcad.setBackground(new java.awt.Color(51, 204, 255));
+        btnSigAspectAcad.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        btnSigAspectAcad.setForeground(new java.awt.Color(255, 255, 255));
+        btnSigAspectAcad.setText("Siguiente");
+        JpnlAspectosAcademicos.add(btnSigAspectAcad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
+
+        JpnlDatosMedicos.setPreferredSize(new java.awt.Dimension(1179, 800));
 
         lblTituloDatosMedicos.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloDatosMedicos.setText("Datos médicos");
-        JpnlDatosMedicos.add(lblTituloDatosMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         lblDM8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM8.setText("Medicamentos controlados");
-        JpnlDatosMedicos.add(lblDM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
 
         chbxDMMalo1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMMalo1.setText("Malo");
-        JpnlDatosMedicos.add(chbxDMMalo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 130, 30));
 
         chbxDMbueno1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMbueno1.setText("Bueno");
-        JpnlDatosMedicos.add(chbxDMbueno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 100, 30));
 
         chbxDMNo2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo2.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 130, 30));
 
         chbxDMSi2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi2.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 100, 30));
 
         txtDMEspecificar2.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 470, 30));
 
         chbxDMRegular1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMRegular1.setText("Regular");
-        JpnlDatosMedicos.add(chbxDMRegular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 130, 30));
 
         lblDM3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM3.setText("Deficiencia auditiva");
-        JpnlDatosMedicos.add(lblDM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
         lblDM4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM4.setText("Discapacidad física");
-        JpnlDatosMedicos.add(lblDM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         lblDM5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM5.setText("Lesiones graves");
-        JpnlDatosMedicos.add(lblDM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         lblDM6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM6.setText("Padecimientos actuales o previos");
-        JpnlDatosMedicos.add(lblDM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         lblDM7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM7.setText("Tratamientos médicos, psiquiátricos ");
-        JpnlDatosMedicos.add(lblDM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         lblDM7_7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM7_7.setText("o psicológicos");
-        JpnlDatosMedicos.add(lblDM7_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         lblDM1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM1.setText("Estado de salud general:");
-        JpnlDatosMedicos.add(lblDM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         lblDM9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM9.setText("Alergias");
-        JpnlDatosMedicos.add(lblDM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
         lblDM10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM10.setText("Tratamientos externos");
-        JpnlDatosMedicos.add(lblDM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, -1, -1));
 
         lblDM11.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM11.setText("Tipo de sangre");
-        JpnlDatosMedicos.add(lblDM11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, -1));
 
         lblDM12.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM12.setText("Aspectos de salud en los que te gustaría");
-        JpnlDatosMedicos.add(lblDM12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, -1, -1));
 
         lblDM13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM13.setText("Otra información importante sobre tu salud");
-        JpnlDatosMedicos.add(lblDM13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 740, -1, -1));
 
         lblDM12_12.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM12_12.setText(" prepararte mejor");
-        JpnlDatosMedicos.add(lblDM12_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, -1, -1));
 
         lblDM2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDM2.setText("Deficiencia en la vista");
-        JpnlDatosMedicos.add(lblDM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         chbxDMSi3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi3.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 100, 30));
 
         chbxDMNo3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo3.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 130, 30));
 
         txtDMEspecificar3.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, 470, 30));
 
         chbxDMSi4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi4.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 100, 30));
 
         txtDMEspecificar4.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 230, 470, 30));
 
         chbxDMNo4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo4.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 130, 30));
 
         chbxDMSi5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi5.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 100, 30));
 
         chbxDMNo5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo5.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 130, 30));
 
         txtDMEspecificar5.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 470, 30));
 
         chbxDMNo6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo6.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 130, 30));
 
         chbxDMSi6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi6.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 100, 30));
 
         txtDMEspecificar6.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, 470, 30));
 
         chbxDMNo7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo7.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 130, 30));
 
         txtDMMotivoPronostico7.setText("Motivo o pronostico");
-        JpnlDatosMedicos.add(txtDMMotivoPronostico7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 470, 30));
 
         chbxDMSi7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi7.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 100, 30));
 
         chbxDMSi8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi8.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 100, 30));
 
         txtDMEspecificar8.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 470, 30));
 
         chbxDMNo8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo8.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, 130, 30));
 
         chbxDMSi9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi9.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, 100, 30));
 
         chbxDMNo9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo9.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, 130, 30));
 
         txtDMEspecificar9.setText("especificar");
-        JpnlDatosMedicos.add(txtDMEspecificar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, 470, 30));
 
         chbxDMNo10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMNo10.setText("NO");
-        JpnlDatosMedicos.add(chbxDMNo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 580, 130, 30));
-        JpnlDatosMedicos.add(txtDMRespuesta13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 740, 470, 30));
 
         chbxDMSi10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chbxDMSi10.setText("SI");
-        JpnlDatosMedicos.add(chbxDMSi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 100, 30));
 
         cmbxDMSangre11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de sangre", "A+", "B+", "O-", "O+", "A-", "B-", "X" }));
-        JpnlDatosMedicos.add(cmbxDMSangre11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 620, 270, 40));
 
         txtDMMotivo10.setText("Motivo");
-        JpnlDatosMedicos.add(txtDMMotivo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 470, 30));
-        JpnlDatosMedicos.add(txtDMRespuesta12, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 680, 470, 30));
+
+        javax.swing.GroupLayout JpnlDatosMedicosLayout = new javax.swing.GroupLayout(JpnlDatosMedicos);
+        JpnlDatosMedicos.setLayout(JpnlDatosMedicosLayout);
+        JpnlDatosMedicosLayout.setHorizontalGroup(
+            JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTituloDatosMedicos)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM1)
+                        .addGap(151, 151, 151)
+                        .addComponent(chbxDMbueno1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMRegular1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(chbxDMMalo1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM2)
+                        .addGap(181, 181, 181)
+                        .addComponent(chbxDMSi2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM3)
+                        .addGap(201, 201, 201)
+                        .addComponent(chbxDMSi3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM4)
+                        .addGap(205, 205, 205)
+                        .addComponent(chbxDMSi4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM5)
+                        .addGap(236, 236, 236)
+                        .addComponent(chbxDMSi5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar5, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM6)
+                        .addGap(64, 64, 64)
+                        .addComponent(chbxDMSi6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar6, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDM7)
+                            .addComponent(lblDM7_7))
+                        .addGap(32, 32, 32)
+                        .addComponent(chbxDMSi7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMMotivoPronostico7, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM8)
+                        .addGap(121, 121, 121)
+                        .addComponent(chbxDMSi8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar8, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM9)
+                        .addGap(312, 312, 312)
+                        .addComponent(chbxDMSi9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMEspecificar9, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM10)
+                        .addGap(171, 171, 171)
+                        .addComponent(chbxDMSi10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chbxDMNo10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtDMMotivo10, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM11)
+                        .addGap(244, 244, 244)
+                        .addComponent(cmbxDMSangre11, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDM12)
+                            .addComponent(lblDM12_12))
+                        .addGap(43, 43, 43)
+                        .addComponent(txtDMRespuesta12, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addComponent(lblDM13)
+                        .addGap(11, 11, 11)
+                        .addComponent(txtDMRespuesta13, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        JpnlDatosMedicosLayout.setVerticalGroup(
+            JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(lblTituloDatosMedicos)
+                .addGap(24, 24, 24)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM1)
+                    .addComponent(chbxDMbueno1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMRegular1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMMalo1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM2)
+                    .addComponent(chbxDMSi2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblDM3))
+                    .addComponent(chbxDMSi3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblDM4))
+                    .addComponent(chbxDMSi4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(lblDM5))
+                    .addComponent(chbxDMSi5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM6)
+                    .addComponent(chbxDMSi6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM7)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblDM7_7))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(chbxDMSi7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(chbxDMNo7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtDMMotivoPronostico7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM8)
+                    .addComponent(chbxDMSi8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM9)
+                    .addComponent(chbxDMSi9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMEspecificar9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM10)
+                    .addComponent(chbxDMSi10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chbxDMNo10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDMMotivo10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM11)
+                    .addComponent(cmbxDMSangre11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM12)
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblDM12_12))
+                    .addGroup(JpnlDatosMedicosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(txtDMRespuesta12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addGroup(JpnlDatosMedicosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDM13)
+                    .addComponent(txtDMRespuesta13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout JpnlPrincipalLayout = new javax.swing.GroupLayout(JpnlPrincipal);
         JpnlPrincipal.setLayout(JpnlPrincipalLayout);
@@ -1294,17 +1370,17 @@ public class frmCrearResidente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JpnlDatosEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JpnlDatosPersConviv, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JpnlDatosPersConviv, javax.swing.GroupLayout.PREFERRED_SIZE, 1069, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JpnlAspectosAcademicos, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(JpnlDatosMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JpnlAspectosAcademicos, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JpnlDatosMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         JcrlpCrearResi.setViewportView(JpnlPrincipal);
 
-        Jpnl.add(JcrlpCrearResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 1288, 520));
+        Jpnl.add(JcrlpCrearResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 1288, 480));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel2.setText("Residencias ITSON – Panel de Gestión de residentes");
@@ -1325,26 +1401,31 @@ public class frmCrearResidente extends javax.swing.JFrame {
         btnGuardarCrearResidente1.setText("Guardar");
         Jpnl.add(btnGuardarCrearResidente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 230, 50));
 
-        btnImprimirCrearresidente1.setBackground(new java.awt.Color(255, 51, 0));
-        btnImprimirCrearresidente1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btnImprimirCrearresidente1.setForeground(new java.awt.Color(255, 255, 255));
-        btnImprimirCrearresidente1.setText("Vaciar campos");
-        Jpnl.add(btnImprimirCrearresidente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 240, 40));
+        btnVaciarCamposCrearResi.setBackground(new java.awt.Color(255, 51, 0));
+        btnVaciarCamposCrearResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        btnVaciarCamposCrearResi.setForeground(new java.awt.Color(255, 255, 255));
+        btnVaciarCamposCrearResi.setText("Vaciar campos");
+        Jpnl.add(btnVaciarCamposCrearResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 240, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel3.setText("Favor de imprimir, firmar, escanear y enviar por correo electrónico a: recepcionresidencias@itson.edu.mx");
         Jpnl.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 760, -1, -1));
 
+        btnAtrasFrmRegistrarResi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        Jpnl.add(btnAtrasFrmRegistrarResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 1475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jpnl, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -1456,9 +1537,15 @@ public class frmCrearResidente extends javax.swing.JFrame {
     private javax.swing.JPanel JpnlDatosSolicitante;
     private javax.swing.JPanel JpnlDatosTutor;
     private javax.swing.JPanel JpnlPrincipal;
+    private javax.swing.JButton btnAtrasFrmRegistrarResi;
     private javax.swing.JButton btnGuardarCrearResidente1;
     private javax.swing.JButton btnImprimirCrearresidente;
-    private javax.swing.JButton btnImprimirCrearresidente1;
+    private javax.swing.JButton btnSigAspectAcad;
+    private javax.swing.JButton btnSigDatosContactEmerg;
+    private javax.swing.JButton btnSigDatosPersConviv;
+    private javax.swing.JButton btnSigDatosSolici;
+    private javax.swing.JButton btnSigDatosTutor;
+    private javax.swing.JButton btnVaciarCamposCrearResi;
     private javax.swing.JCheckBox chbxAcademicoAveces1;
     private javax.swing.JCheckBox chbxAcademicoCasiNunca1;
     private javax.swing.JCheckBox chbxAcademicoCasiSiempre1;

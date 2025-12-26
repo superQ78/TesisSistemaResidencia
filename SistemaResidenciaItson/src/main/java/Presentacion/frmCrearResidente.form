@@ -23,13 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Jpnl" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="Jpnl" min="-2" pref="1475" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="Jpnl" min="-2" pref="793" max="-2" attributes="0"/>
+              <Component id="Jpnl" min="-2" pref="805" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -37,6 +40,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="Jpnl">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -50,7 +58,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="90" y="140" width="1288" height="520"/>
+              <AbsoluteConstraints x="90" y="140" width="1288" height="480"/>
             </Constraint>
           </Constraints>
 
@@ -98,11 +106,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JpnlDatosEmergencia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JpnlDatosPersConviv" min="-2" pref="1035" max="-2" attributes="0"/>
+                          <Component id="JpnlDatosPersConviv" min="-2" pref="1069" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JpnlAspectosAcademicos" min="-2" pref="309" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="JpnlDatosMedicos" min="-2" pref="790" max="-2" attributes="0"/>
+                          <Component id="JpnlAspectosAcademicos" min="-2" pref="359" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="JpnlDatosMedicos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -111,197 +119,8 @@
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="JpnlDatosSolicitante">
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="lblNombreSolicitante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtNombreSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                              <EmptySpace min="221" pref="221" max="-2" attributes="0"/>
-                              <Component id="nlIDSolici" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="96" pref="96" max="-2" attributes="0"/>
-                              <Component id="txtIdSoli" min="-2" pref="269" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="142" pref="142" max="-2" attributes="0"/>
-                              <Component id="lnlCarreraSolicitate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Component id="txtCarreraSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                              <EmptySpace min="224" pref="224" max="-2" attributes="0"/>
-                              <Component id="lblSemestreSoli" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="95" pref="95" max="-2" attributes="0"/>
-                              <Component id="cmbxSemestreSoli" min="-2" pref="269" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="162" pref="162" max="-2" attributes="0"/>
-                              <Component id="lblEmailsolicitante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Component id="txtEmailSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                              <EmptySpace min="224" pref="224" max="-2" attributes="0"/>
-                              <Component id="llnlFechaSolicitante" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Component id="txtFechaNaciSoli" min="-2" pref="269" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="160" pref="160" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                                      <Component id="lblSexoSoli" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lnlCurpSoli" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="ChbxSexoSiSoli" min="-2" pref="95" max="-2" attributes="0"/>
-                                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                      <Component id="ChbxSexoNoSoli" min="-2" pref="95" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtCurpsSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="224" pref="224" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblNSSSoli" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                                      <Component id="txtNSSSoli" min="-2" pref="180" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblDomsoli" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                      <Component id="txtDomicilioSoli" min="-2" pref="354" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="170" pref="170" max="-2" attributes="0"/>
-                              <Component id="lblCiudadSoli" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="txtXiudadSoli" min="-2" pref="612" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="130" pref="130" max="-2" attributes="0"/>
-                              <Component id="lblTelefonoSOli" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtTelefonoSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                              <Component id="lblCelularSoli" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtExtensionCelularSoli" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                                      <Component id="txtCelularSoli" min="-2" pref="333" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="lblTituloDatosSoli" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="nlIDSolici" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="txtIdSoli" min="-2" pref="34" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="lblTituloDatosSoli" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtNombreSoli" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Component id="lblNombreSolicitante" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Component id="lnlCarreraSolicitate" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="txtCarreraSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblSemestreSoli" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbxSemestreSoli" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                      <Component id="lblEmailsolicitante" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="txtEmailSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="llnlFechaSolicitante" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtFechaNaciSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblNSSSoli" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtNSSSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblDomsoli" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtDomicilioSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblSexoSoli" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                                              <Component id="lnlCurpSoli" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ChbxSexoSiSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Component id="ChbxSexoNoSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                                              <Component id="txtCurpsSoli" min="-2" pref="31" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCiudadSoli" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtXiudadSoli" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblTelefonoSOli" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTelefonoSoli" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblCelularSoli" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtExtensionCelularSoli" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="txtCelularSoli" min="-2" pref="42" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblNombreSolicitante">
@@ -311,6 +130,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nombre completo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="32" y="81" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="llnlFechaSolicitante">
                       <Properties>
@@ -319,6 +143,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Fecha nacimiento:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="790" y="178" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEmailsolicitante">
                       <Properties>
@@ -327,6 +156,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Email:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="162" y="179" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lnlCarreraSolicitate">
                       <Properties>
@@ -335,6 +169,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Carrera:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="142" y="139" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="nlIDSolici">
                       <Properties>
@@ -343,6 +182,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ID ITSON:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="790" y="80" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSemestreSoli">
                       <Properties>
@@ -351,6 +195,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Semestre:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="790" y="138" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lnlCurpSoli">
                       <Properties>
@@ -359,6 +208,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="CURP:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="160" y="278" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNSSSoli">
                       <Properties>
@@ -367,6 +221,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Numero de afiliacion IMSS: "/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="790" y="218" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSexoSoli">
                       <Properties>
@@ -375,6 +234,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Sexo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="168" y="231" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTelefonoSOli">
                       <Properties>
@@ -383,6 +247,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Telefono:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="130" y="368" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDomsoli">
                       <Properties>
@@ -391,6 +260,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Domicilio:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="790" y="258" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCiudadSoli">
                       <Properties>
@@ -399,6 +273,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Ciudad, Estado y Pa&#xed;s de residencia:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="170" y="328" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCelularSoli">
                       <Properties>
@@ -407,6 +286,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Celular:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="700" y="368" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbxSemestreSoli">
                       <Properties>
@@ -430,14 +314,39 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="980" y="138" width="269" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEmailSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="233" y="183" width="333" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIdSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="980" y="80" width="269" height="34"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombreSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="236" y="83" width="333" height="34"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCarreraSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="233" y="143" width="333" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ChbxSexoSiSoli">
                       <Properties>
@@ -446,6 +355,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="M"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="233" y="231" width="95" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="ChbxSexoNoSoli">
                       <Properties>
@@ -454,26 +368,66 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="F"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="346" y="231" width="95" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDomicilioSoli">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDomicilioSoliActionPerformed"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="900" y="258" width="354" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtFechaNaciSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="980" y="178" width="269" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNSSSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="1070" y="218" width="180" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCurpsSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="233" y="277" width="333" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtXiudadSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="530" y="328" width="612" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTelefonoSoli">
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="232" y="372" width="333" height="30"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCelularSoli">
                       <Events>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtCelularSoliFocusLost"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="850" y="368" width="333" height="42"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="txtExtensionCelularSoli">
                       <Properties>
@@ -491,6 +445,11 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="780" y="368" width="-1" height="40"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloDatosSoli">
                       <Properties>
@@ -499,6 +458,30 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Datos Solicitante"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="61" y="18" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSigDatosSolici">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="cc" red="33" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="22" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Siguiente"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="607" y="432" width="165" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -551,6 +534,11 @@
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Component id="lblTituloDatosTutor" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnSigDatosTutor" min="-2" pref="165" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -596,6 +584,9 @@
                                   <Component id="lblEmailTutor" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmailTutor" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="9" max="32767" attributes="0"/>
+                              <Component id="btnSigDatosTutor" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -692,6 +683,20 @@
                         <Property name="text" type="java.lang.String" value="Datos Tutor"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btnSigDatosTutor">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="cc" red="33" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="22" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Siguiente"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="JpnlDatosEmergencia">
@@ -723,26 +728,26 @@
                                       <Component id="txtCiudadEmerg" min="-2" pref="612" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
-                                      <Component id="txtTelfonoEmerg" min="-2" pref="333" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                                      <Component id="lblEmailEmerg" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblTelefonoEmerg" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEmailEmerg" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                                      <Component id="txtEmailEmerg" min="-2" pref="333" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtEmailEmerg" alignment="0" min="-2" pref="333" max="-2" attributes="0"/>
+                                          <Component id="txtTelfonoEmerg" alignment="0" min="-2" pref="333" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
-                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
-                                  <Component id="lblTelefonoEmerg" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="993" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnSigDatosContactEmerg" min="-2" pref="135" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="535" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                   <Component id="lblTituloDatosEmerg" min="-2" max="-2" attributes="0"/>
@@ -781,27 +786,25 @@
                                   <Component id="lblCiudadEmerg" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtCiudadEmerg" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="txtTelfonoEmerg" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtTelfonoEmerg" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblTelefonoEmerg" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblEmailEmerg" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmailEmerg" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="18" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnSigDatosContactEmerg" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="225" max="32767" attributes="0"/>
-                                  <Component id="lblTelefonoEmerg" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   <Component id="lblTituloDatosEmerg" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="222" max="32767" attributes="0"/>
+                                  <EmptySpace pref="262" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -895,6 +898,20 @@
                           <Font name="Segoe UI" size="26" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Datos Contacto en caso de emergencia"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnSigDatosContactEmerg">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="cc" red="33" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="22" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Siguiente"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1807,6 +1824,25 @@
                         </Constraint>
                       </Constraints>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btnSigDatosPersConviv">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="cc" red="33" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="22" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Siguiente"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="1020" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="JpnlAspectosAcademicos">
@@ -2059,12 +2095,278 @@
                         </Constraint>
                       </Constraints>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btnSigAspectAcad">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="cc" red="33" type="rgb"/>
+                        </Property>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="22" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Siguiente"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="480" y="310" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="JpnlDatosMedicos">
+                  <Properties>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[1179, 800]"/>
+                    </Property>
+                  </Properties>
 
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                    <Property name="useNullLayout" type="boolean" value="false"/>
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblTituloDatosMedicos" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="151" pref="151" max="-2" attributes="0"/>
+                                      <Component id="chbxDMbueno1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMRegular1" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="chbxDMMalo1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="181" pref="181" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi2" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo2" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar2" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="201" pref="201" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi3" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo3" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar3" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="205" pref="205" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi4" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo4" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar4" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="236" pref="236" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi5" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo5" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar5" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi6" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo6" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar6" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDM7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDM7_7" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi7" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo7" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMMotivoPronostico7" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi8" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo8" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar8" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="312" pref="312" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi9" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo9" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMEspecificar9" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="171" pref="171" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi10" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo10" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                      <Component id="txtDMMotivo10" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="244" pref="244" max="-2" attributes="0"/>
+                                      <Component id="cmbxDMSangre11" min="-2" pref="270" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDM12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblDM12_12" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="43" pref="43" max="-2" attributes="0"/>
+                                      <Component id="txtDMRespuesta12" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblDM13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                                      <Component id="txtDMRespuesta13" min="-2" pref="470" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="lblTituloDatosMedicos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMbueno1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMRegular1" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMMalo1" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMSi2" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo2" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar2" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="lblDM3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="chbxDMSi3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="lblDM4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="chbxDMSi4" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo4" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar4" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="lblDM5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="chbxDMSi5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar5" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMSi6" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo6" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar6" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM7" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="lblDM7_7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="chbxDMSi7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="chbxDMNo7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="txtDMMotivoPronostico7" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMSi8" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo8" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar8" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMSi9" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo9" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMEspecificar9" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chbxDMSi10" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chbxDMNo10" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtDMMotivo10" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbxDMSangre11" min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM12" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                      <Component id="lblDM12_12" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="txtDMRespuesta12" min="-2" pref="30" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblDM13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDMRespuesta13" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblTituloDatosMedicos">
@@ -2074,11 +2376,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Datos m&#xe9;dicos"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="10" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM8">
                       <Properties>
@@ -2087,11 +2384,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Medicamentos controlados"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="480" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMMalo1">
                       <Properties>
@@ -2100,11 +2392,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Malo"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="70" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMbueno1">
                       <Properties>
@@ -2113,11 +2400,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Bueno"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="70" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo2">
                       <Properties>
@@ -2126,11 +2408,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="130" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi2">
                       <Properties>
@@ -2139,21 +2416,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="130" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar2">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="130" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMRegular1">
                       <Properties>
@@ -2162,11 +2429,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Regular"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="70" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM3">
                       <Properties>
@@ -2175,11 +2437,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Deficiencia auditiva"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="190" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM4">
                       <Properties>
@@ -2188,11 +2445,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Discapacidad f&#xed;sica"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="240" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM5">
                       <Properties>
@@ -2201,11 +2453,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Lesiones graves"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="300" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM6">
                       <Properties>
@@ -2214,11 +2461,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Padecimientos actuales o previos"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="350" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM7">
                       <Properties>
@@ -2227,11 +2469,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tratamientos m&#xe9;dicos, psiqui&#xe1;tricos "/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="410" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM7_7">
                       <Properties>
@@ -2240,11 +2477,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="o psicol&#xf3;gicos"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="430" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM1">
                       <Properties>
@@ -2253,11 +2485,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Estado de salud general:"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="70" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM9">
                       <Properties>
@@ -2266,11 +2493,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Alergias"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="530" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM10">
                       <Properties>
@@ -2279,11 +2501,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tratamientos externos"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="580" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM11">
                       <Properties>
@@ -2292,11 +2509,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tipo de sangre"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="620" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM12">
                       <Properties>
@@ -2305,11 +2517,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Aspectos de salud en los que te gustar&#xed;a"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="670" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM13">
                       <Properties>
@@ -2318,11 +2525,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Otra informaci&#xf3;n importante sobre tu salud"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="740" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM12_12">
                       <Properties>
@@ -2331,11 +2533,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value=" prepararte mejor"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="690" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDM2">
                       <Properties>
@@ -2344,11 +2541,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Deficiencia en la vista"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="130" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi3">
                       <Properties>
@@ -2357,11 +2549,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="180" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo3">
                       <Properties>
@@ -2370,21 +2557,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="180" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar3">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="180" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi4">
                       <Properties>
@@ -2393,21 +2570,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="230" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar4">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="230" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo4">
                       <Properties>
@@ -2416,11 +2583,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="230" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi5">
                       <Properties>
@@ -2429,11 +2591,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="290" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo5">
                       <Properties>
@@ -2442,21 +2599,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="290" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="290" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo6">
                       <Properties>
@@ -2465,11 +2612,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="350" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi6">
                       <Properties>
@@ -2478,21 +2620,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="350" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar6">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="350" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo7">
                       <Properties>
@@ -2501,21 +2633,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="420" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMMotivoPronostico7">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Motivo o pronostico"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="420" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi7">
                       <Properties>
@@ -2524,11 +2646,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="420" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi8">
                       <Properties>
@@ -2537,21 +2654,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="480" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar8">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="480" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo8">
                       <Properties>
@@ -2560,11 +2667,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="480" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi9">
                       <Properties>
@@ -2573,11 +2675,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="530" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo9">
                       <Properties>
@@ -2586,21 +2683,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="530" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMEspecificar9">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="especificar"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="530" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMNo10">
                       <Properties>
@@ -2609,18 +2696,8 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="NO"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="550" y="580" width="130" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMRespuesta13">
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="480" y="740" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="chbxDMSi10">
                       <Properties>
@@ -2629,11 +2706,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="SI"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="580" width="100" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbxDMSangre11">
                       <Properties>
@@ -2653,28 +2725,13 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="620" width="270" height="40"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMMotivo10">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Motivo"/>
                       </Properties>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="710" y="580" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDMRespuesta12">
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="480" y="680" width="470" height="30"/>
-                        </Constraint>
-                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2743,7 +2800,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="btnImprimirCrearresidente1">
+        <Component class="javax.swing.JButton" name="btnVaciarCamposCrearResi">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="33" red="ff" type="rgb"/>
@@ -2772,6 +2829,18 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="60" y="760" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAtrasFrmRegistrarResi">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/atras.png"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="30" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

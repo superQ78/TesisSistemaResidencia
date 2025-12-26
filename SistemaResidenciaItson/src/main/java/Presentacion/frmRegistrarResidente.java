@@ -281,7 +281,10 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRDPActionPerformed
-        // TODO add your handling code here:
+        frmCrearResidente cr = new frmCrearResidente();
+        cr.setVisible(true);
+        this.dispose();
+
     }//GEN-LAST:event_btnRDPActionPerformed
 
     private void btnSolicitudIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudIngresoActionPerformed
