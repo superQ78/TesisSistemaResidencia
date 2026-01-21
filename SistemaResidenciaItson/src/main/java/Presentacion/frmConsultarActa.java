@@ -1,7 +1,6 @@
+
 package Presentacion;
 
-
-//import Utilidades.HeaderToolTipRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -9,14 +8,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author User
  */
-public class frmConsultarUsuarios extends javax.swing.JFrame {
+public class frmConsultarActa extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
-
+    
     /**
-     * Creates new form frmConsultarUsuarios
+     * Creates new form frmConsultarActa
      */
-    public frmConsultarUsuarios() {
+    public frmConsultarActa() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         configurarYcargarTabla();
@@ -35,14 +34,13 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblUsuarios = new javax.swing.JTable();
+        tblActas = new javax.swing.JTable();
         txtBuscar = new javax.swing.JTextField();
-        lblLogo = new javax.swing.JLabel();
         lblBuscar = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Panel de gestión de usuarios");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,10 +51,10 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
         lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblSubtitulo.setText("Consultar Usuarios");
+        lblSubtitulo.setText("Crear/Subir Acta");
         jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
 
-        tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+        tblActas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -67,23 +65,20 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblUsuarios);
+        jScrollPane1.setViewportView(tblActas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 1120, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 1130, 440));
 
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 870, 35));
-
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVertical.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 320, 270));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 870, 35));
 
         lblBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblBuscar.setText("Buscar");
-        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 60, -1));
+        lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 30));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -96,15 +91,20 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         });
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 60, 150, 170));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -126,32 +126,31 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     public void configurarYcargarTabla() {
 
         String[] titulos = {
-            "Id", "Nombre usuario", "Correo electronico",
-            "Consultar", "Editar", "Inhabilitar"
+            "Id", "Nombre usuario", "Nacionalidad",
+            "Seleccionar", "Subir"
         };
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column >= 3;  // solo botones
+                return column >= 2;  // solo botones
             }
         };
 
-        tblUsuarios.setModel(modeloUsuarios);
+        tblActas.setModel(modeloUsuarios);
 
-        // Alto de filas
-        tblUsuarios.setRowHeight(30);
+       tblActas.setRowHeight(51);
 
-        // Un solo renderer/editor para las 3 columnas
-        Utilidades.ButtonRenderer btnRenderer = new Utilidades.ButtonRenderer();
-        Utilidades.ButtonEditor btnEditor
-                = new Utilidades.ButtonEditor(new javax.swing.JCheckBox(), tblUsuarios);
+        // 2. Fondo blanco para toda la tabla (para que coincida con la imagen)
+        tblActas.setBackground(java.awt.Color.WHITE);
 
-        // Col 3, 4 y 5 con botones
-        for (int c = 3; c <= 5; c++) {
-            tblUsuarios.getColumnModel().getColumn(c).setCellRenderer(btnRenderer);
-            tblUsuarios.getColumnModel().getColumn(c).setCellEditor(btnEditor);
-        }
+        // 3. Asignar el Render y Editor NUEVOS a la columna 3 (índice empieza en 0)
+        // Columna 3 es la cuarta columna ("Subir")
+        tblActas.getColumnModel().getColumn(4).setCellRenderer(new Utilidades.RenderImagen());
+        tblActas.getColumnModel().getColumn(4).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
+
+        // Opcional: Ajustar ancho de la columna del botón
+        tblActas.getColumnModel().getColumn(3).setPreferredWidth(50);
 
         llenarTablaEjemplo();
     }
@@ -165,17 +164,16 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         modeloUsuarios.setRowCount(0);
 
         Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "panfilo@correo.mx", "", "", ""},
-            {"0000226088", "Cesar Adrian Avalos", "cesar@correo.mx", "", "", ""},
-            {"0000226088", "Georgina Aviles", "georgina@correo.mx", "", "", ""},
-            {"0000226088", "Jose Duran", "jose@correo.mx", "", "", ""}
+            {"0000226088", "panfilo filomeno", "Mexicana", "SELECCIONAR", "Subir"},
+            {"0000226088", "Cesar Adrian Avalos", "Mexicana", "SELECCIONAR", "Subir"},
+            {"0000226088", "Georgina Aviles", "Colombiana", "SELECCIONAR", "Subir"},
+            {"0000226088", "Jose Duran", "Colombiana", "SELECCIONAR", "Subir"}
         };
 
         for (Object[] fila : datosEjemplo) {
             modeloUsuarios.addRow(fila);
         }
     }
-
     /**
      * @param args the command line arguments
      */
@@ -193,20 +191,20 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmConsultarUsuarios().setVisible(true);
+                new frmConsultarActa().setVisible(true);
             }
         });
     }
@@ -219,7 +217,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblSubtitulo;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTable tblActas;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

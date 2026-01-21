@@ -62,14 +62,14 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
-        lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtituloCrear.setText("Crear nueva acta");
-        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, -1, -1));
+        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, -1, -1));
 
         lblNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreCompleto.setText("Nombre completo:");

@@ -44,14 +44,14 @@ public class frmEliminarActa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
-        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtitulo.setText("Eliminar acta");
-        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, -1, -1));
+        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
