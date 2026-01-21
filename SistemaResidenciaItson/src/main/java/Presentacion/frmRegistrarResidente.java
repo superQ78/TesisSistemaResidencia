@@ -246,6 +246,8 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         jplFrmRegisResi.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
