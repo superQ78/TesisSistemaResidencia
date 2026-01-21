@@ -11,7 +11,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JTable;
 
 /**
- *
+ * Editor de botón actualizado para usar imágenes y fondo transparente/blanco.
  * @author User
  */
 public class ButtonEditor extends DefaultCellEditor {
@@ -27,24 +27,29 @@ public class ButtonEditor extends DefaultCellEditor {
         super(checkBox);
         this.tablaUsuarios = tabla;
         this.button = new JButton();
+        
+        // Configuración visual para que coincida con el Renderer
         this.button.setOpaque(true);
+        this.button.setBackground(Color.WHITE);
+        this.button.setBorderPainted(false);
+        this.button.setContentAreaFilled(false);
 
-        // Acción al hacer clic
         this.button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 fireEditingStopped();
-
-                String rol = tablaUsuarios.getModel().getValueAt(fila, 0).toString();
+                
+                // Obtenemos los datos antes de imprimir o ejecutar
+                Object valorId = tablaUsuarios.getValueAt(fila, 0);
+                String id = (valorId != null) ? valorId.toString() : "N/A";
                 String accion = tablaUsuarios.getColumnName(columna);
 
                 System.out.println("Acción: " + accion
-                        + " sobre el Rol: " + rol
+                        + " sobre el ID/Rol: " + id
                         + " en la fila: " + fila);
-
-                // Aquí llamar un método del formulario:
-                // ((frmConsultarUsuarios) tablaUsuarios.getTopLevelAncestor())
-                //        .ejecutarAccion(accion, fila);
+                
+                // Aquí podrías agregar un switch para manejar las acciones
+                // manejarAccion(accion, id);
             }
         });
     }
@@ -53,19 +58,29 @@ public class ButtonEditor extends DefaultCellEditor {
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
 
+        // Guardamos la fila y columna actual para el ActionListener
+        this.fila = row;
+        this.columna = column;
+        
         label = (value == null) ? "" : value.toString();
-        button.setText(label);
+        
+        // Limpiamos texto e icono antes de asignar
+        button.setText("");
+        button.setIcon(null);
 
-        // Aplicar los mismos colores que el renderer
-        if (label.equalsIgnoreCase("ELIMINAR") || label.equalsIgnoreCase("INHABILITAR")) {
-            button.setBackground(new java.awt.Color(221, 75, 57));
-            button.setForeground(java.awt.Color.WHITE);
-        } else if (label.equalsIgnoreCase("EDITAR")) {
-            button.setBackground(new java.awt.Color(0, 166, 90));
-            button.setForeground(java.awt.Color.WHITE);
-        } else {
-            button.setBackground(new java.awt.Color(60, 141, 188));
-            button.setForeground(java.awt.Color.WHITE);
+        // Lógica de imágenes (Debe ser idéntica a tu ButtonRenderer)
+        try {
+            if (label.equalsIgnoreCase("ELIMINAR") || label.equalsIgnoreCase("X") || label.equalsIgnoreCase("INHABILITAR")) {
+                button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/borrar.png")));
+            } 
+            else if (label.equalsIgnoreCase("EDITAR")) {
+                button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/editar.png")));
+            } 
+            else if (label.equalsIgnoreCase("SELECCIONAR") || label.equalsIgnoreCase("SELECT") || label.equalsIgnoreCase("Subir")) {
+                button.setIcon(new ImageIcon(getClass().getResource("/Imagenes/seleccionar.png")));
+            }
+        } catch (Exception e) {
+            button.setText(label); // Fallback por si no encuentra la imagen
         }
 
         isPushed = true;
@@ -74,6 +89,6 @@ public class ButtonEditor extends DefaultCellEditor {
 
     @Override
     public Object getCellEditorValue() {
-        return button.getText();
+        return label;
     }
 }

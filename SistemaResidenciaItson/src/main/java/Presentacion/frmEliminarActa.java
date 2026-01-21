@@ -53,6 +53,9 @@ public class frmEliminarActa extends javax.swing.JFrame {
         lblSubtitulo.setText("Eliminar acta");
         jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
+        jScrollPane1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+
+        tblUsuarios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -66,7 +69,7 @@ public class frmEliminarActa extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblUsuarios);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 1040, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 327, 1040, 430));
 
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,17 +136,10 @@ public class frmEliminarActa extends javax.swing.JFrame {
         tblUsuarios.setModel(modeloUsuarios);
 
         // Alto de filas 
-        tblUsuarios.setRowHeight(30);
+        tblUsuarios.setRowHeight(35);
 
-        // Configurar renderer y editor  del noton solo para la columna 3
-        Utilidades.ButtonRenderer btnRenderer = new Utilidades.ButtonRenderer();
-        Utilidades.ButtonEditor btnEditor = new Utilidades.ButtonEditor(new javax.swing.JCheckBox(), tblUsuarios);
-
-        // se aplica solo a la columna 3 que es el boton
-        tblUsuarios.getColumnModel().getColumn(3).setCellRenderer(btnRenderer);
-        tblUsuarios.getColumnModel().getColumn(3).setCellEditor(btnEditor);
-
-        // Ajustar el ancho de la columna eliminar 
+        tblUsuarios.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
+        tblUsuarios.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblUsuarios));
         tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);
 
         llenarTablaEjemplo();

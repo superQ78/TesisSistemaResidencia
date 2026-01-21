@@ -55,7 +55,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         // 3. Asignar el Render y Editor NUEVOS a la columna 3 (índice empieza en 0)
         // Columna 3 es la cuarta columna ("Subir")
         tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
+        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(),tblRegistroResidente));
 
         // Opcional: Ajustar ancho de la columna del botón
         tblRegistroResidente.getColumnModel().getColumn(3).setPreferredWidth(50);

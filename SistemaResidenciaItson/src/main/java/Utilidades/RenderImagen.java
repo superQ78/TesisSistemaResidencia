@@ -1,67 +1,67 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Utilidades;
-
 
 import java.awt.Component;
 import java.awt.Image;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+
 /**
- *
- * @author cesar
+ * Renderizador universal para el sistema ITSON.
+ * Gestiona iconos y estilos para todas las acciones de tabla.
  */
 public class RenderImagen extends JButton implements TableCellRenderer {
 
-    private ImageIcon icono;
-
     public RenderImagen() {
-        // Configuramos el botón para que sea opaco y se vea el fondo
         setOpaque(true);
-        setName("btnImagen"); // Nombre identificador
-        
-        // --- CARGA DE IMAGEN ---
-        try {
-            // Ruta según lo que indicaste: src/main/resources/imagenes/subirFlecha.png
-            // Al compilarse, resources suele quedar en la raíz. Probamos con /imagenes/...
-            java.net.URL imgUrl = getClass().getResource("/imagenes/SubirArchivo.png");
-            
-            if (imgUrl != null) {
-                ImageIcon original = new ImageIcon(imgUrl);
-                // Redimensionar a 20x20 (ajusta según tu fila)
-                Image escala = original.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
-                icono = new ImageIcon(escala);
-            } else {
-                System.err.println("No se encontro la imagen en /Imagenes/SubirArchivo.png");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        setName("btnImagen");
+        // Borde gris suave para dar apariencia de botón moderno
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
     }
 
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
 
-        // Limpiamos texto para que solo se vea el ícono
-        setText("");
-        setIcon(icono);
+        String texto = (value != null) ? value.toString() : "";
+        setText(""); // No mostramos texto, solo imagen
+        setIcon(null);
 
-        // --- ESTILO VISUAL (Gris/Blanco como la foto) ---
+        // 1. Identificar qué imagen cargar según el texto de la celda
+        String ruta = "";
+        if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("X") || texto.equalsIgnoreCase("INHABILITAR")) {
+            ruta = "/Imagenes/borrar.png";
+        } else if (texto.equalsIgnoreCase("EDITAR")) {
+            ruta = "/Imagenes/editar.png";
+        } else if (texto.equalsIgnoreCase("SELECCIONAR") || texto.equalsIgnoreCase("SELECT")) {
+            ruta = "/Imagenes/seleccionar.png";
+        } else if (texto.equalsIgnoreCase("SUBIR")) {
+            ruta = "/Imagenes/SubirArchivo.png";
+        }
+
+        // 2. Cargar y redimensionar la imagen solo si hay una ruta válida
+        if (!ruta.isEmpty()) {
+            try {
+                URL imgUrl = getClass().getResource(ruta);
+                if (imgUrl != null) {
+                    ImageIcon iconOriginal = new ImageIcon(imgUrl);
+                    // Redimensionamos a 32x32 para que quepa bien en la fila de 51px
+                    Image imgEscalada = iconOriginal.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+                    setIcon(new ImageIcon(imgEscalada));
+                }
+            } catch (Exception e) {
+                System.err.println("Error al cargar icono para: " + texto);
+            }
+        }
+
+        // 3. Estilo de fondo (Blanco por defecto, color de selección si se marca)
         if (isSelected) {
-            // Color cuando seleccionas la fila (opcional)
             setBackground(table.getSelectionBackground());
         } else {
-            // Fondo blanco como en tu imagen de ejemplo
             setBackground(java.awt.Color.WHITE);
         }
-        
-        // Quitamos el borde por defecto para que se vea limpio o ponemos uno suave
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
         return this;
     }
