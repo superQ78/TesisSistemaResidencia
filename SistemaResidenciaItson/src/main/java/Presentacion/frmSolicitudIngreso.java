@@ -156,6 +156,9 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         lblSubtituloSoliIngre.setText("Solicitud ingreso");
         jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
 
+        jpnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+
+        JpnlDatosSolifrmSoliIng.setBackground(new java.awt.Color(255, 255, 255));
         JpnlDatosSolifrmSoliIng.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNombreSoliciSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -279,6 +282,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         });
         JpnlDatosSolifrmSoliIng.add(btnSigDatosSoliSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 440, -1, -1));
 
+        JpnlDatosTutorSOliIngr.setBackground(new java.awt.Color(255, 255, 255));
         JpnlDatosTutorSOliIngr.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTituloDatosSoli.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
@@ -336,6 +340,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         });
         JpnlDatosTutorSOliIngr.add(btnSigDatosTutorSoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 220, -1, -1));
 
+        jpnlDatosContactEmergSoli.setBackground(new java.awt.Color(255, 255, 255));
         jpnlDatosContactEmergSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNombreEmergSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -388,6 +393,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         });
         jpnlDatosContactEmergSoli.add(btnSigDatosEmergSoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 200, -1, -1));
 
+        jpnlFormaPagoSoli.setBackground(new java.awt.Color(255, 255, 255));
         jpnlFormaPagoSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblContadoSoli2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -437,6 +443,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         });
         jpnlFormaPagoSoli.add(btnSigFormaPagoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 290, -1, -1));
 
+        jpnlPeticionCompañeroSoli.setBackground(new java.awt.Color(255, 255, 255));
         jpnlPeticionCompañeroSoli.setMinimumSize(new java.awt.Dimension(2922, 295));
         jpnlPeticionCompañeroSoli.setPreferredSize(new java.awt.Dimension(800, 466));
         jpnlPeticionCompañeroSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -471,38 +478,41 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         jpnlPrincipal.setLayout(jpnlPrincipalLayout);
         jpnlPrincipalLayout.setHorizontalGroup(
             jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnlPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JpnlDatosSolifrmSoliIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JpnlDatosTutorSOliIngr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(6, 6, 6))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlPrincipalLayout.createSequentialGroup()
                 .addGroup(jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jpnlPeticionCompañeroSoli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jpnlFormaPagoSoli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 2922, Short.MAX_VALUE)
                     .addComponent(jpnlDatosContactEmergSoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jpnlPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(JpnlDatosTutorSOliIngr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addGroup(jpnlPrincipalLayout.createSequentialGroup()
+                        .addComponent(JpnlDatosSolifrmSoliIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jpnlPrincipalLayout.setVerticalGroup(
             jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(JpnlDatosSolifrmSoliIng, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(JpnlDatosTutorSOliIngr, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpnlDatosContactEmergSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlFormaPagoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlPeticionCompañeroSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addComponent(jpnlFormaPagoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jpnlPeticionCompañeroSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jpnlPrincipal);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 1280, 510));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 1330, 490));
 
         btnGuardarSolicitudIngreso.setBackground(new java.awt.Color(51, 204, 0));
         btnGuardarSolicitudIngreso.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -532,14 +542,12 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1391, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
