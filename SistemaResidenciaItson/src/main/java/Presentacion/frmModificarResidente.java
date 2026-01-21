@@ -30,17 +30,38 @@ public class frmModificarResidente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblTituloGestionResi = new javax.swing.JLabel();
+        lblSubtituloSoliIngre = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTituloGestionResi.setText("Residencias ITSON – Panel de Gestión de residentes");
+        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
+
+        lblSubtituloSoliIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubtituloSoliIngre.setText("Modificar residente");
+        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 740, 40));
+
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 848, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -82,5 +103,10 @@ public class frmModificarResidente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblSubtituloSoliIngre;
+    private javax.swing.JLabel lblTituloGestionResi;
     // End of variables declaration//GEN-END:variables
 }
