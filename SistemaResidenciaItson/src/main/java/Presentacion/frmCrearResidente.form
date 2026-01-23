@@ -81,7 +81,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="JpnlDatosSolicitante" max="32767" attributes="0"/>
+                                          <Component id="JpnlDatosSolicitante" pref="1256" max="32767" attributes="0"/>
                                           <Component id="JpnlDatosTutor" max="32767" attributes="0"/>
                                           <Component id="JpnlDatosEmergencia" max="32767" attributes="0"/>
                                       </Group>
@@ -2778,6 +2778,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="IMPRIMIR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimirCrearresidenteActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="840" y="690" width="230" height="40"/>
