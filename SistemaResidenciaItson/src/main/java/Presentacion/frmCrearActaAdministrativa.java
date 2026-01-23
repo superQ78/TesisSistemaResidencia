@@ -56,6 +56,8 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         btnAtras = new javax.swing.JButton();
+        btnLimpiarCampos = new javax.swing.JButton();
+        btnImprimirActa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +67,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtituloCrear.setText("Crear nueva acta");
@@ -73,7 +75,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
 
         lblNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreCompleto.setText("Nombre completo:");
-        jPanel1.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, 32));
+        jPanel1.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, 32));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -81,45 +83,45 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 650, 32));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 650, 32));
 
         lblSemestre.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestre.setText("Carrera:");
-        jPanel1.add(lblSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, 32));
+        jPanel1.add(lblSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 32));
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 110, 150, 170));
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVerticalLetras.png"))); // NOI18N
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 60, 310, 300));
 
         lblFecha.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblFecha.setText("Fecha:");
-        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, 36));
+        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 36));
 
         txtTelefono1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 260, 32));
+        jPanel1.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 260, 32));
 
         cbxRolAsignado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbxRolAsignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbxRolAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 210, 32));
+        jPanel1.add(cbxRolAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 210, 32));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel1.setText("Instituto Tecnológico de Sonora");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel2.setText("Página web: www.itson.mx");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("Dirección: 5 de Febrero No. 818 Sur");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel4.setText("Teléfono: (644) 410-90-00, ext. 3335");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setText("C.P. 85000 Ciudad Obregón, Sonora, México");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, 32));
@@ -131,7 +133,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, -1, 32));
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, 32));
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jCheckBox2.setText("Enero - Mayo");
@@ -140,15 +142,15 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 jCheckBox2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, 32));
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, 32));
 
         lblSemestre1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestre1.setText("Semestre de residencia:");
-        jPanel1.add(lblSemestre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, 32));
+        jPanel1.add(lblSemestre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 32));
 
         lblNombreCompleto1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreCompleto1.setText("Id de estudiante:");
-        jPanel1.add(lblNombreCompleto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 200, 32));
+        jPanel1.add(lblNombreCompleto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 200, 32));
 
         txtNombre1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNombre1.addActionListener(new java.awt.event.ActionListener() {
@@ -156,25 +158,26 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtNombre1ActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, 240, 32));
+        jPanel1.add(txtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 240, 32));
 
         lblSemestre2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestre2.setText("Lineamiento incumplido:");
-        jPanel1.add(lblSemestre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, -1, 32));
+        jPanel1.add(lblSemestre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, 32));
 
         cbxRolAsignado1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbxRolAsignado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cbxRolAsignado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 230, 32));
+        jPanel1.add(cbxRolAsignado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 230, 32));
 
         lblNombreCompleto2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreCompleto2.setText("Descripción:");
-        jPanel1.add(lblNombreCompleto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, -1, 32));
+        jPanel1.add(lblNombreCompleto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, -1, 32));
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, 830, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 830, 130));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -187,6 +190,28 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         });
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
+        btnLimpiarCampos.setBackground(new java.awt.Color(255, 102, 102));
+        btnLimpiarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLimpiarCampos.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarCampos.setText("Limpiar campos");
+        btnLimpiarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarCamposActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 720, 170, 40));
+
+        btnImprimirActa.setBackground(new java.awt.Color(51, 153, 255));
+        btnImprimirActa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnImprimirActa.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimirActa.setText("Imprimir");
+        btnImprimirActa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 720, 150, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,7 +220,9 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,6 +249,14 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         volver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCamposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarCamposActionPerformed
+
+    private void btnImprimirActaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImprimirActaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +295,8 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnImprimirActa;
+    private javax.swing.JButton btnLimpiarCampos;
     private javax.swing.JComboBox<String> cbxRolAsignado;
     private javax.swing.JComboBox<String> cbxRolAsignado1;
     private javax.swing.JCheckBox jCheckBox1;
