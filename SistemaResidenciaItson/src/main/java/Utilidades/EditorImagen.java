@@ -1,50 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Utilidades;
 
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.DefaultCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
+
 /**
- *
- * @author cesar
+ * Editor universal para el sistema ITSON.
+ * Maneja los eventos de clic y mantiene la estética del Renderer.
  */
 public class EditorImagen extends DefaultCellEditor {
 
     private final JButton button;
-    private ImageIcon icono;
-    private String textoAccion; // Para guardar qué acción es (subir, etc)
+    private String textoAccion;
+    private JTable tabla;
+    private int filaActual;
 
-    public EditorImagen(JCheckBox checkBox) {
+    public EditorImagen(JCheckBox checkBox, JTable tabla) {
         super(checkBox);
+        this.tabla = tabla; // Guardamos la referencia de la tabla
         button = new JButton();
         button.setOpaque(true);
-        
-        // --- CARGA DE IMAGEN (Igual que en el Render) ---
-        try {
-            java.net.URL imgUrl = getClass().getResource("/Imagenes/SubirArchvo.png");
-            if (imgUrl != null) {
-                ImageIcon original = new ImageIcon(imgUrl);
-                Image escala = original.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
-                icono = new ImageIcon(escala);
-            }
-        } catch (Exception e) { }
+        button.setBackground(java.awt.Color.WHITE);
+        button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fireEditingStopped(); // Detiene la edición
-                // AQUÍ PONES LA LÓGICA DE CLIC
-                System.out.println("Clic en el boton de imagen: " + textoAccion);
-                // Ejemplo: abrirJFileChooser();
+                fireEditingStopped();
+                
+                // Lógica de acción basada en el texto del botón y la fila
+                Object idResidente = tabla.getValueAt(filaActual, 0); // Obtenemos el ID de la primera columna
+                System.out.println("Ejecutando: " + textoAccion + " para el ID: " + idResidente);
+                
+                // Aquí puedes agregar un switch para disparar tus funciones reales
+                ejecutarAccion(textoAccion, idResidente);
             }
         });
     }
@@ -53,18 +49,51 @@ public class EditorImagen extends DefaultCellEditor {
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
         
+        this.filaActual = row; // Guardamos la fila donde se hizo clic
         textoAccion = (value == null) ? "" : value.toString();
         
-        button.setText(""); // Sin texto
-        button.setIcon(icono);
-        button.setBackground(java.awt.Color.WHITE);
-        button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        button.setText(""); 
+        button.setIcon(null);
+
+        // --- LÓGICA DE ICONO DINÁMICO (Igual al RenderImagen) ---
+        String ruta = "";
+        if (textoAccion.equalsIgnoreCase("ELIMINAR") || textoAccion.equalsIgnoreCase("X") || textoAccion.equalsIgnoreCase("INHABILITAR")) {
+            ruta = "/Imagenes/borrar.png";
+        } else if (textoAccion.equalsIgnoreCase("EDITAR")) {
+            ruta = "/Imagenes/editar.png";
+        } else if (textoAccion.equalsIgnoreCase("SELECCIONAR") || textoAccion.equalsIgnoreCase("SELECT")) {
+            ruta = "/Imagenes/seleccionar.png";
+        } else if (textoAccion.equalsIgnoreCase("SUBIR")) {
+            ruta = "/Imagenes/SubirArchivo.png";
+        }
+
+        if (!ruta.isEmpty()) {
+            try {
+                URL imgUrl = getClass().getResource(ruta);
+                if (imgUrl != null) {
+                    ImageIcon original = new ImageIcon(imgUrl);
+                    Image escala = original.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+                    button.setIcon(new ImageIcon(escala));
+                }
+            } catch (Exception e) {
+                button.setText(textoAccion);
+            }
+        }
 
         return button;
     }
 
     @Override
     public Object getCellEditorValue() {
-        return textoAccion; // Devuelve el valor original al modelo
+        return textoAccion;
+    }
+
+    // Método opcional para subir
+    private void ejecutarAccion(String accion, Object id) {
+        if (accion.equalsIgnoreCase("SUBIR")) {
+            // Lógica para JFileChooser
+        } else if (accion.equalsIgnoreCase("SELECCIONAR")) {
+            // Lógica para cargar datos en formulario
+        }
     }
 }

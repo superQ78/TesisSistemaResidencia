@@ -120,36 +120,32 @@ public class frmConsultarActa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
-     * Configura el modelo de la JTable (columnas) y carga datos de ejemplo.
+     * Configura el modelo de las columnas y carga datos de ejemplo.
      */
     public void configurarYcargarTabla() {
-
         String[] titulos = {
-            "Id", "Nombre usuario", "Nacionalidad",
-            "Seleccionar", "Subir"
+            "Id", "Nombre usuario", "Nacionalidad", "Seleccionar", "Subir"
         };
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column >= 2;  // solo botones
+                // Solo las columnas con botones (3 y 4) son editables
+                return column >= 3;
             }
         };
 
         tblActas.setModel(modeloUsuarios);
-
         tblActas.setRowHeight(51);
-
-        // 2. Fondo blanco para toda la tabla (para que coincida con la imagen)
         tblActas.setBackground(java.awt.Color.WHITE);
 
-      
-        tblActas.getColumnModel().getColumn(4).setCellRenderer(
-                new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
-        tblActas.getColumnModel().getColumn(4).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
+        tblActas.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
+        tblActas.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas));
+        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100);
 
-        // Opcional: Ajustar ancho de la columna del botón
-        tblActas.getColumnModel().getColumn(3).setPreferredWidth(50);
+        tblActas.getColumnModel().getColumn(4).setCellRenderer(new Utilidades.RenderImagen());
+        tblActas.getColumnModel().getColumn(4).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas));
+        tblActas.getColumnModel().getColumn(4).setPreferredWidth(80);
 
         llenarTablaEjemplo();
     }
@@ -163,10 +159,10 @@ public class frmConsultarActa extends javax.swing.JFrame {
         modeloUsuarios.setRowCount(0);
 
         Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "Mexicana", "SELECCIONAR", "Subir"},
-            {"0000226088", "Cesar Adrian Avalos", "Mexicana", "SELECCIONAR", "Subir"},
-            {"0000226088", "Georgina Aviles", "Colombiana", "SELECCIONAR", "Subir"},
-            {"0000226088", "Jose Duran", "Colombiana", "SELECCIONAR", "Subir"}
+            {"0000226088", "panfilo filomeno", "Mexicana", "Seleccionar", "Subir"},
+            {"0000226088", "Cesar Adrian Avalos", "Mexicana", "Seleccionar", "Subir"},
+            {"0000226088", "Georgina Aviles", "Colombiana", "Seleccionar", "Subir"},
+            {"0000226088", "Jose Duran", "Colombiana", "Seleccionar", "Subir"}
         };
 
         for (Object[] fila : datosEjemplo) {
