@@ -66,7 +66,7 @@ public class frmConsultarActa extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblActas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 1130, 440));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 1230, 440));
 
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,7 +91,7 @@ public class frmConsultarActa extends javax.swing.JFrame {
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 60, 150, 170));
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 60, 150, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,30 +123,40 @@ public class frmConsultarActa extends javax.swing.JFrame {
      * Configura el modelo de las columnas y carga datos de ejemplo.
      */
     public void configurarYcargarTabla() {
-        String[] titulos = {
-            "Id", "Nombre usuario", "Nacionalidad", "Seleccionar", "Subir"
-        };
+        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
+        String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Solo las columnas con botones (3 y 4) son editables
-                return column >= 3;
+                // Solo la columna 3 (donde va el botón SELECT) es editable para recibir clics
+                return column == 3;
             }
         };
 
         tblActas.setModel(modeloUsuarios);
-        tblActas.setRowHeight(51);
+        tblActas.setRowHeight(55); // Un poco más alto para que quepa bien el botón azul
         tblActas.setBackground(java.awt.Color.WHITE);
 
-        tblActas.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
-        tblActas.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas));
-        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100);
+        // 2. Configurar Render y Editor solo para la Columna 3 (Índice 3)
+        // Usamos la ruta forzada para asegurar que salga el botón "SELECT"
+        String rutaBoton = "/Imagenes/cursor.png"; // Asegúrate que tu imagen se llame así
 
-        tblActas.getColumnModel().getColumn(4).setCellRenderer(new Utilidades.RenderImagen());
-        tblActas.getColumnModel().getColumn(4).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas));
-        tblActas.getColumnModel().getColumn(4).setPreferredWidth(80);
+        tblActas.getColumnModel().getColumn(3).setCellRenderer(
+                new Utilidades.RenderImagen(rutaBoton)
+        );
 
+        tblActas.getColumnModel().getColumn(3).setCellEditor(
+                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas, rutaBoton)
+        );
+
+        // 3. Ajuste de anchos para que se parezca a la imagen
+        tblActas.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
+        tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre (más ancho)
+        tblActas.getColumnModel().getColumn(2).setPreferredWidth(100); // Nacionalidad
+        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100); // Botón
+
+        // 4. Cargar datos de prueba
         llenarTablaEjemplo();
     }
 
@@ -156,24 +166,23 @@ public class frmConsultarActa extends javax.swing.JFrame {
      * datos.
      */
     private void llenarTablaEjemplo() {
-        modeloUsuarios.setRowCount(0);
+        // Datos extraídos visualmente de tu imagen
+        Object[] fila1 = {"00000226088", "panfilo filomeno", "Méxicana", "SELECT"};
+        Object[] fila2 = {"00000226089", "Cesar Adrian Duran Avalos", "Méxicana", "SELECT"};
+        Object[] fila3 = {"00000226090", "Georgina Aviles", "Colombiano", "SELECT"};
+        Object[] fila4 = {"00000226091", "Jose Duran", "Colombiano", "SELECT"};
 
-        Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "Mexicana", "Seleccionar", "Subir"},
-            {"0000226088", "Cesar Adrian Avalos", "Mexicana", "Seleccionar", "Subir"},
-            {"0000226088", "Georgina Aviles", "Colombiana", "Seleccionar", "Subir"},
-            {"0000226088", "Jose Duran", "Colombiana", "Seleccionar", "Subir"}
-        };
-
-        for (Object[] fila : datosEjemplo) {
-            modeloUsuarios.addRow(fila);
-        }
+        modeloUsuarios.addRow(fila1);
+        modeloUsuarios.addRow(fila2);
+        modeloUsuarios.addRow(fila3);
+        modeloUsuarios.addRow(fila4);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -184,16 +193,29 @@ public class frmConsultarActa extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
