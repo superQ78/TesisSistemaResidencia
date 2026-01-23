@@ -9,16 +9,30 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * Renderizador universal para el sistema ITSON.
- * Gestiona iconos y estilos para todas las acciones de tabla.
+ * Renderizador universal para el sistema ITSON. Gestiona iconos y estilos para
+ * todas las acciones de tabla.
  */
 public class RenderImagen extends JButton implements TableCellRenderer {
 
+    private String rutaForzada = null;
+
+    // Constructor 1: Automático (Detecta por texto de la celda)
     public RenderImagen() {
+        configurarBoton();
+    }
+
+    // Constructor 2: Manual (Tú le dices qué imagen usar desde el JFrame)
+    public RenderImagen(String rutaImagen) {
+        this.rutaForzada = rutaImagen;
+        configurarBoton();
+    }
+
+    private void configurarBoton() {
         setOpaque(true);
         setName("btnImagen");
-        // Borde gris suave para dar apariencia de botón moderno
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        // Borde sutil o sin borde según prefieras
+        setBorderPainted(false);
+        setContentAreaFilled(false);
     }
 
     @Override
@@ -26,41 +40,52 @@ public class RenderImagen extends JButton implements TableCellRenderer {
             boolean isSelected, boolean hasFocus, int row, int column) {
 
         String texto = (value != null) ? value.toString() : "";
-        setText(""); // No mostramos texto, solo imagen
+        setText("");
         setIcon(null);
 
-        // 1. Identificar qué imagen cargar según el texto de la celda
+        // Lógica para definir la ruta
         String ruta = "";
-        if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("X") || texto.equalsIgnoreCase("INHABILITAR")) {
-            ruta = "/Imagenes/borrar.png";
-        } else if (texto.equalsIgnoreCase("EDITAR")) {
-            ruta = "/Imagenes/editar.png";
-        } else if (texto.equalsIgnoreCase("SELECCIONAR") || texto.equalsIgnoreCase("SELECT")) {
-            ruta = "/Imagenes/seleccionar.png";
-        } else if (texto.equalsIgnoreCase("SUBIR")) {
-            ruta = "/Imagenes/SubirArchivo.png";
+
+        if (this.rutaForzada != null) {
+            // Si usamos el constructor con ruta, usamos esa imagen siempre
+            ruta = this.rutaForzada;
+        } else {
+            // Si no, detectamos automáticamente según el texto
+            if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("X") || texto.equalsIgnoreCase("INHABILITAR")) {
+                ruta = "/Imagenes/BtnInhabilitar.png";
+            } else if (texto.equalsIgnoreCase("EDITAR")) {
+                ruta = "/Imagenes/Btneditar.png";
+            } else if (texto.equalsIgnoreCase("SELECCIONAR") || texto.equalsIgnoreCase("SELECT")) {
+                ruta = "/Imagenes/cursor.png";
+            } else if (texto.equalsIgnoreCase("SUBIR")) {
+                ruta = "/Imagenes/SubirArchivo.png";
+            }
         }
 
-        // 2. Cargar y redimensionar la imagen solo si hay una ruta válida
+        // Cargar imagen
         if (!ruta.isEmpty()) {
             try {
                 URL imgUrl = getClass().getResource(ruta);
                 if (imgUrl != null) {
                     ImageIcon iconOriginal = new ImageIcon(imgUrl);
-                    // Redimensionamos a 32x32 para que quepa bien en la fila de 51px
-                    Image imgEscalada = iconOriginal.getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH);
+                    Image imgEscalada = iconOriginal.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH);
                     setIcon(new ImageIcon(imgEscalada));
+                } else {
+                    // Si falla la ruta, muestra texto para depurar
+                    setText(texto);
                 }
             } catch (Exception e) {
-                System.err.println("Error al cargar icono para: " + texto);
+                System.err.println("Error cargando imagen: " + ruta);
             }
         }
 
-        // 3. Estilo de fondo (Blanco por defecto, color de selección si se marca)
+        // Estilo de selección
         if (isSelected) {
             setBackground(table.getSelectionBackground());
+            setOpaque(true);
         } else {
             setBackground(java.awt.Color.WHITE);
+            setOpaque(true);
         }
 
         return this;

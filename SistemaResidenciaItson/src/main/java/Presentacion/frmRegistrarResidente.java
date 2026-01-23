@@ -39,40 +39,18 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 3; // Solo la columna "Subir" es editable
+                return column == 3; 
             }
         };
 
         tblRegistroResidente.setModel(modelo);
-
-        // Altura de fila (necesaria para que se vea bien la imagen)
         tblRegistroResidente.setRowHeight(51);
-
-        // 2. Fondo blanco para toda la tabla (para que coincida con la imagen)
         tblRegistroResidente.setBackground(java.awt.Color.WHITE);
-
-        // 3. Asignar el Render y Editor NUEVOS a la columna 3 (índice empieza en 0)
-        // Columna 3 es la cuarta columna ("Subir")
         tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
-
-        // Opcional: Ajustar ancho de la columna del botón
+        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(),tblRegistroResidente,"/imagenes/SubirArchivo.png"));
         tblRegistroResidente.getColumnModel().getColumn(3).setPreferredWidth(50);
     }
 
-//    javax.swing.table.DefaultTableModel modelo =
-//            new javax.swing.table.DefaultTableModel(datos, columnas) {
-//                @Override
-//                public boolean isCellEditable(int row, int column) {
-//                    return column == 3; // solo la columna de botón
-//                }
-//
-//                @Override
-//                public Class<?> getColumnClass(int columnIndex) {
-//                    if (columnIndex == 3) return javax.swing.JButton.class;
-//                    return String.class;
-//                }
-//            };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

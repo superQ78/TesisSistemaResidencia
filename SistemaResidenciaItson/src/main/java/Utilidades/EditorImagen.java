@@ -12,8 +12,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JTable;
 
 /**
- * Editor universal para el sistema ITSON.
- * Maneja los eventos de clic y mantiene la estética del Renderer.
+ * Editor universal para el sistema ITSON. Maneja los eventos de clic y mantiene
+ * la estética del Renderer.
  */
 public class EditorImagen extends DefaultCellEditor {
 
@@ -21,26 +21,44 @@ public class EditorImagen extends DefaultCellEditor {
     private String textoAccion;
     private JTable tabla;
     private int filaActual;
+    private String rutaForzada = null;
 
+    // Constructor Estándar (Requiere la tabla para obtener datos al hacer clic)
     public EditorImagen(JCheckBox checkBox, JTable tabla) {
         super(checkBox);
-        this.tabla = tabla; // Guardamos la referencia de la tabla
+        this.tabla = tabla;
         button = new JButton();
+        configurarBoton();
+    }
+
+    // Constructor Opcional: Si quieres forzar una imagen visualmente en el editor también
+    public EditorImagen(JCheckBox checkBox, JTable tabla, String rutaImagen) {
+        super(checkBox);
+        this.tabla = tabla;
+        this.rutaForzada = rutaImagen;
+        button = new JButton();
+        configurarBoton();
+    }
+
+    private void configurarBoton() {
         button.setOpaque(true);
         button.setBackground(java.awt.Color.WHITE);
-        button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        button.setBorderPainted(false);
+        button.setContentAreaFilled(false);
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fireEditingStopped();
-                
-                // Lógica de acción basada en el texto del botón y la fila
-                Object idResidente = tabla.getValueAt(filaActual, 0); // Obtenemos el ID de la primera columna
-                System.out.println("Ejecutando: " + textoAccion + " para el ID: " + idResidente);
-                
-                // Aquí puedes agregar un switch para disparar tus funciones reales
-                ejecutarAccion(textoAccion, idResidente);
+                fireEditingStopped(); // Detiene la edición de la celda
+
+                // --- AQUÍ OCURRE LA MAGIA DEL CLIC ---
+                Object idObj = tabla.getValueAt(filaActual, 0); // Asumimos que ID está en columna 0
+                String id = (idObj != null) ? idObj.toString() : "N/A";
+
+                System.out.println("Clic en acción: " + textoAccion + " | ID Fila: " + id);
+
+                // Aquí deberías llamar a tu controlador o método de negocio
+                ejecutarLogica(textoAccion, id);
             }
         });
     }
@@ -48,23 +66,26 @@ public class EditorImagen extends DefaultCellEditor {
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int row, int column) {
-        
-        this.filaActual = row; // Guardamos la fila donde se hizo clic
+
+        this.filaActual = row;
         textoAccion = (value == null) ? "" : value.toString();
-        
-        button.setText(""); 
+
+        button.setText("");
         button.setIcon(null);
 
-        // --- LÓGICA DE ICONO DINÁMICO (Igual al RenderImagen) ---
+        // Lógica de imagen (Igual que en Renderer)
         String ruta = "";
-        if (textoAccion.equalsIgnoreCase("ELIMINAR") || textoAccion.equalsIgnoreCase("X") || textoAccion.equalsIgnoreCase("INHABILITAR")) {
-            ruta = "/Imagenes/borrar.png";
-        } else if (textoAccion.equalsIgnoreCase("EDITAR")) {
-            ruta = "/Imagenes/editar.png";
-        } else if (textoAccion.equalsIgnoreCase("SELECCIONAR") || textoAccion.equalsIgnoreCase("SELECT")) {
-            ruta = "/Imagenes/seleccionar.png";
-        } else if (textoAccion.equalsIgnoreCase("SUBIR")) {
-            ruta = "/Imagenes/SubirArchivo.png";
+
+        if (this.rutaForzada != null) {
+            ruta = this.rutaForzada;
+        } else {
+            if (textoAccion.equalsIgnoreCase("ELIMINAR") || textoAccion.equalsIgnoreCase("X") || textoAccion.equalsIgnoreCase("INHABILITAR")) {
+                ruta = "/Imagenes/borrar.png";
+            } else if (textoAccion.equalsIgnoreCase("EDITAR")) {
+                ruta = "/Imagenes/editar.png";
+            } else if (textoAccion.equalsIgnoreCase("SUBIR")) {
+                ruta = "/Imagenes/SubirArchivo.png";
+            }
         }
 
         if (!ruta.isEmpty()) {
@@ -76,7 +97,6 @@ public class EditorImagen extends DefaultCellEditor {
                     button.setIcon(new ImageIcon(escala));
                 }
             } catch (Exception e) {
-                button.setText(textoAccion);
             }
         }
 
@@ -88,12 +108,19 @@ public class EditorImagen extends DefaultCellEditor {
         return textoAccion;
     }
 
-    // Método opcional para subir
-    private void ejecutarAccion(String accion, Object id) {
+    // Método centralizado para manejar acciones
+    private void ejecutarLogica(String accion, String id) {
         if (accion.equalsIgnoreCase("SUBIR")) {
-            // Lógica para JFileChooser
-        } else if (accion.equalsIgnoreCase("SELECCIONAR")) {
-            // Lógica para cargar datos en formulario
+            javax.swing.JOptionPane.showMessageDialog(null, "Subir archivo para ID: " + id);
+            // JFileChooser...
+        } else if (accion.equalsIgnoreCase("EDITAR")) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Abriendo edición para: " + id);
+            // Abrir ventana editar...
+        } else if (accion.equalsIgnoreCase("ELIMINAR") || accion.equalsIgnoreCase("INHABILITAR")) {
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(null, "¿Seguro que deseas inhabilitar?");
+            if (confirm == 0) {
+                System.out.println("Inhabilitando " + id);
+            }
         }
     }
 }
