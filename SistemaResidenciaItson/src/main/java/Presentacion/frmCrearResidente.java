@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
+import java.io.File;
 import javax.swing.JFrame;
 
 /**
@@ -1352,7 +1349,7 @@ public class frmCrearResidente extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JpnlPrincipalLayout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(JpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(JpnlDatosSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JpnlDatosSolicitante, javax.swing.GroupLayout.DEFAULT_SIZE, 1256, Short.MAX_VALUE)
                                 .addComponent(JpnlDatosTutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(JpnlDatosEmergencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(JpnlAspectosAcademicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1394,6 +1391,11 @@ public class frmCrearResidente extends javax.swing.JFrame {
         btnImprimirCrearresidente.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         btnImprimirCrearresidente.setForeground(new java.awt.Color(255, 255, 255));
         btnImprimirCrearresidente.setText("IMPRIMIR");
+        btnImprimirCrearresidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirCrearresidenteActionPerformed(evt);
+            }
+        });
         Jpnl.add(btnImprimirCrearresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 690, 230, 40));
 
         btnGuardarCrearResidente1.setBackground(new java.awt.Color(51, 204, 0));
@@ -1489,6 +1491,111 @@ public class frmCrearResidente extends javax.swing.JFrame {
             mostrarSeccion(JpnlDatosMedicos);
         }
     }//GEN-LAST:event_txtAreaAcademicoRespuesta4FocusLost
+
+    private void btnImprimirCrearresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirCrearresidenteActionPerformed
+       // 1. Selector de Archivos
+    javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+    fileChooser.setDialogTitle("Generar Vista Previa del Registro");
+    fileChooser.setSelectedFile(new java.io.File("Vista_Previa_Registro_Completo.pdf"));
+
+    if (fileChooser.showSaveDialog(this) == javax.swing.JFileChooser.APPROVE_OPTION) {
+        try {
+            String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+            if (!ruta.toLowerCase().endsWith(".pdf")) ruta += ".pdf";
+
+            // 2. LLAMADA AL GENERADOR CON DATOS COMPLETOS DE EJEMPLO
+            Utilidades.GeneradorPDFRegistro.generarRegistroResidente(
+                ruta,
+                // --- SECCIÓN 1: DATOS DEL SOLICITANTE ---
+                "ABRAHAM CAZARES",           // Nombre Completo
+                "0000226088",                 // ID ITSON
+                "BIOTECNOLOGÍA",             // Carrera
+                "7mo Semestre",              // Semestre
+                "abraham.cazares@itson.mx",  // Email
+                "18/11/2001",                // Fecha Nacimiento
+                "Masculino",                 // Sexo
+                "CAZA011118HSONLR01",        // CURP
+                "123-456-7890-1",            // Número IMSS
+                "CALLE 5 DE FEBRERO #123",   // Domicilio
+                "CD. OBREGÓN, SONORA",       // Ciudad
+                "6444101010",                // Teléfono
+                "6441234567",                // Celular
+                
+                // --- SECCIÓN 2: DATOS DEL TUTOR ---
+                "JUAN CAZARES PÉREZ",        // Nombre Tutor
+                "CALLE 5 DE FEBRERO #123",   // Domicilio Tutor
+                "CD. OBREGÓN",               // Ciudad Tutor
+                "6444112233",                // Teléfono Tutor
+                "6441998877",                // Celular Tutor
+                "juan.tutor@correo.mx",      // Email Tutor
+                
+                // --- SECCIÓN 3: CONTACTO DE EMERGENCIA ---
+                "MARÍA ELENA LÓPEZ",         // Nombre Emergencia
+                "48",                        // Edad
+                "MADRE",                     // Parentesco
+                "AVENIDA ITSON #500",        // Domicilio Emergencia
+                "CD. OBREGÓN",               // Ciudad Emergencia
+                "6444556677",                // Teléfono Emergencia
+                "6444556677",                // Celular Emergencia
+                "maria.emergencia@gmail.com",// Email Emergencia
+                
+                // --- SECCIÓN 4: ASPECTOS PERSONALES Y CONVIVENCIA ---
+                "SÍ",                        // ¿Vivido fuera?
+                "2 AÑOS EN CDMX",            // Tiempo fuera
+                "PROPIA (DECISIÓN MÍA)",     // Decisión vivienda
+                "CERCANÍA A LABORATORIOS",   // Razones residencia
+                "MUY FÁCILMENTE",            // Adaptación
+                "CONVIVENCIA TRANQUILA",     // Preferencia convivencia
+                "RUIDO EXCESIVO POR NOCHES", // No le gustaría
+                "ORDENADO Y RESPETUOSO",     // Características compañero
+                "11:00 PM",                  // Hora de dormir
+                "SÍ, MODERADO",              // Tolera ruido
+                "MUY IMPORTANTE (10/10)",    // Importancia orden
+                "DUCHA DIARIA Y ORDEN",      // Hábitos higiene
+                "LAPTOP, MONITOR, ROPA",     // Qué traerá
+                "SÍ, TALLERES DE ARTE",      // Participa actividades
+                "SÍ",                        // Grupo/Club
+                "EQUIPO DE FÚTBOL ITSON",    // Tipo grupo
+                "ENTRENAMIENTOS DIARIOS",    // Descripción actividades
+                "TALLERES DE LIDERAZGO",     // Actividades deseadas
+                "GESTIÓN DE TIEMPO",         // Prepararse mejor
+                "NINGUNA ADICIONAL",         // Información adicional
+                
+                // --- SECCIÓN 5: ASPECTOS ACADÉMICOS ---
+                "SIEMPRE QUE ES NECESARIO",  // Ayuda académica
+                "MUY EFECTIVO (POMODORO)",   // Método estudio
+                "EFECTIVA CON AGENDA",       // Admin tiempo
+                "REFORZAR INGLÉS TÉCNICO",   // Preparación académica
+                
+                // --- SECCIÓN 6: DATOS MÉDICOS ---
+                "EXCELENTE",                 // Estado salud
+                "LENTES DE ARMAZÓN",         // Deficiencia vista
+                "NINGUNA",                   // Deficiencia auditiva
+                "NINGUNA",                   // Discapacidad física
+                "NINGUNA",                   // Lesiones graves
+                "PADECIMIENTO DE ASMA",      // Padecimiento
+                "CONTROL CON INHALADOR",     // Tratamiento
+                "SÍ, SALBUTAMOL",            // Medicamento controlado
+                "POLVO Y POLEN",             // Alergias
+                "CONSULTAS SEMESTRALES",     // Tratamientos externos
+                "O POSITIVO",                // Tipo sangre
+                "PRIMEROS AUXILIOS",         // Preparación salud
+                "CONTROLADO DESDE INFANCIA"  // Información salud
+            );
+
+            // 3. Notificación y Apertura
+            javax.swing.JOptionPane.showMessageDialog(this, "PDF de prueba generado con éxito.");
+            
+            if (java.awt.Desktop.isDesktopSupported()) {
+                java.awt.Desktop.getDesktop().open(new java.io.File(ruta));
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al generar vista previa: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    }//GEN-LAST:event_btnImprimirCrearresidenteActionPerformed
 
     /**
      * @param args the command line arguments
