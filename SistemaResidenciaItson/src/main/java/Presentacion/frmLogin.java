@@ -38,8 +38,6 @@ public class frmLogin extends javax.swing.JFrame {
         lblCorreoElectronicoLogin = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        lblTitulAunNo = new javax.swing.JLabel();
-        btnRegistroLogin = new javax.swing.JButton();
         btnIniciarSeion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,20 +65,6 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
         jplLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 710, 510));
 
-        lblTitulAunNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTitulAunNo.setText("¿Aun no estas registrado? ");
-        jplLogin.add(lblTitulAunNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 690, -1, -1));
-
-        btnRegistroLogin.setBackground(new java.awt.Color(102, 204, 255));
-        btnRegistroLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistroLogin.setText("Click aqui");
-        btnRegistroLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistroLoginActionPerformed(evt);
-            }
-        });
-        jplLogin.add(btnRegistroLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 690, -1, -1));
-
         btnIniciarSeion.setBackground(new java.awt.Color(51, 153, 255));
         btnIniciarSeion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnIniciarSeion.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,10 +89,6 @@ public class frmLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegistroLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegistroLoginActionPerformed
 
     private void btnIniciarSeionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeionActionPerformed
 
@@ -156,14 +136,12 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSeion;
-    private javax.swing.JButton btnRegistroLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jplLogin;
     private javax.swing.JLabel lblContraseñaLogin;
     private javax.swing.JLabel lblCorreoElectronicoLogin;
-    private javax.swing.JLabel lblTitulAunNo;
     private javax.swing.JTextField txtContraLogin;
     private javax.swing.JTextField txtCorreoLogin;
     // End of variables declaration//GEN-END:variables
