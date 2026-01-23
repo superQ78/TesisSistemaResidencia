@@ -5,6 +5,7 @@
 package Presentacion;
 
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,12 +13,14 @@ import javax.swing.JFrame;
  */
 public class frmPerfilResidente extends javax.swing.JFrame {
 
+    private DefaultTableModel modeloActaResidentes;
     /**
      * Creates new form frmPerfilResidente
      */
     public frmPerfilResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarYcargarTabla();
     }
 
     /**
@@ -33,33 +36,33 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblActas = new javax.swing.JTable();
+        tblActasAdmin = new javax.swing.JTable();
         btnAtras = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        lblCorreo = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         lblFotoPerfil = new javax.swing.JLabel();
-        lblTelefono1 = new javax.swing.JLabel();
-        lblTelefono2 = new javax.swing.JLabel();
-        lblTelefono3 = new javax.swing.JLabel();
-        lblTelefono4 = new javax.swing.JLabel();
-        lblNombre1 = new javax.swing.JLabel();
-        lblCorreo1 = new javax.swing.JLabel();
-        lblTelefono5 = new javax.swing.JLabel();
-        lblTelefono6 = new javax.swing.JLabel();
-        lblTelefono7 = new javax.swing.JLabel();
-        lblTelefono8 = new javax.swing.JLabel();
-        lblTelefono9 = new javax.swing.JLabel();
-        btnLimpiarCampos1 = new javax.swing.JButton();
-        btnLimpiarCampos2 = new javax.swing.JButton();
-        btnLimpiarCampos3 = new javax.swing.JButton();
-        btnLimpiarCampos4 = new javax.swing.JButton();
-        btnLimpiarCampos5 = new javax.swing.JButton();
-        btnLimpiarCampos6 = new javax.swing.JButton();
-        btnLimpiarCampos7 = new javax.swing.JButton();
-        btnLimpiarCampos8 = new javax.swing.JButton();
-        lblTelefono10 = new javax.swing.JLabel();
+        lblCelular = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        lblNumeroImss = new javax.swing.JLabel();
+        lblSemestre = new javax.swing.JLabel();
+        lblNombreResi = new javax.swing.JLabel();
+        lblIResi = new javax.swing.JLabel();
+        lblNumCelularResi = new javax.swing.JLabel();
+        lblCorreoResi = new javax.swing.JLabel();
+        lblNumImss = new javax.swing.JLabel();
+        lblSemestreResi = new javax.swing.JLabel();
+        lblCarreraResi = new javax.swing.JLabel();
+        btnComprPago = new javax.swing.JButton();
+        btnComprobanteDomi = new javax.swing.JButton();
+        btnRpd = new javax.swing.JButton();
+        btnHistorial = new javax.swing.JButton();
+        btnIneTutor = new javax.swing.JButton();
+        btnSolicitudIngreso = new javax.swing.JButton();
+        btnIngreso = new javax.swing.JButton();
+        btnActaNacimiento = new javax.swing.JButton();
+        lblCarrera = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,14 +72,17 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de usuarios");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
         lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtitulo.setText("Perfil de recidente");
-        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, -1, -1));
+        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, -1, -1));
 
-        tblActas.setModel(new javax.swing.table.DefaultTableModel(
+        tblActasAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,9 +92,9 @@ public class frmPerfilResidente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblActas);
+        jScrollPane1.setViewportView(tblActasAdmin);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 600, 990, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 990, 200));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -102,152 +108,152 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 100, 150, 170));
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, 150, 170));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombre.setText("Nombre:");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, 25));
 
-        lblCorreo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblCorreo.setText("ID:");
-        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, -1, 25));
+        lblId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblId.setText("ID:");
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, -1, 25));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         lblTelefono.setText("Actas Administrativas");
-        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, -1, 25));
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, 25));
 
         lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfilRecidente.png"))); // NOI18N
-        jPanel1.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 130, -1));
+        jPanel1.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 130, -1));
 
-        lblTelefono1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTelefono1.setText("Número celular:");
-        jPanel1.add(lblTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, 25));
+        lblCelular.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCelular.setText("Número celular:");
+        jPanel1.add(lblCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, 25));
 
-        lblTelefono2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTelefono2.setText("Correo electrónico:");
-        jPanel1.add(lblTelefono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, 25));
+        lblCorreo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCorreo.setText("Correo electrónico:");
+        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, 25));
 
-        lblTelefono3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTelefono3.setText("Número afiliación IMSS:");
-        jPanel1.add(lblTelefono3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, 25));
+        lblNumeroImss.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNumeroImss.setText("Número afiliación IMSS:");
+        jPanel1.add(lblNumeroImss, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, 25));
 
-        lblTelefono4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTelefono4.setText("Semetres:");
-        jPanel1.add(lblTelefono4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, 25));
+        lblSemestre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblSemestre.setText("Semetres:");
+        jPanel1.add(lblSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, 25));
 
-        lblNombre1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNombre1.setText("Nombre:");
-        jPanel1.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, 25));
+        lblNombreResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNombreResi.setText("Nombre:");
+        jPanel1.add(lblNombreResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, 25));
 
-        lblCorreo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCorreo1.setText("ID:");
-        jPanel1.add(lblCorreo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, 25));
+        lblIResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblIResi.setText("ID:");
+        jPanel1.add(lblIResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, 25));
 
-        lblTelefono5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefono5.setText("Número celular:");
-        jPanel1.add(lblTelefono5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, 25));
+        lblNumCelularResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNumCelularResi.setText("Número celular:");
+        jPanel1.add(lblNumCelularResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, 25));
 
-        lblTelefono6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefono6.setText("Correo electrónico:");
-        jPanel1.add(lblTelefono6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, 25));
+        lblCorreoResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCorreoResi.setText("Correo electrónico:");
+        jPanel1.add(lblCorreoResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, 25));
 
-        lblTelefono7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefono7.setText("Número afiliación IMSS:");
-        jPanel1.add(lblTelefono7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 25));
+        lblNumImss.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblNumImss.setText("Número afiliación IMSS:");
+        jPanel1.add(lblNumImss, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 25));
 
-        lblTelefono8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefono8.setText("Semetres:");
-        jPanel1.add(lblTelefono8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, 25));
+        lblSemestreResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblSemestreResi.setText("Semetres:");
+        jPanel1.add(lblSemestreResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, 25));
 
-        lblTelefono9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTelefono9.setText("Carrera:");
-        jPanel1.add(lblTelefono9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, 25));
+        lblCarreraResi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblCarreraResi.setText("Carrera:");
+        jPanel1.add(lblCarreraResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, 25));
 
-        btnLimpiarCampos1.setBackground(new java.awt.Color(204, 63, 63));
-        btnLimpiarCampos1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarCampos1.setText("Comprobante de pago");
-        btnLimpiarCampos1.addActionListener(new java.awt.event.ActionListener() {
+        btnComprPago.setBackground(new java.awt.Color(204, 63, 63));
+        btnComprPago.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnComprPago.setForeground(new java.awt.Color(255, 255, 255));
+        btnComprPago.setText("Comprobante de pago");
+        btnComprPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos1ActionPerformed(evt);
+                btnComprPagoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 190, 40));
+        jPanel1.add(btnComprPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 190, 40));
 
-        btnLimpiarCampos2.setBackground(new java.awt.Color(204, 204, 204));
-        btnLimpiarCampos2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos2.setText("Comprobante de domicilio");
-        btnLimpiarCampos2.addActionListener(new java.awt.event.ActionListener() {
+        btnComprobanteDomi.setBackground(new java.awt.Color(204, 204, 204));
+        btnComprobanteDomi.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnComprobanteDomi.setText("Comprobante de domicilio");
+        btnComprobanteDomi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos2ActionPerformed(evt);
+                btnComprobanteDomiActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 220, 40));
+        jPanel1.add(btnComprobanteDomi, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 220, 40));
 
-        btnLimpiarCampos3.setBackground(new java.awt.Color(204, 204, 204));
-        btnLimpiarCampos3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos3.setText("Registro de Datos Personales (RDP)");
-        btnLimpiarCampos3.addActionListener(new java.awt.event.ActionListener() {
+        btnRpd.setBackground(new java.awt.Color(204, 204, 204));
+        btnRpd.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnRpd.setText("Registro de Datos Personales (RDP)");
+        btnRpd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos3ActionPerformed(evt);
+                btnRpdActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, 280, 40));
+        jPanel1.add(btnRpd, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, 280, 40));
 
-        btnLimpiarCampos4.setBackground(new java.awt.Color(204, 63, 63));
-        btnLimpiarCampos4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos4.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarCampos4.setText("Historial");
-        btnLimpiarCampos4.addActionListener(new java.awt.event.ActionListener() {
+        btnHistorial.setBackground(new java.awt.Color(204, 63, 63));
+        btnHistorial.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
+        btnHistorial.setText("Historial");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos4ActionPerformed(evt);
+                btnHistorialActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 120, 40));
+        jPanel1.add(btnHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 120, 40));
 
-        btnLimpiarCampos5.setBackground(new java.awt.Color(141, 219, 245));
-        btnLimpiarCampos5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos5.setText("INE del tutor");
-        btnLimpiarCampos5.addActionListener(new java.awt.event.ActionListener() {
+        btnIneTutor.setBackground(new java.awt.Color(141, 219, 245));
+        btnIneTutor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnIneTutor.setText("INE del tutor");
+        btnIneTutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos5ActionPerformed(evt);
+                btnIneTutorActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 130, 40));
+        jPanel1.add(btnIneTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 130, 40));
 
-        btnLimpiarCampos6.setBackground(new java.awt.Color(141, 219, 245));
-        btnLimpiarCampos6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos6.setText("Solicitud de ingreso");
-        btnLimpiarCampos6.addActionListener(new java.awt.event.ActionListener() {
+        btnSolicitudIngreso.setBackground(new java.awt.Color(141, 219, 245));
+        btnSolicitudIngreso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnSolicitudIngreso.setText("Solicitud de ingreso");
+        btnSolicitudIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos6ActionPerformed(evt);
+                btnSolicitudIngresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos6, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 180, 40));
+        jPanel1.add(btnSolicitudIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 450, 180, 40));
 
-        btnLimpiarCampos7.setBackground(new java.awt.Color(204, 204, 204));
-        btnLimpiarCampos7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos7.setText("INE");
-        btnLimpiarCampos7.addActionListener(new java.awt.event.ActionListener() {
+        btnIngreso.setBackground(new java.awt.Color(204, 204, 204));
+        btnIngreso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnIngreso.setText("INE");
+        btnIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos7ActionPerformed(evt);
+                btnIngresoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, 110, 40));
+        jPanel1.add(btnIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 450, 110, 40));
 
-        btnLimpiarCampos8.setBackground(new java.awt.Color(141, 219, 245));
-        btnLimpiarCampos8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnLimpiarCampos8.setText("Acta de nacimiento");
-        btnLimpiarCampos8.addActionListener(new java.awt.event.ActionListener() {
+        btnActaNacimiento.setBackground(new java.awt.Color(141, 219, 245));
+        btnActaNacimiento.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnActaNacimiento.setText("Acta de nacimiento");
+        btnActaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarCampos8ActionPerformed(evt);
+                btnActaNacimientoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 170, 40));
+        jPanel1.add(btnActaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 500, 170, 40));
 
-        lblTelefono10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblTelefono10.setText("Carrera:");
-        jPanel1.add(lblTelefono10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, 25));
+        lblCarrera.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCarrera.setText("Carrera:");
+        jPanel1.add(lblCarrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -257,9 +263,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 899, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
         );
 
         pack();
@@ -271,38 +275,88 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    private void btnLimpiarCampos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos1ActionPerformed
+    private void btnComprPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprPagoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos1ActionPerformed
+    }//GEN-LAST:event_btnComprPagoActionPerformed
 
-    private void btnLimpiarCampos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos2ActionPerformed
+    private void btnComprobanteDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprobanteDomiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos2ActionPerformed
+    }//GEN-LAST:event_btnComprobanteDomiActionPerformed
 
-    private void btnLimpiarCampos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos3ActionPerformed
+    private void btnRpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRpdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos3ActionPerformed
+    }//GEN-LAST:event_btnRpdActionPerformed
 
-    private void btnLimpiarCampos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos4ActionPerformed
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos4ActionPerformed
+    }//GEN-LAST:event_btnHistorialActionPerformed
 
-    private void btnLimpiarCampos5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos5ActionPerformed
+    private void btnIneTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIneTutorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos5ActionPerformed
+    }//GEN-LAST:event_btnIneTutorActionPerformed
 
-    private void btnLimpiarCampos6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos6ActionPerformed
+    private void btnSolicitudIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudIngresoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos6ActionPerformed
+    }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
-    private void btnLimpiarCampos7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos7ActionPerformed
+    private void btnIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos7ActionPerformed
+    }//GEN-LAST:event_btnIngresoActionPerformed
 
-    private void btnLimpiarCampos8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCampos8ActionPerformed
+    private void btnActaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActaNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarCampos8ActionPerformed
+    }//GEN-LAST:event_btnActaNacimientoActionPerformed
 
+     public void configurarYcargarTabla() {
+        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
+        String[] titulos = {"ID", "Fecha", "Seleccionar"};
+
+        modeloActaResidentes = new javax.swing.table.DefaultTableModel(null, titulos) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Solo la columna 3 del boton de seleccionar es editable para recibir clics
+                return column == 2;
+            }
+        };
+
+        tblActasAdmin.setModel(modeloActaResidentes);
+        tblActasAdmin.setRowHeight(55); 
+        tblActasAdmin.setBackground(java.awt.Color.WHITE);
+
+        // Usamos la ruta para asegurar que salga el botón seleccionar
+        String rutaBoton = "/Imagenes/cursor.png"; 
+
+        tblActasAdmin.getColumnModel().getColumn(2).setCellRenderer(
+                new Utilidades.RenderImagen(rutaBoton)
+        );
+
+        tblActasAdmin.getColumnModel().getColumn(2).setCellEditor(
+                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActasAdmin, rutaBoton)
+        );
+
+        // 3. Ajuste de anchos para que se parezca a la imagen
+        tblActasAdmin.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
+        tblActasAdmin.getColumnModel().getColumn(1).setPreferredWidth(250); // fecha
+        tblActasAdmin.getColumnModel().getColumn(2).setPreferredWidth(100); // Botón
+
+        // 4. Cargar datos de prueba
+        llenarTablaEjemplo();
+    }
+
+    /**
+     * Simula los datos mostrados en la imagen.
+     */
+    private void llenarTablaEjemplo() {
+        // Datos extraídos visualmente de tu imagen
+        Object[] fila1 = {"01", "20/10/2023", "SELECT"};
+        Object[] fila2 = {"02", "01/05/2024", "SELECT"};
+        Object[] fila3 = {"03", "25/12/2024", "SELECT"};
+
+        modeloActaResidentes.addRow(fila1);
+        modeloActaResidentes.addRow(fila2);
+        modeloActaResidentes.addRow(fila3);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -339,36 +393,36 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActaNacimiento;
     private javax.swing.JButton btnAtras;
-    private javax.swing.JButton btnLimpiarCampos1;
-    private javax.swing.JButton btnLimpiarCampos2;
-    private javax.swing.JButton btnLimpiarCampos3;
-    private javax.swing.JButton btnLimpiarCampos4;
-    private javax.swing.JButton btnLimpiarCampos5;
-    private javax.swing.JButton btnLimpiarCampos6;
-    private javax.swing.JButton btnLimpiarCampos7;
-    private javax.swing.JButton btnLimpiarCampos8;
+    private javax.swing.JButton btnComprPago;
+    private javax.swing.JButton btnComprobanteDomi;
+    private javax.swing.JButton btnHistorial;
+    private javax.swing.JButton btnIneTutor;
+    private javax.swing.JButton btnIngreso;
+    private javax.swing.JButton btnRpd;
+    private javax.swing.JButton btnSolicitudIngreso;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCarrera;
+    private javax.swing.JLabel lblCarreraResi;
+    private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCorreo;
-    private javax.swing.JLabel lblCorreo1;
+    private javax.swing.JLabel lblCorreoResi;
     private javax.swing.JLabel lblFotoPerfil;
+    private javax.swing.JLabel lblIResi;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNombreResi;
+    private javax.swing.JLabel lblNumCelularResi;
+    private javax.swing.JLabel lblNumImss;
+    private javax.swing.JLabel lblNumeroImss;
+    private javax.swing.JLabel lblSemestre;
+    private javax.swing.JLabel lblSemestreResi;
     private javax.swing.JLabel lblSubtitulo;
     private javax.swing.JLabel lblTelefono;
-    private javax.swing.JLabel lblTelefono1;
-    private javax.swing.JLabel lblTelefono10;
-    private javax.swing.JLabel lblTelefono2;
-    private javax.swing.JLabel lblTelefono3;
-    private javax.swing.JLabel lblTelefono4;
-    private javax.swing.JLabel lblTelefono5;
-    private javax.swing.JLabel lblTelefono6;
-    private javax.swing.JLabel lblTelefono7;
-    private javax.swing.JLabel lblTelefono8;
-    private javax.swing.JLabel lblTelefono9;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTable tblActas;
+    private javax.swing.JTable tblActasAdmin;
     // End of variables declaration//GEN-END:variables
 }

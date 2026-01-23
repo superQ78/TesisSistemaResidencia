@@ -5,6 +5,7 @@
 package Presentacion;
 
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,6 +13,8 @@ import javax.swing.JFrame;
  */
 public class frmInformacionUsuario extends javax.swing.JFrame {
 
+    private DefaultTableModel modeloResidentes;
+    
     /**
      * Creates new form frmInformacionUsuario
      */
