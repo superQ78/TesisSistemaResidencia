@@ -45,8 +45,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
 
         tblRegistroResidente.setModel(modelo);
 
-        // --- IMPORTANTE: CONFIGURACIÓN VISUAL ---
-        // 1. Altura de fila (necesaria para que se vea bien la imagen)
+        // Altura de fila (necesaria para que se vea bien la imagen)
         tblRegistroResidente.setRowHeight(51);
 
         // 2. Fondo blanco para toda la tabla (para que coincida con la imagen)
@@ -54,7 +53,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
 
         // 3. Asignar el Render y Editor NUEVOS a la columna 3 (índice empieza en 0)
         // Columna 3 es la cuarta columna ("Subir")
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
+        tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
         tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
 
         // Opcional: Ajustar ancho de la columna del botón

@@ -4,7 +4,9 @@
  */
 package Presentacion;
 
+import Utilidades.RenderImagen;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,9 +20,52 @@ public class frmModificarResidente extends javax.swing.JFrame {
     public frmModificarResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        
+        // Llama al método para configurar la tabla
+        configurarTabla();
     }
 
+    private void configurarTabla() {
+        // 1. Definir el modelo de la tabla (Las columnas que tienes en tu diseño)
+        DefaultTableModel modelo = new DefaultTableModel() {
+            // Hacemos que las celdas no sean editables al escribir, solo botones
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Permitir click en las columnas de botones (3 y 4)
+                return column == 3 || column == 4; 
+            }
+        };
+
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre residente");
+        modelo.addColumn("Nacionalidad");
+        modelo.addColumn("Editar");      
+        modelo.addColumn("Inhabilitar"); 
+
+        // Datos de prueba (Simulando tu imagen)
+        Object[] fila1 = {"00000226088", "Panfilo Filomeno", "Mexicana", "", ""};
+        Object[] fila2 = {"00000226089", "Cesar Duran", "Mexicana", "", ""};
+        
+        modelo.addRow(fila1);
+        modelo.addRow(fila2);
+
+        // Asignar el modelo a la tabla
+        jTable1.setModel(modelo);
+        
+        // aumentar la altura de las filas para que quepan las imágenes
+        jTable1.setRowHeight(40); 
+
+        // 3. ASIGNAR LOS RENDERIZADORES
+        
+        jTable1.getColumnModel().getColumn(3).setCellRenderer(
+            new RenderImagen("/imagenes/BtnEditar.png") 
+        );
+
+        // Para la columna "Inhabilitar" (Índice 4) -> Icono de la X roja
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(
+            new RenderImagen("/imagenes/BtnInhabilitar.png") 
+        );
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,6 +80,9 @@ public class frmModificarResidente extends javax.swing.JFrame {
         lblSubtituloSoliIngre = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +96,28 @@ public class frmModificarResidente extends javax.swing.JFrame {
         lblSubtituloSoliIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtituloSoliIngre.setText("Modificar residente");
         jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 740, 40));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 740, 40));
 
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 30, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 1020, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +170,10 @@ public class frmModificarResidente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblSubtituloSoliIngre;
     private javax.swing.JLabel lblTituloGestionResi;

@@ -4,13 +4,13 @@
  */
 package Utilidades;
 
-
 import java.awt.Component;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+
 /**
  *
  * @author cesar
@@ -19,24 +19,22 @@ public class RenderImagen extends JButton implements TableCellRenderer {
 
     private ImageIcon icono;
 
-    public RenderImagen() {
-        // Configuramos el botón para que sea opaco y se vea el fondo
+    // Modificamos el constructor para recibir la ruta de la imagen
+    public RenderImagen(String rutaImagen) {
         setOpaque(true);
-        setName("btnImagen"); // Nombre identificador
-        
-        // --- CARGA DE IMAGEN ---
+        setName("btnImagen");
+
         try {
-            // Ruta según lo que indicaste: src/main/resources/imagenes/subirFlecha.png
-            // Al compilarse, resources suele quedar en la raíz. Probamos con /imagenes/...
-            java.net.URL imgUrl = getClass().getResource("/imagenes/SubirArchivo.png");
-            
+            // Usamos la ruta que nos pasan por parámetro
+            java.net.URL imgUrl = getClass().getResource(rutaImagen);
+
             if (imgUrl != null) {
                 ImageIcon original = new ImageIcon(imgUrl);
-                // Redimensionar a 20x20 (ajusta según tu fila)
-                Image escala = original.getImage().getScaledInstance(90, 90, Image.SCALE_SMOOTH);
+                // Ajusta el tamaño (30x30 suele ser bueno para iconos de tabla, 90 es muy grande)
+                Image escala = original.getImage().getScaledInstance(33, 33, Image.SCALE_SMOOTH);
                 icono = new ImageIcon(escala);
             } else {
-                System.err.println("No se encontro la imagen en /Imagenes/SubirArchivo.png");
+                System.err.println("No se encontró la imagen: " + rutaImagen);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,21 +45,17 @@ public class RenderImagen extends JButton implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
 
-        // Limpiamos texto para que solo se vea el ícono
-        setText("");
         setIcon(icono);
 
-        // --- ESTILO VISUAL (Gris/Blanco como la foto) ---
+        // Estética: Fondo blanco o selección
         if (isSelected) {
-            // Color cuando seleccionas la fila (opcional)
             setBackground(table.getSelectionBackground());
         } else {
-            // Fondo blanco como en tu imagen de ejemplo
             setBackground(java.awt.Color.WHITE);
         }
-        
-        // Quitamos el borde por defecto para que se vea limpio o ponemos uno suave
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+
+        // Borde suave o sin borde
+        setBorderPainted(false);
 
         return this;
     }

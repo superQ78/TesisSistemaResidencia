@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -11,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmConsultarActa extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
-    
+
     /**
      * Creates new form frmConsultarActa
      */
@@ -139,14 +138,14 @@ public class frmConsultarActa extends javax.swing.JFrame {
 
         tblActas.setModel(modeloUsuarios);
 
-       tblActas.setRowHeight(51);
+        tblActas.setRowHeight(51);
 
         // 2. Fondo blanco para toda la tabla (para que coincida con la imagen)
         tblActas.setBackground(java.awt.Color.WHITE);
 
-        // 3. Asignar el Render y Editor NUEVOS a la columna 3 (índice empieza en 0)
-        // Columna 3 es la cuarta columna ("Subir")
-        tblActas.getColumnModel().getColumn(4).setCellRenderer(new Utilidades.RenderImagen());
+      
+        tblActas.getColumnModel().getColumn(4).setCellRenderer(
+                new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
         tblActas.getColumnModel().getColumn(4).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox()));
 
         // Opcional: Ajustar ancho de la columna del botón
@@ -174,6 +173,7 @@ public class frmConsultarActa extends javax.swing.JFrame {
             modeloUsuarios.addRow(fila);
         }
     }
+
     /**
      * @param args the command line arguments
      */
