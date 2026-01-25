@@ -70,7 +70,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lblTitulo.setText("Residencias ITSON – Panel de gestión de usuarios");
+        lblTitulo.setText("Residencias ITSON – Panel de gestión de residentes");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
@@ -270,7 +270,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
+        frmConsultarResidente volver = new frmConsultarResidente();
         volver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
