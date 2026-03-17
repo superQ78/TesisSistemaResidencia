@@ -28,7 +28,6 @@ public class pnlDatosTutor extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblNombreTutor = new javax.swing.JLabel();
         lblEmailsolicitante = new javax.swing.JLabel();
         txtEmailSoli = new javax.swing.JTextField();
         txtNombreTutor = new javax.swing.JTextField();
@@ -43,6 +42,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         txtDomicilioSoli = new javax.swing.JTextField();
         lblParentesco = new javax.swing.JLabel();
         cmbxParentescoEmerg = new javax.swing.JComboBox<>();
+        lblNombreTutor = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,10 +50,6 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         jLabel1.setText("Datos del Tutor");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
-
-        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreTutor.setText("Nombre completo:");
-        jPanel1.add(lblNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         lblEmailsolicitante.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblEmailsolicitante.setText("Correo:");
@@ -109,11 +105,15 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         cmbxParentescoEmerg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
         jPanel1.add(cmbxParentescoEmerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 30));
 
+        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblNombreTutor.setText("Nombre completo:");
+        jPanel1.add(lblNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1239, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1253, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

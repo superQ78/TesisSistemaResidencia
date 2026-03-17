@@ -26,6 +26,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lblDM1 = new javax.swing.JLabel();
@@ -82,196 +83,211 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         jLabel2.setText("Datos médicos");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
 
-        lblDM1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM1.setText("Estado de salud general:");
-        jPanel2.add(lblDM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
+        jPanel2.add(lblDM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
-        chbxDMbueno1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMbueno1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMbueno1.setText("Bueno");
-        jPanel2.add(chbxDMbueno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, -1));
+        jPanel2.add(chbxDMbueno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
 
-        chbxDMRegular1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMRegular1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMRegular1.setText("Regular");
-        jPanel2.add(chbxDMRegular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
+        jPanel2.add(chbxDMRegular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
 
-        chbxDMMalo1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMMalo1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMMalo1.setText("Malo");
-        jPanel2.add(chbxDMMalo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, -1, -1));
+        jPanel2.add(chbxDMMalo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, -1, -1));
 
+        txtDMEspecificar2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar2.setText("especificar");
-        jPanel2.add(txtDMEspecificar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 230, 30));
+        jPanel2.add(txtDMEspecificar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 230, 30));
 
-        chbxDMNo2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo2.setText("NO");
-        jPanel2.add(chbxDMNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+        jPanel2.add(chbxDMNo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
 
-        chbxDMSi2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi2.setText("SI");
-        jPanel2.add(chbxDMSi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
+        jPanel2.add(chbxDMSi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
 
-        lblDM2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM2.setText("Deficiencia en la vista");
-        jPanel2.add(lblDM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        jPanel2.add(lblDM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
-        lblDM3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM3.setText("Deficiencia auditiva");
-        jPanel2.add(lblDM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+        jPanel2.add(lblDM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
-        chbxDMSi3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi3.setText("SI");
-        jPanel2.add(chbxDMSi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, -1, -1));
+        jPanel2.add(chbxDMSi3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
-        chbxDMNo3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo3.setText("NO");
-        jPanel2.add(chbxDMNo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
+        jPanel2.add(chbxDMNo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, -1, -1));
 
+        txtDMEspecificar3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar3.setText("especificar");
-        jPanel2.add(txtDMEspecificar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 230, 30));
+        jPanel2.add(txtDMEspecificar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 230, 30));
 
-        lblDM4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM4.setText("Discapacidad física");
-        jPanel2.add(lblDM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
+        jPanel2.add(lblDM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
-        chbxDMSi4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi4.setText("SI");
-        jPanel2.add(chbxDMSi4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
+        jPanel2.add(chbxDMSi4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
-        chbxDMNo4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo4.setText("NO");
-        jPanel2.add(chbxDMNo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
+        jPanel2.add(chbxDMNo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, -1, -1));
 
+        txtDMEspecificar4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar4.setText("especificar");
-        jPanel2.add(txtDMEspecificar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 230, 30));
+        jPanel2.add(txtDMEspecificar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 280, 230, 30));
 
-        lblDM5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM5.setText("Lesiones graves");
-        jPanel2.add(lblDM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        jPanel2.add(lblDM5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
-        chbxDMSi5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi5.setText("SI");
-        jPanel2.add(chbxDMSi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, -1));
+        jPanel2.add(chbxDMSi5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
 
-        chbxDMNo5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo5.setText("NO");
-        jPanel2.add(chbxDMNo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
+        jPanel2.add(chbxDMNo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, -1, -1));
 
+        txtDMEspecificar5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar5.setText("especificar");
-        jPanel2.add(txtDMEspecificar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 230, 30));
+        jPanel2.add(txtDMEspecificar5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 330, 230, 30));
 
-        lblDM6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM6.setText("Padecimientos actuales o previos");
-        jPanel2.add(lblDM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+        jPanel2.add(lblDM6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
-        chbxDMSi6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi6.setText("SI");
-        jPanel2.add(chbxDMSi6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        jPanel2.add(chbxDMSi6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, -1, -1));
 
-        chbxDMNo6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo6.setText("NO");
-        jPanel2.add(chbxDMNo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, -1));
+        jPanel2.add(chbxDMNo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, -1, -1));
 
+        txtDMEspecificar6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar6.setText("especificar");
-        jPanel2.add(txtDMEspecificar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 390, 230, 30));
+        jPanel2.add(txtDMEspecificar6, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 230, 30));
 
-        lblDM7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM7.setText("Tratamientos médicos, psiquiátricos ");
-        jPanel2.add(lblDM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
+        jPanel2.add(lblDM7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
-        lblDM7_7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM7_7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM7_7.setText("o psicológicos");
-        jPanel2.add(lblDM7_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        jPanel2.add(lblDM7_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));
 
-        chbxDMSi7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi7.setText("SI");
-        jPanel2.add(chbxDMSi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, -1, -1));
+        jPanel2.add(chbxDMSi7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
 
-        chbxDMNo7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo7.setText("NO");
-        jPanel2.add(chbxDMNo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, -1, -1));
+        jPanel2.add(chbxDMNo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, -1, -1));
 
+        txtDMMotivoPronostico7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMMotivoPronostico7.setText("Motivo o pronostico");
-        jPanel2.add(txtDMMotivoPronostico7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 230, 30));
+        jPanel2.add(txtDMMotivoPronostico7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, 230, 30));
 
-        lblDM8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM8.setText("Medicamentos controlados");
-        jPanel2.add(lblDM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, -1));
+        jPanel2.add(lblDM8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, -1));
 
-        chbxDMSi8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi8.setText("SI");
-        jPanel2.add(chbxDMSi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, -1, -1));
+        jPanel2.add(chbxDMSi8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
 
-        chbxDMNo8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo8.setText("NO");
-        jPanel2.add(chbxDMNo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
+        jPanel2.add(chbxDMNo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, -1, -1));
 
+        txtDMEspecificar8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar8.setText("especificar");
-        jPanel2.add(txtDMEspecificar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 490, 230, 30));
+        jPanel2.add(txtDMEspecificar8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 230, 30));
 
-        lblDM9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM9.setText("Alergias");
-        jPanel2.add(lblDM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
+        jPanel2.add(lblDM9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, -1, -1));
 
-        chbxDMSi9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi9.setText("SI");
-        jPanel2.add(chbxDMSi9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 530, -1, -1));
+        jPanel2.add(chbxDMSi9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, -1, -1));
 
-        chbxDMNo9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo9.setText("NO");
-        jPanel2.add(chbxDMNo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 530, -1, -1));
+        jPanel2.add(chbxDMNo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, -1, -1));
 
+        txtDMEspecificar9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMEspecificar9.setText("especificar");
-        jPanel2.add(txtDMEspecificar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 230, 30));
+        jPanel2.add(txtDMEspecificar9, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 230, 30));
 
-        lblDM10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM10.setText("Tratamientos externos");
-        jPanel2.add(lblDM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 580, -1, -1));
+        jPanel2.add(lblDM10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, -1, -1));
 
-        chbxDMSi10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMSi10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMSi10.setText("SI");
-        jPanel2.add(chbxDMSi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, -1, -1));
+        jPanel2.add(chbxDMSi10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, -1, -1));
 
-        chbxDMNo10.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        chbxDMNo10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxDMNo10.setText("NO");
-        jPanel2.add(chbxDMNo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 580, -1, -1));
+        jPanel2.add(chbxDMNo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, -1, -1));
 
+        txtDMMotivo10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDMMotivo10.setText("Motivo");
-        jPanel2.add(txtDMMotivo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 580, 230, 30));
+        jPanel2.add(txtDMMotivo10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 230, 30));
 
-        lblDM11.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM11.setText("Tipo de sangre");
-        jPanel2.add(lblDM11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 630, -1, -1));
+        jPanel2.add(lblDM11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
 
+        cmbxDMSangre11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmbxDMSangre11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de sangre", "A+", "B+", "O-", "O+", "A-", "B-", "X" }));
-        jPanel2.add(cmbxDMSangre11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 630, 290, 30));
+        jPanel2.add(cmbxDMSangre11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, 290, 30));
 
-        lblDM12.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM12.setText("Aspectos de salud en los que te gustaría");
-        jPanel2.add(lblDM12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 670, -1, -1));
+        jPanel2.add(lblDM12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 670, -1, -1));
 
-        lblDM12_12.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDM12_12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM12_12.setText("prepararte mejor");
-        jPanel2.add(lblDM12_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, -1, -1));
-        jPanel2.add(txtInformacionSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 740, 410, 30));
+        jPanel2.add(lblDM12_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 700, -1, -1));
 
-        lblDM13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        txtInformacionSalud.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel2.add(txtInformacionSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 740, 410, 30));
+
+        lblDM13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDM13.setText("Otra información importante sobre tu salud");
-        jPanel2.add(lblDM13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 740, -1, -1));
-        jPanel2.add(txtDMRespuesta14, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 680, 410, 30));
+        jPanel2.add(lblDM13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 740, -1, -1));
+
+        txtDMRespuesta14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel2.add(txtDMRespuesta14, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 680, 410, 30));
+
+        jScrollPane1.setViewportView(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 946, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1260, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -300,10 +316,9 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     private javax.swing.JCheckBox chbxDMSi9;
     private javax.swing.JCheckBox chbxDMbueno1;
     private javax.swing.JComboBox<String> cmbxDMSangre11;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDM1;
     private javax.swing.JLabel lblDM10;
     private javax.swing.JLabel lblDM11;
@@ -319,8 +334,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     private javax.swing.JLabel lblDM7_7;
     private javax.swing.JLabel lblDM8;
     private javax.swing.JLabel lblDM9;
-    private javax.swing.JLabel lblEmailsolicitante;
-    private javax.swing.JLabel lblNombreTutor;
     private javax.swing.JTextField txtDMEspecificar2;
     private javax.swing.JTextField txtDMEspecificar3;
     private javax.swing.JTextField txtDMEspecificar4;
@@ -331,8 +344,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     private javax.swing.JTextField txtDMMotivo10;
     private javax.swing.JTextField txtDMMotivoPronostico7;
     private javax.swing.JTextField txtDMRespuesta14;
-    private javax.swing.JTextField txtEmailSoli;
     private javax.swing.JTextField txtInformacionSalud;
-    private javax.swing.JTextField txtNombreTutor;
     // End of variables declaration//GEN-END:variables
 }

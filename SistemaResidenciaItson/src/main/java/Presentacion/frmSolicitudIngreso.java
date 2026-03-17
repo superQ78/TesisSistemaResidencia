@@ -127,6 +127,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         lblTituloFormaPagoSoli1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSigFormaPagoSoli = new javax.swing.JButton();
+        txt4PagosH = new javax.swing.JTextField();
+        txtPagoContado1 = new javax.swing.JTextField();
+        txtPagoInicial1 = new javax.swing.JTextField();
+        txtPagosIguales1 = new javax.swing.JTextField();
+        txtPagosContadosH1 = new javax.swing.JTextField();
         jpnlPeticionCompañeroSoli = new javax.swing.JPanel();
         lblTituloPeticionSoli = new javax.swing.JLabel();
         txtNombreCompañeroSoli = new javax.swing.JTextField();
@@ -400,29 +405,34 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         jpnlFormaPagoSoli.add(lblContadoSoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox1.setText(" 4 pagos de $4,713 (hermanos) — $18,852");
+        jCheckBox1.setText(" 4 pagos de $ (hermanos): $");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        jpnlFormaPagoSoli.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 480, 30));
+        jpnlFormaPagoSoli.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 300, 30));
 
         jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox2.setText(" Contado (hermanos) — $17,826");
-        jpnlFormaPagoSoli.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 480, 30));
+        jCheckBox2.setText(" Contado (hermanos) : $");
+        jpnlFormaPagoSoli.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 260, 30));
 
         jCheckBox3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox3.setText(" 4 pagos iguales de $5,384 — $21,536");
-        jpnlFormaPagoSoli.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 480, 30));
+        jCheckBox3.setText(" 4 pagos iguales de: $");
+        jpnlFormaPagoSoli.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 250, 30));
 
         jCheckBox4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox4.setText("50 % inicial + 3 pagos de $3,451 — $20,706");
-        jpnlFormaPagoSoli.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 480, 30));
+        jCheckBox4.setText("50 % inicial + 3 pagos de:  $");
+        jpnlFormaPagoSoli.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 310, 30));
 
         jCheckBox5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox5.setText("Contado (individual) — $19,668");
-        jpnlFormaPagoSoli.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 480, 30));
+        jCheckBox5.setText("Contado (individual):  $");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        jpnlFormaPagoSoli.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 250, 30));
 
         lblTituloFormaPagoSoli1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloFormaPagoSoli1.setText("Forma de pago (seleccionar una opción)");
@@ -442,6 +452,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
             }
         });
         jpnlFormaPagoSoli.add(btnSigFormaPagoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 290, -1, -1));
+        jpnlFormaPagoSoli.add(txt4PagosH, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 110, 30));
+        jpnlFormaPagoSoli.add(txtPagoContado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 110, 30));
+        jpnlFormaPagoSoli.add(txtPagoInicial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 110, 30));
+        jpnlFormaPagoSoli.add(txtPagosIguales1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 110, 30));
+        jpnlFormaPagoSoli.add(txtPagosContadosH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 110, 30));
 
         jpnlPeticionCompañeroSoli.setBackground(new java.awt.Color(255, 255, 255));
         jpnlPeticionCompañeroSoli.setMinimumSize(new java.awt.Dimension(2922, 295));
@@ -602,6 +617,10 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         mostrarSeccion(jpnlPeticionCompañeroSoli);
     }//GEN-LAST:event_btnSigFormaPagoSoliActionPerformed
 
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -704,6 +723,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     private javax.swing.JLabel lnlCarreraSolicitateSoli;
     private javax.swing.JLabel lnlCurpSoliSoli;
     private javax.swing.JLabel nlIDSoliciSoli;
+    private javax.swing.JTextField txt4PagosH;
     private javax.swing.JTextField txtCarreraSoli;
     private javax.swing.JTextField txtCelularSoliSoli;
     private javax.swing.JTextField txtCelularTutor;
@@ -723,6 +743,10 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreSoli;
     private javax.swing.JTextField txtNombreTutor;
     private javax.swing.JTextField txtNumeroEmergSoli;
+    private javax.swing.JTextField txtPagoContado1;
+    private javax.swing.JTextField txtPagoInicial1;
+    private javax.swing.JTextField txtPagosContadosH1;
+    private javax.swing.JTextField txtPagosIguales1;
     private javax.swing.JTextField txtTelefonoSoliSoli;
     private javax.swing.JTextField txtTelefonoTutor;
     private javax.swing.JTextField txtTelfonoEmergSoli;

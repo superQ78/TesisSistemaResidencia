@@ -156,7 +156,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRDPActionPerformed
-        frmCrearResidente cr = new frmCrearResidente();
+        frmRDP cr = new frmRDP();
         cr.setVisible(true);
         this.dispose();
 
