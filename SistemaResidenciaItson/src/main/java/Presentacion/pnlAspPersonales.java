@@ -194,7 +194,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         lblapdc9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblapdc9.setText("Hora en que acostumbras dormirte:");
 
-        cmbxApdcHora9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        cmbxApdcHora9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxApdcHora9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una hora", "9:00pm", "10:00pm", "11:00pm", "12:00am", "1:00am" }));
 
         lblapdc10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -277,7 +277,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         lblapdc17_17.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblapdc17_17.setText("pregunta anterior:");
 
-        cmbxApdcGrupo16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        cmbxApdcGrupo16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxApdcGrupo16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de grupo", "Deportivo", "Cultural", "Religioso" }));
 
         chbxApdcSi15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -295,7 +295,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         chbxApdcArtisticas18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chbxApdcArtisticas18.setText("Artisticas");
 
-        cmbxApdcAspecto19.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        cmbxApdcAspecto19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxApdcAspecto19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un aspecto", "Comunicación", "Habilidades blancas", "Compañerismo", "Autoevaluación" }));
 
         txtApdcInfoResi20.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -594,7 +594,8 @@ public class pnlAspPersonales extends javax.swing.JPanel {
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblapdc20)
-                    .addComponent(txtApdcInfoResi20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtApdcInfoResi20, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

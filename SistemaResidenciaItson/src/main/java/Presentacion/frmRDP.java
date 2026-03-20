@@ -41,46 +41,53 @@ public class frmRDP extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlBotones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnVaciarCampos = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
         lblSubTitulo = new javax.swing.JLabel();
         lblSubTitulo1 = new javax.swing.JLabel();
+        tabDatosRegistroResi = new javax.swing.JTabbedPane();
+        sllpDatosSolicitante = new javax.swing.JScrollPane();
+        pnlDatosSolicitante1 = new Presentacion.pnlDatosSolicitante();
+        scllpDatosTutor = new javax.swing.JScrollPane();
+        pnlDatosTutor1 = new Presentacion.pnlDatosTutor();
+        scllpDatosContactoEm = new javax.swing.JScrollPane();
+        scllpAsPersonales = new javax.swing.JScrollPane();
+        scllpAspAcademicos = new javax.swing.JScrollPane();
+        scllpDatosMedicos = new javax.swing.JScrollPane();
         pnlFondoTabs = new javax.swing.JPanel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Guardar");
+        btnGuardar.setBackground(new java.awt.Color(51, 204, 0));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Vaciar campos");
+        btnVaciarCampos.setBackground(new java.awt.Color(255, 51, 51));
+        btnVaciarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVaciarCampos.setForeground(new java.awt.Color(255, 255, 255));
+        btnVaciarCampos.setText("Vaciar campos");
 
-        jButton3.setBackground(new java.awt.Color(51, 153, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Imprimir");
+        btnImprimir.setBackground(new java.awt.Color(51, 153, 255));
+        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimir.setText("Imprimir");
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap(447, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addContainerGap(421, Short.MAX_VALUE)
+                .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(254, 254, 254))
         );
         pnlBotonesLayout.setVerticalGroup(
@@ -88,9 +95,9 @@ public class frmRDP extends javax.swing.JFrame {
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -104,40 +111,58 @@ public class frmRDP extends javax.swing.JFrame {
         lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubTitulo1.setText("Registrar residente");
 
+        tabDatosRegistroResi.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        tabDatosRegistroResi.setToolTipText("");
+
+        sllpDatosSolicitante.setBackground(new java.awt.Color(255, 255, 255));
+        sllpDatosSolicitante.setBorder(null);
+        sllpDatosSolicitante.setHorizontalScrollBar(null);
+        sllpDatosSolicitante.setViewportView(pnlDatosSolicitante1);
+
+        tabDatosRegistroResi.addTab("Datos del solicitante", sllpDatosSolicitante);
+
+        scllpDatosTutor.setToolTipText("");
+        scllpDatosTutor.setHorizontalScrollBar(null);
+        scllpDatosTutor.setViewportView(pnlDatosTutor1);
+
+        tabDatosRegistroResi.addTab("Datos del Tutor", scllpDatosTutor);
+        tabDatosRegistroResi.addTab("Contacto de emergencia", scllpDatosContactoEm);
+        tabDatosRegistroResi.addTab("Aspectos personales", scllpAsPersonales);
+        tabDatosRegistroResi.addTab("Aspectos académicos", scllpAspAcademicos);
+        tabDatosRegistroResi.addTab("Datos médicos", scllpDatosMedicos);
+
         javax.swing.GroupLayout pnlTituloLayout = new javax.swing.GroupLayout(pnlTitulo);
         pnlTitulo.setLayout(pnlTituloLayout);
         pnlTituloLayout.setHorizontalGroup(
             pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTituloLayout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
-                .addGroup(pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
-                        .addComponent(lblSubTitulo)
-                        .addGap(172, 172, 172))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
-                        .addComponent(lblSubTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(416, 416, 416))))
+                .addContainerGap()
+                .addComponent(tabDatosRegistroResi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(487, 487, 487))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
+                .addContainerGap(253, Short.MAX_VALUE)
+                .addComponent(lblSubTitulo)
+                .addGap(239, 239, 239))
         );
         pnlTituloLayout.setVerticalGroup(
             pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTituloLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(lblSubTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSubTitulo1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(tabDatosRegistroResi, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(pnlTitulo, java.awt.BorderLayout.PAGE_START);
 
         pnlFondoTabs.setBackground(new java.awt.Color(255, 255, 255));
         pnlFondoTabs.setLayout(new java.awt.BorderLayout());
-
-        jTabbedPane2.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        jTabbedPane2.addTab("tab1", jScrollPane1);
-
-        pnlFondoTabs.add(jTabbedPane2, java.awt.BorderLayout.CENTER);
-
         getContentPane().add(pnlFondoTabs, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -180,15 +205,22 @@ public class frmRDP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
     private javax.swing.JLabel lblSubTitulo1;
     private javax.swing.JPanel pnlBotones;
+    private Presentacion.pnlDatosSolicitante pnlDatosSolicitante1;
+    private Presentacion.pnlDatosTutor pnlDatosTutor1;
     private javax.swing.JPanel pnlFondoTabs;
     private javax.swing.JPanel pnlTitulo;
+    private javax.swing.JScrollPane scllpAsPersonales;
+    private javax.swing.JScrollPane scllpAspAcademicos;
+    private javax.swing.JScrollPane scllpDatosContactoEm;
+    private javax.swing.JScrollPane scllpDatosMedicos;
+    private javax.swing.JScrollPane scllpDatosTutor;
+    private javax.swing.JScrollPane sllpDatosSolicitante;
+    private javax.swing.JTabbedPane tabDatosRegistroResi;
     // End of variables declaration//GEN-END:variables
 }

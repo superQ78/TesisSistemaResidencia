@@ -106,6 +106,7 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         });
         jPanel1.add(txtDomicilioSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
 
+        cmbxParentescoEmerg.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbxParentescoEmerg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
         jPanel1.add(cmbxParentescoEmerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, -1, 30));
 

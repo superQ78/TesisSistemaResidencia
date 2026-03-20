@@ -253,7 +253,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         lblDM11.setText("Tipo de sangre");
         jPanel2.add(lblDM11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
 
-        cmbxDMSangre11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmbxDMSangre11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbxDMSangre11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de sangre", "A+", "B+", "O-", "O+", "A-", "B-", "X" }));
         jPanel2.add(cmbxDMSangre11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, 290, 30));
 

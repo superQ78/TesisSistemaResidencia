@@ -134,6 +134,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         jPanel1.add(lblTelefonoSOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 290, -1, -1));
         jPanel1.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 290, 180, 30));
 
+        txtExtensionCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtExtensionCelularSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
         jPanel1.add(txtExtensionCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, -1, 30));
 
@@ -176,6 +177,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         });
         jPanel1.add(txtIdSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 170, 30));
 
+        cmbxSemestreSoli.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbxSemestreSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona semestre en curso", "Semestre 0", "Semestre 1", "Semestre 2", "Semestre 3", "Semestre 4", "Semestre 5", "Semestre 6", "Semestre 7", "Semestre 8", "Semestre 9", "Semestre 10" }));
         jPanel1.add(cmbxSemestreSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, 269, 33));
 

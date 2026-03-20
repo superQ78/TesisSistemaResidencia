@@ -72,6 +72,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         jPanel1.add(lblTelefonoSOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
         jPanel1.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
 
+        txtExtensionCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtExtensionCelularSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
         jPanel1.add(txtExtensionCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
 
@@ -102,6 +103,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         lblParentesco.setText("Parentesco:");
         jPanel1.add(lblParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
 
+        cmbxParentescoEmerg.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbxParentescoEmerg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
         jPanel1.add(cmbxParentescoEmerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 30));
 
