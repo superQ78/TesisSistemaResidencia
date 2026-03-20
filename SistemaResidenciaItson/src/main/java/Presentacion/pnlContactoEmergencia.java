@@ -27,88 +27,88 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblNombreTutor = new javax.swing.JLabel();
-        lblEmailsolicitante = new javax.swing.JLabel();
-        txtEmailSoli = new javax.swing.JTextField();
-        txtNombreTutor = new javax.swing.JTextField();
-        lblCiudadSoli = new javax.swing.JLabel();
-        lblTelefonoSOli = new javax.swing.JLabel();
-        txtTelefonoSoli = new javax.swing.JTextField();
-        txtExtensionCelularSoli = new javax.swing.JComboBox<>();
-        lblCelularSoli = new javax.swing.JLabel();
-        txtXiudadSoli = new javax.swing.JTextField();
-        txtCelularSoli = new javax.swing.JTextField();
-        lblDomsoli = new javax.swing.JLabel();
-        lblParentesco = new javax.swing.JLabel();
-        txtDomicilioSoli = new javax.swing.JTextField();
-        cmbxParentescoEmerg = new javax.swing.JComboBox<>();
+        lblTituloEmergencia = new javax.swing.JLabel();
+        lblNombreEmergencia = new javax.swing.JLabel();
+        lblCorreoEmergencia = new javax.swing.JLabel();
+        txtCorreoEmergencia = new javax.swing.JTextField();
+        txtNombreEmergencia = new javax.swing.JTextField();
+        lblCiudadEstadoPaisEmergencia = new javax.swing.JLabel();
+        lblTelefonoEmergencia = new javax.swing.JLabel();
+        txtTelefonoEmergencia = new javax.swing.JTextField();
+        cmbCodigoPaisEmergencia = new javax.swing.JComboBox<>();
+        lblCelularEmergencia = new javax.swing.JLabel();
+        txtCiudadEstadoPaisEmergencia = new javax.swing.JTextField();
+        txtCelularEmergencia = new javax.swing.JTextField();
+        lblDomicilioEmergencia = new javax.swing.JLabel();
+        lblParentescoEmergencia = new javax.swing.JLabel();
+        txtDomicilioEmergencia = new javax.swing.JTextField();
+        cmbParentescoEmergencia = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        jLabel1.setText("Datos de contacto en caso de emergencia");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        lblTituloEmergencia.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblTituloEmergencia.setText("Datos de contacto en caso de emergencia");
+        jPanel1.add(lblTituloEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreTutor.setText("Nombre completo:");
-        jPanel1.add(lblNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        lblNombreEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblNombreEmergencia.setText("Nombre completo:");
+        jPanel1.add(lblNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
-        lblEmailsolicitante.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblEmailsolicitante.setText("Correo:");
-        jPanel1.add(lblEmailsolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
-        jPanel1.add(txtEmailSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 380, 30));
+        lblCorreoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCorreoEmergencia.setText("Correo:");
+        jPanel1.add(lblCorreoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+        jPanel1.add(txtCorreoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 380, 30));
 
-        txtNombreTutor.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreEmergencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreTutorActionPerformed(evt);
+                txtNombreEmergenciaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 410, 30));
+        jPanel1.add(txtNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 410, 30));
 
-        lblCiudadSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCiudadSoli.setText("Ciudad, Estado y País de residencia:");
-        jPanel1.add(lblCiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
+        lblCiudadEstadoPaisEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCiudadEstadoPaisEmergencia.setText("Ciudad, Estado y País de residencia:");
+        jPanel1.add(lblCiudadEstadoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
 
-        lblTelefonoSOli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblTelefonoSOli.setText("Telefono:");
-        jPanel1.add(lblTelefonoSOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
-        jPanel1.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
+        lblTelefonoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblTelefonoEmergencia.setText("Telefono:");
+        jPanel1.add(lblTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+        jPanel1.add(txtTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
 
-        txtExtensionCelularSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        jPanel1.add(txtExtensionCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
+        cmbCodigoPaisEmergencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
+        jPanel1.add(cmbCodigoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
 
-        lblCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCelularSoli.setText("Celular:");
-        jPanel1.add(lblCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        jPanel1.add(txtXiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 300, 30));
+        lblCelularEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCelularEmergencia.setText("Celular:");
+        jPanel1.add(lblCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jPanel1.add(txtCiudadEstadoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 300, 30));
 
-        txtCelularSoli.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtCelularEmergencia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCelularSoliFocusLost(evt);
+                txtCelularEmergenciaFocusLost(evt);
             }
         });
-        jPanel1.add(txtCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 180, 30));
+        jPanel1.add(txtCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 180, 30));
 
-        lblDomsoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblDomsoli.setText("Domicilio:");
-        jPanel1.add(lblDomsoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        lblDomicilioEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDomicilioEmergencia.setText("Domicilio:");
+        jPanel1.add(lblDomicilioEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        lblParentesco.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblParentesco.setText("Parentesco:");
-        jPanel1.add(lblParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
+        lblParentescoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblParentescoEmergencia.setText("Parentesco:");
+        jPanel1.add(lblParentescoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
 
-        txtDomicilioSoli.addActionListener(new java.awt.event.ActionListener() {
+        txtDomicilioEmergencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDomicilioSoliActionPerformed(evt);
+                txtDomicilioEmergenciaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDomicilioSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
+        jPanel1.add(txtDomicilioEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
 
-        cmbxParentescoEmerg.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cmbxParentescoEmerg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
-        jPanel1.add(cmbxParentescoEmerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, -1, 30));
+        cmbParentescoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cmbParentescoEmergencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
+        jPanel1.add(cmbParentescoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,38 +122,38 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTutorActionPerformed
+    private void txtNombreEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmergenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreTutorActionPerformed
+    }//GEN-LAST:event_txtNombreEmergenciaActionPerformed
 
-    private void txtCelularSoliFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularSoliFocusLost
+    private void txtCelularEmergenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularEmergenciaFocusLost
         //        if (!txtCelularSoli.getText().trim().isEmpty()) {
             //            mostrarSeccion(JpnlDatosTutor);
             //        }
-    }//GEN-LAST:event_txtCelularSoliFocusLost
+    }//GEN-LAST:event_txtCelularEmergenciaFocusLost
 
-    private void txtDomicilioSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioSoliActionPerformed
+    private void txtDomicilioEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioEmergenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDomicilioSoliActionPerformed
+    }//GEN-LAST:event_txtDomicilioEmergenciaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbxParentescoEmerg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> cmbCodigoPaisEmergencia;
+    private javax.swing.JComboBox<String> cmbParentescoEmergencia;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCelularSoli;
-    private javax.swing.JLabel lblCiudadSoli;
-    private javax.swing.JLabel lblDomsoli;
-    private javax.swing.JLabel lblEmailsolicitante;
-    private javax.swing.JLabel lblNombreTutor;
-    private javax.swing.JLabel lblParentesco;
-    private javax.swing.JLabel lblTelefonoSOli;
-    private javax.swing.JTextField txtCelularSoli;
-    private javax.swing.JTextField txtDomicilioSoli;
-    private javax.swing.JTextField txtEmailSoli;
-    private javax.swing.JComboBox<String> txtExtensionCelularSoli;
-    private javax.swing.JTextField txtNombreTutor;
-    private javax.swing.JTextField txtTelefonoSoli;
-    private javax.swing.JTextField txtXiudadSoli;
+    private javax.swing.JLabel lblCelularEmergencia;
+    private javax.swing.JLabel lblCiudadEstadoPaisEmergencia;
+    private javax.swing.JLabel lblCorreoEmergencia;
+    private javax.swing.JLabel lblDomicilioEmergencia;
+    private javax.swing.JLabel lblNombreEmergencia;
+    private javax.swing.JLabel lblParentescoEmergencia;
+    private javax.swing.JLabel lblTelefonoEmergencia;
+    private javax.swing.JLabel lblTituloEmergencia;
+    private javax.swing.JTextField txtCelularEmergencia;
+    private javax.swing.JTextField txtCiudadEstadoPaisEmergencia;
+    private javax.swing.JTextField txtCorreoEmergencia;
+    private javax.swing.JTextField txtDomicilioEmergencia;
+    private javax.swing.JTextField txtNombreEmergencia;
+    private javax.swing.JTextField txtTelefonoEmergencia;
     // End of variables declaration//GEN-END:variables
 }

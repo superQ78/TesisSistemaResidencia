@@ -27,34 +27,34 @@ public class pnlDatosTutor extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblEmailsolicitante = new javax.swing.JLabel();
-        txtEmailSoli = new javax.swing.JTextField();
+        lblTituloTutor = new javax.swing.JLabel();
+        lblCorreoTutor = new javax.swing.JLabel();
+        txtCorreoTutor = new javax.swing.JTextField();
         txtNombreTutor = new javax.swing.JTextField();
-        lblCiudadSoli = new javax.swing.JLabel();
-        lblTelefonoSOli = new javax.swing.JLabel();
-        txtTelefonoSoli = new javax.swing.JTextField();
-        txtExtensionCelularSoli = new javax.swing.JComboBox<>();
-        lblCelularSoli = new javax.swing.JLabel();
-        txtXiudadSoli = new javax.swing.JTextField();
-        txtCelularSoli = new javax.swing.JTextField();
-        lblDomsoli = new javax.swing.JLabel();
-        txtDomicilioSoli = new javax.swing.JTextField();
-        lblParentesco = new javax.swing.JLabel();
-        cmbxParentescoEmerg = new javax.swing.JComboBox<>();
+        lblCiudadEstadoPaisTutor = new javax.swing.JLabel();
+        lblTelefonoTutor = new javax.swing.JLabel();
+        txtTelefonoTutor = new javax.swing.JTextField();
+        cmbCodigoPaisTutor = new javax.swing.JComboBox<>();
+        lblCelularTutor = new javax.swing.JLabel();
+        txtCiudadEstadoPaisTutor = new javax.swing.JTextField();
+        txtCelularTutor = new javax.swing.JTextField();
+        lblDomicilioTutor = new javax.swing.JLabel();
+        txtDomicilioTutor = new javax.swing.JTextField();
+        lblParentescoTutor = new javax.swing.JLabel();
+        cmbParentescoTutor = new javax.swing.JComboBox<>();
         lblNombreTutor = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        jLabel1.setText("Datos del Tutor");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+        lblTituloTutor.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblTituloTutor.setText("Datos del Tutor");
+        jPanel1.add(lblTituloTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
-        lblEmailsolicitante.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblEmailsolicitante.setText("Correo:");
-        jPanel1.add(lblEmailsolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
-        jPanel1.add(txtEmailSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 380, 30));
+        lblCorreoTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCorreoTutor.setText("Correo:");
+        jPanel1.add(lblCorreoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+        jPanel1.add(txtCorreoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 380, 30));
 
         txtNombreTutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,49 +63,49 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         });
         jPanel1.add(txtNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 400, 30));
 
-        lblCiudadSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCiudadSoli.setText("Ciudad, Estado y País de residencia:");
-        jPanel1.add(lblCiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
+        lblCiudadEstadoPaisTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCiudadEstadoPaisTutor.setText("Ciudad, Estado y País de residencia:");
+        jPanel1.add(lblCiudadEstadoPaisTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
 
-        lblTelefonoSOli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblTelefonoSOli.setText("Telefono:");
-        jPanel1.add(lblTelefonoSOli, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
-        jPanel1.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
+        lblTelefonoTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblTelefonoTutor.setText("Telefono:");
+        jPanel1.add(lblTelefonoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
+        jPanel1.add(txtTelefonoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
 
-        txtExtensionCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtExtensionCelularSoli.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        jPanel1.add(txtExtensionCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
+        cmbCodigoPaisTutor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cmbCodigoPaisTutor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
+        jPanel1.add(cmbCodigoPaisTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
 
-        lblCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCelularSoli.setText("Celular:");
-        jPanel1.add(lblCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        jPanel1.add(txtXiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 300, 30));
+        lblCelularTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCelularTutor.setText("Celular:");
+        jPanel1.add(lblCelularTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jPanel1.add(txtCiudadEstadoPaisTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 300, 30));
 
-        txtCelularSoli.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtCelularTutor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCelularSoliFocusLost(evt);
+                txtCelularTutorFocusLost(evt);
             }
         });
-        jPanel1.add(txtCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 180, 30));
+        jPanel1.add(txtCelularTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 180, 30));
 
-        lblDomsoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblDomsoli.setText("Domicilio:");
-        jPanel1.add(lblDomsoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        lblDomicilioTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDomicilioTutor.setText("Domicilio:");
+        jPanel1.add(lblDomicilioTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        txtDomicilioSoli.addActionListener(new java.awt.event.ActionListener() {
+        txtDomicilioTutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDomicilioSoliActionPerformed(evt);
+                txtDomicilioTutorActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDomicilioSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
+        jPanel1.add(txtDomicilioTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
 
-        lblParentesco.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblParentesco.setText("Parentesco:");
-        jPanel1.add(lblParentesco, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
+        lblParentescoTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblParentescoTutor.setText("Parentesco:");
+        jPanel1.add(lblParentescoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
 
-        cmbxParentescoEmerg.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cmbxParentescoEmerg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
-        jPanel1.add(cmbxParentescoEmerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 30));
+        cmbParentescoTutor.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cmbParentescoTutor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
+        jPanel1.add(cmbParentescoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, 30));
 
         lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblNombreTutor.setText("Nombre completo:");
@@ -127,34 +127,34 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreTutorActionPerformed
 
-    private void txtCelularSoliFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularSoliFocusLost
+    private void txtCelularTutorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularTutorFocusLost
         //        if (!txtCelularSoli.getText().trim().isEmpty()) {
             //            mostrarSeccion(JpnlDatosTutor);
             //        }
-    }//GEN-LAST:event_txtCelularSoliFocusLost
+    }//GEN-LAST:event_txtCelularTutorFocusLost
 
-    private void txtDomicilioSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioSoliActionPerformed
+    private void txtDomicilioTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioTutorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDomicilioSoliActionPerformed
+    }//GEN-LAST:event_txtDomicilioTutorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbxParentescoEmerg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> cmbCodigoPaisTutor;
+    private javax.swing.JComboBox<String> cmbParentescoTutor;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCelularSoli;
-    private javax.swing.JLabel lblCiudadSoli;
-    private javax.swing.JLabel lblDomsoli;
-    private javax.swing.JLabel lblEmailsolicitante;
+    private javax.swing.JLabel lblCelularTutor;
+    private javax.swing.JLabel lblCiudadEstadoPaisTutor;
+    private javax.swing.JLabel lblCorreoTutor;
+    private javax.swing.JLabel lblDomicilioTutor;
     private javax.swing.JLabel lblNombreTutor;
-    private javax.swing.JLabel lblParentesco;
-    private javax.swing.JLabel lblTelefonoSOli;
-    private javax.swing.JTextField txtCelularSoli;
-    private javax.swing.JTextField txtDomicilioSoli;
-    private javax.swing.JTextField txtEmailSoli;
-    private javax.swing.JComboBox<String> txtExtensionCelularSoli;
+    private javax.swing.JLabel lblParentescoTutor;
+    private javax.swing.JLabel lblTelefonoTutor;
+    private javax.swing.JLabel lblTituloTutor;
+    private javax.swing.JTextField txtCelularTutor;
+    private javax.swing.JTextField txtCiudadEstadoPaisTutor;
+    private javax.swing.JTextField txtCorreoTutor;
+    private javax.swing.JTextField txtDomicilioTutor;
     private javax.swing.JTextField txtNombreTutor;
-    private javax.swing.JTextField txtTelefonoSoli;
-    private javax.swing.JTextField txtXiudadSoli;
+    private javax.swing.JTextField txtTelefonoTutor;
     // End of variables declaration//GEN-END:variables
 }

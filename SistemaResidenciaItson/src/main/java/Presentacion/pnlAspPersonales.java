@@ -28,290 +28,290 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblapdc1 = new javax.swing.JLabel();
-        chbxSiApdc1 = new javax.swing.JCheckBox();
-        chbxNoApdc1 = new javax.swing.JCheckBox();
-        txtRespuestaApdc2 = new javax.swing.JTextField();
-        lblapdc2 = new javax.swing.JLabel();
-        lblapdc3 = new javax.swing.JLabel();
-        chbxApdcTuya3 = new javax.swing.JCheckBox();
-        chbxApdcTusPadres3 = new javax.swing.JCheckBox();
-        chbxApdcAmbos3 = new javax.swing.JCheckBox();
-        lblapdc3_3 = new javax.swing.JLabel();
-        lblapdc4 = new javax.swing.JLabel();
-        lblapdc4_4 = new javax.swing.JLabel();
-        lblapdc5 = new javax.swing.JLabel();
+        lblVividoFuera = new javax.swing.JLabel();
+        chkVividoFueraSi = new javax.swing.JCheckBox();
+        chkVividoFueraNo = new javax.swing.JCheckBox();
+        txtTiempoVividoFuera = new javax.swing.JTextField();
+        lblTiempoVividoFuera = new javax.swing.JLabel();
+        lblDecisionResidencia = new javax.swing.JLabel();
+        chkDecisionTuya = new javax.swing.JCheckBox();
+        chkDecisionPadres = new javax.swing.JCheckBox();
+        chkDecisionAmbos = new javax.swing.JCheckBox();
+        lblDecisionResidencia2 = new javax.swing.JLabel();
+        lblRazonesVivir = new javax.swing.JLabel();
+        lblRazonesVivir2 = new javax.swing.JLabel();
+        lblAdaptacion = new javax.swing.JLabel();
         txtRespuestaApdc4 = new javax.swing.JTextField();
-        chbxApdcDificilmente5 = new javax.swing.JCheckBox();
-        chbxApdcRegularmente5 = new javax.swing.JCheckBox();
-        chbxApdcFacilmente5 = new javax.swing.JCheckBox();
-        chbxApdcPersuadir6 = new javax.swing.JCheckBox();
-        chbxApdcNegociar6 = new javax.swing.JCheckBox();
-        chbxApdcCeder6 = new javax.swing.JCheckBox();
-        lblapdc6 = new javax.swing.JLabel();
-        lblapdc7 = new javax.swing.JLabel();
-        txtRespuestaApdc7 = new javax.swing.JTextField();
-        lblapdc7_7 = new javax.swing.JLabel();
-        lblapdc8 = new javax.swing.JLabel();
-        chbxApdcExtranjero8 = new javax.swing.JCheckBox();
-        chbxApdcMexicano8 = new javax.swing.JCheckBox();
-        chbxApdcReingrenso8 = new javax.swing.JCheckBox();
-        lblapdc9 = new javax.swing.JLabel();
-        cmbxApdcHora9 = new javax.swing.JComboBox<>();
-        lblapdc10 = new javax.swing.JLabel();
-        lblapdc11 = new javax.swing.JLabel();
-        lblapdc12 = new javax.swing.JLabel();
-        lblapdc13 = new javax.swing.JLabel();
-        chbxApdcAuto13 = new javax.swing.JCheckBox();
-        chbxApdcCompu13 = new javax.swing.JCheckBox();
-        chbxApdcSi10 = new javax.swing.JCheckBox();
-        chbxApdcNo10 = new javax.swing.JCheckBox();
-        chbxApdcPoco11 = new javax.swing.JCheckBox();
-        chbxApdcPoco12 = new javax.swing.JCheckBox();
-        chbxApdcRegular11 = new javax.swing.JCheckBox();
-        chbxApdcRegulares12 = new javax.swing.JCheckBox();
-        chbxApdcMuyImportante11 = new javax.swing.JCheckBox();
-        chbxApdcMuyEstrictos12 = new javax.swing.JCheckBox();
-        chbxApdcTV13 = new javax.swing.JCheckBox();
-        chbxApdcFrigobr13 = new javax.swing.JCheckBox();
-        lblapdc14 = new javax.swing.JLabel();
-        chbxApdcSi14 = new javax.swing.JCheckBox();
-        chbxApdcNo14 = new javax.swing.JCheckBox();
-        chbxApdcAlgunasVeces14 = new javax.swing.JCheckBox();
-        lblapdc15 = new javax.swing.JLabel();
-        lblapdc16 = new javax.swing.JLabel();
-        lblapdc17 = new javax.swing.JLabel();
-        lblapdc18 = new javax.swing.JLabel();
-        lblapdc17_17 = new javax.swing.JLabel();
-        cmbxApdcGrupo16 = new javax.swing.JComboBox<>();
-        chbxApdcSi15 = new javax.swing.JCheckBox();
-        chbxApdcNo15 = new javax.swing.JCheckBox();
-        txtApdcActividades17 = new javax.swing.JTextField();
-        chbxApdcDeportivas18 = new javax.swing.JCheckBox();
-        chbxApdcCulturales18 = new javax.swing.JCheckBox();
-        chbxApdcArtisticas18 = new javax.swing.JCheckBox();
-        cmbxApdcAspecto19 = new javax.swing.JComboBox<>();
-        txtApdcInfoResi20 = new javax.swing.JTextField();
-        lblapdc20 = new javax.swing.JLabel();
-        lblapdc19 = new javax.swing.JLabel();
-        lblapdc19_19 = new javax.swing.JLabel();
+        chkAdaptacionDificil = new javax.swing.JCheckBox();
+        chkAdaptacionRegular = new javax.swing.JCheckBox();
+        chkAdaptacionFacil = new javax.swing.JCheckBox();
+        chkConvivenciaPersuadir = new javax.swing.JCheckBox();
+        chkConvivenciaNegociar = new javax.swing.JCheckBox();
+        chkConvivenciaCeder = new javax.swing.JCheckBox();
+        lblEstiloConvivencia = new javax.swing.JLabel();
+        lblSituacionesNoDeseadas = new javax.swing.JLabel();
+        txtSituacionesNoDeseadas = new javax.swing.JTextField();
+        lblSituacionesNoDeseadas2 = new javax.swing.JLabel();
+        lblCaracteristicasCompanero = new javax.swing.JLabel();
+        chkCompaneroExtranjero = new javax.swing.JCheckBox();
+        chkCompaneroMexicano = new javax.swing.JCheckBox();
+        chkCompaneroReingreso = new javax.swing.JCheckBox();
+        lblHoraDormir = new javax.swing.JLabel();
+        cmbxHoraDormir = new javax.swing.JComboBox<>();
+        lblToleraRuido = new javax.swing.JLabel();
+        lblImportanciaOrden = new javax.swing.JLabel();
+        lblHabitosHigiene = new javax.swing.JLabel();
+        lblObjetosTraer = new javax.swing.JLabel();
+        chkObjetoAuto = new javax.swing.JCheckBox();
+        chkObjetoComputadora = new javax.swing.JCheckBox();
+        chkToleraRuidoSi = new javax.swing.JCheckBox();
+        chkToleraRuidoNo = new javax.swing.JCheckBox();
+        chkOrdenPoco = new javax.swing.JCheckBox();
+        chkHigienePoco = new javax.swing.JCheckBox();
+        chkOrdenRegular = new javax.swing.JCheckBox();
+        chkHigieneRegular = new javax.swing.JCheckBox();
+        chkOrdenMucho = new javax.swing.JCheckBox();
+        chkHigieneEstricto = new javax.swing.JCheckBox();
+        chkObjetoTV = new javax.swing.JCheckBox();
+        chkObjetoFrigobar = new javax.swing.JCheckBox();
+        lblActividadesIniciativa = new javax.swing.JLabel();
+        chkIniciativaSi = new javax.swing.JCheckBox();
+        chkIniciativaNo = new javax.swing.JCheckBox();
+        chkIniciativaAveses = new javax.swing.JCheckBox();
+        lblParticipacionGrupo = new javax.swing.JLabel();
+        lblTipoGrupo = new javax.swing.JLabel();
+        lblActividadesRealizadas = new javax.swing.JLabel();
+        lblActividadesDeseadas = new javax.swing.JLabel();
+        lblActividadesRealizad2as = new javax.swing.JLabel();
+        cmbxTipoGrupo = new javax.swing.JComboBox<>();
+        chkGrupoSi = new javax.swing.JCheckBox();
+        chkGrupoNo = new javax.swing.JCheckBox();
+        txtActividadesRealizadas = new javax.swing.JTextField();
+        chkDeseaDeportivas = new javax.swing.JCheckBox();
+        chkDeseaCulturales = new javax.swing.JCheckBox();
+        chkDeseaArtisticas = new javax.swing.JCheckBox();
+        cmbxAspectosMejora = new javax.swing.JComboBox<>();
+        txaOtraInformacion = new javax.swing.JTextField();
+        lblOtraInformacion = new javax.swing.JLabel();
+        lblAspectosMejora = new javax.swing.JLabel();
+        lblAspectosMejora2 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         jLabel1.setText("Datos de aspectos personales y de convivencia");
 
-        lblapdc1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc1.setText("¿Has vivido fuera de tu casa anteriormente?");
+        lblVividoFuera.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblVividoFuera.setText("¿Has vivido fuera de tu casa anteriormente?");
 
-        chbxSiApdc1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxSiApdc1.setText("SI");
+        chkVividoFueraSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkVividoFueraSi.setText("SI");
 
-        chbxNoApdc1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxNoApdc1.setText("NO");
+        chkVividoFueraNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkVividoFueraNo.setText("NO");
 
-        lblapdc2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc2.setText("Si tu respuesta es sí, ¿por cuánto tiempo?");
+        lblTiempoVividoFuera.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblTiempoVividoFuera.setText("Si tu respuesta es sí, ¿por cuánto tiempo?");
 
-        lblapdc3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc3.setText("La decisión de vivir en Residencias ");
+        lblDecisionResidencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDecisionResidencia.setText("La decisión de vivir en Residencias ");
 
-        chbxApdcTuya3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcTuya3.setText("Tuya");
+        chkDecisionTuya.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDecisionTuya.setText("Tuya");
 
-        chbxApdcTusPadres3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcTusPadres3.setText("Tus Padres");
+        chkDecisionPadres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDecisionPadres.setText("Tus Padres");
 
-        chbxApdcAmbos3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcAmbos3.setText("Ambos");
+        chkDecisionAmbos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDecisionAmbos.setText("Ambos");
 
-        lblapdc3_3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc3_3.setText("estudiantiles es principalmente:");
+        lblDecisionResidencia2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblDecisionResidencia2.setText("estudiantiles es principalmente:");
 
-        lblapdc4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc4.setText("Razones principales por las que solicitas");
+        lblRazonesVivir.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblRazonesVivir.setText("Razones principales por las que solicitas");
 
-        lblapdc4_4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc4_4.setText(" vivir en la residencia");
+        lblRazonesVivir2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblRazonesVivir2.setText(" vivir en la residencia");
 
-        lblapdc5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc5.setText("Adaptación a nuevas situaciones de convivencia:");
+        lblAdaptacion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblAdaptacion.setText("Adaptación a nuevas situaciones de convivencia:");
 
-        chbxApdcDificilmente5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcDificilmente5.setText("Dificilmente");
-        chbxApdcDificilmente5.addActionListener(new java.awt.event.ActionListener() {
+        chkAdaptacionDificil.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAdaptacionDificil.setText("Dificilmente");
+        chkAdaptacionDificil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbxApdcDificilmente5ActionPerformed(evt);
+                chkAdaptacionDificilActionPerformed(evt);
             }
         });
 
-        chbxApdcRegularmente5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcRegularmente5.setText("Regularmente");
+        chkAdaptacionRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAdaptacionRegular.setText("Regularmente");
 
-        chbxApdcFacilmente5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcFacilmente5.setText("Facilmente");
+        chkAdaptacionFacil.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAdaptacionFacil.setText("Facilmente");
 
-        chbxApdcPersuadir6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcPersuadir6.setText("Persuadir");
+        chkConvivenciaPersuadir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkConvivenciaPersuadir.setText("Persuadir");
 
-        chbxApdcNegociar6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcNegociar6.setText("Negociar");
+        chkConvivenciaNegociar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkConvivenciaNegociar.setText("Negociar");
 
-        chbxApdcCeder6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcCeder6.setText("Ceder");
-        chbxApdcCeder6.addActionListener(new java.awt.event.ActionListener() {
+        chkConvivenciaCeder.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkConvivenciaCeder.setText("Ceder");
+        chkConvivenciaCeder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbxApdcCeder6ActionPerformed(evt);
+                chkConvivenciaCederActionPerformed(evt);
             }
         });
 
-        lblapdc6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc6.setText("En la convivencia con otros, generalmente  prefieres:");
+        lblEstiloConvivencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblEstiloConvivencia.setText("En la convivencia con otros, generalmente  prefieres:");
 
-        lblapdc7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc7.setText("Cosas o situaciones que NO te gustaría ");
+        lblSituacionesNoDeseadas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblSituacionesNoDeseadas.setText("Cosas o situaciones que NO te gustaría ");
 
-        lblapdc7_7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc7_7.setText("vivir durante la convivencia:");
+        lblSituacionesNoDeseadas2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblSituacionesNoDeseadas2.setText("vivir durante la convivencia:");
 
-        lblapdc8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc8.setText("Características deseadas en el compañero de habitación:");
+        lblCaracteristicasCompanero.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblCaracteristicasCompanero.setText("Características deseadas en el compañero de habitación:");
 
-        chbxApdcExtranjero8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcExtranjero8.setText("Extranjero");
-        chbxApdcExtranjero8.addActionListener(new java.awt.event.ActionListener() {
+        chkCompaneroExtranjero.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkCompaneroExtranjero.setText("Extranjero");
+        chkCompaneroExtranjero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbxApdcExtranjero8ActionPerformed(evt);
+                chkCompaneroExtranjeroActionPerformed(evt);
             }
         });
 
-        chbxApdcMexicano8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcMexicano8.setText("Méxicano");
+        chkCompaneroMexicano.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkCompaneroMexicano.setText("Méxicano");
 
-        chbxApdcReingrenso8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcReingrenso8.setText("Reingreso");
+        chkCompaneroReingreso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkCompaneroReingreso.setText("Reingreso");
 
-        lblapdc9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc9.setText("Hora en que acostumbras dormirte:");
+        lblHoraDormir.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblHoraDormir.setText("Hora en que acostumbras dormirte:");
 
-        cmbxApdcHora9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmbxApdcHora9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una hora", "9:00pm", "10:00pm", "11:00pm", "12:00am", "1:00am" }));
+        cmbxHoraDormir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxHoraDormir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una hora", "9:00pm", "10:00pm", "11:00pm", "12:00am", "1:00am" }));
 
-        lblapdc10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc10.setText("¿Toleras cierto ruido al estudiar?");
+        lblToleraRuido.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblToleraRuido.setText("¿Toleras cierto ruido al estudiar?");
 
-        lblapdc11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc11.setText("Nivel de importancia del orden:");
+        lblImportanciaOrden.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblImportanciaOrden.setText("Nivel de importancia del orden:");
 
-        lblapdc12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc12.setText("Hábitos de higiene:");
+        lblHabitosHigiene.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblHabitosHigiene.setText("Hábitos de higiene:");
 
-        lblapdc13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc13.setText("Objetos que traerás:");
+        lblObjetosTraer.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblObjetosTraer.setText("Objetos que traerás:");
 
-        chbxApdcAuto13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcAuto13.setText("Auto");
-        chbxApdcAuto13.addActionListener(new java.awt.event.ActionListener() {
+        chkObjetoAuto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkObjetoAuto.setText("Auto");
+        chkObjetoAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbxApdcAuto13ActionPerformed(evt);
+                chkObjetoAutoActionPerformed(evt);
             }
         });
 
-        chbxApdcCompu13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcCompu13.setText("Computadora");
+        chkObjetoComputadora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkObjetoComputadora.setText("Computadora");
 
-        chbxApdcSi10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcSi10.setText("SI");
+        chkToleraRuidoSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkToleraRuidoSi.setText("SI");
 
-        chbxApdcNo10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcNo10.setText("NO");
+        chkToleraRuidoNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkToleraRuidoNo.setText("NO");
 
-        chbxApdcPoco11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcPoco11.setText("Poco");
+        chkOrdenPoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkOrdenPoco.setText("Poco");
 
-        chbxApdcPoco12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcPoco12.setText("Poco");
+        chkHigienePoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkHigienePoco.setText("Poco");
 
-        chbxApdcRegular11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcRegular11.setText("Regular");
+        chkOrdenRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkOrdenRegular.setText("Regular");
 
-        chbxApdcRegulares12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcRegulares12.setText("Regulares");
+        chkHigieneRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkHigieneRegular.setText("Regulares");
 
-        chbxApdcMuyImportante11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcMuyImportante11.setText("Muy importante");
+        chkOrdenMucho.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkOrdenMucho.setText("Muy importante");
 
-        chbxApdcMuyEstrictos12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcMuyEstrictos12.setText("Muy estrictos");
+        chkHigieneEstricto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkHigieneEstricto.setText("Muy estrictos");
 
-        chbxApdcTV13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcTV13.setText("TV");
+        chkObjetoTV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkObjetoTV.setText("TV");
 
-        chbxApdcFrigobr13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcFrigobr13.setText("Frigobar");
+        chkObjetoFrigobar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkObjetoFrigobar.setText("Frigobar");
 
-        lblapdc14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc14.setText("¿Participas en actividades por iniciativa propia?");
+        lblActividadesIniciativa.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblActividadesIniciativa.setText("¿Participas en actividades por iniciativa propia?");
 
-        chbxApdcSi14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcSi14.setText("SI");
+        chkIniciativaSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkIniciativaSi.setText("SI");
 
-        chbxApdcNo14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcNo14.setText("NO");
+        chkIniciativaNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkIniciativaNo.setText("NO");
 
-        chbxApdcAlgunasVeces14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcAlgunasVeces14.setText("Algunas veces");
+        chkIniciativaAveses.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkIniciativaAveses.setText("Algunas veces");
 
-        lblapdc15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc15.setText("¿Has participado en algún grupo, club o equipo?");
+        lblParticipacionGrupo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblParticipacionGrupo.setText("¿Has participado en algún grupo, club o equipo?");
 
-        lblapdc16.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc16.setText("Tipo de grupo:");
+        lblTipoGrupo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblTipoGrupo.setText("Tipo de grupo:");
 
-        lblapdc17.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc17.setText("Actividades realizadas relacionadas con la ");
+        lblActividadesRealizadas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblActividadesRealizadas.setText("Actividades realizadas relacionadas con la ");
 
-        lblapdc18.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc18.setText("Actividades que te gustaría realizar en Residencias:");
+        lblActividadesDeseadas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblActividadesDeseadas.setText("Actividades que te gustaría realizar en Residencias:");
 
-        lblapdc17_17.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc17_17.setText("pregunta anterior:");
+        lblActividadesRealizad2as.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblActividadesRealizad2as.setText("pregunta anterior:");
 
-        cmbxApdcGrupo16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmbxApdcGrupo16.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de grupo", "Deportivo", "Cultural", "Religioso" }));
+        cmbxTipoGrupo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxTipoGrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de grupo", "Deportivo", "Cultural", "Religioso" }));
 
-        chbxApdcSi15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcSi15.setText("SI");
+        chkGrupoSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkGrupoSi.setText("SI");
 
-        chbxApdcNo15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcNo15.setText("NO");
+        chkGrupoNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkGrupoNo.setText("NO");
 
-        chbxApdcDeportivas18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcDeportivas18.setText("Deportivas");
+        chkDeseaDeportivas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDeseaDeportivas.setText("Deportivas");
 
-        chbxApdcCulturales18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcCulturales18.setText("Culturales");
+        chkDeseaCulturales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDeseaCulturales.setText("Culturales");
 
-        chbxApdcArtisticas18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        chbxApdcArtisticas18.setText("Artisticas");
+        chkDeseaArtisticas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDeseaArtisticas.setText("Artisticas");
 
-        cmbxApdcAspecto19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmbxApdcAspecto19.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un aspecto", "Comunicación", "Habilidades blancas", "Compañerismo", "Autoevaluación" }));
+        cmbxAspectosMejora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxAspectosMejora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un aspecto", "Comunicación", "Habilidades blancas", "Compañerismo", "Autoevaluación" }));
 
-        txtApdcInfoResi20.addFocusListener(new java.awt.event.FocusAdapter() {
+        txaOtraInformacion.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtApdcInfoResi20FocusLost(evt);
+                txaOtraInformacionFocusLost(evt);
             }
         });
 
-        lblapdc20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc20.setText("Otra información importante sobre ti:");
+        lblOtraInformacion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblOtraInformacion.setText("Otra información importante sobre ti:");
 
-        lblapdc19.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc19.setText("Aspectos en los que te gustaría prepararte ");
+        lblAspectosMejora.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblAspectosMejora.setText("Aspectos en los que te gustaría prepararte ");
 
-        lblapdc19_19.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblapdc19_19.setText("mejor o conocer más:");
+        lblAspectosMejora2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblAspectosMejora2.setText("mejor o conocer más:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -325,142 +325,145 @@ public class pnlAspPersonales extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc1)
-                        .addGap(92, 92, 92)
-                        .addComponent(chbxSiApdc1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxNoApdc1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc2)
-                        .addGap(113, 113, 113)
-                        .addComponent(txtRespuestaApdc2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapdc3)
-                            .addComponent(lblapdc3_3))
-                        .addGap(170, 170, 170)
-                        .addComponent(chbxApdcTuya3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcTusPadres3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcAmbos3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblVividoFuera)
+                                .addGap(92, 92, 92)
+                                .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblTiempoVividoFuera)
+                                .addGap(113, 113, 113)
+                                .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDecisionResidencia)
+                                    .addComponent(lblDecisionResidencia2))
+                                .addGap(170, 170, 170)
+                                .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRazonesVivir)
+                                    .addComponent(lblRazonesVivir2))
+                                .addGap(123, 123, 123)
+                                .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblAdaptacion)
+                                .addGap(60, 60, 60)
+                                .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblEstiloConvivencia)
+                                .addGap(64, 64, 64)
+                                .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSituacionesNoDeseadas2)
+                                    .addComponent(lblSituacionesNoDeseadas))
+                                .addGap(126, 126, 126)
+                                .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCaracteristicasCompanero)
+                                .addGap(58, 58, 58)
+                                .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblHoraDormir)
+                                .addGap(162, 162, 162)
+                                .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblImportanciaOrden)
+                                .addGap(190, 190, 190)
+                                .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblHabitosHigiene)
+                                .addGap(299, 299, 299)
+                                .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblObjetosTraer)
+                                .addGap(171, 171, 171)
+                                .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblActividadesIniciativa)
+                                .addGap(62, 62, 62)
+                                .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblParticipacionGrupo)
+                                .addGap(116, 116, 116)
+                                .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblTipoGrupo)
+                                .addGap(349, 349, 349)
+                                .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblActividadesRealizad2as)
+                                    .addComponent(lblActividadesRealizadas))
+                                .addGap(102, 102, 102)
+                                .addComponent(txtActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblActividadesDeseadas)
+                                .addGap(70, 70, 70)
+                                .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAspectosMejora)
+                                    .addComponent(lblAspectosMejora2))
+                                .addGap(98, 98, 98)
+                                .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblOtraInformacion)
+                                .addGap(147, 147, 147)
+                                .addComponent(txaOtraInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(95, 95, 95))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapdc4)
-                            .addComponent(lblapdc4_4))
-                        .addGap(123, 123, 123)
-                        .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc5)
-                        .addGap(60, 60, 60)
-                        .addComponent(chbxApdcDificilmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcRegularmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(chbxApdcFacilmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc6)
-                        .addGap(64, 64, 64)
-                        .addComponent(chbxApdcCeder6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcNegociar6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(chbxApdcPersuadir6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapdc7_7)
-                            .addComponent(lblapdc7))
-                        .addGap(126, 126, 126)
-                        .addComponent(txtRespuestaApdc7, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc8)
-                        .addGap(58, 58, 58)
-                        .addComponent(chbxApdcExtranjero8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcMexicano8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(chbxApdcReingrenso8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc9)
-                        .addGap(162, 162, 162)
-                        .addComponent(cmbxApdcHora9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc10)
+                        .addComponent(lblToleraRuido)
                         .addGap(192, 192, 192)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chbxApdcSi10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
-                                .addComponent(chbxApdcNo10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc11)
-                        .addGap(190, 190, 190)
-                        .addComponent(chbxApdcPoco11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcRegular11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcMuyImportante11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc12)
-                        .addGap(299, 299, 299)
-                        .addComponent(chbxApdcPoco12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcRegulares12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcMuyEstrictos12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc13)
-                        .addGap(171, 171, 171)
-                        .addComponent(chbxApdcAuto13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcCompu13, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcTV13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcFrigobr13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc14)
-                        .addGap(62, 62, 62)
-                        .addComponent(chbxApdcSi14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcNo14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcAlgunasVeces14, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc15)
-                        .addGap(116, 116, 116)
-                        .addComponent(chbxApdcSi15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(chbxApdcNo15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc16)
-                        .addGap(349, 349, 349)
-                        .addComponent(cmbxApdcGrupo16, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapdc17_17)
-                            .addComponent(lblapdc17))
-                        .addGap(102, 102, 102)
-                        .addComponent(txtApdcActividades17, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc18)
-                        .addGap(70, 70, 70)
-                        .addComponent(chbxApdcDeportivas18, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(chbxApdcCulturales18, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(chbxApdcArtisticas18, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblapdc19)
-                            .addComponent(lblapdc19_19))
-                        .addGap(98, 98, 98)
-                        .addComponent(cmbxApdcAspecto19, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc20)
-                        .addGap(147, 147, 147)
-                        .addComponent(txtApdcInfoResi20, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(95, 95, 95))
+                                .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(183, 183, 183))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,132 +472,132 @@ public class pnlAspPersonales extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc1)
-                    .addComponent(chbxSiApdc1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxNoApdc1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVividoFuera)
+                    .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc2)
-                    .addComponent(txtRespuestaApdc2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTiempoVividoFuera)
+                    .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblapdc3)
+                        .addComponent(lblDecisionResidencia)
                         .addGap(3, 3, 3)
-                        .addComponent(lblapdc3_3))
+                        .addComponent(lblDecisionResidencia2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chbxApdcTuya3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chbxApdcTusPadres3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chbxApdcAmbos3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc4)
+                    .addComponent(lblRazonesVivir)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(lblapdc4_4))
+                        .addComponent(lblRazonesVivir2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc5)
-                    .addComponent(chbxApdcDificilmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcRegularmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcFacilmente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAdaptacion)
+                    .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc6)
-                    .addComponent(chbxApdcCeder6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcNegociar6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcPersuadir6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEstiloConvivencia)
+                    .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(lblapdc7_7))
-                    .addComponent(lblapdc7)
+                        .addComponent(lblSituacionesNoDeseadas2))
+                    .addComponent(lblSituacionesNoDeseadas)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(txtRespuestaApdc7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc8)
-                    .addComponent(chbxApdcExtranjero8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcMexicano8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcReingrenso8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCaracteristicasCompanero)
+                    .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc9)
-                    .addComponent(cmbxApdcHora9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblHoraDormir)
+                    .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc10)
-                    .addComponent(chbxApdcSi10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcNo10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblToleraRuido)
+                    .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc11)
-                    .addComponent(chbxApdcPoco11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcRegular11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcMuyImportante11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblImportanciaOrden)
+                    .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc12)
-                    .addComponent(chbxApdcPoco12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcRegulares12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcMuyEstrictos12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblHabitosHigiene)
+                    .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc13)
-                    .addComponent(chbxApdcAuto13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcCompu13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcTV13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcFrigobr13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblObjetosTraer)
+                    .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc14)
-                    .addComponent(chbxApdcSi14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcNo14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcAlgunasVeces14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblActividadesIniciativa)
+                    .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc15)
-                    .addComponent(chbxApdcSi15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcNo15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblParticipacionGrupo)
+                    .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc16)
-                    .addComponent(cmbxApdcGrupo16, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTipoGrupo)
+                    .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(lblapdc17_17))
-                    .addComponent(lblapdc17)
+                        .addComponent(lblActividadesRealizad2as))
+                    .addComponent(lblActividadesRealizadas)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(txtApdcActividades17, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc18)
-                    .addComponent(chbxApdcDeportivas18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcCulturales18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chbxApdcArtisticas18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblActividadesDeseadas)
+                    .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc19)
+                    .addComponent(lblAspectosMejora)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(lblapdc19_19))
+                        .addComponent(lblAspectosMejora2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(cmbxApdcAspecto19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblapdc20)
-                    .addComponent(txtApdcInfoResi20, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblOtraInformacion)
+                    .addComponent(txaOtraInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -612,98 +615,98 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void chbxApdcDificilmente5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbxApdcDificilmente5ActionPerformed
+    private void chkAdaptacionDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAdaptacionDificilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbxApdcDificilmente5ActionPerformed
+    }//GEN-LAST:event_chkAdaptacionDificilActionPerformed
 
-    private void chbxApdcCeder6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbxApdcCeder6ActionPerformed
+    private void chkConvivenciaCederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkConvivenciaCederActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbxApdcCeder6ActionPerformed
+    }//GEN-LAST:event_chkConvivenciaCederActionPerformed
 
-    private void chbxApdcExtranjero8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbxApdcExtranjero8ActionPerformed
+    private void chkCompaneroExtranjeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCompaneroExtranjeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbxApdcExtranjero8ActionPerformed
+    }//GEN-LAST:event_chkCompaneroExtranjeroActionPerformed
 
-    private void chbxApdcAuto13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbxApdcAuto13ActionPerformed
+    private void chkObjetoAutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkObjetoAutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbxApdcAuto13ActionPerformed
+    }//GEN-LAST:event_chkObjetoAutoActionPerformed
 
-    private void txtApdcInfoResi20FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApdcInfoResi20FocusLost
+    private void txaOtraInformacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txaOtraInformacionFocusLost
 //        if (!txtApdcInfoResi20.getText().trim().isEmpty()) {
 //            mostrarSeccion(JpnlAspectosAcademicos);
 //        }
-    }//GEN-LAST:event_txtApdcInfoResi20FocusLost
+    }//GEN-LAST:event_txaOtraInformacionFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox chbxApdcAlgunasVeces14;
-    private javax.swing.JCheckBox chbxApdcAmbos3;
-    private javax.swing.JCheckBox chbxApdcArtisticas18;
-    private javax.swing.JCheckBox chbxApdcAuto13;
-    private javax.swing.JCheckBox chbxApdcCeder6;
-    private javax.swing.JCheckBox chbxApdcCompu13;
-    private javax.swing.JCheckBox chbxApdcCulturales18;
-    private javax.swing.JCheckBox chbxApdcDeportivas18;
-    private javax.swing.JCheckBox chbxApdcDificilmente5;
-    private javax.swing.JCheckBox chbxApdcExtranjero8;
-    private javax.swing.JCheckBox chbxApdcFacilmente5;
-    private javax.swing.JCheckBox chbxApdcFrigobr13;
-    private javax.swing.JCheckBox chbxApdcMexicano8;
-    private javax.swing.JCheckBox chbxApdcMuyEstrictos12;
-    private javax.swing.JCheckBox chbxApdcMuyImportante11;
-    private javax.swing.JCheckBox chbxApdcNegociar6;
-    private javax.swing.JCheckBox chbxApdcNo10;
-    private javax.swing.JCheckBox chbxApdcNo14;
-    private javax.swing.JCheckBox chbxApdcNo15;
-    private javax.swing.JCheckBox chbxApdcPersuadir6;
-    private javax.swing.JCheckBox chbxApdcPoco11;
-    private javax.swing.JCheckBox chbxApdcPoco12;
-    private javax.swing.JCheckBox chbxApdcRegular11;
-    private javax.swing.JCheckBox chbxApdcRegulares12;
-    private javax.swing.JCheckBox chbxApdcRegularmente5;
-    private javax.swing.JCheckBox chbxApdcReingrenso8;
-    private javax.swing.JCheckBox chbxApdcSi10;
-    private javax.swing.JCheckBox chbxApdcSi14;
-    private javax.swing.JCheckBox chbxApdcSi15;
-    private javax.swing.JCheckBox chbxApdcTV13;
-    private javax.swing.JCheckBox chbxApdcTusPadres3;
-    private javax.swing.JCheckBox chbxApdcTuya3;
-    private javax.swing.JCheckBox chbxNoApdc1;
-    private javax.swing.JCheckBox chbxSiApdc1;
-    private javax.swing.JComboBox<String> cmbxApdcAspecto19;
-    private javax.swing.JComboBox<String> cmbxApdcGrupo16;
-    private javax.swing.JComboBox<String> cmbxApdcHora9;
+    private javax.swing.JCheckBox chkAdaptacionDificil;
+    private javax.swing.JCheckBox chkAdaptacionFacil;
+    private javax.swing.JCheckBox chkAdaptacionRegular;
+    private javax.swing.JCheckBox chkCompaneroExtranjero;
+    private javax.swing.JCheckBox chkCompaneroMexicano;
+    private javax.swing.JCheckBox chkCompaneroReingreso;
+    private javax.swing.JCheckBox chkConvivenciaCeder;
+    private javax.swing.JCheckBox chkConvivenciaNegociar;
+    private javax.swing.JCheckBox chkConvivenciaPersuadir;
+    private javax.swing.JCheckBox chkDecisionAmbos;
+    private javax.swing.JCheckBox chkDecisionPadres;
+    private javax.swing.JCheckBox chkDecisionTuya;
+    private javax.swing.JCheckBox chkDeseaArtisticas;
+    private javax.swing.JCheckBox chkDeseaCulturales;
+    private javax.swing.JCheckBox chkDeseaDeportivas;
+    private javax.swing.JCheckBox chkGrupoNo;
+    private javax.swing.JCheckBox chkGrupoSi;
+    private javax.swing.JCheckBox chkHigieneEstricto;
+    private javax.swing.JCheckBox chkHigienePoco;
+    private javax.swing.JCheckBox chkHigieneRegular;
+    private javax.swing.JCheckBox chkIniciativaAveses;
+    private javax.swing.JCheckBox chkIniciativaNo;
+    private javax.swing.JCheckBox chkIniciativaSi;
+    private javax.swing.JCheckBox chkObjetoAuto;
+    private javax.swing.JCheckBox chkObjetoComputadora;
+    private javax.swing.JCheckBox chkObjetoFrigobar;
+    private javax.swing.JCheckBox chkObjetoTV;
+    private javax.swing.JCheckBox chkOrdenMucho;
+    private javax.swing.JCheckBox chkOrdenPoco;
+    private javax.swing.JCheckBox chkOrdenRegular;
+    private javax.swing.JCheckBox chkToleraRuidoNo;
+    private javax.swing.JCheckBox chkToleraRuidoSi;
+    private javax.swing.JCheckBox chkVividoFueraNo;
+    private javax.swing.JCheckBox chkVividoFueraSi;
+    private javax.swing.JComboBox<String> cmbxAspectosMejora;
+    private javax.swing.JComboBox<String> cmbxHoraDormir;
+    private javax.swing.JComboBox<String> cmbxTipoGrupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblapdc1;
-    private javax.swing.JLabel lblapdc10;
-    private javax.swing.JLabel lblapdc11;
-    private javax.swing.JLabel lblapdc12;
-    private javax.swing.JLabel lblapdc13;
-    private javax.swing.JLabel lblapdc14;
-    private javax.swing.JLabel lblapdc15;
-    private javax.swing.JLabel lblapdc16;
-    private javax.swing.JLabel lblapdc17;
-    private javax.swing.JLabel lblapdc17_17;
-    private javax.swing.JLabel lblapdc18;
-    private javax.swing.JLabel lblapdc19;
-    private javax.swing.JLabel lblapdc19_19;
-    private javax.swing.JLabel lblapdc2;
-    private javax.swing.JLabel lblapdc20;
-    private javax.swing.JLabel lblapdc3;
-    private javax.swing.JLabel lblapdc3_3;
-    private javax.swing.JLabel lblapdc4;
-    private javax.swing.JLabel lblapdc4_4;
-    private javax.swing.JLabel lblapdc5;
-    private javax.swing.JLabel lblapdc6;
-    private javax.swing.JLabel lblapdc7;
-    private javax.swing.JLabel lblapdc7_7;
-    private javax.swing.JLabel lblapdc8;
-    private javax.swing.JLabel lblapdc9;
-    private javax.swing.JTextField txtApdcActividades17;
-    private javax.swing.JTextField txtApdcInfoResi20;
-    private javax.swing.JTextField txtRespuestaApdc2;
+    private javax.swing.JLabel lblActividadesDeseadas;
+    private javax.swing.JLabel lblActividadesIniciativa;
+    private javax.swing.JLabel lblActividadesRealizad2as;
+    private javax.swing.JLabel lblActividadesRealizadas;
+    private javax.swing.JLabel lblAdaptacion;
+    private javax.swing.JLabel lblAspectosMejora;
+    private javax.swing.JLabel lblAspectosMejora2;
+    private javax.swing.JLabel lblCaracteristicasCompanero;
+    private javax.swing.JLabel lblDecisionResidencia;
+    private javax.swing.JLabel lblDecisionResidencia2;
+    private javax.swing.JLabel lblEstiloConvivencia;
+    private javax.swing.JLabel lblHabitosHigiene;
+    private javax.swing.JLabel lblHoraDormir;
+    private javax.swing.JLabel lblImportanciaOrden;
+    private javax.swing.JLabel lblObjetosTraer;
+    private javax.swing.JLabel lblOtraInformacion;
+    private javax.swing.JLabel lblParticipacionGrupo;
+    private javax.swing.JLabel lblRazonesVivir;
+    private javax.swing.JLabel lblRazonesVivir2;
+    private javax.swing.JLabel lblSituacionesNoDeseadas;
+    private javax.swing.JLabel lblSituacionesNoDeseadas2;
+    private javax.swing.JLabel lblTiempoVividoFuera;
+    private javax.swing.JLabel lblTipoGrupo;
+    private javax.swing.JLabel lblToleraRuido;
+    private javax.swing.JLabel lblVividoFuera;
+    private javax.swing.JTextField txaOtraInformacion;
+    private javax.swing.JTextField txtActividadesRealizadas;
     private javax.swing.JTextField txtRespuestaApdc4;
-    private javax.swing.JTextField txtRespuestaApdc7;
+    private javax.swing.JTextField txtSituacionesNoDeseadas;
+    private javax.swing.JTextField txtTiempoVividoFuera;
     // End of variables declaration//GEN-END:variables
 }

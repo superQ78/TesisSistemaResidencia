@@ -48,170 +48,175 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
-                          <Component id="chbxSiApdc1" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxNoApdc1" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
-                          <Component id="txtRespuestaApdc2" min="-2" pref="500" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblapdc3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblapdc3_3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="chbxApdcTuya3" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcTusPadres3" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcAmbos3" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblapdc4" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblapdc4_4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="123" pref="123" max="-2" attributes="0"/>
-                          <Component id="txtRespuestaApdc4" min="-2" pref="500" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                          <Component id="chbxApdcDificilmente5" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcRegularmente5" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="chbxApdcFacilmente5" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
-                          <Component id="chbxApdcCeder6" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcNegociar6" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                          <Component id="chbxApdcPersuadir6" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblapdc7_7" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblapdc7" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
-                          <Component id="txtRespuestaApdc7" min="-2" pref="500" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
-                          <Component id="chbxApdcExtranjero8" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcMexicano8" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="chbxApdcReingrenso8" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="162" pref="162" max="-2" attributes="0"/>
-                          <Component id="cmbxApdcHora9" min="-2" pref="330" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="192" pref="192" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chbxApdcSi10" min="-2" pref="100" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-                                  <Component id="chbxApdcNo10" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="lblVividoFuera" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
+                                  <Component id="chkVividoFueraSi" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkVividoFueraNo" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblTiempoVividoFuera" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
+                                  <Component id="txtTiempoVividoFuera" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblDecisionResidencia" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDecisionResidencia2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                                  <Component id="chkDecisionTuya" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkDecisionPadres" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkDecisionAmbos" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblRazonesVivir" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblRazonesVivir2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="123" pref="123" max="-2" attributes="0"/>
+                                  <Component id="txtRespuestaApdc4" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblAdaptacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                                  <Component id="chkAdaptacionDificil" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkAdaptacionRegular" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="chkAdaptacionFacil" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblEstiloConvivencia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
+                                  <Component id="chkConvivenciaCeder" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkConvivenciaNegociar" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                                  <Component id="chkConvivenciaPersuadir" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblSituacionesNoDeseadas2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblSituacionesNoDeseadas" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
+                                  <Component id="txtSituacionesNoDeseadas" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblCaracteristicasCompanero" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
+                                  <Component id="chkCompaneroExtranjero" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkCompaneroMexicano" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="chkCompaneroReingreso" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblHoraDormir" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="162" pref="162" max="-2" attributes="0"/>
+                                  <Component id="cmbxHoraDormir" min="-2" pref="330" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblImportanciaOrden" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
+                                  <Component id="chkOrdenPoco" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkOrdenRegular" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkOrdenMucho" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblHabitosHigiene" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="299" pref="299" max="-2" attributes="0"/>
+                                  <Component id="chkHigienePoco" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkHigieneRegular" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkHigieneEstricto" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblObjetosTraer" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="171" pref="171" max="-2" attributes="0"/>
+                                  <Component id="chkObjetoAuto" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkObjetoComputadora" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkObjetoTV" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkObjetoFrigobar" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblActividadesIniciativa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
+                                  <Component id="chkIniciativaSi" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkIniciativaNo" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkIniciativaAveses" min="-2" pref="180" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblParticipacionGrupo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
+                                  <Component id="chkGrupoSi" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                                  <Component id="chkGrupoNo" min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblTipoGrupo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="349" pref="349" max="-2" attributes="0"/>
+                                  <Component id="cmbxTipoGrupo" min="-2" pref="340" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblActividadesRealizad2as" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
+                                  <Component id="txtActividadesRealizadas" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblActividadesDeseadas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                                  <Component id="chkDeseaDeportivas" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkDeseaCulturales" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                                  <Component id="chkDeseaArtisticas" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblAspectosMejora2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
+                                  <Component id="cmbxAspectosMejora" min="-2" pref="330" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblOtraInformacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="147" pref="147" max="-2" attributes="0"/>
+                                  <Component id="txaOtraInformacion" min="-2" pref="500" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc11" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
-                          <Component id="chbxApdcPoco11" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcRegular11" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcMuyImportante11" min="-2" pref="200" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="299" pref="299" max="-2" attributes="0"/>
-                          <Component id="chbxApdcPoco12" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcRegulares12" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcMuyEstrictos12" min="-2" pref="200" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc13" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="171" pref="171" max="-2" attributes="0"/>
-                          <Component id="chbxApdcAuto13" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcCompu13" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcTV13" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcFrigobr13" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc14" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
-                          <Component id="chbxApdcSi14" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcNo14" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcAlgunasVeces14" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc15" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
-                          <Component id="chbxApdcSi15" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Component id="chbxApdcNo15" min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc16" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="349" pref="349" max="-2" attributes="0"/>
-                          <Component id="cmbxApdcGrupo16" min="-2" pref="340" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblToleraRuido" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="192" pref="192" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblapdc17_17" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblapdc17" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkToleraRuidoSi" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                                  <Component id="chkToleraRuidoNo" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
-                          <Component id="txtApdcActividades17" min="-2" pref="500" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc18" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                          <Component id="chbxApdcDeportivas18" min="-2" pref="140" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="chbxApdcCulturales18" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="chbxApdcArtisticas18" min="-2" pref="140" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblapdc19" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblapdc19_19" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
-                          <Component id="cmbxApdcAspecto19" min="-2" pref="330" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblapdc20" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="147" pref="147" max="-2" attributes="0"/>
-                          <Component id="txtApdcInfoResi20" min="-2" pref="500" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -222,37 +227,37 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc1" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxSiApdc1" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxNoApdc1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblVividoFuera" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkVividoFueraSi" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkVividoFueraNo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc2" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtRespuestaApdc2" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblTiempoVividoFuera" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTiempoVividoFuera" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblapdc3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDecisionResidencia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                          <Component id="lblapdc3_3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDecisionResidencia2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chbxApdcTuya3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="chbxApdcTusPadres3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="chbxApdcAmbos3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="chkDecisionTuya" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="chkDecisionPadres" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="chkDecisionAmbos" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc4" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRazonesVivir" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="lblapdc4_4" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRazonesVivir2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
@@ -261,123 +266,123 @@
                   </Group>
                   <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc5" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcDificilmente5" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcRegularmente5" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcFacilmente5" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblAdaptacion" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkAdaptacionDificil" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkAdaptacionRegular" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkAdaptacionFacil" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc6" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcCeder6" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcNegociar6" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcPersuadir6" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblEstiloConvivencia" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkConvivenciaCeder" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkConvivenciaNegociar" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkConvivenciaPersuadir" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="lblapdc7_7" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSituacionesNoDeseadas2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblapdc7" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSituacionesNoDeseadas" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="txtRespuestaApdc7" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtSituacionesNoDeseadas" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc8" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcExtranjero8" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcMexicano8" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcReingrenso8" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblCaracteristicasCompanero" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkCompaneroExtranjero" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkCompaneroMexicano" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkCompaneroReingreso" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc9" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbxApdcHora9" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblHoraDormir" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbxHoraDormir" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc10" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcSi10" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcNo10" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblToleraRuido" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkToleraRuidoSi" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkToleraRuidoNo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc11" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcPoco11" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcRegular11" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcMuyImportante11" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblImportanciaOrden" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkOrdenPoco" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkOrdenRegular" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkOrdenMucho" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc12" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcPoco12" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcRegulares12" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcMuyEstrictos12" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblHabitosHigiene" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkHigienePoco" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkHigieneRegular" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkHigieneEstricto" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc13" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcAuto13" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcCompu13" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcTV13" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcFrigobr13" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblObjetosTraer" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkObjetoAuto" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkObjetoComputadora" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkObjetoTV" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkObjetoFrigobar" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc14" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcSi14" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcNo14" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcAlgunasVeces14" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblActividadesIniciativa" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkIniciativaSi" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkIniciativaNo" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkIniciativaAveses" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc15" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcSi15" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcNo15" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblParticipacionGrupo" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkGrupoSi" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkGrupoNo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc16" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbxApdcGrupo16" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblTipoGrupo" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbxTipoGrupo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="lblapdc17_17" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblActividadesRealizad2as" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblapdc17" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="txtApdcActividades17" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtActividadesRealizadas" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc18" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbxApdcDeportivas18" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcCulturales18" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="chbxApdcArtisticas18" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblActividadesDeseadas" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkDeseaDeportivas" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkDeseaCulturales" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkDeseaArtisticas" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc19" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                          <Component id="lblapdc19_19" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblAspectosMejora2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="cmbxApdcAspecto19" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cmbxAspectosMejora" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblapdc20" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtApdcInfoResi20" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="lblOtraInformacion" min="-2" max="-2" attributes="0"/>
+                      <Component id="txaOtraInformacion" min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -393,7 +398,7 @@
             <Property name="text" type="java.lang.String" value="Datos de aspectos personales y de convivencia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc1">
+        <Component class="javax.swing.JLabel" name="lblVividoFuera">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -401,7 +406,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Has vivido fuera de tu casa anteriormente?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxSiApdc1">
+        <Component class="javax.swing.JCheckBox" name="chkVividoFueraSi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -409,7 +414,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxNoApdc1">
+        <Component class="javax.swing.JCheckBox" name="chkVividoFueraNo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -417,9 +422,9 @@
             <Property name="text" type="java.lang.String" value="NO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtRespuestaApdc2">
+        <Component class="javax.swing.JTextField" name="txtTiempoVividoFuera">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc2">
+        <Component class="javax.swing.JLabel" name="lblTiempoVividoFuera">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -427,7 +432,7 @@
             <Property name="text" type="java.lang.String" value="Si tu respuesta es s&#xed;, &#xbf;por cu&#xe1;nto tiempo?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc3">
+        <Component class="javax.swing.JLabel" name="lblDecisionResidencia">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -435,7 +440,7 @@
             <Property name="text" type="java.lang.String" value="La decisi&#xf3;n de vivir en Residencias "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcTuya3">
+        <Component class="javax.swing.JCheckBox" name="chkDecisionTuya">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -443,7 +448,7 @@
             <Property name="text" type="java.lang.String" value="Tuya"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcTusPadres3">
+        <Component class="javax.swing.JCheckBox" name="chkDecisionPadres">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -451,7 +456,7 @@
             <Property name="text" type="java.lang.String" value="Tus Padres"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcAmbos3">
+        <Component class="javax.swing.JCheckBox" name="chkDecisionAmbos">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -459,7 +464,7 @@
             <Property name="text" type="java.lang.String" value="Ambos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc3_3">
+        <Component class="javax.swing.JLabel" name="lblDecisionResidencia2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -467,7 +472,7 @@
             <Property name="text" type="java.lang.String" value="estudiantiles es principalmente:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc4">
+        <Component class="javax.swing.JLabel" name="lblRazonesVivir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -475,7 +480,7 @@
             <Property name="text" type="java.lang.String" value="Razones principales por las que solicitas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc4_4">
+        <Component class="javax.swing.JLabel" name="lblRazonesVivir2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -483,7 +488,7 @@
             <Property name="text" type="java.lang.String" value=" vivir en la residencia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc5">
+        <Component class="javax.swing.JLabel" name="lblAdaptacion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -493,7 +498,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtRespuestaApdc4">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcDificilmente5">
+        <Component class="javax.swing.JCheckBox" name="chkAdaptacionDificil">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -501,10 +506,10 @@
             <Property name="text" type="java.lang.String" value="Dificilmente"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chbxApdcDificilmente5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAdaptacionDificilActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcRegularmente5">
+        <Component class="javax.swing.JCheckBox" name="chkAdaptacionRegular">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -512,7 +517,7 @@
             <Property name="text" type="java.lang.String" value="Regularmente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcFacilmente5">
+        <Component class="javax.swing.JCheckBox" name="chkAdaptacionFacil">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -520,7 +525,7 @@
             <Property name="text" type="java.lang.String" value="Facilmente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcPersuadir6">
+        <Component class="javax.swing.JCheckBox" name="chkConvivenciaPersuadir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -528,7 +533,7 @@
             <Property name="text" type="java.lang.String" value="Persuadir"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcNegociar6">
+        <Component class="javax.swing.JCheckBox" name="chkConvivenciaNegociar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -536,7 +541,7 @@
             <Property name="text" type="java.lang.String" value="Negociar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcCeder6">
+        <Component class="javax.swing.JCheckBox" name="chkConvivenciaCeder">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -544,10 +549,10 @@
             <Property name="text" type="java.lang.String" value="Ceder"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chbxApdcCeder6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkConvivenciaCederActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc6">
+        <Component class="javax.swing.JLabel" name="lblEstiloConvivencia">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -555,7 +560,7 @@
             <Property name="text" type="java.lang.String" value="En la convivencia con otros, generalmente  prefieres:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc7">
+        <Component class="javax.swing.JLabel" name="lblSituacionesNoDeseadas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -563,9 +568,9 @@
             <Property name="text" type="java.lang.String" value="Cosas o situaciones que NO te gustar&#xed;a "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtRespuestaApdc7">
+        <Component class="javax.swing.JTextField" name="txtSituacionesNoDeseadas">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc7_7">
+        <Component class="javax.swing.JLabel" name="lblSituacionesNoDeseadas2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -573,7 +578,7 @@
             <Property name="text" type="java.lang.String" value="vivir durante la convivencia:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc8">
+        <Component class="javax.swing.JLabel" name="lblCaracteristicasCompanero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -581,7 +586,7 @@
             <Property name="text" type="java.lang.String" value="Caracter&#xed;sticas deseadas en el compa&#xf1;ero de habitaci&#xf3;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcExtranjero8">
+        <Component class="javax.swing.JCheckBox" name="chkCompaneroExtranjero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -589,10 +594,10 @@
             <Property name="text" type="java.lang.String" value="Extranjero"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chbxApdcExtranjero8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCompaneroExtranjeroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcMexicano8">
+        <Component class="javax.swing.JCheckBox" name="chkCompaneroMexicano">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -600,7 +605,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe9;xicano"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcReingrenso8">
+        <Component class="javax.swing.JCheckBox" name="chkCompaneroReingreso">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -608,7 +613,7 @@
             <Property name="text" type="java.lang.String" value="Reingreso"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc9">
+        <Component class="javax.swing.JLabel" name="lblHoraDormir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -616,7 +621,7 @@
             <Property name="text" type="java.lang.String" value="Hora en que acostumbras dormirte:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbxApdcHora9">
+        <Component class="javax.swing.JComboBox" name="cmbxHoraDormir">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -636,7 +641,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc10">
+        <Component class="javax.swing.JLabel" name="lblToleraRuido">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -644,7 +649,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Toleras cierto ruido al estudiar?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc11">
+        <Component class="javax.swing.JLabel" name="lblImportanciaOrden">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -652,7 +657,7 @@
             <Property name="text" type="java.lang.String" value="Nivel de importancia del orden:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc12">
+        <Component class="javax.swing.JLabel" name="lblHabitosHigiene">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -660,7 +665,7 @@
             <Property name="text" type="java.lang.String" value="H&#xe1;bitos de higiene:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc13">
+        <Component class="javax.swing.JLabel" name="lblObjetosTraer">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -668,7 +673,7 @@
             <Property name="text" type="java.lang.String" value="Objetos que traer&#xe1;s:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcAuto13">
+        <Component class="javax.swing.JCheckBox" name="chkObjetoAuto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -676,10 +681,10 @@
             <Property name="text" type="java.lang.String" value="Auto"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chbxApdcAuto13ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkObjetoAutoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcCompu13">
+        <Component class="javax.swing.JCheckBox" name="chkObjetoComputadora">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -687,7 +692,7 @@
             <Property name="text" type="java.lang.String" value="Computadora"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcSi10">
+        <Component class="javax.swing.JCheckBox" name="chkToleraRuidoSi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -695,7 +700,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcNo10">
+        <Component class="javax.swing.JCheckBox" name="chkToleraRuidoNo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -703,7 +708,7 @@
             <Property name="text" type="java.lang.String" value="NO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcPoco11">
+        <Component class="javax.swing.JCheckBox" name="chkOrdenPoco">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -711,7 +716,7 @@
             <Property name="text" type="java.lang.String" value="Poco"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcPoco12">
+        <Component class="javax.swing.JCheckBox" name="chkHigienePoco">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -719,7 +724,7 @@
             <Property name="text" type="java.lang.String" value="Poco"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcRegular11">
+        <Component class="javax.swing.JCheckBox" name="chkOrdenRegular">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -727,7 +732,7 @@
             <Property name="text" type="java.lang.String" value="Regular"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcRegulares12">
+        <Component class="javax.swing.JCheckBox" name="chkHigieneRegular">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -735,7 +740,7 @@
             <Property name="text" type="java.lang.String" value="Regulares"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcMuyImportante11">
+        <Component class="javax.swing.JCheckBox" name="chkOrdenMucho">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -743,7 +748,7 @@
             <Property name="text" type="java.lang.String" value="Muy importante"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcMuyEstrictos12">
+        <Component class="javax.swing.JCheckBox" name="chkHigieneEstricto">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -751,7 +756,7 @@
             <Property name="text" type="java.lang.String" value="Muy estrictos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcTV13">
+        <Component class="javax.swing.JCheckBox" name="chkObjetoTV">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -759,7 +764,7 @@
             <Property name="text" type="java.lang.String" value="TV"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcFrigobr13">
+        <Component class="javax.swing.JCheckBox" name="chkObjetoFrigobar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -767,7 +772,7 @@
             <Property name="text" type="java.lang.String" value="Frigobar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc14">
+        <Component class="javax.swing.JLabel" name="lblActividadesIniciativa">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -775,7 +780,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Participas en actividades por iniciativa propia?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcSi14">
+        <Component class="javax.swing.JCheckBox" name="chkIniciativaSi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -783,7 +788,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcNo14">
+        <Component class="javax.swing.JCheckBox" name="chkIniciativaNo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -791,7 +796,7 @@
             <Property name="text" type="java.lang.String" value="NO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcAlgunasVeces14">
+        <Component class="javax.swing.JCheckBox" name="chkIniciativaAveses">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -799,7 +804,7 @@
             <Property name="text" type="java.lang.String" value="Algunas veces"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc15">
+        <Component class="javax.swing.JLabel" name="lblParticipacionGrupo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -807,7 +812,7 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Has participado en alg&#xfa;n grupo, club o equipo?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc16">
+        <Component class="javax.swing.JLabel" name="lblTipoGrupo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -815,7 +820,7 @@
             <Property name="text" type="java.lang.String" value="Tipo de grupo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc17">
+        <Component class="javax.swing.JLabel" name="lblActividadesRealizadas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -823,7 +828,7 @@
             <Property name="text" type="java.lang.String" value="Actividades realizadas relacionadas con la "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc18">
+        <Component class="javax.swing.JLabel" name="lblActividadesDeseadas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -831,7 +836,7 @@
             <Property name="text" type="java.lang.String" value="Actividades que te gustar&#xed;a realizar en Residencias:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc17_17">
+        <Component class="javax.swing.JLabel" name="lblActividadesRealizad2as">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -839,7 +844,7 @@
             <Property name="text" type="java.lang.String" value="pregunta anterior:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbxApdcGrupo16">
+        <Component class="javax.swing.JComboBox" name="cmbxTipoGrupo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -857,7 +862,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcSi15">
+        <Component class="javax.swing.JCheckBox" name="chkGrupoSi">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -865,7 +870,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcNo15">
+        <Component class="javax.swing.JCheckBox" name="chkGrupoNo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -873,9 +878,9 @@
             <Property name="text" type="java.lang.String" value="NO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtApdcActividades17">
+        <Component class="javax.swing.JTextField" name="txtActividadesRealizadas">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcDeportivas18">
+        <Component class="javax.swing.JCheckBox" name="chkDeseaDeportivas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -883,7 +888,7 @@
             <Property name="text" type="java.lang.String" value="Deportivas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcCulturales18">
+        <Component class="javax.swing.JCheckBox" name="chkDeseaCulturales">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -891,7 +896,7 @@
             <Property name="text" type="java.lang.String" value="Culturales"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbxApdcArtisticas18">
+        <Component class="javax.swing.JCheckBox" name="chkDeseaArtisticas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -899,7 +904,7 @@
             <Property name="text" type="java.lang.String" value="Artisticas"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbxApdcAspecto19">
+        <Component class="javax.swing.JComboBox" name="cmbxAspectosMejora">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -918,12 +923,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtApdcInfoResi20">
+        <Component class="javax.swing.JTextField" name="txaOtraInformacion">
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtApdcInfoResi20FocusLost"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txaOtraInformacionFocusLost"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc20">
+        <Component class="javax.swing.JLabel" name="lblOtraInformacion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -931,7 +936,7 @@
             <Property name="text" type="java.lang.String" value="Otra informaci&#xf3;n importante sobre ti:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc19">
+        <Component class="javax.swing.JLabel" name="lblAspectosMejora">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -939,7 +944,7 @@
             <Property name="text" type="java.lang.String" value="Aspectos en los que te gustar&#xed;a prepararte "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblapdc19_19">
+        <Component class="javax.swing.JLabel" name="lblAspectosMejora2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>

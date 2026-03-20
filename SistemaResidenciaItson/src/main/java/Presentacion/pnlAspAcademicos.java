@@ -27,137 +27,137 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblNombreTutor = new javax.swing.JLabel();
-        lblEmailsolicitante = new javax.swing.JLabel();
-        lblCiudadSoli = new javax.swing.JLabel();
-        lblCelularSoli = new javax.swing.JLabel();
-        lblDomsoli = new javax.swing.JLabel();
+        lblTituloAcademicos = new javax.swing.JLabel();
+        lblBuscarAyuda = new javax.swing.JLabel();
+        lblMejorasAcademicas = new javax.swing.JLabel();
+        lblMejorasAcademicas2 = new javax.swing.JLabel();
+        lblEfectividadTiempo = new javax.swing.JLabel();
+        lblEfectividadEstudio = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        txaMejorasAcademicas = new javax.swing.JTextArea();
+        chkAyudaNunca = new javax.swing.JCheckBox();
+        chkTiempoMuyEfectivo = new javax.swing.JCheckBox();
+        chkAyudaAVeces = new javax.swing.JCheckBox();
+        chkAyudaSiempre = new javax.swing.JCheckBox();
+        chkTiempoPoco = new javax.swing.JCheckBox();
+        chkTiempoRegular = new javax.swing.JCheckBox();
+        chkEstudioPoco = new javax.swing.JCheckBox();
+        chkEstudioRegular = new javax.swing.JCheckBox();
+        chkEstudioMuyEfectivo = new javax.swing.JCheckBox();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        jLabel1.setText("Aspectos académicos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+        lblTituloAcademicos.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblTituloAcademicos.setText("Aspectos académicos");
+        jPanel1.add(lblTituloAcademicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
-        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreTutor.setText("¿Sueles buscar ayuda académica cuando la necesitas?");
-        jPanel1.add(lblNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 480, -1));
+        lblBuscarAyuda.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblBuscarAyuda.setText("¿Sueles buscar ayuda académica cuando la necesitas?");
+        jPanel1.add(lblBuscarAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 480, -1));
 
-        lblEmailsolicitante.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblEmailsolicitante.setText("Aspectos académicos en los que te gustaría prepararte mejor");
-        jPanel1.add(lblEmailsolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+        lblMejorasAcademicas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblMejorasAcademicas.setText("Aspectos académicos en los que te gustaría prepararte mejor");
+        jPanel1.add(lblMejorasAcademicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
 
-        lblCiudadSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCiudadSoli.setText("(administración del tiempo, orientación vocacional, técnicas de estudio, etc.).");
-        jPanel1.add(lblCiudadSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+        lblMejorasAcademicas2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblMejorasAcademicas2.setText("(administración del tiempo, orientación vocacional, técnicas de estudio, etc.).");
+        jPanel1.add(lblMejorasAcademicas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
-        lblCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCelularSoli.setText("Efectividad en la administración del tiempo:");
-        jPanel1.add(lblCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        lblEfectividadTiempo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblEfectividadTiempo.setText("Efectividad en la administración del tiempo:");
+        jPanel1.add(lblEfectividadTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
-        lblDomsoli.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblDomsoli.setText("Efectividad de tu método de estudio:");
-        jPanel1.add(lblDomsoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        lblEfectividadEstudio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblEfectividadEstudio.setText("Efectividad de tu método de estudio:");
+        jPanel1.add(lblEfectividadEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaMejorasAcademicas.setColumns(20);
+        txaMejorasAcademicas.setRows(5);
+        jScrollPane1.setViewportView(txaMejorasAcademicas);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 286, 330, 80));
 
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox1.setText("Casi nunca");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkAyudaNunca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAyudaNunca.setText("Casi nunca");
+        chkAyudaNunca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkAyudaNuncaActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, -1));
+        jPanel1.add(chkAyudaNunca, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, -1));
 
-        jCheckBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox2.setText("Muy efectivo");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        chkTiempoMuyEfectivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkTiempoMuyEfectivo.setText("Muy efectivo");
+        chkTiempoMuyEfectivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                chkTiempoMuyEfectivoActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, -1, -1));
+        jPanel1.add(chkTiempoMuyEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, -1, -1));
 
-        jCheckBox3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox3.setText("A veces");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        chkAyudaAVeces.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAyudaAVeces.setText("A veces");
+        chkAyudaAVeces.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                chkAyudaAVecesActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, -1));
+        jPanel1.add(chkAyudaAVeces, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, -1));
 
-        jCheckBox4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox4.setText("Casi siempre");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        chkAyudaSiempre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkAyudaSiempre.setText("Casi siempre");
+        chkAyudaSiempre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                chkAyudaSiempreActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
+        jPanel1.add(chkAyudaSiempre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
 
-        jCheckBox5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox5.setText("Poco efectivo");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        chkTiempoPoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkTiempoPoco.setText("Poco efectivo");
+        chkTiempoPoco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                chkTiempoPocoActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
+        jPanel1.add(chkTiempoPoco, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
 
-        jCheckBox6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox6.setText("Regular");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        chkTiempoRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkTiempoRegular.setText("Regular");
+        chkTiempoRegular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                chkTiempoRegularActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, -1, -1));
+        jPanel1.add(chkTiempoRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, -1, -1));
 
-        jCheckBox7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox7.setText("Poco efectivo");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        chkEstudioPoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkEstudioPoco.setText("Poco efectivo");
+        chkEstudioPoco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                chkEstudioPocoActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
+        jPanel1.add(chkEstudioPoco, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
 
-        jCheckBox8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox8.setText("Regular");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+        chkEstudioRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkEstudioRegular.setText("Regular");
+        chkEstudioRegular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+                chkEstudioRegularActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, -1, -1));
+        jPanel1.add(chkEstudioRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, -1, -1));
 
-        jCheckBox9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jCheckBox9.setText("Muy efectivo");
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+        chkEstudioMuyEfectivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkEstudioMuyEfectivo.setText("Muy efectivo");
+        chkEstudioMuyEfectivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
+                chkEstudioMuyEfectivoActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, -1, -1));
+        jPanel1.add(chkEstudioMuyEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,61 +171,61 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkAyudaNuncaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAyudaNuncaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkAyudaNuncaActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void chkTiempoMuyEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTiempoMuyEfectivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_chkTiempoMuyEfectivoActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void chkAyudaAVecesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAyudaAVecesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_chkAyudaAVecesActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void chkAyudaSiempreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAyudaSiempreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_chkAyudaSiempreActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void chkTiempoPocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTiempoPocoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_chkTiempoPocoActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void chkTiempoRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkTiempoRegularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_chkTiempoRegularActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void chkEstudioPocoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEstudioPocoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_chkEstudioPocoActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+    private void chkEstudioRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEstudioRegularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
+    }//GEN-LAST:event_chkEstudioRegularActionPerformed
 
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
+    private void chkEstudioMuyEfectivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEstudioMuyEfectivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox9ActionPerformed
+    }//GEN-LAST:event_chkEstudioMuyEfectivoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JCheckBox chkAyudaAVeces;
+    private javax.swing.JCheckBox chkAyudaNunca;
+    private javax.swing.JCheckBox chkAyudaSiempre;
+    private javax.swing.JCheckBox chkEstudioMuyEfectivo;
+    private javax.swing.JCheckBox chkEstudioPoco;
+    private javax.swing.JCheckBox chkEstudioRegular;
+    private javax.swing.JCheckBox chkTiempoMuyEfectivo;
+    private javax.swing.JCheckBox chkTiempoPoco;
+    private javax.swing.JCheckBox chkTiempoRegular;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblCelularSoli;
-    private javax.swing.JLabel lblCiudadSoli;
-    private javax.swing.JLabel lblDomsoli;
-    private javax.swing.JLabel lblEmailsolicitante;
-    private javax.swing.JLabel lblNombreTutor;
+    private javax.swing.JLabel lblBuscarAyuda;
+    private javax.swing.JLabel lblEfectividadEstudio;
+    private javax.swing.JLabel lblEfectividadTiempo;
+    private javax.swing.JLabel lblMejorasAcademicas;
+    private javax.swing.JLabel lblMejorasAcademicas2;
+    private javax.swing.JLabel lblTituloAcademicos;
+    private javax.swing.JTextArea txaMejorasAcademicas;
     // End of variables declaration//GEN-END:variables
 }

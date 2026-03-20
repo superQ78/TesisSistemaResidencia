@@ -30,7 +30,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         lblSubtituloCrear = new javax.swing.JLabel();
         lblNombreCompleto = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
+        txtNombreCompleto = new javax.swing.JTextField();
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
@@ -40,7 +40,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblRol = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
-        txtTelefono1 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         cbxRolAsignado = new javax.swing.JComboBox<>();
         btnLimpiarCampos = new javax.swing.JButton();
         btnCrearUsuario = new javax.swing.JButton();
@@ -64,8 +64,8 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblNombreCompleto.setText("Nombre completo:");
         jPanel1.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, 40));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 460, 40));
+        txtNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel1.add(txtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 460, 40));
 
         lblCorreo.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCorreo.setText("Correo electronico:");
@@ -99,8 +99,8 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblTelefono.setText("Telefono:");
         jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, -1, 40));
 
-        txtTelefono1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 460, 40));
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 460, 40));
 
         cbxRolAsignado.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cbxRolAsignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -220,7 +220,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtConfirmarContraseña;
     private javax.swing.JTextField txtContraseña;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono1;
+    private javax.swing.JTextField txtNombreCompleto;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
