@@ -12,8 +12,8 @@ public class frmRDP extends javax.swing.JFrame {
     pnlDatosSolicitante panelSolicitante = new pnlDatosSolicitante();
     pnlDatosTutor panelTutor = new pnlDatosTutor();
     pnlContactoEmergencia panelEmergencia = new pnlContactoEmergencia();
-    pnlAspAcademicos panelPersonales = new pnlAspAcademicos();
-    pnlAspPersonales panelAcademicos = new pnlAspPersonales();
+    pnlAspAcademicos panelAcademicos = new pnlAspAcademicos();
+    pnlAspPersonales panelPersonales = new pnlAspPersonales();
     pnlDatosMedicos panelMedicos = new pnlDatosMedicos();
 
     /**
@@ -23,12 +23,12 @@ public class frmRDP extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-//        pnlDatosSolicitante.add("Solicitante", panelSolicitante);
-//        jTabbedPane9.addTab("Tutor", panelTutor);
-//        jTabbedPane10.addTab("Emergencia", panelEmergencia);
-//        jTabbedPane11.addTab("Personales", panelPersonales);
-//        jTabbedPane12.addTab("Académicos", panelAcademicos);
-//        jTabbedPane13.addTab("Médicos", panelMedicos);
+        tabDatosRegistroResi.addTab("Solicitante", new javax.swing.JScrollPane(panelSolicitante));
+        tabDatosRegistroResi.addTab("Tutor", new javax.swing.JScrollPane(panelTutor));
+        tabDatosRegistroResi.addTab("Emergencia", new javax.swing.JScrollPane(panelEmergencia));
+        tabDatosRegistroResi.addTab("Personales", new javax.swing.JScrollPane(panelPersonales));
+        tabDatosRegistroResi.addTab("Académicos", new javax.swing.JScrollPane(panelAcademicos));
+        tabDatosRegistroResi.addTab("Médicos", new javax.swing.JScrollPane(panelMedicos));
     }
 
     /**
@@ -47,16 +47,9 @@ public class frmRDP extends javax.swing.JFrame {
         pnlTitulo = new javax.swing.JPanel();
         lblSubTitulo = new javax.swing.JLabel();
         lblSubTitulo1 = new javax.swing.JLabel();
-        tabDatosRegistroResi = new javax.swing.JTabbedPane();
-        sllpDatosSolicitante = new javax.swing.JScrollPane();
-        pnlDatosSolicitante1 = new Presentacion.pnlDatosSolicitante();
-        scllpDatosTutor = new javax.swing.JScrollPane();
-        pnlDatosTutor1 = new Presentacion.pnlDatosTutor();
-        scllpDatosContactoEm = new javax.swing.JScrollPane();
-        scllpAsPersonales = new javax.swing.JScrollPane();
-        scllpAspAcademicos = new javax.swing.JScrollPane();
-        scllpDatosMedicos = new javax.swing.JScrollPane();
+        btnAtras = new javax.swing.JButton();
         pnlFondoTabs = new javax.swing.JPanel();
+        tabDatosRegistroResi = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,18 +75,18 @@ public class frmRDP extends javax.swing.JFrame {
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap(421, Short.MAX_VALUE)
+                .addContainerGap(445, Short.MAX_VALUE)
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(254, 254, 254))
+                .addGap(224, 224, 224))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotonesLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,69 +97,46 @@ public class frmRDP extends javax.swing.JFrame {
         getContentPane().add(pnlBotones, java.awt.BorderLayout.PAGE_END);
 
         pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubTitulo1.setText("Registrar residente");
+        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 243, -1));
 
-        tabDatosRegistroResi.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        tabDatosRegistroResi.setToolTipText("");
-
-        sllpDatosSolicitante.setBackground(new java.awt.Color(255, 255, 255));
-        sllpDatosSolicitante.setBorder(null);
-        sllpDatosSolicitante.setHorizontalScrollBar(null);
-        sllpDatosSolicitante.setViewportView(pnlDatosSolicitante1);
-
-        tabDatosRegistroResi.addTab("Datos del solicitante", sllpDatosSolicitante);
-
-        scllpDatosTutor.setToolTipText("");
-        scllpDatosTutor.setHorizontalScrollBar(null);
-        scllpDatosTutor.setViewportView(pnlDatosTutor1);
-
-        tabDatosRegistroResi.addTab("Datos del Tutor", scllpDatosTutor);
-        tabDatosRegistroResi.addTab("Contacto de emergencia", scllpDatosContactoEm);
-        tabDatosRegistroResi.addTab("Aspectos personales", scllpAsPersonales);
-        tabDatosRegistroResi.addTab("Aspectos académicos", scllpAspAcademicos);
-        tabDatosRegistroResi.addTab("Datos médicos", scllpDatosMedicos);
-
-        javax.swing.GroupLayout pnlTituloLayout = new javax.swing.GroupLayout(pnlTitulo);
-        pnlTitulo.setLayout(pnlTituloLayout);
-        pnlTituloLayout.setHorizontalGroup(
-            pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabDatosRegistroResi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(487, 487, 487))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTituloLayout.createSequentialGroup()
-                .addContainerGap(253, Short.MAX_VALUE)
-                .addComponent(lblSubTitulo)
-                .addGap(239, 239, 239))
-        );
-        pnlTituloLayout.setVerticalGroup(
-            pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTituloLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(lblSubTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSubTitulo1)
-                .addGap(18, 18, 18)
-                .addComponent(tabDatosRegistroResi, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btnAtras.setBorder(null);
+        btnAtras.setBorderPainted(false);
+        btnAtras.setContentAreaFilled(false);
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         getContentPane().add(pnlTitulo, java.awt.BorderLayout.PAGE_START);
 
         pnlFondoTabs.setBackground(new java.awt.Color(255, 255, 255));
         pnlFondoTabs.setLayout(new java.awt.BorderLayout());
+
+        tabDatosRegistroResi.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 100, 20, 100));
+        tabDatosRegistroResi.setToolTipText("");
+        pnlFondoTabs.add(tabDatosRegistroResi, java.awt.BorderLayout.CENTER);
+
         getContentPane().add(pnlFondoTabs, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        frmRegistrarResidente volver = new frmRegistrarResidente();
+        volver.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,22 +175,15 @@ public class frmRDP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
     private javax.swing.JLabel lblSubTitulo1;
     private javax.swing.JPanel pnlBotones;
-    private Presentacion.pnlDatosSolicitante pnlDatosSolicitante1;
-    private Presentacion.pnlDatosTutor pnlDatosTutor1;
     private javax.swing.JPanel pnlFondoTabs;
     private javax.swing.JPanel pnlTitulo;
-    private javax.swing.JScrollPane scllpAsPersonales;
-    private javax.swing.JScrollPane scllpAspAcademicos;
-    private javax.swing.JScrollPane scllpDatosContactoEm;
-    private javax.swing.JScrollPane scllpDatosMedicos;
-    private javax.swing.JScrollPane scllpDatosTutor;
-    private javax.swing.JScrollPane sllpDatosSolicitante;
     private javax.swing.JTabbedPane tabDatosRegistroResi;
     // End of variables declaration//GEN-END:variables
 }

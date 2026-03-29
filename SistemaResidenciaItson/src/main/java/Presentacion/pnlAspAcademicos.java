@@ -46,37 +46,28 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         chkEstudioMuyEfectivo = new javax.swing.JCheckBox();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTituloAcademicos.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloAcademicos.setText("Aspectos académicos");
-        jPanel1.add(lblTituloAcademicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
         lblBuscarAyuda.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblBuscarAyuda.setText("¿Sueles buscar ayuda académica cuando la necesitas?");
-        jPanel1.add(lblBuscarAyuda, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 480, -1));
 
         lblMejorasAcademicas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblMejorasAcademicas.setText("Aspectos académicos en los que te gustaría prepararte mejor");
-        jPanel1.add(lblMejorasAcademicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
 
         lblMejorasAcademicas2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblMejorasAcademicas2.setText("(administración del tiempo, orientación vocacional, técnicas de estudio, etc.).");
-        jPanel1.add(lblMejorasAcademicas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         lblEfectividadTiempo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblEfectividadTiempo.setText("Efectividad en la administración del tiempo:");
-        jPanel1.add(lblEfectividadTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
         lblEfectividadEstudio.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblEfectividadEstudio.setText("Efectividad de tu método de estudio:");
-        jPanel1.add(lblEfectividadEstudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         txaMejorasAcademicas.setColumns(20);
         txaMejorasAcademicas.setRows(5);
         jScrollPane1.setViewportView(txaMejorasAcademicas);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 286, 330, 80));
 
         chkAyudaNunca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAyudaNunca.setText("Casi nunca");
@@ -85,7 +76,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkAyudaNuncaActionPerformed(evt);
             }
         });
-        jPanel1.add(chkAyudaNunca, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 140, -1, -1));
 
         chkTiempoMuyEfectivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkTiempoMuyEfectivo.setText("Muy efectivo");
@@ -94,7 +84,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkTiempoMuyEfectivoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkTiempoMuyEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, -1, -1));
 
         chkAyudaAVeces.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAyudaAVeces.setText("A veces");
@@ -103,7 +92,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkAyudaAVecesActionPerformed(evt);
             }
         });
-        jPanel1.add(chkAyudaAVeces, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 140, -1, -1));
 
         chkAyudaSiempre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAyudaSiempre.setText("Casi siempre");
@@ -112,7 +100,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkAyudaSiempreActionPerformed(evt);
             }
         });
-        jPanel1.add(chkAyudaSiempre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
 
         chkTiempoPoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkTiempoPoco.setText("Poco efectivo");
@@ -121,7 +108,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkTiempoPocoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkTiempoPoco, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, -1, -1));
 
         chkTiempoRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkTiempoRegular.setText("Regular");
@@ -130,7 +116,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkTiempoRegularActionPerformed(evt);
             }
         });
-        jPanel1.add(chkTiempoRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, -1, -1));
 
         chkEstudioPoco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkEstudioPoco.setText("Poco efectivo");
@@ -139,7 +124,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkEstudioPocoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkEstudioPoco, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
 
         chkEstudioRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkEstudioRegular.setText("Regular");
@@ -148,7 +132,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkEstudioRegularActionPerformed(evt);
             }
         });
-        jPanel1.add(chkEstudioRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, -1, -1));
 
         chkEstudioMuyEfectivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkEstudioMuyEfectivo.setText("Muy efectivo");
@@ -157,7 +140,80 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                 chkEstudioMuyEfectivoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkEstudioMuyEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblTituloAcademicos))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblBuscarAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(chkAyudaSiempre)
+                .addGap(43, 43, 43)
+                .addComponent(chkAyudaAVeces)
+                .addGap(55, 55, 55)
+                .addComponent(chkAyudaNunca))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblEfectividadEstudio)
+                .addGap(213, 213, 213)
+                .addComponent(chkEstudioPoco)
+                .addGap(38, 38, 38)
+                .addComponent(chkEstudioRegular)
+                .addGap(54, 54, 54)
+                .addComponent(chkEstudioMuyEfectivo))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblEfectividadTiempo)
+                .addGap(153, 153, 153)
+                .addComponent(chkTiempoPoco)
+                .addGap(38, 38, 38)
+                .addComponent(chkTiempoRegular)
+                .addGap(54, 54, 54)
+                .addComponent(chkTiempoMuyEfectivo))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMejorasAcademicas)
+                    .addComponent(lblMejorasAcademicas2))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTituloAcademicos)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBuscarAyuda)
+                    .addComponent(chkAyudaSiempre)
+                    .addComponent(chkAyudaAVeces)
+                    .addComponent(chkAyudaNunca))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEfectividadEstudio)
+                    .addComponent(chkEstudioPoco)
+                    .addComponent(chkEstudioRegular)
+                    .addComponent(chkEstudioMuyEfectivo))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEfectividadTiempo)
+                    .addComponent(chkTiempoPoco)
+                    .addComponent(chkTiempoRegular)
+                    .addComponent(chkTiempoMuyEfectivo))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblMejorasAcademicas)
+                        .addGap(3, 3, 3)
+                        .addComponent(lblMejorasAcademicas2))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,7 +223,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -52,18 +52,18 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de usuarios");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtituloCrear.setText("Información de Usuario");
-        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, -1, -1));
+        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
 
         lblCorreo.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCorreo.setText("Correo electronico:");
         jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 580, -1, 40));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblTelefono.setText("Telefono:");
+        lblTelefono.setText("Teléfono:");
         jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 640, -1, 40));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -71,15 +71,15 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, -1, 40));
 
         lblNombreEmpleadoText.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreEmpleadoText.setText("Nombre empleado");
+        lblNombreEmpleadoText.setText("nombre empleado");
         jPanel1.add(lblNombreEmpleadoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, -1, 40));
 
         lblCorreoText.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblCorreoText.setText("Correo electronico");
+        lblCorreoText.setText("correo electronico");
         jPanel1.add(lblCorreoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 580, -1, 40));
 
         lblTelefonoText.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblTelefonoText.setText("Telefono");
+        lblTelefonoText.setText("telefono");
         jPanel1.add(lblTelefonoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 640, -1, 40));
 
         lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfil.png"))); // NOI18N

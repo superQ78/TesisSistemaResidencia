@@ -39,11 +39,11 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         lblFechaActa = new javax.swing.JLabel();
         txtFechaActa = new javax.swing.JTextField();
         cmbCarreraAlumno = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblInstituto = new javax.swing.JLabel();
+        lblPagina = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        lblCp = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         chkSemestreAgostoDic = new javax.swing.JCheckBox();
         chkSemestreEneroMayo = new javax.swing.JCheckBox();
@@ -54,7 +54,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         cmbxLineamiento = new javax.swing.JComboBox<>();
         lblDescripcionActa = new javax.swing.JLabel();
         txaDescripcionActa = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescripcion = new javax.swing.JTextArea();
         btnAtras = new javax.swing.JButton();
         btnLimpiarCampos = new javax.swing.JButton();
         btnImprimirActa = new javax.swing.JButton();
@@ -67,15 +67,15 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtituloCrear.setText("Crear nueva acta");
-        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, -1, -1));
+        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
 
         lblNombreAlumno.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreAlumno.setText("Nombre completo:");
-        jPanel1.add(lblNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, 32));
+        jPanel1.add(lblNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 32));
 
         txtNombreAlumno.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNombreAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -83,45 +83,45 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtNombreAlumnoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 650, 32));
+        jPanel1.add(txtNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 650, 32));
 
         lblCarreraAlumno.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCarreraAlumno.setText("Carrera:");
-        jPanel1.add(lblCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 32));
+        jPanel1.add(lblCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, 32));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVerticalLetras.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 60, 310, 300));
 
         lblFechaActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblFechaActa.setText("Fecha:");
-        jPanel1.add(lblFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 36));
+        jPanel1.add(lblFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, 36));
 
         txtFechaActa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 260, 32));
+        jPanel1.add(txtFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 260, 32));
 
         cmbCarreraAlumno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbCarreraAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 210, 32));
+        jPanel1.add(cmbCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 210, 32));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel1.setText("Instituto Tecnológico de Sonora");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        lblInstituto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblInstituto.setText("Instituto Tecnológico de Sonora");
+        jPanel1.add(lblInstituto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel2.setText("Página web: www.itson.mx");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        lblPagina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblPagina.setText("Página web: www.itson.mx");
+        jPanel1.add(lblPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel3.setText("Dirección: 5 de Febrero No. 818 Sur");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+        lblDireccion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblDireccion.setText("Dirección: 5 de Febrero No. 818 Sur");
+        jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel4.setText("Teléfono: (644) 410-90-00, ext. 3335");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+        lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblTelefono.setText("Teléfono: (644) 410-90-00, ext. 3335");
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel5.setText("C.P. 85000 Ciudad Obregón, Sonora, México");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
+        lblCp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblCp.setText("C.P. 85000 Ciudad Obregón, Sonora, México");
+        jPanel1.add(lblCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, 32));
@@ -133,7 +133,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 chkSemestreAgostoDicActionPerformed(evt);
             }
         });
-        jPanel1.add(chkSemestreAgostoDic, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, 32));
+        jPanel1.add(chkSemestreAgostoDic, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, -1, 32));
 
         chkSemestreEneroMayo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         chkSemestreEneroMayo.setText("Enero - Mayo");
@@ -142,15 +142,15 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 chkSemestreEneroMayoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkSemestreEneroMayo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, 32));
+        jPanel1.add(chkSemestreEneroMayo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, -1, 32));
 
         lblSemestreActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestreActa.setText("Semestre de residencia:");
-        jPanel1.add(lblSemestreActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 32));
+        jPanel1.add(lblSemestreActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 32));
 
         lblIdEstudiante.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblIdEstudiante.setText("Id de estudiante:");
-        jPanel1.add(lblIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 200, 32));
+        jPanel1.add(lblIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 200, 32));
 
         txtIdEstudiante.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtIdEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -158,26 +158,26 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtIdEstudianteActionPerformed(evt);
             }
         });
-        jPanel1.add(txtIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 240, 32));
+        jPanel1.add(txtIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 240, 32));
 
         lblLineamiento.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblLineamiento.setText("Lineamiento incumplido:");
-        jPanel1.add(lblLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, 32));
+        jPanel1.add(lblLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, -1, 32));
 
         cmbxLineamiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxLineamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbxLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 230, 32));
+        jPanel1.add(cmbxLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 230, 32));
 
         lblDescripcionActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDescripcionActa.setText("Descripción:");
-        jPanel1.add(lblDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, -1, 32));
+        jPanel1.add(lblDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, 32));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextArea1.setRows(5);
-        txaDescripcionActa.setViewportView(jTextArea1);
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtDescripcion.setRows(5);
+        txaDescripcionActa.setViewportView(txtDescripcion);
 
-        jPanel1.add(txaDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 830, 130));
+        jPanel1.add(txaDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 610, 690, 120));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -199,7 +199,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnLimpiarCamposActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 720, 170, 40));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 750, 170, 40));
 
         btnImprimirActa.setBackground(new java.awt.Color(51, 153, 255));
         btnImprimirActa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -210,7 +210,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnImprimirActaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 720, 150, 40));
+        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 750, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,7 +221,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -301,25 +301,25 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkSemestreEneroMayo;
     private javax.swing.JComboBox<String> cmbCarreraAlumno;
     private javax.swing.JComboBox<String> cmbxLineamiento;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCarreraAlumno;
+    private javax.swing.JLabel lblCp;
     private javax.swing.JLabel lblDescripcionActa;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblFechaActa;
     private javax.swing.JLabel lblIdEstudiante;
+    private javax.swing.JLabel lblInstituto;
     private javax.swing.JLabel lblLineamiento;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNombreAlumno;
+    private javax.swing.JLabel lblPagina;
     private javax.swing.JLabel lblSemestreActa;
     private javax.swing.JLabel lblSubtituloCrear;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JScrollPane txaDescripcionActa;
+    private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtFechaActa;
     private javax.swing.JTextField txtIdEstudiante;
     private javax.swing.JTextField txtNombreAlumno;

@@ -40,203 +40,211 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="410" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblVividoFuera" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="132" pref="132" max="-2" attributes="0"/>
+                  <Component id="chkVividoFueraSi" min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkVividoFueraNo" min="-2" pref="100" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblTiempoVividoFuera" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="153" pref="153" max="-2" attributes="0"/>
+                  <Component id="txtTiempoVividoFuera" min="-2" pref="500" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblVividoFuera" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="92" pref="92" max="-2" attributes="0"/>
-                                  <Component id="chkVividoFueraSi" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkVividoFueraNo" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblTiempoVividoFuera" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
-                                  <Component id="txtTiempoVividoFuera" min="-2" pref="500" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblDecisionResidencia" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblDecisionResidencia2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="chkDecisionTuya" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkDecisionPadres" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkDecisionAmbos" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblRazonesVivir" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblRazonesVivir2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="123" pref="123" max="-2" attributes="0"/>
-                                  <Component id="txtRespuestaApdc4" min="-2" pref="500" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblAdaptacion" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-                                  <Component id="chkAdaptacionDificil" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkAdaptacionRegular" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="chkAdaptacionFacil" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblEstiloConvivencia" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="64" pref="64" max="-2" attributes="0"/>
-                                  <Component id="chkConvivenciaCeder" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkConvivenciaNegociar" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                                  <Component id="chkConvivenciaPersuadir" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblSituacionesNoDeseadas2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblSituacionesNoDeseadas" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="126" pref="126" max="-2" attributes="0"/>
-                                  <Component id="txtSituacionesNoDeseadas" min="-2" pref="500" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblCaracteristicasCompanero" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
-                                  <Component id="chkCompaneroExtranjero" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkCompaneroMexicano" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="chkCompaneroReingreso" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblHoraDormir" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="162" pref="162" max="-2" attributes="0"/>
-                                  <Component id="cmbxHoraDormir" min="-2" pref="330" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblImportanciaOrden" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="190" pref="190" max="-2" attributes="0"/>
-                                  <Component id="chkOrdenPoco" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkOrdenRegular" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkOrdenMucho" min="-2" pref="200" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblHabitosHigiene" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="299" pref="299" max="-2" attributes="0"/>
-                                  <Component id="chkHigienePoco" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkHigieneRegular" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkHigieneEstricto" min="-2" pref="200" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblObjetosTraer" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="171" pref="171" max="-2" attributes="0"/>
-                                  <Component id="chkObjetoAuto" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkObjetoComputadora" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkObjetoTV" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkObjetoFrigobar" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblActividadesIniciativa" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="62" pref="62" max="-2" attributes="0"/>
-                                  <Component id="chkIniciativaSi" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkIniciativaNo" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkIniciativaAveses" min="-2" pref="180" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblParticipacionGrupo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="116" pref="116" max="-2" attributes="0"/>
-                                  <Component id="chkGrupoSi" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                                  <Component id="chkGrupoNo" min="-2" pref="70" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblTipoGrupo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="349" pref="349" max="-2" attributes="0"/>
-                                  <Component id="cmbxTipoGrupo" min="-2" pref="340" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblActividadesRealizad2as" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
-                                  <Component id="txtActividadesRealizadas" min="-2" pref="500" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblActividadesDeseadas" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                                  <Component id="chkDeseaDeportivas" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="chkDeseaCulturales" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                  <Component id="chkDeseaArtisticas" min="-2" pref="140" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblAspectosMejora2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="98" pref="98" max="-2" attributes="0"/>
-                                  <Component id="cmbxAspectosMejora" min="-2" pref="330" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblOtraInformacion" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="147" pref="147" max="-2" attributes="0"/>
-                                  <Component id="txaOtraInformacion" min="-2" pref="500" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblToleraRuido" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="192" pref="192" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chkToleraRuidoSi" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
-                                  <Component id="chkToleraRuidoNo" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblDecisionResidencia" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDecisionResidencia2" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
+                  <Component id="chkDecisionTuya" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkDecisionPadres" min="-2" pref="150" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkDecisionAmbos" min="-2" pref="100" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblRazonesVivir" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblRazonesVivir2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="163" pref="163" max="-2" attributes="0"/>
+                  <Component id="txtRespuestaApdc4" min="-2" pref="500" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblAdaptacion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                  <Component id="chkAdaptacionDificil" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkAdaptacionRegular" min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="chkAdaptacionFacil" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblEstiloConvivencia" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="54" pref="54" max="-2" attributes="0"/>
+                  <Component id="chkConvivenciaCeder" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                  <Component id="chkConvivenciaNegociar" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                  <Component id="chkConvivenciaPersuadir" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblSituacionesNoDeseadas2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSituacionesNoDeseadas" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="166" pref="166" max="-2" attributes="0"/>
+                  <Component id="txtSituacionesNoDeseadas" min="-2" pref="500" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblCaracteristicasCompanero" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Component id="chkCompaneroExtranjero" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkCompaneroMexicano" min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="chkCompaneroReingreso" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblHoraDormir" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="202" pref="202" max="-2" attributes="0"/>
+                  <Component id="cmbxHoraDormir" min="-2" pref="330" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblToleraRuido" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="232" pref="232" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="90" pref="90" max="-2" attributes="0"/>
+                          <Component id="chkToleraRuidoNo" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="chkToleraRuidoSi" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblImportanciaOrden" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="240" pref="240" max="-2" attributes="0"/>
+                  <Component id="chkOrdenPoco" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkOrdenRegular" min="-2" pref="150" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkOrdenMucho" min="-2" pref="200" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblHabitosHigiene" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="349" pref="349" max="-2" attributes="0"/>
+                  <Component id="chkHigienePoco" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkHigieneRegular" min="-2" pref="150" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkHigieneEstricto" min="-2" pref="200" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblObjetosTraer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="341" pref="341" max="-2" attributes="0"/>
+                  <Component id="chkObjetoAuto" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkObjetoComputadora" min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkObjetoTV" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkObjetoFrigobar" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblActividadesIniciativa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="102" pref="102" max="-2" attributes="0"/>
+                  <Component id="chkIniciativaSi" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkIniciativaNo" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkIniciativaAveses" min="-2" pref="180" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblParticipacionGrupo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="86" pref="86" max="-2" attributes="0"/>
+                  <Component id="chkGrupoSi" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkGrupoNo" min="-2" pref="70" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblTipoGrupo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="389" pref="389" max="-2" attributes="0"/>
+                  <Component id="cmbxTipoGrupo" min="-2" pref="340" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblActividadesRealizad2as" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="142" pref="142" max="-2" attributes="0"/>
+                  <Component id="txtActividadesRealizadas" min="-2" pref="500" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblActividadesDeseadas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
+                  <Component id="chkDeseaDeportivas" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <Component id="chkDeseaCulturales" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <Component id="chkDeseaArtisticas" min="-2" pref="140" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblAspectosMejora2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="138" pref="138" max="-2" attributes="0"/>
+                  <Component id="cmbxAspectosMejora" min="-2" pref="330" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                  <Component id="lblOtraInformacion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="187" pref="187" max="-2" attributes="0"/>
+                  <Component id="txaOtraInformacion" min="-2" pref="500" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblVividoFuera" min="-2" max="-2" attributes="0"/>
                       <Component id="chkVividoFueraSi" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkVividoFueraNo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblTiempoVividoFuera" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTiempoVividoFuera" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblDecisionResidencia" min="-2" max="-2" attributes="0"/>
@@ -252,7 +260,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblRazonesVivir" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -264,7 +272,7 @@
                           <Component id="txtRespuestaApdc4" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblAdaptacion" min="-2" max="-2" attributes="0"/>
                       <Component id="chkAdaptacionDificil" min="-2" pref="30" max="-2" attributes="0"/>
@@ -278,7 +286,7 @@
                       <Component id="chkConvivenciaNegociar" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkConvivenciaPersuadir" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
@@ -290,39 +298,39 @@
                           <Component id="txtSituacionesNoDeseadas" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCaracteristicasCompanero" min="-2" max="-2" attributes="0"/>
                       <Component id="chkCompaneroExtranjero" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkCompaneroMexicano" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkCompaneroReingreso" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblHoraDormir" min="-2" max="-2" attributes="0"/>
                       <Component id="cmbxHoraDormir" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblToleraRuido" min="-2" max="-2" attributes="0"/>
-                      <Component id="chkToleraRuidoSi" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkToleraRuidoNo" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="chkToleraRuidoSi" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblImportanciaOrden" min="-2" max="-2" attributes="0"/>
                       <Component id="chkOrdenPoco" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkOrdenRegular" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkOrdenMucho" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblHabitosHigiene" min="-2" max="-2" attributes="0"/>
                       <Component id="chkHigienePoco" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkHigieneRegular" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkHigieneEstricto" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblObjetosTraer" min="-2" max="-2" attributes="0"/>
                       <Component id="chkObjetoAuto" min="-2" pref="30" max="-2" attributes="0"/>
@@ -330,56 +338,53 @@
                       <Component id="chkObjetoTV" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkObjetoFrigobar" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblActividadesIniciativa" min="-2" max="-2" attributes="0"/>
                       <Component id="chkIniciativaSi" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkIniciativaNo" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkIniciativaAveses" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblParticipacionGrupo" min="-2" max="-2" attributes="0"/>
                       <Component id="chkGrupoSi" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkGrupoNo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblTipoGrupo" min="-2" max="-2" attributes="0"/>
                       <Component id="cmbxTipoGrupo" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                           <Component id="lblActividadesRealizad2as" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="lblActividadesRealizadas" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Component id="txtActividadesRealizadas" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblActividadesDeseadas" min="-2" max="-2" attributes="0"/>
                       <Component id="chkDeseaDeportivas" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkDeseaCulturales" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="chkDeseaArtisticas" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                           <Component id="lblAspectosMejora2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="cmbxAspectosMejora" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblAspectosMejora" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbxAspectosMejora" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblOtraInformacion" min="-2" max="-2" attributes="0"/>
                       <Component id="txaOtraInformacion" min="-2" pref="102" max="-2" attributes="0"/>

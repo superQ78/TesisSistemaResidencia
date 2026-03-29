@@ -77,7 +77,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel1.setText("Gestion Residente");
-        jplFrmRegisResi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, -1, -1));
+        jplFrmRegisResi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
 
         tblRegistroResidente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,7 +92,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblRegistroResidente);
 
-        jplFrmRegisResi.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 1060, 440));
+        jplFrmRegisResi.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 1060, 440));
 
         btnRDP.setBackground(new java.awt.Color(204, 255, 255));
         btnRDP.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -102,7 +102,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
                 btnRDPActionPerformed(evt);
             }
         });
-        jplFrmRegisResi.add(btnRDP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 660, 380, 70));
+        jplFrmRegisResi.add(btnRDP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 610, 380, 70));
 
         btnSolicitudIngreso.setBackground(new java.awt.Color(204, 255, 255));
         btnSolicitudIngreso.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -112,7 +112,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
                 btnSolicitudIngresoActionPerformed(evt);
             }
         });
-        jplFrmRegisResi.add(btnSolicitudIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 660, 320, 70));
+        jplFrmRegisResi.add(btnSolicitudIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 320, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel2.setText("Las identificaciones y comprobantes deben de ser recientes y o vigentes");
@@ -121,12 +121,13 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jplFrmRegisResi.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
+        jplFrmRegisResi.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,7 +164,9 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRDPActionPerformed
 
     private void btnSolicitudIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudIngresoActionPerformed
-        // TODO add your handling code here:
+        frmSolicitudIngreso solicitud = new frmSolicitudIngreso();
+        solicitud.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

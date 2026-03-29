@@ -50,15 +50,15 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
 
         txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         txtTitulodmin.setText("Residencias ITSON – Panel Trabajador ");
-        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
+        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblBienvenidAdmin.setText("Bienvenido");
-        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
+        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
 
         lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblNombreAdmin.setText("¨Trabajador¨");
-        jPanel1.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
+        jPanel1.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
         lblLogoResiAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoResix.jpg"))); // NOI18N
         jPanel1.add(lblLogoResiAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -124,13 +124,11 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
         );
 
         pack();

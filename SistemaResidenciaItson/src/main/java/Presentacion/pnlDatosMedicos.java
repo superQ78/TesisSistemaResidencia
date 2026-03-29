@@ -26,7 +26,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         lblTituloDatosMedicos = new javax.swing.JLabel();
         lblEstadoSalud = new javax.swing.JLabel();
@@ -74,221 +73,379 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         cmbTipoSangre = new javax.swing.JComboBox<>();
         lblAspectosSalud = new javax.swing.JLabel();
         lblAspectosSalud2 = new javax.swing.JLabel();
-        txaOtraInformacionSalud = new javax.swing.JTextField();
         lblOtraInformacionSalud = new javax.swing.JLabel();
         txtAspectosSalud = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaOtraInformacionSalud = new javax.swing.JTextArea();
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTituloDatosMedicos.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloDatosMedicos.setText("Datos médicos");
-        jPanel2.add(lblTituloDatosMedicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, -1, -1));
 
         lblEstadoSalud.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblEstadoSalud.setText("Estado de salud general:");
-        jPanel2.add(lblEstadoSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
         chkSaludBueno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkSaludBueno.setText("Bueno");
-        jPanel2.add(chkSaludBueno, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, -1, -1));
 
         chkSaludRegular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkSaludRegular.setText("Regular");
-        jPanel2.add(chkSaludRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 130, -1, -1));
 
         chkSaludMalo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkSaludMalo.setText("Malo");
-        jPanel2.add(chkSaludMalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, -1, -1));
 
         txtEspecificarVista.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarVista.setText("especificar");
-        jPanel2.add(txtEspecificarVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 180, 230, 30));
 
         chkVistaNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkVistaNo.setText("NO");
-        jPanel2.add(chkVistaNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, -1, -1));
 
         chkVistaSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkVistaSi.setText("SI");
-        jPanel2.add(chkVistaSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
 
         lblDeficienciaVista.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDeficienciaVista.setText("Deficiencia en la vista");
-        jPanel2.add(lblDeficienciaVista, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
         lblDeficienciaAuditiva.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDeficienciaAuditiva.setText("Deficiencia auditiva");
-        jPanel2.add(lblDeficienciaAuditiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         chkAuditivaSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAuditivaSi.setText("SI");
-        jPanel2.add(chkAuditivaSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
         chkAuditivaNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAuditivaNo.setText("NO");
-        jPanel2.add(chkAuditivaNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 230, -1, -1));
 
         txtEspecificarAuditiva.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarAuditiva.setText("especificar");
-        jPanel2.add(txtEspecificarAuditiva, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 230, 30));
 
         lblDiscapacidadFisica.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDiscapacidadFisica.setText("Discapacidad física");
-        jPanel2.add(lblDiscapacidadFisica, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
 
         chkFisicaSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkFisicaSi.setText("SI");
-        jPanel2.add(chkFisicaSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 280, -1, -1));
 
         chkFisicaNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkFisicaNo.setText("NO");
-        jPanel2.add(chkFisicaNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 280, -1, -1));
 
         txtEspecificarFisica.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarFisica.setText("especificar");
-        jPanel2.add(txtEspecificarFisica, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 280, 230, 30));
 
         lblLesionesGraves.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblLesionesGraves.setText("Lesiones graves");
-        jPanel2.add(lblLesionesGraves, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
 
         chkLesionesSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkLesionesSi.setText("SI");
-        jPanel2.add(chkLesionesSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
 
         chkLesionesNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkLesionesNo.setText("NO");
-        jPanel2.add(chkLesionesNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, -1, -1));
 
         txtEspecificarLesiones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarLesiones.setText("especificar");
-        jPanel2.add(txtEspecificarLesiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 330, 230, 30));
 
         lblPadecimientos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblPadecimientos.setText("Padecimientos actuales o previos");
-        jPanel2.add(lblPadecimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
         chkPadecimientosSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkPadecimientosSi.setText("SI");
-        jPanel2.add(chkPadecimientosSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, -1, -1));
 
         chkPadecimientosNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkPadecimientosNo.setText("NO");
-        jPanel2.add(chkPadecimientosNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, -1, -1));
 
         txtEspecificarPadecimientos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarPadecimientos.setText("especificar");
-        jPanel2.add(txtEspecificarPadecimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 230, 30));
 
         lblTratamientosPsicologicos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTratamientosPsicologicos.setText("Tratamientos médicos, psiquiátricos ");
-        jPanel2.add(lblTratamientosPsicologicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
 
         lblTratamientosPsicologicos2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTratamientosPsicologicos2.setText("o psicológicos");
-        jPanel2.add(lblTratamientosPsicologicos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, -1, -1));
 
         chkTratamientosSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkTratamientosSi.setText("SI");
-        jPanel2.add(chkTratamientosSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
 
         chkTratamientosNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkTratamientosNo.setText("NO");
-        jPanel2.add(chkTratamientosNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, -1, -1));
 
         txtMotivoTratamientos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMotivoTratamientos.setText("Motivo o pronostico");
-        jPanel2.add(txtMotivoTratamientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, 230, 30));
 
         lblMedicamentos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblMedicamentos.setText("Medicamentos controlados");
-        jPanel2.add(lblMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, -1, -1));
 
         chkMedicamentosSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkMedicamentosSi.setText("SI");
-        jPanel2.add(chkMedicamentosSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
 
         chkMedicamentosNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkMedicamentosNo.setText("NO");
-        jPanel2.add(chkMedicamentosNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, -1, -1));
 
         txtEspecificarMedicamentos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarMedicamentos.setText("especificar");
-        jPanel2.add(txtEspecificarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 230, 30));
 
         lblAlergias.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblAlergias.setText("Alergias");
-        jPanel2.add(lblAlergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, -1, -1));
 
         chkAlergiasSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAlergiasSi.setText("SI");
-        jPanel2.add(chkAlergiasSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, -1, -1));
 
         chkAlergiasNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkAlergiasNo.setText("NO");
-        jPanel2.add(chkAlergiasNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, -1, -1));
 
         txtEspecificarAlergias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecificarAlergias.setText("especificar");
-        jPanel2.add(txtEspecificarAlergias, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 230, 30));
 
         lblTratamientosExternos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTratamientosExternos.setText("Tratamientos externos");
-        jPanel2.add(lblTratamientosExternos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, -1, -1));
 
         chkExternosSi.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkExternosSi.setText("SI");
-        jPanel2.add(chkExternosSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, -1, -1));
 
         chkExternosNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkExternosNo.setText("NO");
-        jPanel2.add(chkExternosNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, -1, -1));
 
         txtMotivoExternos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMotivoExternos.setText("Motivo");
-        jPanel2.add(txtMotivoExternos, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 570, 230, 30));
 
         lblTipoSangre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTipoSangre.setText("Tipo de sangre");
-        jPanel2.add(lblTipoSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, -1, -1));
 
         cmbTipoSangre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbTipoSangre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un tipo de sangre", "A+", "B+", "O-", "O+", "A-", "B-", "X" }));
-        jPanel2.add(cmbTipoSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 640, 290, 30));
 
         lblAspectosSalud.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblAspectosSalud.setText("Aspectos de salud en los que te gustaría");
-        jPanel2.add(lblAspectosSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 670, -1, -1));
 
         lblAspectosSalud2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblAspectosSalud2.setText("prepararte mejor");
-        jPanel2.add(lblAspectosSalud2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 700, -1, -1));
-
-        txaOtraInformacionSalud.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel2.add(txaOtraInformacionSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 740, 410, 60));
 
         lblOtraInformacionSalud.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblOtraInformacionSalud.setText("Otra información importante sobre tu salud");
-        jPanel2.add(lblOtraInformacionSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 740, -1, -1));
 
         txtAspectosSalud.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jPanel2.add(txtAspectosSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 680, 410, 30));
 
-        jScrollPane1.setViewportView(jPanel2);
+        txaOtraInformacionSalud.setColumns(20);
+        txaOtraInformacionSalud.setRows(5);
+        jScrollPane1.setViewportView(txaOtraInformacionSalud);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAspectosSalud2)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAspectosSalud)
+                            .addComponent(lblOtraInformacionSalud))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAspectosSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lblTituloDatosMedicos))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblEstadoSalud)
+                        .addGap(183, 183, 183)
+                        .addComponent(chkSaludBueno)
+                        .addGap(66, 66, 66)
+                        .addComponent(chkSaludRegular)
+                        .addGap(64, 64, 64)
+                        .addComponent(chkSaludMalo))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblDeficienciaVista)
+                        .addGap(210, 210, 210)
+                        .addComponent(chkVistaSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkVistaNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarVista, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblDeficienciaAuditiva)
+                        .addGap(228, 228, 228)
+                        .addComponent(chkAuditivaSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkAuditivaNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarAuditiva, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblDiscapacidadFisica)
+                        .addGap(230, 230, 230)
+                        .addComponent(chkFisicaSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkFisicaNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblLesionesGraves)
+                        .addGap(260, 260, 260)
+                        .addComponent(chkLesionesSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkLesionesNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarLesiones, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblPadecimientos)
+                        .addGap(105, 105, 105)
+                        .addComponent(chkPadecimientosSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkPadecimientosNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarPadecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTratamientosPsicologicos2)
+                            .addComponent(lblTratamientosPsicologicos))
+                        .addGap(75, 75, 75)
+                        .addComponent(chkTratamientosSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkTratamientosNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtMotivoTratamientos, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblMedicamentos)
+                        .addGap(157, 157, 157)
+                        .addComponent(chkMedicamentosSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkMedicamentosNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblAlergias)
+                        .addGap(329, 329, 329)
+                        .addComponent(chkAlergiasSi)
+                        .addGap(103, 103, 103)
+                        .addComponent(chkAlergiasNo)
+                        .addGap(100, 100, 100)
+                        .addComponent(txtEspecificarAlergias, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTratamientosExternos)
+                            .addComponent(lblTipoSangre))
+                        .addGap(203, 203, 203)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(chkExternosSi)
+                                .addGap(103, 103, 103)
+                                .addComponent(chkExternosNo)
+                                .addGap(100, 100, 100)
+                                .addComponent(txtMotivoExternos, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(98, 98, 98))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTituloDatosMedicos)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblEstadoSalud)
+                    .addComponent(chkSaludBueno)
+                    .addComponent(chkSaludRegular)
+                    .addComponent(chkSaludMalo))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDeficienciaVista)
+                    .addComponent(chkVistaSi)
+                    .addComponent(chkVistaNo)
+                    .addComponent(txtEspecificarVista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDeficienciaAuditiva)
+                    .addComponent(chkAuditivaSi)
+                    .addComponent(chkAuditivaNo)
+                    .addComponent(txtEspecificarAuditiva, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDiscapacidadFisica)
+                    .addComponent(chkFisicaSi)
+                    .addComponent(chkFisicaNo)
+                    .addComponent(txtEspecificarFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLesionesGraves)
+                    .addComponent(chkLesionesSi)
+                    .addComponent(chkLesionesNo)
+                    .addComponent(txtEspecificarLesiones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPadecimientos)
+                    .addComponent(chkPadecimientosSi)
+                    .addComponent(chkPadecimientosNo)
+                    .addComponent(txtEspecificarPadecimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTratamientosPsicologicos)
+                            .addComponent(chkTratamientosSi)
+                            .addComponent(chkTratamientosNo)
+                            .addComponent(txtMotivoTratamientos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTratamientosPsicologicos2)
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMedicamentos)
+                    .addComponent(chkMedicamentosSi)
+                    .addComponent(chkMedicamentosNo)
+                    .addComponent(txtEspecificarMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAlergias)
+                    .addComponent(chkAlergiasSi)
+                    .addComponent(chkAlergiasNo)
+                    .addComponent(txtEspecificarAlergias, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTratamientosExternos)
+                    .addComponent(chkExternosSi)
+                    .addComponent(chkExternosNo)
+                    .addComponent(txtMotivoExternos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoSangre)
+                    .addComponent(cmbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAspectosSalud)
+                    .addComponent(txtAspectosSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(lblAspectosSalud2)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblOtraInformacionSalud)
+                        .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1260, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -334,7 +491,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     private javax.swing.JLabel lblTratamientosExternos;
     private javax.swing.JLabel lblTratamientosPsicologicos;
     private javax.swing.JLabel lblTratamientosPsicologicos2;
-    private javax.swing.JTextField txaOtraInformacionSalud;
+    private javax.swing.JTextArea txaOtraInformacionSalud;
     private javax.swing.JTextField txtAspectosSalud;
     private javax.swing.JTextField txtEspecificarAlergias;
     private javax.swing.JTextField txtEspecificarAuditiva;

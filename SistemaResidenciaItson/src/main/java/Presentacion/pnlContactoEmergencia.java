@@ -45,70 +45,127 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         cmbParentescoEmergencia = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTituloEmergencia.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblTituloEmergencia.setText("Datos de contacto en caso de emergencia");
-        jPanel1.add(lblTituloEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblNombreEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblNombreEmergencia.setText("Nombre completo:");
-        jPanel1.add(lblNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         lblCorreoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblCorreoEmergencia.setText("Correo:");
-        jPanel1.add(lblCorreoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
-        jPanel1.add(txtCorreoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 380, 30));
 
         txtNombreEmergencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreEmergenciaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 410, 30));
 
         lblCiudadEstadoPaisEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblCiudadEstadoPaisEmergencia.setText("Ciudad, Estado y País de residencia:");
-        jPanel1.add(lblCiudadEstadoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, -1));
 
         lblTelefonoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTelefonoEmergencia.setText("Telefono:");
-        jPanel1.add(lblTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, -1, -1));
-        jPanel1.add(txtTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 180, 30));
 
         cmbCodigoPaisEmergencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        jPanel1.add(cmbCodigoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, 30));
 
         lblCelularEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblCelularEmergencia.setText("Celular:");
-        jPanel1.add(lblCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        jPanel1.add(txtCiudadEstadoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 190, 300, 30));
 
         txtCelularEmergencia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtCelularEmergenciaFocusLost(evt);
             }
         });
-        jPanel1.add(txtCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 180, 30));
 
         lblDomicilioEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDomicilioEmergencia.setText("Domicilio:");
-        jPanel1.add(lblDomicilioEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         lblParentescoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblParentescoEmergencia.setText("Parentesco:");
-        jPanel1.add(lblParentescoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, -1, -1));
 
         txtDomicilioEmergencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDomicilioEmergenciaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDomicilioEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 354, 30));
 
         cmbParentescoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbParentescoEmergencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un parentesco", "Padre", "Madre", "Hermano", "Abuela/Abuelo", "Tutor legal" }));
-        jPanel1.add(cmbParentescoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 140, -1, 30));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(lblTituloEmergencia))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblNombreEmergencia)
+                .addGap(11, 11, 11)
+                .addComponent(txtNombreEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblParentescoEmergencia)
+                .addGap(18, 18, 18)
+                .addComponent(cmbParentescoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblDomicilioEmergencia)
+                .addGap(21, 21, 21)
+                .addComponent(txtDomicilioEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(lblCiudadEstadoPaisEmergencia)
+                .addGap(15, 15, 15)
+                .addComponent(txtCiudadEstadoPaisEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblCelularEmergencia)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbCodigoPaisEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(txtCelularEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
+                .addComponent(lblTelefonoEmergencia)
+                .addGap(28, 28, 28)
+                .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(120, 120, 120)
+                .addComponent(lblCorreoEmergencia)
+                .addGap(15, 15, 15)
+                .addComponent(txtCorreoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblTituloEmergencia)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreEmergencia)
+                    .addComponent(txtNombreEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblParentescoEmergencia)
+                    .addComponent(cmbParentescoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDomicilioEmergencia)
+                    .addComponent(txtDomicilioEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCiudadEstadoPaisEmergencia)
+                    .addComponent(txtCiudadEstadoPaisEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCelularEmergencia)
+                    .addComponent(cmbCodigoPaisEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCelularEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTelefonoEmergencia)
+                    .addComponent(txtTelefonoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCorreoEmergencia)
+                    .addComponent(txtCorreoEmergencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -118,7 +175,7 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

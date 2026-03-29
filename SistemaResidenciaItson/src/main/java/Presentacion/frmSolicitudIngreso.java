@@ -158,11 +158,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
         lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTituloGestionResi.setText("Residencias ITSON – Panel de Gestión de residentes");
-        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblSubtituloSoliIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtituloSoliIngre.setText("Solicitud ingreso");
-        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
+        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
 
         jpnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -552,7 +552,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jpnlPrincipal);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 1330, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 1330, 470));
 
         btnGuardarSolicitudIngreso.setBackground(new java.awt.Color(51, 204, 0));
         btnGuardarSolicitudIngreso.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
@@ -576,7 +576,14 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         jPanel1.add(btnVaciarSoliIngres, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 240, 40));
 
         btnFrmAtrasSoliIngreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
-        jPanel1.add(btnFrmAtrasSoliIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+        btnFrmAtrasSoliIngreso.setBorderPainted(false);
+        btnFrmAtrasSoliIngreso.setContentAreaFilled(false);
+        btnFrmAtrasSoliIngreso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFrmAtrasSoliIngresoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFrmAtrasSoliIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -653,6 +660,12 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void btnFrmAtrasSoliIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrmAtrasSoliIngresoActionPerformed
+        frmRegistrarResidente volver = new frmRegistrarResidente();
+        volver.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFrmAtrasSoliIngresoActionPerformed
 
     /**
      * @param args the command line arguments

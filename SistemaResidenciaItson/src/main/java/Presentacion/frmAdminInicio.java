@@ -62,15 +62,15 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         txtTitulodmin.setText("Residencias ITSON – Panel de Administración");
-        jplAdminInicio.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, -1));
+        jplAdminInicio.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblNombreAdmin.setText("Nombre");
-        jplAdminInicio.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
+        jplAdminInicio.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, -1, -1));
 
         lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblBienvenidAdmin.setText("Bienvenido");
-        jplAdminInicio.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
+        jplAdminInicio.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
 
         jplGTNEmpleados.setBackground(new java.awt.Color(119, 180, 241));
 
@@ -83,7 +83,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplGTNEmpleadosLayout.setHorizontalGroup(
             jplGTNEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNEmpleadosLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblGestionEmpleadosAdmin)
                 .addContainerGap())
         );
