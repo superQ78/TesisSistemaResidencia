@@ -1,7 +1,10 @@
-
 package Presentacion;
 
 import javax.swing.JFrame;
+import Negocio.DTOs.UsuarioDTO;
+import Negocio.GestorUsuario.IUsuario;
+import Negocio.GestorUsuario.UsuarioFachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,7 +106,12 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 460, 40));
 
         cbxRolAsignado.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cbxRolAsignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxRolAsignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un Rol", "Administrador", "Trabajador" }));
+        cbxRolAsignado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxRolAsignadoActionPerformed(evt);
+            }
+        });
         jPanel1.add(cbxRolAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 460, 40));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(255, 102, 102));
@@ -154,11 +162,62 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCamposActionPerformed
-        // TODO add your handling code here:
+        txtNombreCompleto.setText("");
+        txtCorreo.setText("");
+        txtContraseña.setText("");
+        txtConfirmarContraseña.setText("");
+        txtTelefono.setText("");
+        cbxRolAsignado.setSelectedIndex(0); 
+
     }//GEN-LAST:event_btnLimpiarCamposActionPerformed
 
     private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
-        // TODO add your handling code here:
+        // Extraer los datos 
+        String nombre = txtNombreCompleto.getText();
+        String correo = txtCorreo.getText();
+        String contra = txtContraseña.getText();
+        String confContra = txtConfirmarContraseña.getText();
+        String rol = cbxRolAsignado.getSelectedItem().toString();
+        String telefono = txtTelefono.getText();
+
+        //Validacion suerficial de las credenciales
+        if (!contra.equals(confContra)) {
+            JOptionPane.showMessageDialog(this,
+                    "Las contraseñas no coinciden. Por favor, verificalas.",
+                    "Aviso",
+                    JOptionPane.WARNING_MESSAGE);
+            // Detenemos el proceso aqui para que no viaje a la base de datos
+            return;
+        }
+
+        // Crear el dto
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setNombre(nombre);
+        dto.setEmail(correo);
+        dto.setContrasena(contra);
+        dto.setRol(rol);
+        dto.setTelefono(telefono);
+
+        //Enviar el DTO a la Fachada
+        IUsuario fachada = new UsuarioFachada();
+        boolean registroExitoso = fachada.registrar(dto);
+
+        // Evaluar la respuesta
+        if (registroExitoso) {
+            JOptionPane.showMessageDialog(this,
+                    "Usuario registrado exitosamente en el sistema.",
+                    "Exito",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+            // Llamamos al boton de limpiar para que la pantalla quede en blanco de nuevo
+            btnLimpiarCamposActionPerformed(evt);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Faltan campos por llenar o hubo un error al guardar en la Base de Datos.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -166,6 +225,10 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         volver.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void cbxRolAsignadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRolAsignadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxRolAsignadoActionPerformed
 
     /**
      * @param args the command line arguments

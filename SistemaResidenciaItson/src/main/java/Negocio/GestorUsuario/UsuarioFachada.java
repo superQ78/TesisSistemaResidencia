@@ -11,9 +11,16 @@ import Negocio.DTOs.UsuarioDTO;
  * @author cesar
  */
 public class UsuarioFachada implements IUsuario {
+
     @Override
     public UsuarioDTO iniciarSesion(UsuarioDTO dto) {
         ControlUsuario control = new ControlUsuario();
         return control.procesarInicioSesion(dto);
+    }
+
+    @Override
+    public boolean registrar(UsuarioDTO dto) {
+        ControlUsuario control = new ControlUsuario();
+        return control.procesarRegistro(dto);
     }
 }

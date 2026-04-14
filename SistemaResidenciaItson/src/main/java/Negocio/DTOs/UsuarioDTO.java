@@ -15,13 +15,16 @@ public class UsuarioDTO {
      private String contrasena;
      private String email;
      private String rol;
+     private String telefono;
+     
 
-    public UsuarioDTO(String id, String nombre, String contrasena, String email, String rol) {
+    public UsuarioDTO(String id, String nombre, String contrasena, String email, String rol, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.email = email;
         this.rol= rol;
+        this.telefono= telefono;
     }
 
     public UsuarioDTO() {
@@ -67,15 +70,20 @@ public class UsuarioDTO {
         this.rol = rol;
     }
 
-    @Override
-    public String toString() {
-        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + '}';
+    public String getTelefono() {
+        return telefono;
     }
 
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + ", telefono=" + telefono + '}';
+    }
     
     
-   
-     
      
     
     

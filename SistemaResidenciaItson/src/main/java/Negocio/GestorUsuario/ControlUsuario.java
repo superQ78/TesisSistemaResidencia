@@ -12,8 +12,14 @@ import Negocio.DTOs.UsuarioDTO;
  * @author cesar
  */
 public class ControlUsuario {
+
     public UsuarioDTO procesarInicioSesion(UsuarioDTO dto) {
         UsuarioBO bo = new UsuarioBO();
         return bo.iniciarSesion(dto);
+    }
+
+    public boolean procesarRegistro(UsuarioDTO dto) {
+        UsuarioBO bo = new UsuarioBO();
+        return bo.registrarUsuario(dto);
     }
 }

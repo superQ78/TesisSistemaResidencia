@@ -5,6 +5,10 @@
 package Presentacion;
 
 import javax.swing.JFrame;
+import Negocio.DTOs.UsuarioDTO;
+import Negocio.GestorUsuario.IUsuario;
+import Negocio.GestorUsuario.UsuarioFachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,12 +95,41 @@ public class frmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSeionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeionActionPerformed
+//Obtener los datos que el usuario escribio en la pantalla
+        String correo = txtCorreoLogin.getText();
+        String contra = txtContraLogin.getText();
 
-        frmAdminInicio fadmin = new frmAdminInicio();
+        // juntar los datos en el DTO
+        UsuarioDTO dto = new UsuarioDTO();
+        dto.setEmail(correo);
+        dto.setContrasena(contra);
 
-        fadmin.setVisible(true);
+        // Mandar llamar a la Fachada
+        IUsuario fachada = new UsuarioFachada();
+        UsuarioDTO usuarioLogueado = fachada.iniciarSesion(dto);
 
-        this.dispose();
+        // Validar el resultado y decidir que pantalla abrir
+        if (usuarioLogueado != null) {
+
+            if ("Administrador".equals(usuarioLogueado.getRol())) {
+                frmAdminInicio fadmin = new frmAdminInicio();
+                fadmin.setVisible(true);
+            } else if ("Trabajador".equals(usuarioLogueado.getRol())) {
+                frmTrabajadorInicio ftrabajador = new frmTrabajadorInicio();
+                ftrabajador.setVisible(true);
+            }
+
+            // Cierra la ventana de login
+            this.dispose();
+
+        } else {
+            // Mostrar mensaje de error si el DAO devuelve un null
+            JOptionPane.showMessageDialog(this,
+                    "Correo o contrasena incorrectos",
+                    "Error de Inicio de Sesion",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btnIniciarSeionActionPerformed
 
     /**

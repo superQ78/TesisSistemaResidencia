@@ -11,5 +11,8 @@ import Negocio.DTOs.UsuarioDTO;
  * @author cesar
  */
 public interface IUsuario {
+
     public UsuarioDTO iniciarSesion(UsuarioDTO dto);
+
+    public boolean registrar(UsuarioDTO dto);
 }
