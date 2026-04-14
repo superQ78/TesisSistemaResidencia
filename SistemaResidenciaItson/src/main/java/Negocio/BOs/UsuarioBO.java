@@ -7,6 +7,8 @@ package Negocio.BOs;
 import Negocio.DTOs.UsuarioDTO;
 import Persistencia.DAOs.UsuarioDAO;
 import Persistencia.Entidades.UsuarioEntidad;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -42,7 +44,6 @@ public class UsuarioBO {
 
     // Metodo para regisrar un usuario en el sistema
     public boolean registrarUsuario(UsuarioDTO dto) {
-
         // Aqui es donde aplicaremos una de las reglas negocio que estamos agregando al sistema
         if (dto.getNombre().isEmpty() || dto.getEmail().isEmpty() || dto.getContrasena().isEmpty() || dto.getRol().isEmpty()) {
             return false;
@@ -57,6 +58,26 @@ public class UsuarioBO {
 
         UsuarioDAO dao = new UsuarioDAO();
         return dao.insertar(entidad);
+    }
+    
+    public List<UsuarioDTO> consultarUsuarios() {
+        UsuarioDAO dao = new UsuarioDAO();
+        List<UsuarioEntidad> listaEntidades = dao.buscarTodo(); 
+        
+        List<UsuarioDTO> listaDTOs = new ArrayList<>();
+        
+        for (UsuarioEntidad entidad : listaEntidades) {
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.setId(entidad.getId()); 
+            dto.setNombre(entidad.getNombre());
+            dto.setEmail(entidad.getEmail());
+            dto.setRol(entidad.getRol());
+            dto.setTelefono(entidad.getTelefono());
+            
+            listaDTOs.add(dto);
+        }
+        
+        return listaDTOs; // Paso 9
     }
 
     private void validarFormatoCredenciales() {

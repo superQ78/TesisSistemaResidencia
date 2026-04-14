@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -47,7 +49,7 @@ public class UsuarioDAO {
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getEmail());
             ps.setString(3, entidad.getContrasena());
-            ps.setString(4, entidad.getRol()); 
+            ps.setString(4, entidad.getRol());
             ps.setString(5, entidad.getTelefono());
 
             // executeUpdate(), esto nos devuelve el numero de filas que se cambiaron en la bd
@@ -58,5 +60,27 @@ public class UsuarioDAO {
             System.err.println("Error al registrar usuario en BD: " + e.getMessage());
             return false;
         }
+    }
+
+    public List<UsuarioEntidad> buscarTodo() {
+        List<UsuarioEntidad> listaUsuarios = new ArrayList<>();
+        String sql = "SELECT * FROM Usuarios"; // Trae todos los registros
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                UsuarioEntidad usuario = new UsuarioEntidad();
+                usuario.setId(rs.getInt("idUsuario"));
+                usuario.setNombre(rs.getString("nombreCompleto"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setRol(rs.getString("rol"));
+                usuario.setTelefono(rs.getString("telefono"));
+
+                listaUsuarios.add(usuario); // Lo agregamos a la lista
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al consultar usuarios: " + e.getMessage());
+        }
+        return listaUsuarios;
     }
 }

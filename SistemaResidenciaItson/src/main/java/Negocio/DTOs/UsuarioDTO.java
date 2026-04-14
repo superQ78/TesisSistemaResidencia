@@ -10,7 +10,7 @@ package Negocio.DTOs;
  */
 public class UsuarioDTO {
     
-     private String id;
+     private int id;
      private String nombre;
      private String contrasena;
      private String email;
@@ -18,7 +18,7 @@ public class UsuarioDTO {
      private String telefono;
      
 
-    public UsuarioDTO(String id, String nombre, String contrasena, String email, String rol, String telefono) {
+    public UsuarioDTO(int id, String nombre, String contrasena, String email, String rol, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
@@ -30,11 +30,11 @@ public class UsuarioDTO {
     public UsuarioDTO() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

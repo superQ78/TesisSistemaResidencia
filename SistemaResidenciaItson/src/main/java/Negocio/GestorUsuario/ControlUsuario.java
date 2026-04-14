@@ -6,6 +6,7 @@ package Negocio.GestorUsuario;
 
 import Negocio.BOs.UsuarioBO;
 import Negocio.DTOs.UsuarioDTO;
+import java.util.List;
 
 /**
  *
@@ -22,4 +23,10 @@ public class ControlUsuario {
         UsuarioBO bo = new UsuarioBO();
         return bo.registrarUsuario(dto);
     }
+   
+   public List<UsuarioDTO> procesarConsultaUsuarios() {
+        UsuarioBO bo = new UsuarioBO();
+        return bo.consultarUsuarios();
+    }
+   
 }

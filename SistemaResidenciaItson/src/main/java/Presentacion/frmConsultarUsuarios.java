@@ -3,6 +3,10 @@ package Presentacion;
 //import Utilidades.HeaderToolTipRenderer;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import Negocio.DTOs.UsuarioDTO;
+import Negocio.GestorUsuario.IUsuario;
+import Negocio.GestorUsuario.UsuarioFachada;
 
 /**
  *
@@ -132,26 +136,21 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column >= 3;  // Las columnas 3, 4 y 5 son botones
+                return column >= 3;  
             }
         };
 
         tblUsuarios.setModel(modeloUsuarios);
-
-        // ajustes de botones el alto sea suficiente para los iconos
         tblUsuarios.setRowHeight(40);
         tblUsuarios.setBackground(java.awt.Color.WHITE);
 
-        // Bucle para asignar el Render y Editor a las columnas 3, 4 y 5
         for (int c = 3; c <= 5; c++) {
             tblUsuarios.getColumnModel().getColumn(c).setCellRenderer(new Utilidades.RenderImagen());
             tblUsuarios.getColumnModel().getColumn(c).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblUsuarios));
-
-            // Ajustar ancho de los botones
             tblUsuarios.getColumnModel().getColumn(c).setPreferredWidth(40);
         }
 
-        llenarTablaEjemplo();
+        llenarTablaReal();
     }
 
     /**
@@ -159,18 +158,27 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
      * Posteriormente, esta función se modificará para consultar tu base de
      * datos.
      */
-    private void llenarTablaEjemplo() {
+    /**
+     * Consulta la base de datos a través de las capas y llena la tabla.
+     */
+    private void llenarTablaReal() {
         modeloUsuarios.setRowCount(0);
 
-        // NOTA: Escribimos el nombre de la acción para que el Render sepa qué icono pintar
-        Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "panfilo@correo.mx", "SELECCIONAR", "EDITAR", "INHABILITAR"},
-            {"0000226088", "Cesar Adrian Avalos", "cesar@correo.mx", "SELECCIONAR", "EDITAR", "INHABILITAR"},
-            {"0000226088", "Georgina Aviles", "georgina@correo.mx", "SELECCIONAR", "EDITAR", "INHABILITAR"},
-            {"0000226088", "Jose Duran", "jose@correo.mx", "SELECCIONAR", "EDITAR", "INHABILITAR"}
-        };
+        //Llamar a la Fachada para pedir la lista de usuarios
+        IUsuario fachada = new UsuarioFachada();
+        List<UsuarioDTO> listaUsuarios = fachada.consultarUsuarios();
 
-        for (Object[] fila : datosEjemplo) {
+        //Recorrer la lista y pintar cada fila en la tabla 
+        for (UsuarioDTO usuario : listaUsuarios) {
+            Object[] fila = {
+                usuario.getId(), // Columna 0: ID
+                usuario.getNombre(), // Columna 1: Nombre
+                usuario.getEmail(), // Columna 2: Correo
+                "SELECCIONAR", // Columna 3: Accion para tu Render
+                "EDITAR", // Columna 4: Accion para tu Render
+                "INHABILITAR" // Columna 5: Accion para tu Render
+            };
+
             modeloUsuarios.addRow(fila);
         }
     }

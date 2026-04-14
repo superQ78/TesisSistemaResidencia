@@ -5,6 +5,7 @@
 package Negocio.GestorUsuario;
 
 import Negocio.DTOs.UsuarioDTO;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,6 @@ public interface IUsuario {
     public UsuarioDTO iniciarSesion(UsuarioDTO dto);
 
     public boolean registrar(UsuarioDTO dto);
+    
+    public List<UsuarioDTO> consultarUsuarios();
 }

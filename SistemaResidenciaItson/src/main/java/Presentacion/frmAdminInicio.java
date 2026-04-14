@@ -1,4 +1,4 @@
-    /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -97,7 +97,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         jplAdminInicio.add(jplGTNEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 220, 70));
 
-        cmbxGestionEmpleados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Crear nuevo usuario", "Modificar usuario" }));
+        cmbxGestionEmpleados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Consultar usuario", "Crear nuevo usuario", "Modificar usuario", " " }));
         jplAdminInicio.add(cmbxGestionEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 220, 40));
 
         btnSeleccionarOpcionResidente.setBackground(new java.awt.Color(0, 51, 204));
@@ -143,6 +143,11 @@ public class frmAdminInicio extends javax.swing.JFrame {
         btnSeleccionarOpcionEmpleado1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSeleccionarOpcionEmpleado1.setForeground(new java.awt.Color(255, 255, 255));
         btnSeleccionarOpcionEmpleado1.setText("Seleccionar");
+        btnSeleccionarOpcionEmpleado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarOpcionEmpleado1ActionPerformed(evt);
+            }
+        });
         jplAdminInicio.add(btnSeleccionarOpcionEmpleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, 190, 50));
 
         btnSeleccionarOpcionActaAdmin.setBackground(new java.awt.Color(0, 51, 204));
@@ -227,10 +232,40 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         frmLogin frmlog = new frmLogin();
-        
+
         frmlog.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSeleccionarOpcionEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarOpcionEmpleado1ActionPerformed
+        // Leer que opcion selecciono el usuario en el ComboBox
+        String opcionSeleccionada = cmbxGestionEmpleados.getSelectedItem().toString();
+
+        //if para abrir la pantalla correcta
+        if (opcionSeleccionada.equals("Crear nuevo usuario")) {
+            frmCrearUsuario fCrear = new frmCrearUsuario();
+            fCrear.setVisible(true);
+            // Cierra el menu principal
+            this.dispose();
+
+        } else if (opcionSeleccionada.equals("Consultar usuario")) {
+            frmConsultarUsuarios fConsultar = new frmConsultarUsuarios();
+            fConsultar.setVisible(true);
+            this.dispose();
+
+        } else if (opcionSeleccionada.equals("Modificar usuario")) {
+            frmConsultarUsuarios fConsultar = new frmConsultarUsuarios();
+            fConsultar.setVisible(true);
+            this.dispose();
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor, selecciona una accion del menu desplegable.",
+                    "Aviso",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnSeleccionarOpcionEmpleado1ActionPerformed
 
     /**
      * @param args the command line arguments

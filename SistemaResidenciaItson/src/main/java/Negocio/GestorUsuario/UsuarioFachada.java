@@ -5,6 +5,7 @@
 package Negocio.GestorUsuario;
 
 import Negocio.DTOs.UsuarioDTO;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,11 @@ public class UsuarioFachada implements IUsuario {
     public boolean registrar(UsuarioDTO dto) {
         ControlUsuario control = new ControlUsuario();
         return control.procesarRegistro(dto);
+    }
+    
+    @Override
+    public List<UsuarioDTO> consultarUsuarios() {
+        ControlUsuario control = new ControlUsuario();
+        return control.procesarConsultaUsuarios();
     }
 }
