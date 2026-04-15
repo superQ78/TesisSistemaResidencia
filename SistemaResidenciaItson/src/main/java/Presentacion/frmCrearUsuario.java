@@ -12,12 +12,55 @@ import javax.swing.JOptionPane;
  */
 public class frmCrearUsuario extends javax.swing.JFrame {
 
+    //creamos esta variable para usarla como distintivo
+    private int idUsuarioEdicion = -1;
+
     /**
      * Creates new form frmCrearUsuario
      */
     public frmCrearUsuario() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    }
+
+    /**
+     * Para editar recibe el ID desde la tabla
+     */
+    public frmCrearUsuario(int idSeleccionado) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        // Guardamos el ID que nos mandaron
+        this.idUsuarioEdicion = idSeleccionado;
+
+        // Cambiamos los textos para que la pantalla parezca de modificacion
+        lblSubtituloCrear.setText("Modificar Usuario");
+        btnCrearUsuario.setText("Guardar Cambios");
+
+        // Mandamos a traer los datos para rellenar las cajitas de texto
+        cargarDatosParaEditar();
+    }
+
+    private void cargarDatosParaEditar() {
+        IUsuario fachada = new UsuarioFachada();
+        // Reciclamos el metodo que hicimos para la otra pantalla
+        UsuarioDTO usuario = fachada.consultarUsuarioPorId(this.idUsuarioEdicion);
+
+        if (usuario != null) {
+            // Le metemos los datos al textfield
+            txtNombreCompleto.setText(usuario.getNombre());
+            txtCorreo.setText(usuario.getEmail());
+            txtContraseña.setText(usuario.getContrasena());
+            txtConfirmarContraseña.setText(usuario.getContrasena());
+            
+            // Validamos el telefono por si está nulo
+            if (usuario.getTelefono() != null) {
+                txtTelefono.setText(usuario.getTelefono());
+            }
+
+            // Seleccionamos el rol correcto en el combo box
+            cbxRolAsignado.setSelectedItem(usuario.getRol());
+        }
     }
 
     /**
@@ -167,7 +210,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         txtContraseña.setText("");
         txtConfirmarContraseña.setText("");
         txtTelefono.setText("");
-        cbxRolAsignado.setSelectedIndex(0); 
+        cbxRolAsignado.setSelectedIndex(0);
 
     }//GEN-LAST:event_btnLimpiarCamposActionPerformed
 
@@ -180,7 +223,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         String rol = cbxRolAsignado.getSelectedItem().toString();
         String telefono = txtTelefono.getText();
 
-        //Validacion suerficial de las credenciales
+        //Validacion basica de las credenciales
         if (!contra.equals(confContra)) {
             JOptionPane.showMessageDialog(this,
                     "Las contraseñas no coinciden. Por favor, verificalas.",
@@ -190,32 +233,42 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             return;
         }
 
-        // Crear el dto
+         // Crear el paquete de dtos
         UsuarioDTO dto = new UsuarioDTO();
+        dto.setId(this.idUsuarioEdicion); 
         dto.setNombre(nombre);
         dto.setEmail(correo);
         dto.setContrasena(contra);
         dto.setRol(rol);
         dto.setTelefono(telefono);
 
-        //Enviar el DTO a la Fachada
+        // Llamamos a la Fachada
         IUsuario fachada = new UsuarioFachada();
-        boolean registroExitoso = fachada.registrar(dto);
+        boolean exito;
+        
+        if (this.idUsuarioEdicion == -1) {
+            exito = fachada.registrar(dto); // Hace el INSERT
+        } else {
+            exito = fachada.actualizarUsuario(dto); // Hace el UPDATE
+        }
 
         // Evaluar la respuesta
-        if (registroExitoso) {
-            JOptionPane.showMessageDialog(this,
-                    "Usuario registrado exitosamente en el sistema.",
-                    "Exito",
-                    JOptionPane.INFORMATION_MESSAGE);
+        if (exito) {
+            String mensaje = (this.idUsuarioEdicion == -1) ? "Usuario registrado exitosamente." : "Usuario modificado exitosamente.";
+            JOptionPane.showMessageDialog(this, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
 
-            // Llamamos al boton de limpiar para que la pantalla quede en blanco de nuevo
-            btnLimpiarCamposActionPerformed(evt);
+            if (this.idUsuarioEdicion == -1) {
+                btnLimpiarCamposActionPerformed(evt); // Solo limpiamos si estaba creando
+                 btnAtrasActionPerformed(evt);
+            } else {
+                frmConsultarUsuarios vol= new frmConsultarUsuarios();
+                vol.setVisible(true);
+                this.dispose(); // Si estaba editando, lo regresamos a la tabla
+            }
         } else {
             JOptionPane.showMessageDialog(this,
-                    "Faltan campos por llenar o hubo un error al guardar en la Base de Datos.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
+                    "Faltan campos por llenar o hubo un error al guardar en la BD.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed

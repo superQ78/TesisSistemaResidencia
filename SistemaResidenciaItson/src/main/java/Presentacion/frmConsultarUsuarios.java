@@ -136,7 +136,8 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column >= 3;  
+
+                return false;
             }
         };
 
@@ -151,12 +152,59 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         }
 
         llenarTablaReal();
+        // Le ponemos un escuchador a la tabla para detectar los clics en los botones
+        tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // Sacamos la fila y columna exacta donde el usuario dio el clic
+                int fila = tblUsuarios.rowAtPoint(evt.getPoint());
+                int columna = tblUsuarios.columnAtPoint(evt.getPoint());
+
+                // Checamos que no le haya dado clic al vacio y que sea en las columnas de los botones 
+                if (fila >= 0 && columna >= 3) {
+
+                    // Extraemos el ID y el Nombre de esa fila para saber a quien seleccionamos
+                    int idSeleccionado = Integer.parseInt(tblUsuarios.getValueAt(fila, 0).toString());
+                    String nombreSeleccionado = tblUsuarios.getValueAt(fila, 1).toString();
+
+                    if (columna == 3) {
+                        frmInformacionUsuario info = new frmInformacionUsuario(idSeleccionado);
+                        info.setVisible(true);
+                        dispose();
+
+                    } else if (columna == 4) {
+                        // Le dio al boton de EDITAR
+                        frmCrearUsuario editar = new frmCrearUsuario(idSeleccionado);
+                        editar.setVisible(true);
+                        dispose(); // Cerramos la tabla
+
+                    } else if (columna == 5) {
+                        int respuesta = javax.swing.JOptionPane.showConfirmDialog(null,
+                                "¿Estas seguro de inhabilitar a: " + nombreSeleccionado + "?",
+                                "Confirmar Inhabilitacion",
+                                javax.swing.JOptionPane.YES_NO_OPTION,
+                                javax.swing.JOptionPane.WARNING_MESSAGE);
+
+                        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+
+                            IUsuario fachada = new UsuarioFachada();
+                            boolean exito = fachada.inhabilitarUsuario(idSeleccionado);
+
+                            if (exito) {
+                                javax.swing.JOptionPane.showMessageDialog(null, "Se inhabilito al usuario correctamente.");
+                                llenarTablaReal(); // Recargamos la tabla 
+                            } else {
+                                javax.swing.JOptionPane.showMessageDialog(null, "Hubo un bronca al inhabilitar en la BD.");
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     /**
      * Carga datos simulados de usuarios en el modelo de la tabla.
-     * Posteriormente, esta función se modificará para consultar tu base de
-     * datos.
      */
     /**
      * Consulta la base de datos a través de las capas y llena la tabla.
@@ -168,7 +216,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         IUsuario fachada = new UsuarioFachada();
         List<UsuarioDTO> listaUsuarios = fachada.consultarUsuarios();
 
-        //Recorrer la lista y pintar cada fila en la tabla 
+        //Recorrer la lista  
         for (UsuarioDTO usuario : listaUsuarios) {
             Object[] fila = {
                 usuario.getId(), // Columna 0: ID
@@ -197,16 +245,24 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmConsultarUsuarios.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

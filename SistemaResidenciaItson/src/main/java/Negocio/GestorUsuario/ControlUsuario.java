@@ -23,10 +23,24 @@ public class ControlUsuario {
         UsuarioBO bo = new UsuarioBO();
         return bo.registrarUsuario(dto);
     }
-   
-   public List<UsuarioDTO> procesarConsultaUsuarios() {
+
+    public List<UsuarioDTO> procesarConsultaUsuarios() {
         UsuarioBO bo = new UsuarioBO();
         return bo.consultarUsuarios();
     }
-   
+
+    public UsuarioDTO consultarUsuarioPorId(int id) {
+        UsuarioBO bo = new UsuarioBO();
+        return bo.consultarUsuarioPorId(id);
+    }
+    
+    public boolean actualizarUsuario(UsuarioDTO dto) {
+        UsuarioBO bo = new UsuarioBO();
+        return bo.actualizarUsuario(dto);
+    }
+    
+    public boolean inhabilitarUsuario(int id) {
+        UsuarioBO bo = new UsuarioBO();
+        return bo.inhabilitarUsuario(id);
+    }
 }

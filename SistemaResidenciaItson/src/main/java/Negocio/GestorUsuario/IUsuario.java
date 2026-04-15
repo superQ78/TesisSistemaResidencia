@@ -16,6 +16,12 @@ public interface IUsuario {
     public UsuarioDTO iniciarSesion(UsuarioDTO dto);
 
     public boolean registrar(UsuarioDTO dto);
-    
+
     public List<UsuarioDTO> consultarUsuarios();
+
+    public UsuarioDTO consultarUsuarioPorId(int id);
+
+    public boolean actualizarUsuario(UsuarioDTO dto);
+
+    public boolean inhabilitarUsuario(int id);
 }

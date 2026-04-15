@@ -24,10 +24,28 @@ public class UsuarioFachada implements IUsuario {
         ControlUsuario control = new ControlUsuario();
         return control.procesarRegistro(dto);
     }
-    
+
     @Override
     public List<UsuarioDTO> consultarUsuarios() {
         ControlUsuario control = new ControlUsuario();
         return control.procesarConsultaUsuarios();
+    }
+
+    @Override
+    public UsuarioDTO consultarUsuarioPorId(int id) {
+        ControlUsuario control = new ControlUsuario();
+        return control.consultarUsuarioPorId(id);
+    }
+
+    @Override
+    public boolean actualizarUsuario(UsuarioDTO dto) {
+        ControlUsuario control = new ControlUsuario();
+        return control.actualizarUsuario(dto);
+    }
+    
+    @Override
+    public boolean inhabilitarUsuario(int id) {
+        ControlUsuario control = new ControlUsuario();
+        return control.inhabilitarUsuario(id);
     }
 }
