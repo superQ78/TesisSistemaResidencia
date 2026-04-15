@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -12,35 +8,33 @@ import javax.swing.JFrame;
  */
 public class frmSolicitudIngreso extends javax.swing.JFrame {
 
+    pnlDatosSolicitante panelSolicitante = new pnlDatosSolicitante();
+    pnlDatosTutor panelTutor = new pnlDatosTutor();
+    pnlContactoEmergencia panelEmergencia = new pnlContactoEmergencia();
+    pnlFormaPago panelPago = new pnlFormaPago();
+    pnlCompanero panelCompanero = new pnlCompanero();
+
     /**
      * Creates new form frmSolicitudIngreso
      */
     public frmSolicitudIngreso() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        // Ocultar secciones al iniciar
-        jpnlDatosTutorSOliIngr.setVisible(false);
-        jpnlDatosContactEmergSoli.setVisible(false);
-        jpnlFormaPagoSoli.setVisible(false);
-        jpnlPeticionCompañeroSoli.setVisible(false);
-
-        // Deja que el layout calcule el tamaño
-        jpnlPrincipal.setPreferredSize(null);
-        jpnlPrincipal.revalidate();
+        
+        // Agregamos tanto los reutilizados como los nuevos
+        tabSolicitud.addTab("Solicitante", new javax.swing.JScrollPane(panelSolicitante));
+        tabSolicitud.addTab("Tutor", new javax.swing.JScrollPane(panelTutor));
+        tabSolicitud.addTab("Emergencia", new javax.swing.JScrollPane(panelEmergencia));
+        
+        // Estos solo aparecen aquí
+        tabSolicitud.addTab("Forma de Pago", new javax.swing.JScrollPane(panelPago));
+        tabSolicitud.addTab("Compañero", new javax.swing.JScrollPane(panelCompanero));
+    
     }
 
     private void mostrarSeccion(javax.swing.JPanel panel) {
         panel.setVisible(true);
 
-        // Recalcular tamaño del contenedor
-        jpnlPrincipal.setPreferredSize(null);
-        jpnlPrincipal.revalidate();
-        jpnlPrincipal.repaint();
-
-        // Hacer scroll hasta el panel
-        java.awt.Rectangle rect = panel.getBounds();
-        jpnlPrincipal.scrollRectToVisible(rect);
     }
 
     /**
@@ -52,620 +46,94 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblTituloGestionResi = new javax.swing.JLabel();
-        lblSubtituloSoliIngre = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jpnlPrincipal = new javax.swing.JPanel();
-        JpnlDatosSolifrmSoliIng = new javax.swing.JPanel();
-        lblNombreCompletoSoli = new javax.swing.JLabel();
-        txtNombreCompletoSoli = new javax.swing.JTextField();
-        lnlCarreraSolicitateSoli = new javax.swing.JLabel();
-        txtCarreraSoli = new javax.swing.JTextField();
-        lblEmailSoli = new javax.swing.JLabel();
-        txtEmailSoli = new javax.swing.JTextField();
-        lblSexoSoli = new javax.swing.JLabel();
-        chkSexoM = new javax.swing.JCheckBox();
-        chkSexoF = new javax.swing.JCheckBox();
-        txtCurpsSoli = new javax.swing.JTextField();
-        lnlCurpSoli = new javax.swing.JLabel();
-        lblCiudadEstadoPais = new javax.swing.JLabel();
-        txtCiudadEstadoPais = new javax.swing.JTextField();
-        txtTelefonoSoli = new javax.swing.JTextField();
-        lblMesIngreso = new javax.swing.JLabel();
-        lblCelularSoli = new javax.swing.JLabel();
-        cmbCodigoPais = new javax.swing.JComboBox<>();
-        txtCelularSoli = new javax.swing.JTextField();
-        txtDomicilioSoli = new javax.swing.JTextField();
-        lblDomsoliSoli = new javax.swing.JLabel();
-        lblNumeroImss = new javax.swing.JLabel();
-        lblFechaNacimiento = new javax.swing.JLabel();
-        lblSemestre = new javax.swing.JLabel();
-        lblIdItson = new javax.swing.JLabel();
-        txtIdItson = new javax.swing.JTextField();
-        cmbxSemestre = new javax.swing.JComboBox<>();
-        txtFechaNacimiento = new javax.swing.JTextField();
-        txtNumeroImss = new javax.swing.JTextField();
-        lblTelefonoSoli = new javax.swing.JLabel();
-        chkIngresoEnero = new javax.swing.JCheckBox();
-        chkIngresoAgosto = new javax.swing.JCheckBox();
-        lblTituloDatosSolicitante = new javax.swing.JLabel();
-        btnSigDatosSoliSoli = new javax.swing.JButton();
-        jpnlDatosTutorSOliIngr = new javax.swing.JPanel();
-        lblTituloDatosTutor = new javax.swing.JLabel();
-        lblNombreTutor = new javax.swing.JLabel();
-        txtDomicilioTutor = new javax.swing.JTextField();
-        lblDomicilioTutor = new javax.swing.JLabel();
-        txtCelularTutor = new javax.swing.JTextField();
-        lblCelularTutor = new javax.swing.JLabel();
-        lblTelefonoTutor = new javax.swing.JLabel();
-        txtNombreTutor = new javax.swing.JTextField();
-        lblEmailTutor = new javax.swing.JLabel();
-        txtEmailTutor = new javax.swing.JTextField();
-        txtTelefonoTutor = new javax.swing.JTextField();
-        cmbxCodigoPaisTutor = new javax.swing.JComboBox<>();
-        btnSigDatosTutorSoli1 = new javax.swing.JButton();
-        jpnlDatosContactEmergSoli = new javax.swing.JPanel();
-        lblNombreEmergencia = new javax.swing.JLabel();
-        txtNombreEmergencia = new javax.swing.JTextField();
-        txtEmailEmergencia = new javax.swing.JTextField();
-        txtTelefonoEmergencia = new javax.swing.JTextField();
-        lblTelefonoEmergencia = new javax.swing.JLabel();
-        txtCelularEmergencia = new javax.swing.JTextField();
-        lblCelularEmergencia = new javax.swing.JLabel();
-        cmbCodigoPaisEmergencia = new javax.swing.JComboBox<>();
-        lblTituloContactoEmergencia = new javax.swing.JLabel();
-        lblEmailEmergencia = new javax.swing.JLabel();
-        btnSigDatosEmergSoli1 = new javax.swing.JButton();
-        jpnlFormaPagoSoli = new javax.swing.JPanel();
-        lblContadoSoli2 = new javax.swing.JLabel();
-        chkCuatroPagosHermanos = new javax.swing.JCheckBox();
-        chkContadoHermanos = new javax.swing.JCheckBox();
-        chkCuatroPagosIguales = new javax.swing.JCheckBox();
-        chkCincuentaInicial = new javax.swing.JCheckBox();
-        chkContadoIndividual = new javax.swing.JCheckBox();
-        lblTituloFormaPago = new javax.swing.JLabel();
-        lblNotaInformativaPago = new javax.swing.JLabel();
-        btnSigFormaPagoSoli = new javax.swing.JButton();
-        txtMontoCuatroPagosHermanos = new javax.swing.JTextField();
-        txtMontoContadoIndividual = new javax.swing.JTextField();
-        txtMontoCincuentaInicial = new javax.swing.JTextField();
-        txtMontoCuatroPagosIguales = new javax.swing.JTextField();
-        txtMontoContadoHermanos = new javax.swing.JTextField();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
-        lblCantidadPagosHermanos = new javax.swing.JLabel();
-        jpnlPeticionCompañeroSoli = new javax.swing.JPanel();
-        lblTituloPeticionCompanero = new javax.swing.JLabel();
-        txtCompaneroDeseado1 = new javax.swing.JTextField();
-        lblCompaneroDeseado1 = new javax.swing.JLabel();
-        txtCompaneroDeseado2 = new javax.swing.JTextField();
-        lblCompaneroDeseado2 = new javax.swing.JLabel();
-        lblNotaCompaneros3 = new javax.swing.JLabel();
-        lblNotaCompaneros = new javax.swing.JLabel();
-        lblNotaCompaneros2 = new javax.swing.JLabel();
-        btnGuardarSolicitudIngreso = new javax.swing.JButton();
-        btnImprimirSoliciIngre = new javax.swing.JButton();
-        lblTextAbajoSoliIngr = new javax.swing.JLabel();
-        btnVaciarSoliIngres = new javax.swing.JButton();
-        btnFrmAtrasSoliIngreso = new javax.swing.JButton();
+        pnlBotones = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        btnVaciarCampos = new javax.swing.JButton();
+        pnlTitulo = new javax.swing.JPanel();
+        lblSubTitulo = new javax.swing.JLabel();
+        lblSubTitulo1 = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
+        pnlFondoTabs = new javax.swing.JPanel();
+        tabSolicitud = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1378, 790));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lblTituloGestionResi.setText("Residencias ITSON – Panel de Gestión de residentes");
-        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
-
-        lblSubtituloSoliIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lblSubtituloSoliIngre.setText("Solicitud ingreso");
-        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
-
-        jpnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-
-        JpnlDatosSolifrmSoliIng.setBackground(new java.awt.Color(255, 255, 255));
-        JpnlDatosSolifrmSoliIng.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombreCompletoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblNombreCompletoSoli.setText("Nombre completo:");
-        JpnlDatosSolifrmSoliIng.add(lblNombreCompletoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, -1, -1));
-        JpnlDatosSolifrmSoliIng.add(txtNombreCompletoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 75, 333, 34));
-
-        lnlCarreraSolicitateSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lnlCarreraSolicitateSoli.setText("Carrera:");
-        JpnlDatosSolifrmSoliIng.add(lnlCarreraSolicitateSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 131, -1, -1));
-        JpnlDatosSolifrmSoliIng.add(txtCarreraSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 135, 333, 30));
-
-        lblEmailSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblEmailSoli.setText("Email Institucional:");
-        JpnlDatosSolifrmSoliIng.add(lblEmailSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 172, -1, -1));
-        JpnlDatosSolifrmSoliIng.add(txtEmailSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 176, 333, 30));
-
-        lblSexoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblSexoSoli.setText("Sexo:");
-        JpnlDatosSolifrmSoliIng.add(lblSexoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 223, -1, -1));
-
-        chkSexoM.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkSexoM.setText("M");
-        JpnlDatosSolifrmSoliIng.add(chkSexoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 223, 95, 30));
-
-        chkSexoF.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkSexoF.setText("F");
-        JpnlDatosSolifrmSoliIng.add(chkSexoF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 223, 95, 30));
-        JpnlDatosSolifrmSoliIng.add(txtCurpsSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 269, 333, 31));
-
-        lnlCurpSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lnlCurpSoli.setText("CURP:");
-        JpnlDatosSolifrmSoliIng.add(lnlCurpSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 270, -1, -1));
-
-        lblCiudadEstadoPais.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCiudadEstadoPais.setText("Ciudad, Estado y País de residencia:");
-        JpnlDatosSolifrmSoliIng.add(lblCiudadEstadoPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 320, -1, -1));
-        JpnlDatosSolifrmSoliIng.add(txtCiudadEstadoPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 320, 612, 30));
-        JpnlDatosSolifrmSoliIng.add(txtTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 364, 333, 30));
-
-        lblMesIngreso.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblMesIngreso.setText("Mes de ingreso:");
-        JpnlDatosSolifrmSoliIng.add(lblMesIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
-
-        lblCelularSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCelularSoli.setText("Celular:");
-        JpnlDatosSolifrmSoliIng.add(lblCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(674, 360, -1, -1));
-
-        cmbCodigoPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        JpnlDatosSolifrmSoliIng.add(cmbCodigoPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(754, 360, -1, 40));
-
-        txtCelularSoli.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCelularSoliFocusLost(evt);
-            }
-        });
-        JpnlDatosSolifrmSoliIng.add(txtCelularSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 360, 333, 42));
-
-        txtDomicilioSoli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDomicilioSoliActionPerformed(evt);
-            }
-        });
-        JpnlDatosSolifrmSoliIng.add(txtDomicilioSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(874, 250, 354, 30));
-
-        lblDomsoliSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblDomsoliSoli.setText("Domicilio:");
-        JpnlDatosSolifrmSoliIng.add(lblDomsoliSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(764, 250, -1, -1));
-
-        lblNumeroImss.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblNumeroImss.setText("Numero de afiliacion IMSS: ");
-        JpnlDatosSolifrmSoliIng.add(lblNumeroImss, new org.netbeans.lib.awtextra.AbsoluteConstraints(764, 210, -1, -1));
-
-        lblFechaNacimiento.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblFechaNacimiento.setText("Fecha nacimiento:");
-        JpnlDatosSolifrmSoliIng.add(lblFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 170, -1, -1));
-
-        lblSemestre.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblSemestre.setText("Semestre:");
-        JpnlDatosSolifrmSoliIng.add(lblSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 120, -1, -1));
-
-        lblIdItson.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblIdItson.setText("ID ITSON:");
-        JpnlDatosSolifrmSoliIng.add(lblIdItson, new org.netbeans.lib.awtextra.AbsoluteConstraints(764, 72, -1, -1));
-        JpnlDatosSolifrmSoliIng.add(txtIdItson, new org.netbeans.lib.awtextra.AbsoluteConstraints(954, 72, 269, 34));
-
-        cmbxSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona semestre en curso", "Semestre 0", "Semestre 1", "Semestre 2", "Semestre 3", "Semestre 4", "Semestre 5", "Semestre 6", "Semestre 7", "Semestre 8", "Semestre 9", "Semestre 10" }));
-        JpnlDatosSolifrmSoliIng.add(cmbxSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 120, 269, 33));
-        JpnlDatosSolifrmSoliIng.add(txtFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 170, 269, 30));
-        JpnlDatosSolifrmSoliIng.add(txtNumeroImss, new org.netbeans.lib.awtextra.AbsoluteConstraints(1044, 210, 180, 30));
-
-        lblTelefonoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblTelefonoSoli.setText("Telefono:");
-        JpnlDatosSolifrmSoliIng.add(lblTelefonoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 360, -1, -1));
-
-        chkIngresoEnero.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkIngresoEnero.setText("Enero");
-        JpnlDatosSolifrmSoliIng.add(chkIngresoEnero, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 95, 30));
-
-        chkIngresoAgosto.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkIngresoAgosto.setText("Agosto");
-        chkIngresoAgosto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkIngresoAgostoActionPerformed(evt);
-            }
-        });
-        JpnlDatosSolifrmSoliIng.add(chkIngresoAgosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 95, 30));
-
-        lblTituloDatosSolicitante.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloDatosSolicitante.setText("Datos Solicitante");
-        JpnlDatosSolifrmSoliIng.add(lblTituloDatosSolicitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 10, -1, -1));
-
-        btnSigDatosSoliSoli.setBackground(new java.awt.Color(51, 204, 255));
-        btnSigDatosSoliSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        btnSigDatosSoliSoli.setForeground(new java.awt.Color(255, 255, 255));
-        btnSigDatosSoliSoli.setText("Siguiente");
-        btnSigDatosSoliSoli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigDatosSoliSoliActionPerformed(evt);
-            }
-        });
-        JpnlDatosSolifrmSoliIng.add(btnSigDatosSoliSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 440, -1, -1));
-
-        jpnlDatosTutorSOliIngr.setBackground(new java.awt.Color(255, 255, 255));
-        jpnlDatosTutorSOliIngr.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTituloDatosTutor.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloDatosTutor.setText("Datos Tutor");
-        jpnlDatosTutorSOliIngr.add(lblTituloDatosTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 10, -1, -1));
-
-        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblNombreTutor.setText("Nombre completo:");
-        jpnlDatosTutorSOliIngr.add(lblNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-        jpnlDatosTutorSOliIngr.add(txtDomicilioTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 230, 30));
-
-        lblDomicilioTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblDomicilioTutor.setText("Domicilio:");
-        jpnlDatosTutorSOliIngr.add(lblDomicilioTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
-
-        txtCelularTutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCelularTutorActionPerformed(evt);
-            }
-        });
-        jpnlDatosTutorSOliIngr.add(txtCelularTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 190, 30));
-
-        lblCelularTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCelularTutor.setText("Celular:");
-        jpnlDatosTutorSOliIngr.add(lblCelularTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
-
-        lblTelefonoTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblTelefonoTutor.setText("Telefono:");
-        jpnlDatosTutorSOliIngr.add(lblTelefonoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
-        jpnlDatosTutorSOliIngr.add(txtNombreTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 230, 30));
-
-        lblEmailTutor.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblEmailTutor.setText("Email:");
-        jpnlDatosTutorSOliIngr.add(lblEmailTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
-        txtEmailTutor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtEmailTutorFocusLost(evt);
-            }
-        });
-        jpnlDatosTutorSOliIngr.add(txtEmailTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 142, 230, 30));
-        jpnlDatosTutorSOliIngr.add(txtTelefonoTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 260, 30));
-
-        cmbxCodigoPaisTutor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        jpnlDatosTutorSOliIngr.add(cmbxCodigoPaisTutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 70, 30));
-
-        btnSigDatosTutorSoli1.setBackground(new java.awt.Color(51, 204, 255));
-        btnSigDatosTutorSoli1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        btnSigDatosTutorSoli1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSigDatosTutorSoli1.setText("Siguiente");
-        btnSigDatosTutorSoli1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigDatosTutorSoli1ActionPerformed(evt);
-            }
-        });
-        jpnlDatosTutorSOliIngr.add(btnSigDatosTutorSoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 220, -1, -1));
-
-        jpnlDatosContactEmergSoli.setBackground(new java.awt.Color(255, 255, 255));
-        jpnlDatosContactEmergSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombreEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblNombreEmergencia.setText("Nombre completo:");
-        jpnlDatosContactEmergSoli.add(lblNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-        jpnlDatosContactEmergSoli.add(txtNombreEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 333, 34));
-
-        txtEmailEmergencia.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtEmailEmergenciaFocusLost(evt);
-            }
-        });
-        jpnlDatosContactEmergSoli.add(txtEmailEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 333, 30));
-        jpnlDatosContactEmergSoli.add(txtTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 333, 30));
-
-        lblTelefonoEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblTelefonoEmergencia.setText("Telefono:");
-        jpnlDatosContactEmergSoli.add(lblTelefonoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
-
-        txtCelularEmergencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCelularEmergenciaActionPerformed(evt);
-            }
-        });
-        jpnlDatosContactEmergSoli.add(txtCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 260, 30));
-
-        lblCelularEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCelularEmergencia.setText("Celular:");
-        jpnlDatosContactEmergSoli.add(lblCelularEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
-
-        cmbCodigoPaisEmergencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+52", "+67", "+55", "+30", "+33", "+48" }));
-        jpnlDatosContactEmergSoli.add(cmbCodigoPaisEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 70, 30));
-
-        lblTituloContactoEmergencia.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloContactoEmergencia.setText("Datos Contacto en caso de emergencia");
-        jpnlDatosContactEmergSoli.add(lblTituloContactoEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        lblEmailEmergencia.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblEmailEmergencia.setText("Email:");
-        jpnlDatosContactEmergSoli.add(lblEmailEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
-
-        btnSigDatosEmergSoli1.setBackground(new java.awt.Color(51, 204, 255));
-        btnSigDatosEmergSoli1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        btnSigDatosEmergSoli1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSigDatosEmergSoli1.setText("Siguiente");
-        btnSigDatosEmergSoli1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigDatosEmergSoli1ActionPerformed(evt);
-            }
-        });
-        jpnlDatosContactEmergSoli.add(btnSigDatosEmergSoli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 200, -1, -1));
-
-        jpnlFormaPagoSoli.setBackground(new java.awt.Color(255, 255, 255));
-        jpnlFormaPagoSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblContadoSoli2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jpnlFormaPagoSoli.add(lblContadoSoli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
-
-        chkCuatroPagosHermanos.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkCuatroPagosHermanos.setText(" 4 pagos de $ ");
-        chkCuatroPagosHermanos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkCuatroPagosHermanosActionPerformed(evt);
-            }
-        });
-        jpnlFormaPagoSoli.add(chkCuatroPagosHermanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 170, 30));
-
-        chkContadoHermanos.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkContadoHermanos.setText(" Contado (hermanos) : $");
-        jpnlFormaPagoSoli.add(chkContadoHermanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 260, 30));
-
-        chkCuatroPagosIguales.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkCuatroPagosIguales.setText(" 4 pagos iguales de: $");
-        jpnlFormaPagoSoli.add(chkCuatroPagosIguales, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 250, 30));
-
-        chkCincuentaInicial.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkCincuentaInicial.setText("50 % inicial + 3 pagos de:  $");
-        jpnlFormaPagoSoli.add(chkCincuentaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 310, 30));
-
-        chkContadoIndividual.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkContadoIndividual.setText("Contado (individual):  $");
-        chkContadoIndividual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkContadoIndividualActionPerformed(evt);
-            }
-        });
-        jpnlFormaPagoSoli.add(chkContadoIndividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 250, 30));
-
-        lblTituloFormaPago.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloFormaPago.setText("Forma de pago (seleccionar una opción)");
-        jpnlFormaPagoSoli.add(lblTituloFormaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        lblNotaInformativaPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNotaInformativaPago.setText("Nota informativa: Todo ingreso requiere depósito-garantía (no reembolsable en caso de cancelación).");
-        jpnlFormaPagoSoli.add(lblNotaInformativaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, -1, -1));
-
-        btnSigFormaPagoSoli.setBackground(new java.awt.Color(51, 204, 255));
-        btnSigFormaPagoSoli.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        btnSigFormaPagoSoli.setForeground(new java.awt.Color(255, 255, 255));
-        btnSigFormaPagoSoli.setText("Siguiente");
-        btnSigFormaPagoSoli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSigFormaPagoSoliActionPerformed(evt);
-            }
-        });
-        jpnlFormaPagoSoli.add(btnSigFormaPagoSoli, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 290, -1, -1));
-
-        txtMontoCuatroPagosHermanos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoCuatroPagosHermanosActionPerformed(evt);
-            }
-        });
-        jpnlFormaPagoSoli.add(txtMontoCuatroPagosHermanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 230, 110, 30));
-        jpnlFormaPagoSoli.add(txtMontoContadoIndividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 110, 30));
-        jpnlFormaPagoSoli.add(txtMontoCincuentaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 110, 30));
-        jpnlFormaPagoSoli.add(txtMontoCuatroPagosIguales, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 110, 30));
-        jpnlFormaPagoSoli.add(txtMontoContadoHermanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 110, 30));
-
-        jCheckBox6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jCheckBox6.setText(" 4 pagos de $ ");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
-            }
-        });
-        jpnlFormaPagoSoli.add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, 170, 30));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel3.setText("(hermanos): $");
-        jpnlFormaPagoSoli.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, -1, -1));
-
-        lblCantidadPagosHermanos.setText("pagos");
-        jpnlFormaPagoSoli.add(lblCantidadPagosHermanos, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, -1, -1));
-
-        jpnlPeticionCompañeroSoli.setBackground(new java.awt.Color(255, 255, 255));
-        jpnlPeticionCompañeroSoli.setMinimumSize(new java.awt.Dimension(2922, 295));
-        jpnlPeticionCompañeroSoli.setPreferredSize(new java.awt.Dimension(800, 466));
-        jpnlPeticionCompañeroSoli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblTituloPeticionCompanero.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloPeticionCompanero.setText("Petición de compañero de cuarto");
-        jpnlPeticionCompañeroSoli.add(lblTituloPeticionCompanero, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-        jpnlPeticionCompañeroSoli.add(txtCompaneroDeseado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 460, 30));
-
-        lblCompaneroDeseado1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCompaneroDeseado1.setText("Nombre completo del compañero deseado:");
-        jpnlPeticionCompañeroSoli.add(lblCompaneroDeseado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
-        jpnlPeticionCompañeroSoli.add(txtCompaneroDeseado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 460, 30));
-
-        lblCompaneroDeseado2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblCompaneroDeseado2.setText("Nombre completo del compañero deseado:");
-        jpnlPeticionCompañeroSoli.add(lblCompaneroDeseado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
-
-        lblNotaCompaneros3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNotaCompaneros3.setText("sea mutua, sin embargo esta solicitud no asegura la asignación solicitada.\t\t");
-        jpnlPeticionCompañeroSoli.add(lblNotaCompaneros3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
-
-        lblNotaCompaneros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNotaCompaneros.setText("Las Residencias Estudiantiles son exclusivas para alumnos Itson, si deseas compartir la habitación con otro alumno en particular anota");
-        jpnlPeticionCompañeroSoli.add(lblNotaCompaneros, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
-
-        lblNotaCompaneros2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNotaCompaneros2.setText("su nombre completo y el ID. Indica en orden de prioridad en caso de considerar varios compañeros. Es recomendable que la solicitud ");
-        jpnlPeticionCompañeroSoli.add(lblNotaCompaneros2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
-
-        javax.swing.GroupLayout jpnlPrincipalLayout = new javax.swing.GroupLayout(jpnlPrincipal);
-        jpnlPrincipal.setLayout(jpnlPrincipalLayout);
-        jpnlPrincipalLayout.setHorizontalGroup(
-            jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlPrincipalLayout.createSequentialGroup()
-                .addGroup(jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpnlPeticionCompañeroSoli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jpnlFormaPagoSoli, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 2922, Short.MAX_VALUE)
-                    .addComponent(jpnlDatosContactEmergSoli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jpnlPrincipalLayout.createSequentialGroup()
+        pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnGuardar.setBackground(new java.awt.Color(51, 204, 0));
+        btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+
+        btnVaciarCampos.setBackground(new java.awt.Color(255, 51, 51));
+        btnVaciarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVaciarCampos.setForeground(new java.awt.Color(255, 255, 255));
+        btnVaciarCampos.setText("Vaciar campos");
+
+        javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
+        pnlBotones.setLayout(pnlBotonesLayout);
+        pnlBotonesLayout.setHorizontalGroup(
+            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
+                .addContainerGap(613, Short.MAX_VALUE)
+                .addComponent(btnVaciarCampos)
+                .addGap(62, 62, 62)
+                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(420, 420, 420))
+        );
+        pnlBotonesLayout.setVerticalGroup(
+            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnlPrincipalLayout.createSequentialGroup()
-                        .addComponent(jpnlDatosTutorSOliIngr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addGroup(jpnlPrincipalLayout.createSequentialGroup()
-                        .addComponent(JpnlDatosSolifrmSoliIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        jpnlPrincipalLayout.setVerticalGroup(
-            jpnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnlPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JpnlDatosSolifrmSoliIng, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jpnlDatosTutorSOliIngr, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlDatosContactEmergSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlFormaPagoSoli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jpnlPeticionCompañeroSoli, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jpnlPrincipal);
+        getContentPane().add(pnlBotones, java.awt.BorderLayout.PAGE_END);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 1330, 470));
+        pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        pnlTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnGuardarSolicitudIngreso.setBackground(new java.awt.Color(51, 204, 0));
-        btnGuardarSolicitudIngreso.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btnGuardarSolicitudIngreso.setText("Guardar");
-        jPanel1.add(btnGuardarSolicitudIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 680, 230, 50));
+        lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
-        btnImprimirSoliciIngre.setBackground(new java.awt.Color(51, 204, 255));
-        btnImprimirSoliciIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btnImprimirSoliciIngre.setForeground(new java.awt.Color(255, 255, 255));
-        btnImprimirSoliciIngre.setText("IMPRIMIR");
-        jPanel1.add(btnImprimirSoliciIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 690, 230, 40));
+        lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblSubTitulo1.setText("Solicitud de ingreso");
+        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 250, -1));
 
-        lblTextAbajoSoliIngr.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblTextAbajoSoliIngr.setText("Favor de imprimir, firmar, escanear y enviar por correo electrónico a: recepcionresidencias@itson.edu.mx");
-        jPanel1.add(lblTextAbajoSoliIngr, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 760, -1, -1));
-
-        btnVaciarSoliIngres.setBackground(new java.awt.Color(255, 51, 0));
-        btnVaciarSoliIngres.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        btnVaciarSoliIngres.setForeground(new java.awt.Color(255, 255, 255));
-        btnVaciarSoliIngres.setText("Vaciar campos");
-        jPanel1.add(btnVaciarSoliIngres, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 690, 240, 40));
-
-        btnFrmAtrasSoliIngreso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
-        btnFrmAtrasSoliIngreso.setBorderPainted(false);
-        btnFrmAtrasSoliIngreso.setContentAreaFilled(false);
-        btnFrmAtrasSoliIngreso.addActionListener(new java.awt.event.ActionListener() {
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btnAtras.setBorder(null);
+        btnAtras.setBorderPainted(false);
+        btnAtras.setContentAreaFilled(false);
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFrmAtrasSoliIngresoActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFrmAtrasSoliIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1391, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlTitulo, java.awt.BorderLayout.PAGE_START);
+
+        pnlFondoTabs.setBackground(new java.awt.Color(255, 255, 255));
+        pnlFondoTabs.setLayout(new java.awt.BorderLayout());
+
+        tabSolicitud.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 100, 20, 100));
+        tabSolicitud.setToolTipText("");
+        pnlFondoTabs.add(tabSolicitud, java.awt.BorderLayout.CENTER);
+
+        getContentPane().add(pnlFondoTabs, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCelularSoliFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularSoliFocusLost
-
-    }//GEN-LAST:event_txtCelularSoliFocusLost
-
-    private void txtDomicilioSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioSoliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDomicilioSoliActionPerformed
-
-    private void chkIngresoAgostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkIngresoAgostoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkIngresoAgostoActionPerformed
-
-    private void txtCelularTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularTutorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCelularTutorActionPerformed
-
-    private void txtEmailTutorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailTutorFocusLost
-
-    }//GEN-LAST:event_txtEmailTutorFocusLost
-
-    private void txtEmailEmergenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailEmergenciaFocusLost
-
-    }//GEN-LAST:event_txtEmailEmergenciaFocusLost
-
-    private void txtCelularEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelularEmergenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCelularEmergenciaActionPerformed
-
-    private void chkCuatroPagosHermanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCuatroPagosHermanosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkCuatroPagosHermanosActionPerformed
-
-    private void btnSigDatosSoliSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigDatosSoliSoliActionPerformed
-        mostrarSeccion(jpnlDatosTutorSOliIngr);
-    }//GEN-LAST:event_btnSigDatosSoliSoliActionPerformed
-
-    private void btnSigDatosTutorSoli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigDatosTutorSoli1ActionPerformed
-        mostrarSeccion(jpnlDatosContactEmergSoli);
-    }//GEN-LAST:event_btnSigDatosTutorSoli1ActionPerformed
-
-    private void btnSigDatosEmergSoli1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigDatosEmergSoli1ActionPerformed
-        mostrarSeccion(jpnlFormaPagoSoli);
-    }//GEN-LAST:event_btnSigDatosEmergSoli1ActionPerformed
-
-    private void btnSigFormaPagoSoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigFormaPagoSoliActionPerformed
-        mostrarSeccion(jpnlPeticionCompañeroSoli);
-    }//GEN-LAST:event_btnSigFormaPagoSoliActionPerformed
-
-    private void chkContadoIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkContadoIndividualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkContadoIndividualActionPerformed
-
-    private void txtMontoCuatroPagosHermanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoCuatroPagosHermanosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMontoCuatroPagosHermanosActionPerformed
-
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
-
-    private void btnFrmAtrasSoliIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrmAtrasSoliIngresoActionPerformed
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         frmRegistrarResidente volver = new frmRegistrarResidente();
         volver.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnFrmAtrasSoliIngresoActionPerformed
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -703,102 +171,14 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel JpnlDatosSolifrmSoliIng;
-    private javax.swing.JButton btnFrmAtrasSoliIngreso;
-    private javax.swing.JButton btnGuardarSolicitudIngreso;
-    private javax.swing.JButton btnImprimirSoliciIngre;
-    private javax.swing.JButton btnSigDatosEmergSoli1;
-    private javax.swing.JButton btnSigDatosSoliSoli;
-    private javax.swing.JButton btnSigDatosTutorSoli1;
-    private javax.swing.JButton btnSigFormaPagoSoli;
-    private javax.swing.JButton btnVaciarSoliIngres;
-    private javax.swing.JCheckBox chkCincuentaInicial;
-    private javax.swing.JCheckBox chkContadoHermanos;
-    private javax.swing.JCheckBox chkContadoIndividual;
-    private javax.swing.JCheckBox chkCuatroPagosHermanos;
-    private javax.swing.JCheckBox chkCuatroPagosIguales;
-    private javax.swing.JCheckBox chkIngresoAgosto;
-    private javax.swing.JCheckBox chkIngresoEnero;
-    private javax.swing.JCheckBox chkSexoF;
-    private javax.swing.JCheckBox chkSexoM;
-    private javax.swing.JComboBox<String> cmbCodigoPais;
-    private javax.swing.JComboBox<String> cmbCodigoPaisEmergencia;
-    private javax.swing.JComboBox<String> cmbxCodigoPaisTutor;
-    private javax.swing.JComboBox<String> cmbxSemestre;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel jpnlDatosContactEmergSoli;
-    private javax.swing.JPanel jpnlDatosTutorSOliIngr;
-    private javax.swing.JPanel jpnlFormaPagoSoli;
-    private javax.swing.JPanel jpnlPeticionCompañeroSoli;
-    private javax.swing.JPanel jpnlPrincipal;
-    private javax.swing.JLabel lblCantidadPagosHermanos;
-    private javax.swing.JLabel lblCelularEmergencia;
-    private javax.swing.JLabel lblCelularSoli;
-    private javax.swing.JLabel lblCelularTutor;
-    private javax.swing.JLabel lblCiudadEstadoPais;
-    private javax.swing.JLabel lblCompaneroDeseado1;
-    private javax.swing.JLabel lblCompaneroDeseado2;
-    private javax.swing.JLabel lblContadoSoli2;
-    private javax.swing.JLabel lblDomicilioTutor;
-    private javax.swing.JLabel lblDomsoliSoli;
-    private javax.swing.JLabel lblEmailEmergencia;
-    private javax.swing.JLabel lblEmailSoli;
-    private javax.swing.JLabel lblEmailTutor;
-    private javax.swing.JLabel lblFechaNacimiento;
-    private javax.swing.JLabel lblIdItson;
-    private javax.swing.JLabel lblMesIngreso;
-    private javax.swing.JLabel lblNombreCompletoSoli;
-    private javax.swing.JLabel lblNombreEmergencia;
-    private javax.swing.JLabel lblNombreTutor;
-    private javax.swing.JLabel lblNotaCompaneros;
-    private javax.swing.JLabel lblNotaCompaneros2;
-    private javax.swing.JLabel lblNotaCompaneros3;
-    private javax.swing.JLabel lblNotaInformativaPago;
-    private javax.swing.JLabel lblNumeroImss;
-    private javax.swing.JLabel lblSemestre;
-    private javax.swing.JLabel lblSexoSoli;
-    private javax.swing.JLabel lblSubtituloSoliIngre;
-    private javax.swing.JLabel lblTelefonoEmergencia;
-    private javax.swing.JLabel lblTelefonoSoli;
-    private javax.swing.JLabel lblTelefonoTutor;
-    private javax.swing.JLabel lblTextAbajoSoliIngr;
-    private javax.swing.JLabel lblTituloContactoEmergencia;
-    private javax.swing.JLabel lblTituloDatosSolicitante;
-    private javax.swing.JLabel lblTituloDatosTutor;
-    private javax.swing.JLabel lblTituloFormaPago;
-    private javax.swing.JLabel lblTituloGestionResi;
-    private javax.swing.JLabel lblTituloPeticionCompanero;
-    private javax.swing.JLabel lnlCarreraSolicitateSoli;
-    private javax.swing.JLabel lnlCurpSoli;
-    private javax.swing.JTextField txtCarreraSoli;
-    private javax.swing.JTextField txtCelularEmergencia;
-    private javax.swing.JTextField txtCelularSoli;
-    private javax.swing.JTextField txtCelularTutor;
-    private javax.swing.JTextField txtCiudadEstadoPais;
-    private javax.swing.JTextField txtCompaneroDeseado1;
-    private javax.swing.JTextField txtCompaneroDeseado2;
-    private javax.swing.JTextField txtCurpsSoli;
-    private javax.swing.JTextField txtDomicilioSoli;
-    private javax.swing.JTextField txtDomicilioTutor;
-    private javax.swing.JTextField txtEmailEmergencia;
-    private javax.swing.JTextField txtEmailSoli;
-    private javax.swing.JTextField txtEmailTutor;
-    private javax.swing.JTextField txtFechaNacimiento;
-    private javax.swing.JTextField txtIdItson;
-    private javax.swing.JTextField txtMontoCincuentaInicial;
-    private javax.swing.JTextField txtMontoContadoHermanos;
-    private javax.swing.JTextField txtMontoContadoIndividual;
-    private javax.swing.JTextField txtMontoCuatroPagosHermanos;
-    private javax.swing.JTextField txtMontoCuatroPagosIguales;
-    private javax.swing.JTextField txtNombreCompletoSoli;
-    private javax.swing.JTextField txtNombreEmergencia;
-    private javax.swing.JTextField txtNombreTutor;
-    private javax.swing.JTextField txtNumeroImss;
-    private javax.swing.JTextField txtTelefonoEmergencia;
-    private javax.swing.JTextField txtTelefonoSoli;
-    private javax.swing.JTextField txtTelefonoTutor;
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnVaciarCampos;
+    private javax.swing.JLabel lblSubTitulo;
+    private javax.swing.JLabel lblSubTitulo1;
+    private javax.swing.JPanel pnlBotones;
+    private javax.swing.JPanel pnlFondoTabs;
+    private javax.swing.JPanel pnlTitulo;
+    private javax.swing.JTabbedPane tabSolicitud;
     // End of variables declaration//GEN-END:variables
 }
