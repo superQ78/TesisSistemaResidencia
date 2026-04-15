@@ -43,7 +43,6 @@ public class frmRDP extends javax.swing.JFrame {
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnVaciarCampos = new javax.swing.JButton();
-        btnImprimir = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
         lblSubTitulo = new javax.swing.JLabel();
         lblSubTitulo1 = new javax.swing.JLabel();
@@ -65,11 +64,6 @@ public class frmRDP extends javax.swing.JFrame {
         btnVaciarCampos.setForeground(new java.awt.Color(255, 255, 255));
         btnVaciarCampos.setText("Vaciar campos");
 
-        btnImprimir.setBackground(new java.awt.Color(51, 153, 255));
-        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-        btnImprimir.setText("Imprimir");
-
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -79,9 +73,7 @@ public class frmRDP extends javax.swing.JFrame {
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(224, 224, 224))
+                .addGap(420, 420, 420))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,8 +81,7 @@ public class frmRDP extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -177,7 +168,6 @@ public class frmRDP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
     private javax.swing.JLabel lblSubTitulo1;
