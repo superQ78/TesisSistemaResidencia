@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Negocio.DTOs;
 
 /**
@@ -9,22 +5,23 @@ package Negocio.DTOs;
  * @author cesar
  */
 public class UsuarioDTO {
-    
-     private int id;
-     private String nombre;
-     private String contrasena;
-     private String email;
-     private String rol;
-     private String telefono;
-     
 
-    public UsuarioDTO(int id, String nombre, String contrasena, String email, String rol, String telefono) {
+    private int id;
+    private String nombre;
+    private String contrasena;
+    private String email;
+    private String rol;
+    private String telefono;
+    private byte[] fotoPerfil;
+
+    public UsuarioDTO(int id, String nombre, String contrasena, String email, String rol, String telefono, byte[] fotoPerfil) {
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.email = email;
-        this.rol= rol;
-        this.telefono= telefono;
+        this.rol = rol;
+        this.telefono = telefono;
+        this.fotoPerfil = fotoPerfil;
     }
 
     public UsuarioDTO() {
@@ -78,13 +75,17 @@ public class UsuarioDTO {
         this.telefono = telefono;
     }
 
+    public byte[] getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(byte[] fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + ", telefono=" + telefono + '}';
+        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + ", telefono=" + telefono + ", fotoPerfil=" + fotoPerfil + '}';
     }
-    
-    
-     
-    
-    
+
 }

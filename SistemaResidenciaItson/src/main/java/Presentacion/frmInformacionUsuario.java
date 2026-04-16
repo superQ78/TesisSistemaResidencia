@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -35,27 +31,28 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
 
     private void cargarDatosUsuario() {
         IUsuario fachada = new UsuarioFachada();
-        
+
         // Vamos a la BD a buscar por su ID
         UsuarioDTO usuario = fachada.consultarUsuarioPorId(this.idUsuario);
-        
+
         if (usuario != null) {
             lblNombreEmpleadoText.setText(usuario.getNombre());
             lblCorreoText.setText(usuario.getEmail());
-            
+
             if (usuario.getTelefono() != null && !usuario.getTelefono().isEmpty()) {
                 lblTelefonoText.setText(usuario.getTelefono());
             } else {
                 lblTelefonoText.setText("Sin número registrado");
             }
+            mostrarFoto(usuario.getFotoPerfil());
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "No se encontro la informacion de este usuario en la base de datos.", 
-                "Error", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontro la informacion de este usuario en la base de datos.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,6 +73,7 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
         lblTelefonoText = new javax.swing.JLabel();
         lblFotoPerfil = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,11 +113,24 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
         lblTelefonoText.setText("telefono");
         jPanel1.add(lblTelefonoText, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 640, -1, 40));
 
+        lblFotoPerfil.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfil.png"))); // NOI18N
+        lblFotoPerfil.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, -1));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 110, 150, -1));
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 160, 210));
+
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btnAtras.setBorder(null);
+        btnAtras.setBorderPainted(false);
+        btnAtras.setContentAreaFilled(false);
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,6 +145,27 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        frmConsultarUsuarios volver = new frmConsultarUsuarios();
+        volver.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
+
+    //metodo para mostrar foto de perfil
+    private void mostrarFoto(byte[] bytes) {
+        if (bytes != null && bytes.length > 0) {
+            java.awt.Image img = new javax.swing.ImageIcon(bytes).getImage();
+
+            java.awt.Image nuevaImg = img.getScaledInstance(lblFotoPerfil.getWidth(),
+                    lblFotoPerfil.getHeight(),
+                    java.awt.Image.SCALE_SMOOTH);
+
+            lblFotoPerfil.setIcon(new javax.swing.ImageIcon(nuevaImg));
+        } else {
+            lblFotoPerfil.setIcon(null);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -171,6 +203,7 @@ public class frmInformacionUsuario extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCorreoText;

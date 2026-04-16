@@ -74,7 +74,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         jplGTNEmpleados.setBackground(new java.awt.Color(119, 180, 241));
 
-        lblGestionEmpleadosAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblGestionEmpleadosAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionEmpleadosAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblGestionEmpleadosAdmin.setText("GESTION DE EMPLEADOS");
 
@@ -84,21 +84,22 @@ public class frmAdminInicio extends javax.swing.JFrame {
             jplGTNEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNEmpleadosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblGestionEmpleadosAdmin)
+                .addComponent(lblGestionEmpleadosAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jplGTNEmpleadosLayout.setVerticalGroup(
             jplGTNEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNEmpleadosLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(jplGTNEmpleadosLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(lblGestionEmpleadosAdmin)
-                .addGap(21, 21, 21))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        jplAdminInicio.add(jplGTNEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 220, 70));
+        jplAdminInicio.add(jplGTNEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 230, 70));
 
-        cmbxGestionEmpleados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Consultar usuario", "Crear nuevo usuario", "Modificar usuario", " " }));
-        jplAdminInicio.add(cmbxGestionEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 220, 40));
+        cmbxGestionEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxGestionEmpleados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Consultar usuario", "Crear nuevo usuario", "Modificar usuario" }));
+        jplAdminInicio.add(cmbxGestionEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 230, 40));
 
         btnSeleccionarOpcionResidente.setBackground(new java.awt.Color(0, 51, 204));
         btnSeleccionarOpcionResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -108,7 +109,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         jplGTNResidentes.setBackground(new java.awt.Color(119, 180, 241));
 
-        lblGestionResidentesAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblGestionResidentesAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionResidentesAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblGestionResidentesAdmin.setText("GESTION RESIDENTES");
 
@@ -117,7 +118,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplGTNResidentesLayout.setHorizontalGroup(
             jplGTNResidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNResidentesLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(lblGestionResidentesAdmin)
                 .addGap(25, 25, 25))
         );
@@ -131,7 +132,8 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         jplAdminInicio.add(jplGTNResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 230, 70));
 
-        cmbxGestionResidentes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Registrar residente", "Consultar residente", "Modificar residente" }));
+        cmbxGestionResidentes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxGestionResidentes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Registrar residente", "Consultar residente", "Modificar residente" }));
         cmbxGestionResidentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbxGestionResidentesActionPerformed(evt);
@@ -158,11 +160,11 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         jplGTNActasAdmin.setBackground(new java.awt.Color(119, 180, 241));
 
-        lblGestionActasAdmins.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblGestionActasAdmins.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionActasAdmins.setForeground(new java.awt.Color(255, 255, 255));
         lblGestionActasAdmins.setText("ADMINISTRATIVAS");
 
-        lblGestionActasAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblGestionActasAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionActasAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblGestionActasAdmin.setText("GESTION DE ACTAS ");
 
@@ -171,24 +173,26 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplGTNActasAdminLayout.setHorizontalGroup(
             jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNActasAdminLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblGestionActasAdmin)
                     .addComponent(lblGestionActasAdmins))
-                .addGap(20, 20, 20))
+                .addGap(26, 26, 26))
         );
         jplGTNActasAdminLayout.setVerticalGroup(
             jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNActasAdminLayout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
+                .addGap(0, 9, Short.MAX_VALUE)
                 .addComponent(lblGestionActasAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblGestionActasAdmins))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblGestionActasAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         jplAdminInicio.add(jplGTNActasAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 230, -1));
 
-        cmbxGestionActas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Crear/Subir acta", "Eliminar acta" }));
+        cmbxGestionActas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cmbxGestionActas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Crear/Subir acta", "Eliminar acta" }));
         cmbxGestionActas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbxGestionActasActionPerformed(evt);

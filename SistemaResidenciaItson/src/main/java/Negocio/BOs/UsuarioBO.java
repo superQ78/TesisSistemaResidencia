@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Negocio.BOs;
 
 import Negocio.DTOs.UsuarioDTO;
@@ -55,6 +51,7 @@ public class UsuarioBO {
         entidad.setContrasena(dto.getContrasena());
         entidad.setRol(dto.getRol());
         entidad.setTelefono(dto.getTelefono());
+        entidad.setFotoPerfil(dto.getFotoPerfil()); 
 
         UsuarioDAO dao = new UsuarioDAO();
         return dao.insertar(entidad);
@@ -73,6 +70,7 @@ public class UsuarioBO {
             dto.setEmail(entidad.getEmail());
             dto.setRol(entidad.getRol());
             dto.setTelefono(entidad.getTelefono());
+            dto.setFotoPerfil(entidad.getFotoPerfil());
 
             listaDTOs.add(dto);
         }
@@ -92,6 +90,7 @@ public class UsuarioBO {
             dto.setRol(entidad.getRol());
             dto.setTelefono(entidad.getTelefono());
             dto.setContrasena(entidad.getContrasena());
+            dto.setFotoPerfil(entidad.getFotoPerfil());
             return dto;
         }
         return null;
@@ -105,12 +104,13 @@ public class UsuarioBO {
 
         // Convertir de DTO a Entidad
         UsuarioEntidad entidad = new UsuarioEntidad();
-        entidad.setId(dto.getId()); 
+        entidad.setId(dto.getId());
         entidad.setNombre(dto.getNombre());
         entidad.setEmail(dto.getEmail());
         entidad.setContrasena(dto.getContrasena());
         entidad.setRol(dto.getRol());
         entidad.setTelefono(dto.getTelefono());
+        entidad.setFotoPerfil(dto.getFotoPerfil());
 
         // Mandar al DAO 
         UsuarioDAO dao = new UsuarioDAO();

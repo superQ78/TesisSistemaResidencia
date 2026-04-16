@@ -14,6 +14,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
 
     //creamos esta variable para usarla como distintivo
     private int idUsuarioEdicion = -1;
+    private byte[] imagenPerfil = null;
 
     /**
      * Creates new form frmCrearUsuario
@@ -52,7 +53,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             txtCorreo.setText(usuario.getEmail());
             txtContraseña.setText(usuario.getContrasena());
             txtConfirmarContraseña.setText(usuario.getContrasena());
-            
+
             // Validamos el telefono por si está nulo
             if (usuario.getTelefono() != null) {
                 txtTelefono.setText(usuario.getTelefono());
@@ -60,6 +61,12 @@ public class frmCrearUsuario extends javax.swing.JFrame {
 
             // Seleccionamos el rol correcto en el combo box
             cbxRolAsignado.setSelectedItem(usuario.getRol());
+
+            // mostrar la foto para editar
+            this.imagenPerfil = usuario.getFotoPerfil();
+            if (this.imagenPerfil != null) {
+                mostrarFoto(this.imagenPerfil);
+            }
         }
     }
 
@@ -80,10 +87,8 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
-        txtContraseña = new javax.swing.JTextField();
         lblConfContraseña = new javax.swing.JLabel();
-        txtConfirmarContraseña = new javax.swing.JTextField();
-        lblRol = new javax.swing.JLabel();
+        lblPerfil = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
@@ -91,6 +96,11 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         btnLimpiarCampos = new javax.swing.JButton();
         btnCrearUsuario = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        lblRol1 = new javax.swing.JLabel();
+        btnFotoPerfil = new javax.swing.JButton();
+        lblFotoPerfil = new javax.swing.JLabel();
+        txtConfirmarContraseña = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,54 +118,48 @@ public class frmCrearUsuario extends javax.swing.JFrame {
 
         lblNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreCompleto.setText("Nombre completo:");
-        jPanel1.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, 40));
+        jPanel1.add(lblNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, 40));
 
-        txtNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 460, 40));
+        txtNombreCompleto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtNombreCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, 460, 40));
 
         lblCorreo.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCorreo.setText("Correo electronico:");
-        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, 40));
+        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, 40));
 
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 460, 40));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 460, 40));
 
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblContraseña.setText("Contraseña:");
-        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, 40));
-
-        txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 460, 40));
+        jPanel1.add(lblContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, 40));
 
         lblConfContraseña.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblConfContraseña.setText("Confirmar contraseña:");
-        jPanel1.add(lblConfContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, 40));
+        jPanel1.add(lblConfContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, 40));
 
-        txtConfirmarContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 460, 40));
-
-        lblRol.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        lblRol.setText("Rol asignado:");
-        jPanel1.add(lblRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 550, -1, 40));
+        lblPerfil.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel1.add(lblPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 70, 70));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVertcalLetrasGrande.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 200, 390, 430));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblTelefono.setText("Telefono:");
-        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, -1, 40));
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, 40));
 
-        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 460, 40));
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 460, 40));
 
-        cbxRolAsignado.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cbxRolAsignado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cbxRolAsignado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un Rol", "Administrador", "Trabajador" }));
         cbxRolAsignado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxRolAsignadoActionPerformed(evt);
             }
         });
-        jPanel1.add(cbxRolAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 460, 40));
+        jPanel1.add(cbxRolAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 460, 40));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(255, 102, 102));
         btnLimpiarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -166,7 +170,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
                 btnLimpiarCamposActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 640, 170, 40));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 690, 200, 50));
 
         btnCrearUsuario.setBackground(new java.awt.Color(51, 153, 255));
         btnCrearUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -177,7 +181,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
                 btnCrearUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, 150, 40));
+        jPanel1.add(btnCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 690, 200, 50));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -189,6 +193,30 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+
+        lblRol1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblRol1.setText("Rol asignado:");
+        jPanel1.add(lblRol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, -1, 40));
+
+        btnFotoPerfil.setBackground(new java.awt.Color(0, 102, 204));
+        btnFotoPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        btnFotoPerfil.setText("Seleccionar foto");
+        btnFotoPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotoPerfilActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, -1, 40));
+
+        lblFotoPerfil.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblFotoPerfil.setText("Foto de peril:");
+        jPanel1.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, -1, 40));
+
+        txtConfirmarContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 460, 40));
+
+        txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 460, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,19 +261,20 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             return;
         }
 
-         // Crear el paquete de dtos
+        // Crear el paquete de dtos
         UsuarioDTO dto = new UsuarioDTO();
-        dto.setId(this.idUsuarioEdicion); 
+        dto.setId(this.idUsuarioEdicion);
         dto.setNombre(nombre);
         dto.setEmail(correo);
         dto.setContrasena(contra);
         dto.setRol(rol);
         dto.setTelefono(telefono);
+        dto.setFotoPerfil(this.imagenPerfil);
 
         // Llamamos a la Fachada
         IUsuario fachada = new UsuarioFachada();
         boolean exito;
-        
+
         if (this.idUsuarioEdicion == -1) {
             exito = fachada.registrar(dto); // Hace el INSERT
         } else {
@@ -259,9 +288,9 @@ public class frmCrearUsuario extends javax.swing.JFrame {
 
             if (this.idUsuarioEdicion == -1) {
                 btnLimpiarCamposActionPerformed(evt); // Solo limpiamos si estaba creando
-                 btnAtrasActionPerformed(evt);
+                btnAtrasActionPerformed(evt);
             } else {
-                frmConsultarUsuarios vol= new frmConsultarUsuarios();
+                frmConsultarUsuarios vol = new frmConsultarUsuarios();
                 vol.setVisible(true);
                 this.dispose(); // Si estaba editando, lo regresamos a la tabla
             }
@@ -282,6 +311,42 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     private void cbxRolAsignadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRolAsignadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxRolAsignadoActionPerformed
+
+    private void btnFotoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoPerfilActionPerformed
+        javax.swing.JFileChooser selector = new javax.swing.JFileChooser();
+        // Filtro para que solo se vean imágenes
+        selector.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Imágenes", "jpg", "png", "jpeg"));
+
+        int resultado = selector.showOpenDialog(this);
+
+        if (resultado == javax.swing.JFileChooser.APPROVE_OPTION) {
+            java.io.File archivo = selector.getSelectedFile();
+            this.imagenPerfil = leerBytesImagen(archivo); // Convertimos a bytes
+            mostrarFoto(this.imagenPerfil); // La mostramos en la pantalla
+        }
+    }//GEN-LAST:event_btnFotoPerfilActionPerformed
+
+    //Metodos para la foto de perfil
+    // Metodo para convertir el archivo seleccionado a bytes
+    private byte[] leerBytesImagen(java.io.File archivo) {
+        try {
+            return java.nio.file.Files.readAllBytes(archivo.toPath());
+        } catch (java.io.IOException e) {
+            System.err.println("Error al leer imagen: " + e.getMessage());
+            return null;
+        }
+    }
+
+    // Metodo para mostrar la foto
+    private void mostrarFoto(byte[] bytes) {
+        if (bytes != null) {
+            java.awt.Image img = new javax.swing.ImageIcon(bytes).getImage();
+            java.awt.Image nuevaImg = img.getScaledInstance(lblPerfil.getWidth(), lblPerfil.getHeight(), java.awt.Image.SCALE_SMOOTH);
+            lblPerfil.setIcon(new javax.swing.ImageIcon(nuevaImg));
+        } else {
+            lblPerfil.setIcon(null); // Imagen por defecto si no hay nada
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -321,20 +386,23 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnFotoPerfil;
     private javax.swing.JButton btnLimpiarCampos;
     private javax.swing.JComboBox<String> cbxRolAsignado;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblConfContraseña;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblFotoPerfil;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNombreCompleto;
-    private javax.swing.JLabel lblRol;
+    private javax.swing.JLabel lblPerfil;
+    private javax.swing.JLabel lblRol1;
     private javax.swing.JLabel lblSubtituloCrear;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextField txtConfirmarContraseña;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtConfirmarContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombreCompleto;
     private javax.swing.JTextField txtTelefono;

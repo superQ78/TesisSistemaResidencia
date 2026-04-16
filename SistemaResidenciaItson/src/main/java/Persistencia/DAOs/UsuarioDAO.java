@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Persistencia.DAOs;
 
 import Persistencia.Entidades.UsuarioEntidad;
@@ -40,23 +36,21 @@ public class UsuarioDAO {
         return null;
     }
 
-    // Metodo para agregar un nuevo usuario al sistema
+    // Metodo para agregar un nuevo usuario al sistema  
     public boolean insertar(UsuarioEntidad entidad) {
-        String sql = "INSERT INTO Usuarios (nombreCompleto, email, contrasena, rol, telefono) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuarios (nombreCompleto, email, contrasena, rol, telefono, fotoPerfil) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
-
             ps.setString(1, entidad.getNombre());
             ps.setString(2, entidad.getEmail());
             ps.setString(3, entidad.getContrasena());
             ps.setString(4, entidad.getRol());
             ps.setString(5, entidad.getTelefono());
+            ps.setBytes(6, entidad.getFotoPerfil());
 
-            int filasAfectadas = ps.executeUpdate();
-            return filasAfectadas > 0; 
-
+            return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("Error al registrar usuario en BD: " + e.getMessage());
+            System.err.println("Error al registrar: " + e.getMessage());
             return false;
         }
     }
@@ -74,6 +68,7 @@ public class UsuarioDAO {
                 usuario.setEmail(rs.getString("email"));
                 usuario.setRol(rs.getString("rol"));
                 usuario.setTelefono(rs.getString("telefono"));
+                usuario.setFotoPerfil(rs.getBytes("fotoPerfil"));
 
                 listaUsuarios.add(usuario); // Lo agregamos a la lista
             }
@@ -98,6 +93,7 @@ public class UsuarioDAO {
                 usuario.setRol(rs.getString("rol"));
                 usuario.setTelefono(rs.getString("telefono"));
                 usuario.setContrasena(rs.getString("contrasena"));
+                usuario.setFotoPerfil(rs.getBytes("fotoPerfil"));
                 return usuario;
             }
         } catch (java.sql.SQLException e) {
@@ -107,7 +103,7 @@ public class UsuarioDAO {
     }
 
     public boolean actualizar(UsuarioEntidad entidad) {
-        String sql = "UPDATE Usuarios SET nombreCompleto = ?, email = ?, contrasena = ?, rol = ?, telefono = ? WHERE idUsuario = ?";
+        String sql = "UPDATE Usuarios SET nombreCompleto = ?, email = ?, contrasena = ?, rol = ?, telefono = ?, fotoPerfil = ? WHERE idUsuario = ?";
         try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, entidad.getNombre());
@@ -115,7 +111,8 @@ public class UsuarioDAO {
             ps.setString(3, entidad.getContrasena());
             ps.setString(4, entidad.getRol());
             ps.setString(5, entidad.getTelefono());
-            ps.setInt(6, entidad.getId());
+            ps.setBytes(6, entidad.getFotoPerfil());
+            ps.setInt(7, entidad.getId());
 
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;

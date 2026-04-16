@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Persistencia.Entidades;
 
 /**
@@ -9,22 +6,23 @@ package Persistencia.Entidades;
  * @author cesar
  */
 public class UsuarioEntidad {
-     private int id;
-     private String nombre;
-     private String contrasena;
-     private String email;
-     private String rol;
-     private String telefono;
-     
-     
 
-    public UsuarioEntidad(int id, String nombre, String contrasena, String email, String rol, String telefono) {
+    private int id;
+    private String nombre;
+    private String contrasena;
+    private String email;
+    private String rol;
+    private String telefono;
+    private byte[] fotoPerfil;
+
+    public UsuarioEntidad(int id, String nombre, String contrasena, String email, String rol, String telefono, byte[] fotoPerfil) {
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.email = email;
-        this.rol= rol;
+        this.rol = rol;
         this.telefono = telefono;
+        this.fotoPerfil = fotoPerfil;
     }
 
     public UsuarioEntidad() {
@@ -78,12 +76,17 @@ public class UsuarioEntidad {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "UsuarioEntidad{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + ", telefono=" + telefono + '}';
+    public byte[] getFotoPerfil() {
+        return fotoPerfil;
     }
 
-    
-     
-       
+    public void setFotoPerfil(byte[] fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioEntidad{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", rol=" + rol + ", telefono=" + telefono + ", fotoPerfil=" + fotoPerfil + '}';
+    }
+
 }
