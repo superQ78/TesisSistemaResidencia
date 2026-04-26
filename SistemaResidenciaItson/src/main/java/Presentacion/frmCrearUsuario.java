@@ -5,6 +5,7 @@ import Negocio.DTOs.UsuarioDTO;
 import Negocio.GestorUsuario.IUsuario;
 import Negocio.GestorUsuario.UsuarioFachada;
 import javax.swing.JOptionPane;
+import Presentacion.coordinadorVistas;
 
 /**
  *
@@ -25,13 +26,13 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     }
 
     /**
-     * Para editar recibe el ID desde la tabla
+     * Para editar recibe el desde la tabla
      */
     public frmCrearUsuario(int idSeleccionado) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        // Guardamos el ID que nos mandaron
+        // Guardamos el id que nos mandaron
         this.idUsuarioEdicion = idSeleccionado;
 
         // Cambiamos los textos para que la pantalla parezca de modificacion
@@ -54,7 +55,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             txtContraseña.setText(usuario.getContrasena());
             txtConfirmarContraseña.setText(usuario.getContrasena());
 
-            // Validamos el telefono por si está nulo
+            // Validamos el telefono por si esta nulo
             if (usuario.getTelefono() != null) {
                 txtTelefono.setText(usuario.getTelefono());
             }
@@ -251,13 +252,12 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         String rol = cbxRolAsignado.getSelectedItem().toString();
         String telefono = txtTelefono.getText();
 
-        //Validacion basica de las credenciales
+        //Validacion basica de las credenciales 
         if (!contra.equals(confContra)) {
             JOptionPane.showMessageDialog(this,
-                    "Las contraseñas no coinciden. Por favor, verificalas.",
+                    "Las contraseñas no coinciden, por favor, verificalas.",
                     "Aviso",
                     JOptionPane.WARNING_MESSAGE);
-            // Detenemos el proceso aqui para que no viaje a la base de datos
             return;
         }
 
@@ -276,36 +276,32 @@ public class frmCrearUsuario extends javax.swing.JFrame {
         boolean exito;
 
         if (this.idUsuarioEdicion == -1) {
-            exito = fachada.registrar(dto); // Hace el INSERT
+            exito = fachada.registrar(dto);
         } else {
-            exito = fachada.actualizarUsuario(dto); // Hace el UPDATE
-        }
+            exito = fachada.actualizarUsuario(dto);
 
-        // Evaluar la respuesta
-        if (exito) {
-            String mensaje = (this.idUsuarioEdicion == -1) ? "Usuario registrado exitosamente." : "Usuario modificado exitosamente.";
-            JOptionPane.showMessageDialog(this, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
+            //checamos la respuesta en esta parte
+            if (exito) {
+                String mensaje = (this.idUsuarioEdicion == -1) ? "Usuario registrado exitosamente." : "Usuario modificado exitosamente.";
+                JOptionPane.showMessageDialog(this, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
 
-            if (this.idUsuarioEdicion == -1) {
-                btnLimpiarCamposActionPerformed(evt); // Solo limpiamos si estaba creando
-                btnAtrasActionPerformed(evt);
+                if (this.idUsuarioEdicion == -1) {
+                    btnLimpiarCamposActionPerformed(evt);
+                    coordinadorVistas.mostrarAdminInicio(this);
+                } else {
+                    coordinadorVistas.mostrarConsultarUsuarios(this);
+                }
             } else {
-                frmConsultarUsuarios vol = new frmConsultarUsuarios();
-                vol.setVisible(true);
-                this.dispose(); // Si estaba editando, lo regresamos a la tabla
+                JOptionPane.showMessageDialog(this,
+                        "No se pudo guardar. Verifica que los campos obligatorios estén llenos.",
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
-            JOptionPane.showMessageDialog(this,
-                    "Faltan campos por llenar o hubo un error al guardar en la BD.",
-                    "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.mostrarAdminInicio(this);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void cbxRolAsignadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRolAsignadoActionPerformed
@@ -314,15 +310,14 @@ public class frmCrearUsuario extends javax.swing.JFrame {
 
     private void btnFotoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoPerfilActionPerformed
         javax.swing.JFileChooser selector = new javax.swing.JFileChooser();
-        // Filtro para que solo se vean imágenes
         selector.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("Imágenes", "jpg", "png", "jpeg"));
 
         int resultado = selector.showOpenDialog(this);
 
         if (resultado == javax.swing.JFileChooser.APPROVE_OPTION) {
             java.io.File archivo = selector.getSelectedFile();
-            this.imagenPerfil = leerBytesImagen(archivo); // Convertimos a bytes
-            mostrarFoto(this.imagenPerfil); // La mostramos en la pantalla
+            this.imagenPerfil = leerBytesImagen(archivo);
+            mostrarFoto(this.imagenPerfil);
         }
     }//GEN-LAST:event_btnFotoPerfilActionPerformed
 
@@ -344,7 +339,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             java.awt.Image nuevaImg = img.getScaledInstance(lblPerfil.getWidth(), lblPerfil.getHeight(), java.awt.Image.SCALE_SMOOTH);
             lblPerfil.setIcon(new javax.swing.ImageIcon(nuevaImg));
         } else {
-            lblPerfil.setIcon(null); // Imagen por defecto si no hay nada
+            lblPerfil.setIcon(null);
         }
     }
 

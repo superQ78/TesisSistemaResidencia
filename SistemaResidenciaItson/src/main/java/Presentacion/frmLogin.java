@@ -95,11 +95,11 @@ public class frmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSeionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeionActionPerformed
-//Obtener los datos que el usuario escribio en la pantalla
+        // Obtener los datos que el usuario escribio en la pantalla
         String correo = txtCorreoLogin.getText();
         String contra = txtContraLogin.getText();
 
-        // juntar los datos en el DTO
+        // Juntar los datos en el DTO
         UsuarioDTO dto = new UsuarioDTO();
         dto.setEmail(correo);
         dto.setContrasena(contra);
@@ -112,23 +112,19 @@ public class frmLogin extends javax.swing.JFrame {
         if (usuarioLogueado != null) {
 
             if ("Administrador".equals(usuarioLogueado.getRol())) {
-                frmAdminInicio fadmin = new frmAdminInicio();
-                fadmin.setVisible(true);
+                coordinadorVistas.mostrarAdminInicio(this);
+
             } else if ("Trabajador".equals(usuarioLogueado.getRol())) {
-                frmTrabajadorInicio ftrabajador = new frmTrabajadorInicio();
-                ftrabajador.setVisible(true);
+                coordinadorVistas.mostrarTrabajadorInicio(this);
             }
 
-            // Cierra la ventana de login
-            this.dispose();
-
         } else {
-            // Mostrar mensaje de error si el DAO devuelve un null
             JOptionPane.showMessageDialog(this,
-                    "Correo o contrasena incorrectos",
+                    "Correo o contrasena incorrectos, o faltan datos por llenar.",
                     "Error de Inicio de Sesion",
                     JOptionPane.ERROR_MESSAGE);
         }
+
 
     }//GEN-LAST:event_btnIniciarSeionActionPerformed
 

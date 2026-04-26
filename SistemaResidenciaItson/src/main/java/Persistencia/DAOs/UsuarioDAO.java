@@ -1,5 +1,6 @@
 package Persistencia.DAOs;
 
+import Persistencia.Conexion.Conexion;
 import Persistencia.Entidades.UsuarioEntidad;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,13 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import Persistencia.Interfaces.IUsuarioDAO;
 
 /**
  *
  * @author cesar
  */
-public class UsuarioDAO {
+public class UsuarioDAO implements IUsuarioDAO {
 
+    @Override
     public UsuarioEntidad consultarCredenciales(UsuarioEntidad entidad) {
         String sql = "SELECT * FROM Usuarios WHERE email = ? AND contrasena = ?";
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -37,6 +40,7 @@ public class UsuarioDAO {
     }
 
     // Metodo para agregar un nuevo usuario al sistema  
+    @Override
     public boolean insertar(UsuarioEntidad entidad) {
         String sql = "INSERT INTO Usuarios (nombreCompleto, email, contrasena, rol, telefono, fotoPerfil) VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -54,7 +58,9 @@ public class UsuarioDAO {
             return false;
         }
     }
-
+    
+    //Metodo para buscar todos los usuarios
+    @Override
     public List<UsuarioEntidad> buscarTodo() {
         List<UsuarioEntidad> listaUsuarios = new ArrayList<>();
 
@@ -77,7 +83,10 @@ public class UsuarioDAO {
         }
         return listaUsuarios;
     }
-
+    
+    
+    //Metodo para consultar a un usuario por id
+    @Override
     public UsuarioEntidad consultarPorId(int id) {
         String sql = "SELECT * FROM Usuarios WHERE idUsuario = ?";
         try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
@@ -101,7 +110,9 @@ public class UsuarioDAO {
         }
         return null;
     }
-
+    
+    //Metodo para actualizar un usuario
+    @Override
     public boolean actualizar(UsuarioEntidad entidad) {
         String sql = "UPDATE Usuarios SET nombreCompleto = ?, email = ?, contrasena = ?, rol = ?, telefono = ?, fotoPerfil = ? WHERE idUsuario = ?";
         try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
@@ -122,7 +133,9 @@ public class UsuarioDAO {
             return false;
         }
     }
-
+    
+    //Metodo para Inhabiliatr un usuario
+    @Override
     public boolean eliminar(int id) {
         String sql = "UPDATE Usuarios SET estado = 'Inhabilitado' WHERE idUsuario = ?";
 

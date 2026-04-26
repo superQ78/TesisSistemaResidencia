@@ -118,9 +118,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.mostrarAdminInicio(this);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
@@ -163,20 +161,17 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 // Checamos que no le haya dado clic al vacio y que sea en las columnas de los botones 
                 if (fila >= 0 && columna >= 3) {
 
-                    // Extraemos el ID y el Nombre de esa fila para saber a quien seleccionamos
+                    // Extraemos el id y el nombre de esa fila para saber a quien seleccionamos
                     int idSeleccionado = Integer.parseInt(tblUsuarios.getValueAt(fila, 0).toString());
                     String nombreSeleccionado = tblUsuarios.getValueAt(fila, 1).toString();
 
                     if (columna == 3) {
-                        frmInformacionUsuario info = new frmInformacionUsuario(idSeleccionado);
-                        info.setVisible(true);
-                        dispose();
+                        // Le dio al boton de consultar
+                        coordinadorVistas.mostrarInformacionUsuario(frmConsultarUsuarios.this, idSeleccionado);
 
                     } else if (columna == 4) {
-                        // Le dio al boton de EDITAR
-                        frmCrearUsuario editar = new frmCrearUsuario(idSeleccionado);
-                        editar.setVisible(true);
-                        dispose(); // Cerramos la tabla
+                        // Le dio al boton de editar
+                        coordinadorVistas.mostrarModificarUsuario(frmConsultarUsuarios.this, idSeleccionado);
 
                     } else if (columna == 5) {
                         int respuesta = javax.swing.JOptionPane.showConfirmDialog(null,
@@ -192,7 +187,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
 
                             if (exito) {
                                 javax.swing.JOptionPane.showMessageDialog(null, "Se inhabilito al usuario correctamente.");
-                                llenarTablaReal(); // Recargamos la tabla 
+                                llenarTablaReal();
                             } else {
                                 javax.swing.JOptionPane.showMessageDialog(null, "Hubo un bronca al inhabilitar en la BD.");
                             }
@@ -206,9 +201,6 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     /**
      * Carga datos simulados de usuarios en el modelo de la tabla.
      */
-    /**
-     * Consulta la base de datos a través de las capas y llena la tabla.
-     */
     private void llenarTablaReal() {
         modeloUsuarios.setRowCount(0);
 
@@ -219,12 +211,12 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         //Recorrer la lista  
         for (UsuarioDTO usuario : listaUsuarios) {
             Object[] fila = {
-                usuario.getId(), // Columna 0: ID
-                usuario.getNombre(), // Columna 1: Nombre
-                usuario.getEmail(), // Columna 2: Correo
-                "SELECCIONAR", // Columna 3: Accion para tu Render
-                "EDITAR", // Columna 4: Accion para tu Render
-                "INHABILITAR" // Columna 5: Accion para tu Render
+                usuario.getId(),
+                usuario.getNombre(),
+                usuario.getEmail(),
+                "SELECCIONAR",
+                "EDITAR",
+                "INHABILITAR"
             };
 
             modeloUsuarios.addRow(fila);
