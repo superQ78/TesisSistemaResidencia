@@ -1,6 +1,8 @@
 package Presentacion;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -20,21 +22,140 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     public frmSolicitudIngreso() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        // Agregamos tanto los reutilizados como los nuevos
-        tabSolicitud.addTab("Solicitante", new javax.swing.JScrollPane(panelSolicitante));
-        tabSolicitud.addTab("Tutor", new javax.swing.JScrollPane(panelTutor));
-        tabSolicitud.addTab("Emergencia", new javax.swing.JScrollPane(panelEmergencia));
-        
-        // Estos solo aparecen aquí
-        tabSolicitud.addTab("Forma de Pago", new javax.swing.JScrollPane(panelPago));
-        tabSolicitud.addTab("Compañero", new javax.swing.JScrollPane(panelCompanero));
-    
+
+        tabSolicitud.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        configurarTabs();
+        configurarScrolls();
+        configurarEstiloGeneral();
+
+        tabSolicitud.revalidate();
+        tabSolicitud.repaint();
     }
 
-    private void mostrarSeccion(javax.swing.JPanel panel) {
-        panel.setVisible(true);
+    /**
+     * Configura el diseño visual del componente JTabbedPane. Se personaliza la
+     * apariencia de las pestañas, incluyendo: Colores de fondo, cambio de tipo
+     * de letra, centrado de texto, eliminación de bordes separación mediante
+     * líneas entre pestañas.
+     */
+    private void configurarTabs() {
+        tabSolicitud.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI() {
 
+            @Override
+            protected int calculateTabWidth(int tabPlacement, int tabIndex, java.awt.FontMetrics metrics) {
+                return super.calculateTabWidth(tabPlacement, tabIndex, metrics) + 25;
+            }
+
+            @Override
+            protected void paintTabBackground(java.awt.Graphics g, int tabPlacement,
+                    int tabIndex, int x, int y, int w, int h, boolean isSelected) {
+
+                if (isSelected) {
+                    g.setColor(new java.awt.Color(0, 102, 204));
+                } else {
+                    g.setColor(new java.awt.Color(180, 210, 240));
+                }
+
+                g.fillRect(x, y, w, h);
+            }
+
+            @Override
+            protected void paintText(java.awt.Graphics g, int tabPlacement,
+                    java.awt.Font font, java.awt.FontMetrics metrics, int tabIndex,
+                    String title, java.awt.Rectangle textRect, boolean isSelected) {
+
+                java.awt.Font fuente = isSelected
+                        ? new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14)
+                        : new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 14);
+
+                g.setFont(fuente);
+
+                g.setColor(isSelected ? java.awt.Color.WHITE : java.awt.Color.BLACK);
+
+                java.awt.FontMetrics fm = g.getFontMetrics(fuente);
+
+                // centrar el texto
+                int textWidth = fm.stringWidth(title);
+                int textX = textRect.x + (textRect.width - textWidth) / 2;
+                int textY = textRect.y + ((textRect.height - fm.getHeight()) / 2) + fm.getAscent();
+
+                g.drawString(title, textX, textY);
+            }
+
+            @Override
+            protected void paintTabBorder(java.awt.Graphics g, int tabPlacement,
+                    int tabIndex, int x, int y, int w, int h, boolean isSelected) {
+
+                // línea blanca centrada, para separar los tabs
+                g.setColor(java.awt.Color.WHITE);
+                g.drawLine(x + w - 1, y + 4, x + w - 1, y + h - 4);
+            }
+
+            @Override
+            protected void paintContentBorder(java.awt.Graphics g, int tabPlacement,
+                    int selectedIndex) {
+                // elimina borde negro 
+            }
+
+            @Override
+            protected void paintFocusIndicator(java.awt.Graphics g, int tabPlacement,
+                    java.awt.Rectangle[] rects, int tabIndex,
+                    java.awt.Rectangle iconRect, java.awt.Rectangle textRect,
+                    boolean isSelected) {
+                // nada
+            }
+        });
+
+        tabSolicitud.setOpaque(true);
+        tabSolicitud.setBackground(new java.awt.Color(241, 241, 241));
+    }
+
+    /**
+     * Crea y configura un JScrollPane personalizado para un panel.
+     * Configuraciones aplicadas: mas velocidad de desplazamiento, se oculta la
+     * barra de scroll y eliminan los bordes
+     *
+     * @param panel panel dentro del scroll
+     * @return JScrollPane configurado con el panel
+     */
+    private JScrollPane crearScroll(JPanel panel) {
+        JScrollPane scroll = new JScrollPane(panel);
+        scroll.getVerticalScrollBar().setUnitIncrement(20);
+        scroll.getVerticalScrollBar().setPreferredSize(new java.awt.Dimension(0, 0));
+        scroll.setBorder(null);
+        return scroll;
+    }
+
+    /**
+     * Agrega cada uno de los paneles al JTabbedPane dentro de un JScrollPane.
+     * Esto permite que cada sección del formulario sea desplazable,
+     * especialmente util cuando el contenido es extenso. Se eliminan las
+     * pestañas existentes para evitar duplicaciones
+     */
+    private void configurarScrolls() {
+        tabSolicitud.removeAll(); // importante
+
+        tabSolicitud.addTab("Solicitante", crearScroll(panelSolicitante));
+        tabSolicitud.addTab("Tutor", crearScroll(panelTutor));
+        tabSolicitud.addTab("Emergencia", crearScroll(panelEmergencia));
+        tabSolicitud.addTab("Personales", crearScroll(panelPago));
+        tabSolicitud.addTab("Académicos", crearScroll(panelCompanero));
+    }
+
+    /**
+     * Configura el estilo general de la ventana y los paneles internos. color
+     * de fondo neutro para la ventana principal y un fondo blanco para cada
+     * panel
+     */
+    private void configurarEstiloGeneral() {
+        getContentPane().setBackground(new java.awt.Color(240, 242, 245));
+
+        panelSolicitante.setBackground(java.awt.Color.WHITE);
+        panelTutor.setBackground(java.awt.Color.WHITE);
+        panelEmergencia.setBackground(java.awt.Color.WHITE);
+        panelPago.setBackground(java.awt.Color.WHITE);
+        panelCompanero.setBackground(java.awt.Color.WHITE);
     }
 
     /**
