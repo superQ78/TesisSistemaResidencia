@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import Negocio.DTOs.ResidenteDTO;
@@ -266,7 +265,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
      * metodo para guardar los datos en el DTO.
      */
     public void empaquetarDatosAcademicos(ResidenteDTO dto) {
-        
+
         // 1. ¿Busca ayuda cuando tiene dificultades académicas?
         if (chkAyudaSiempre.isSelected()) {
             dto.setBuscaAyudaAcademica("Siempre");
@@ -302,6 +301,55 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
 
         // 4. Aspectos que le gustaría mejorar
         dto.setAspectosMejoraAcademica(txaMejorasAcademicas.getText().trim());
+    }
+// --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
+
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        if (campo.getText().trim().isEmpty()) {
+            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
+            return true;
+        }
+    }
+
+    private boolean areaEsValida(javax.swing.JTextArea area) {
+        if (area.getText().trim().isEmpty()) {
+            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
+            return true;
+        }
+    }
+
+    private boolean comboEsValido(javax.swing.JComboBox combo) {
+        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
+            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            combo.setBorder(null);
+            return true;
+        }
+    }
+
+    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
+        if (checkSi.isSelected()) {
+            return campoEsValido(campo);
+        } else {
+            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
+            return true; // Es válido porque no es obligatorio si no marcó "Sí"
+        }
+    }
+
+    public boolean validarCampos() {
+        boolean todoValido = true;
+        // Solo validamos el área de texto, los checkboxes asumimos que elegirá alguno
+        if (!areaEsValida(txaMejorasAcademicas)) {
+            todoValido = false;
+        }
+        return todoValido;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

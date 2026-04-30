@@ -112,7 +112,7 @@ public class ControlResidente {
             return false;
         }
 
-        // Si pasó todos los filtros sin hacer return false, ¡el DTO está perfecto!
+        // Si pasó todos los filtros sin hacer return false
         return true;
     }
 

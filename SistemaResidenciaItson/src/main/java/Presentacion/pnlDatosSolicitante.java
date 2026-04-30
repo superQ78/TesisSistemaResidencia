@@ -194,16 +194,14 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(lblTituloSolicitante))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(40, 40, 40)
+                .addComponent(lblTituloSolicitante)
+                .addGap(963, 963, 963))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(12, 12, 12))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -268,7 +266,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblFechaNacimiento)
                                 .addGap(18, 18, 18)
-                                .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -279,15 +277,14 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                                 .addGap(26, 26, 26)
                                 .addComponent(lblDomicilioSolicitante)
                                 .addGap(21, 21, 21)
-                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblTituloSolicitante)
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,7 +339,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -428,6 +425,47 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         } else {
             dto.setFechaNacimiento(null);
         }
+    }
+    
+    /**
+     * Método ayudante: Revisa un JTextField. Si está vacío lo pinta rojo, si no, lo deja normal.
+     */
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        if (campo.getText().trim().isEmpty()) {
+            // se pinta el borde de rojo
+            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            // se regresa su borde normal (gris)
+            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
+            return true;
+        }
+    }
+
+    /**
+     * Revisa todos los campos del panel y devuelve true si todos están llenos.
+     */
+    public boolean validarCampos() {
+        boolean todoValido = true;
+
+        if (!campoEsValido(txtNombreSolicitante)) todoValido = false;
+        if (!campoEsValido(txtDomicilioSolicitante)) todoValido = false;
+        if (!campoEsValido(txtCurpSolicitante)) todoValido = false;
+        if (!campoEsValido(txtLugarResidencia)) todoValido = false;
+        if (!campoEsValido(txtNssSolicitante)) todoValido = false;
+        if (!campoEsValido(txtTelefonoSolicitante)) todoValido = false;
+        if (!campoEsValido(txtCelularSolicitante)) todoValido = false;
+        if (!campoEsValido(txtCorreoSolicitante)) todoValido = false;
+
+        // Validar la fecha del JDateChooser
+        if (dateChooserNacimiento.getDate() == null) {
+            dateChooserNacimiento.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            todoValido = false;
+        } else {
+            dateChooserNacimiento.setBorder(null); // O el borde que tenía por defecto
+        }
+
+        return todoValido;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
