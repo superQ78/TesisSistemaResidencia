@@ -271,10 +271,28 @@ public class frmRDP extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-// 1. Instanciamos el maletín (DTO) vacío
+
+        // 1. VALIDACIÓN VISUAL PRIMERO
+        // Le preguntamos a cada panel si sus campos están bien (y que pinte de rojo los malos)
+        boolean solValido = panelSolicitante.validarCampos();
+        boolean tutValido = panelTutor.validarCampos();
+        boolean emeValido = panelEmergencia.validarCampos();
+        // Asumiendo que le pongas el método a todos los paneles:
+         boolean perValido = panelPersonales.validarCampos();
+         boolean acaValido = panelAcademicos.validarCampos();
+         boolean medValido = panelMedicos.validarCampos();
+
+        // Si ALGUNO de los paneles devolvió false, detenemos el proceso
+        if (!solValido || !tutValido || !emeValido || !perValido || !acaValido || !medValido) { 
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "Hay campos obligatorios vacíos.", 
+                "Campos incompletos", 
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return; // DETENEMOS EL MÉTODO AQUÍ, NO SE GUARDA NADA AÚN
+        }
+        
         ResidenteDTO dtoNuevo = new ResidenteDTO();
 
-        // 2. Le pasamos el maletín a todos los paneles como en una línea de ensamblaje
         panelSolicitante.empaquetarDatosPersonales(dtoNuevo);
         panelTutor.empaquetarDatosTutor(dtoNuevo);
         panelEmergencia.empaquetarDatosEmergencia(dtoNuevo);
@@ -282,12 +300,9 @@ public class frmRDP extends javax.swing.JFrame {
         panelAcademicos.empaquetarDatosAcademicos(dtoNuevo);
         panelMedicos.empaquetarDatosMedicos(dtoNuevo);
 
-        // 3. Mandamos el maletín completamente lleno a la Fachada
-        // (Asegúrate de importar IResidente y ResidenteFachada hasta arriba)
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
         boolean exito = fachada.registrarRDP(dtoNuevo);
 
-        // 4. Mostramos el resultado al usuario
         if (exito) {
             javax.swing.JOptionPane.showMessageDialog(this, "¡Residente registrado con éxito!", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             

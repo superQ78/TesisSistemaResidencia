@@ -220,6 +220,63 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         dto.setTelefonoTutor(txtTelefonoTutor.getText().trim());
         dto.setCorreoTutor(txtCorreoTutor.getText().trim());
     }
+    
+    
+    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
+
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        if (campo.getText().trim().isEmpty()) {
+            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
+            return true;
+        }
+    }
+
+    private boolean areaEsValida(javax.swing.JTextArea area) {
+        if (area.getText().trim().isEmpty()) {
+            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
+            return true;
+        }
+    }
+
+    private boolean comboEsValido(javax.swing.JComboBox combo) {
+        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
+            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
+            return false;
+        } else {
+            combo.setBorder(null);
+            return true;
+        }
+    }
+
+    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
+        if (checkSi.isSelected()) {
+            return campoEsValido(campo);
+        } else {
+            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
+            return true; // Es válido porque no es obligatorio si no marcó "Sí"
+        }
+    }
+    
+    public boolean validarCampos() {
+        boolean todoValido = true;
+
+        if (!campoEsValido(txtNombreTutor)) todoValido = false;
+        if (!comboEsValido(cmbParentescoTutor)) todoValido = false;
+        if (!campoEsValido(txtDomicilioTutor)) todoValido = false;
+        if (!campoEsValido(txtCiudadEstadoPaisTutor)) todoValido = false;
+        if (!campoEsValido(txtCelularTutor)) todoValido = false;
+        if (!campoEsValido(txtTelefonoTutor)) todoValido = false;
+        if (!campoEsValido(txtCorreoTutor)) todoValido = false;
+
+        return todoValido;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisTutor;
