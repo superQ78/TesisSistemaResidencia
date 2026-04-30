@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlAspPersonales extends javax.swing.JPanel {
 
@@ -647,7 +646,111 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_txaOtraInformacionFocusLost
 
+/**
+     * Este método para guarder los datos personales en el dto.
+     */
+    public void empaquetarDatosPersonales(ResidenteDTO dto) {
 
+        // --- Experiencia de vivienda ---
+        dto.setHaVividoFuera(chkVividoFueraSi.isSelected());
+        dto.setTiempoVividoFuera(txtTiempoVividoFuera.getText().trim());
+
+        // --- Decisión de residencia ---
+        if (chkDecisionTuya.isSelected()) {
+            dto.setDecisionResidencia("Tuya");
+        } else if (chkDecisionPadres.isSelected()) {
+            dto.setDecisionResidencia("Padres");
+        } else if (chkDecisionAmbos.isSelected()) {
+            dto.setDecisionResidencia("Ambos");
+        } else {
+            dto.setDecisionResidencia("No especificado");
+        }
+
+        // --- Razones, Adaptación y Convivencia ---
+        dto.setRazonesVivirResidencia(txtRespuestaApdc4.getText().trim()); // Asumo que este campo es para las razones
+
+        if (chkAdaptacionFacil.isSelected()) {
+            dto.setAdaptacion("Fácil");
+        } else if (chkAdaptacionRegular.isSelected()) {
+            dto.setAdaptacion("Regular");
+        } else if (chkAdaptacionDificil.isSelected()) {
+            dto.setAdaptacion("Difícil");
+        } else {
+            dto.setAdaptacion("No especificado");
+        }
+
+        if (chkConvivenciaCeder.isSelected()) {
+            dto.setEstiloConvivencia("Ceder");
+        } else if (chkConvivenciaNegociar.isSelected()) {
+            dto.setEstiloConvivencia("Negociar");
+        } else if (chkConvivenciaPersuadir.isSelected()) {
+            dto.setEstiloConvivencia("Persuadir");
+        } else {
+            dto.setEstiloConvivencia("No especificado");
+        }
+
+        dto.setSituacionesNoDeseadas(txtSituacionesNoDeseadas.getText().trim());
+
+        // --- Preferencias de Compañero (Booleanos) ---
+        dto.setBuscaCompaneroExtranjero(chkCompaneroExtranjero.isSelected());
+        dto.setBuscaCompaneroMexicano(chkCompaneroMexicano.isSelected());
+        dto.setBuscaCompaneroReingreso(chkCompaneroReingreso.isSelected());
+
+        // --- Hábitos Diarios ---
+        dto.setHoraDormir(cmbxHoraDormir.getSelectedItem().toString());
+        dto.setToleraRuido(chkToleraRuidoSi.isSelected());
+
+        if (chkOrdenMucho.isSelected()) {
+            dto.setImportanciaOrden("Muy importante");
+        } else if (chkOrdenRegular.isSelected()) {
+            dto.setImportanciaOrden("Regular");
+        } else if (chkOrdenPoco.isSelected()) {
+            dto.setImportanciaOrden("Poco");
+        } else {
+            dto.setImportanciaOrden("No especificado");
+        }
+
+        if (chkHigieneEstricto.isSelected()) {
+            dto.setHabitosHigiene("Estricto");
+        } else if (chkHigieneRegular.isSelected()) {
+            dto.setHabitosHigiene("Regular");
+        } else if (chkHigienePoco.isSelected()) {
+            dto.setHabitosHigiene("Poco");
+        } else {
+            dto.setHabitosHigiene("No especificado");
+        }
+
+        // --- Objetos a traer (Booleanos) ---
+        dto.setTraeAuto(chkObjetoAuto.isSelected());
+        dto.setTraeComputadora(chkObjetoComputadora.isSelected());
+        dto.setTraeTv(chkObjetoTV.isSelected());
+        dto.setTraeFrigobar(chkObjetoFrigobar.isSelected());
+
+        // --- Actividades e Iniciativa ---
+        if (chkIniciativaSi.isSelected()) {
+            dto.setIniciativaActividades("Sí");
+        } else if (chkIniciativaAveses.isSelected()) {
+            dto.setIniciativaActividades("A veces");
+        } else if (chkIniciativaNo.isSelected()) {
+            dto.setIniciativaActividades("No");
+        } else {
+            dto.setIniciativaActividades("No especificado");
+        }
+
+        dto.setParticipacionGrupo(chkGrupoSi.isSelected());
+        dto.setTipoGrupo(cmbxTipoGrupo.getSelectedItem().toString());
+        dto.setActividadesRealizadasGrupo(txtActividadesRealizadas.getText().trim());
+
+        // --- Actividades Deseadas (Booleanos) ---
+        dto.setDeseaActDeportivas(chkDeseaDeportivas.isSelected());
+        dto.setDeseaActCulturales(chkDeseaCulturales.isSelected());
+        dto.setDeseaActArtisticas(chkDeseaArtisticas.isSelected());
+
+        // --- Aspectos Finales ---
+        dto.setAspectosMejoraPersona(cmbxAspectosMejora.getSelectedItem().toString());
+        dto.setOtraInformacion(txaOtraInformacion.getText().trim());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAdaptacionDificil;
     private javax.swing.JCheckBox chkAdaptacionFacil;

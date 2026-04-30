@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlDatosMedicos extends javax.swing.JPanel {
 
@@ -449,6 +448,61 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * metodo para guardar datos médicos en el DTO.
+     */
+    public void empaquetarDatosMedicos(ResidenteDTO dto) {
+        
+        // --- Estado de Salud General ---
+        if (chkSaludBueno.isSelected()) {
+            dto.setEstadoSalud("Bueno");
+        } else if (chkSaludRegular.isSelected()) {
+            dto.setEstadoSalud("Regular");
+        } else if (chkSaludMalo.isSelected()) {
+            dto.setEstadoSalud("Malo");
+        } else {
+            dto.setEstadoSalud("No especificado");
+        }
+
+        // --- Deficiencias y Condiciones (Booleanos + Textos) ---
+        dto.setTieneDeficienciaVista(chkVistaSi.isSelected());
+        dto.setEspecificarVista(txtEspecificarVista.getText().trim());
+
+        dto.setTieneDeficienciaAuditiva(chkAuditivaSi.isSelected());
+        dto.setEspecificarAuditiva(txtEspecificarAuditiva.getText().trim());
+
+        dto.setTieneDiscapacidadFisica(chkFisicaSi.isSelected());
+        dto.setEspecificarFisica(txtEspecificarFisica.getText().trim());
+
+        dto.setTieneLesionesGraves(chkLesionesSi.isSelected());
+        dto.setEspecificarLesiones(txtEspecificarLesiones.getText().trim());
+
+        dto.setTienePadecimientos(chkPadecimientosSi.isSelected());
+        dto.setEspecificarPadecimientos(txtEspecificarPadecimientos.getText().trim());
+
+        dto.setTieneTratamientosPsicologicos(chkTratamientosSi.isSelected());
+        dto.setMotivoTratamientosPsicologicos(txtMotivoTratamientos.getText().trim());
+
+        dto.setTieneMedicamentosControlados(chkMedicamentosSi.isSelected());
+        dto.setEspecificarMedicamentos(txtEspecificarMedicamentos.getText().trim());
+
+        dto.setTieneAlergias(chkAlergiasSi.isSelected());
+        dto.setEspecificarAlergias(txtEspecificarAlergias.getText().trim());
+
+        dto.setTieneTratamientosExternos(chkExternosSi.isSelected());
+        dto.setMotivoTratamientosExternos(txtMotivoExternos.getText().trim());
+
+        // --- Sangre y Otros Detalles ---
+        String tipoSangre = cmbTipoSangre.getSelectedItem().toString();
+        if (tipoSangre.toLowerCase().contains("selecciona")) {
+            dto.setTipoSangre(""); 
+        } else {
+            dto.setTipoSangre(tipoSangre);
+        }
+
+        dto.setAspectosSaludMejora(txtAspectosSalud.getText().trim());
+        dto.setOtraInformacionSalud(txaOtraInformacionSalud.getText().trim());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAlergiasNo;

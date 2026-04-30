@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlContactoEmergencia extends javax.swing.JPanel {
 
@@ -193,6 +192,34 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDomicilioEmergenciaActionPerformed
 
+    /**
+     * Metodo para guardar losdatos en el DTO.
+     */
+    public void empaquetarDatosEmergencia(ResidenteDTO dto) {
+        
+        dto.setNombreEmergencia(txtNombreEmergencia.getText().trim());
+        
+        // Manejo del Parentesco de Emergencia
+        String parentesco = cmbParentescoEmergencia.getSelectedItem().toString();
+        // valida si dice "Selecciona un parentesco" o algo similar
+        if (parentesco.toLowerCase().contains("selecciona")) {
+            dto.setParentescoEmergencia(""); 
+        } else {
+            dto.setParentescoEmergencia(parentesco);
+        }
+
+        dto.setDomicilioEmergencia(txtDomicilioEmergencia.getText().trim());
+        
+        // Ciudad, estado y país
+        dto.setLugarEmergencia(txtCiudadEstadoPaisEmergencia.getText().trim());
+
+        // Concatenar el código de país con el celular
+        String codigoPais = cmbCodigoPaisEmergencia.getSelectedItem().toString();
+        dto.setCelularEmergencia(codigoPais + " " + txtCelularEmergencia.getText().trim());
+
+        dto.setTelefonoEmergencia(txtTelefonoEmergencia.getText().trim());
+        dto.setCorreoEmergencia(txtCorreoEmergencia.getText().trim());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisEmergencia;

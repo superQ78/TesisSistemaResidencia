@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Negocio.GestorResidente;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
  * @author cesar
  */
-public class ResidenteFachada {
-    
+public class ResidenteFachada implements IResidente {
+
+    @Override
+    public boolean registrarRDP(ResidenteDTO dto) {
+        ControlResidente control = new ControlResidente();
+        return control.procesarRegistroRDP(dto);
+    }
 }

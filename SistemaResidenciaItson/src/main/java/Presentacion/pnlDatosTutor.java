@@ -1,12 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlDatosTutor extends javax.swing.JPanel {
 
@@ -186,14 +184,42 @@ public class pnlDatosTutor extends javax.swing.JPanel {
 
     private void txtCelularTutorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularTutorFocusLost
         //        if (!txtCelularSoli.getText().trim().isEmpty()) {
-            //            mostrarSeccion(JpnlDatosTutor);
-            //        }
+        //            mostrarSeccion(JpnlDatosTutor);
+        //        }
     }//GEN-LAST:event_txtCelularTutorFocusLost
 
     private void txtDomicilioTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioTutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDomicilioTutorActionPerformed
 
+    /**
+     * Este método es llamado desde FrmRDP para que este panel guarde sus datos
+     * en el DTO.
+     */
+    public void empaquetarDatosTutor(ResidenteDTO dto) {
+
+        dto.setNombreTutor(txtNombreTutor.getText().trim());
+
+        // Manejo del Parentesco
+        String parentesco = cmbParentescoTutor.getSelectedItem().toString();
+        if (parentesco.equals("Selecciona un parentesco")) {
+            dto.setParentescoTutor(""); // Lo dejamos vacío si no seleccionó nada real
+        } else {
+            dto.setParentescoTutor(parentesco);
+        }
+
+        dto.setDomicilioTutor(txtDomicilioTutor.getText().trim());
+
+        // txt de CiudadEstadoPais al campo lugarTutor del DTO
+        dto.setLugarTutor(txtCiudadEstadoPaisTutor.getText().trim());
+
+        // Concatenar el código de país con el celular
+        String codigoPais = cmbCodigoPaisTutor.getSelectedItem().toString();
+        dto.setCelularTutor(codigoPais + " " + txtCelularTutor.getText().trim());
+
+        dto.setTelefonoTutor(txtTelefonoTutor.getText().trim());
+        dto.setCorreoTutor(txtCorreoTutor.getText().trim());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisTutor;

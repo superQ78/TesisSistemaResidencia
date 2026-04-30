@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Persistencia.Interfaces;
+
+import Persistencia.Entidades.ResidenteEntidad;
+import java.util.List;
 
 /**
  *
  * @author cesar
  */
-public class IResidenteDAO {
-    
+public interface IResidenteDAO {
+
+    boolean insertar(ResidenteEntidad entidad);
+
+    List<ResidenteEntidad> consultarTodos();
+
+    ResidenteEntidad consultarPorId(int id);
+
+    boolean actualizar(ResidenteEntidad entidad);
+
 }

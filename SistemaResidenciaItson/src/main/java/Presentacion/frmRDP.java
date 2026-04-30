@@ -1,5 +1,6 @@
 package Presentacion;
 
+import Negocio.DTOs.ResidenteDTO;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -190,11 +191,21 @@ public class frmRDP extends javax.swing.JFrame {
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnVaciarCampos.setBackground(new java.awt.Color(255, 51, 51));
         btnVaciarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnVaciarCampos.setForeground(new java.awt.Color(255, 255, 255));
         btnVaciarCampos.setText("Vaciar campos");
+        btnVaciarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVaciarCamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -256,10 +267,41 @@ public class frmRDP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmRegistrarResidente volver = new frmRegistrarResidente();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.mostrarRegistrarResidente(this);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+// 1. Instanciamos el maletín (DTO) vacío
+        ResidenteDTO dtoNuevo = new ResidenteDTO();
+
+        // 2. Le pasamos el maletín a todos los paneles como en una línea de ensamblaje
+        panelSolicitante.empaquetarDatosPersonales(dtoNuevo);
+        panelTutor.empaquetarDatosTutor(dtoNuevo);
+        panelEmergencia.empaquetarDatosEmergencia(dtoNuevo);
+        panelPersonales.empaquetarDatosPersonales(dtoNuevo);
+        panelAcademicos.empaquetarDatosAcademicos(dtoNuevo);
+        panelMedicos.empaquetarDatosMedicos(dtoNuevo);
+
+        // 3. Mandamos el maletín completamente lleno a la Fachada
+        // (Asegúrate de importar IResidente y ResidenteFachada hasta arriba)
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        boolean exito = fachada.registrarRDP(dtoNuevo);
+
+        // 4. Mostramos el resultado al usuario
+        if (exito) {
+            javax.swing.JOptionPane.showMessageDialog(this, "¡Residente registrado con éxito!", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            
+            // CoordinadorVistas para regresar a la tabla
+            // CoordinadorVistas coordinador = new CoordinadorVistas();
+            // coordinador.mostrarGestionResidentes(this);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al registrar. Revisa los datos y la conexión.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnVaciarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarCamposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVaciarCamposActionPerformed
 
     /**
      * @param args the command line arguments

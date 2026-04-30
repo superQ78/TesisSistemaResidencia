@@ -58,7 +58,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             return false;
         }
     }
-    
+
     //Metodo para buscar todos los usuarios
     @Override
     public List<UsuarioEntidad> buscarTodo() {
@@ -83,8 +83,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
         return listaUsuarios;
     }
-    
-    
+
     //Metodo para consultar a un usuario por id
     @Override
     public UsuarioEntidad consultarPorId(int id) {
@@ -110,7 +109,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
         return null;
     }
-    
+
     //Metodo para actualizar un usuario
     @Override
     public boolean actualizar(UsuarioEntidad entidad) {
@@ -133,7 +132,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             return false;
         }
     }
-    
+
     //Metodo para Inhabiliatr un usuario
     @Override
     public boolean eliminar(int id) {

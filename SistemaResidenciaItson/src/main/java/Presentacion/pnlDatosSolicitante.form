@@ -67,26 +67,6 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblFechaNacimiento" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                          <Component id="txtFechaNacimiento" min="-2" pref="269" max="-2" attributes="0"/>
-                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                          <Component id="lblDomicilioSolicitante" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
-                          <Component id="txtDomicilioSolicitante" min="-2" pref="354" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="lblCurpSolicitante" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
-                          <Component id="txtCurpSolicitante" min="-2" pref="333" max="-2" attributes="0"/>
-                          <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
-                          <Component id="lblLugarResidencia" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                          <Component id="txtLugarResidencia" min="-2" pref="330" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="lblNssSolicitante" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Component id="txtNssSolicitante" min="-2" pref="220" max="-2" attributes="0"/>
@@ -132,6 +112,35 @@
                           <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
                           <Component id="cmbSemestreSolicitante" min="-2" pref="269" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblCurpSolicitante" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                                  <Component id="txtCurpSolicitante" min="-2" pref="333" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="pnlContenedorFecha" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblLugarResidencia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                                  <Component id="txtLugarResidencia" min="-2" pref="330" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="lblDomicilioSolicitante" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                  <Component id="txtDomicilioSolicitante" min="-2" pref="354" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -142,7 +151,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                   <Component id="lblTituloSolicitante" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -156,52 +165,58 @@
                   </Group>
                   <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblFechaNacimiento" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFechaNacimiento" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblDomicilioSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDomicilioSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="lblDomicilioSolicitante" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDomicilioSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="lblFechaNacimiento" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCurpSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCurpSolicitante" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="lblLugarResidencia" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLugarResidencia" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNssSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNssSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lblCelularSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbCodigoPaisCelSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtCelularSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lblTelefonoSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtTelefonoSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCorreoSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCorreoSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblIdAcademico" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIdAcademico" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lblCorreoInstitucional" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCorreoInstitucional" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblCarreraSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCarreraSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="lblSemestreSolicitante" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbSemestreSolicitante" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="pnlContenedorFecha" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCurpSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCurpSolicitante" min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="lblLugarResidencia" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLugarResidencia" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblNssSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNssSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblCelularSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbCodigoPaisCelSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="txtCelularSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblTelefonoSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTelefonoSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCorreoSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCorreoSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblIdAcademico" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtIdAcademico" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblCorreoInstitucional" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCorreoInstitucional" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCarreraSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCarreraSolicitante" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="lblSemestreSolicitante" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbSemestreSolicitante" min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -415,11 +430,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFechaNacimiento">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaNacimientoActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtNssSolicitante">
         </Component>
         <Component class="javax.swing.JTextField" name="txtDomicilioSolicitante">
@@ -463,6 +473,10 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCorreoInstitucional">
         </Component>
+        <Container class="javax.swing.JPanel" name="pnlContenedorFecha">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

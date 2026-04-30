@@ -1,20 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
+import com.toedter.calendar.JDateChooser;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlDatosSolicitante extends javax.swing.JPanel {
+
+    private JDateChooser dateChooserNacimiento;
 
     /**
      * Creates new form pnlDatosSolicitante
      */
     public pnlDatosSolicitante() {
         initComponents();
+
+        inicializarCalendario();
+    }
+
+    /**
+     * Método para el calendario de fecha de nacimiento
+     */
+    private void inicializarCalendario() {
+        dateChooserNacimiento = new JDateChooser();
+        dateChooserNacimiento.setDateFormatString("dd/MM/yyyy");
+        pnlContenedorFecha.add(dateChooserNacimiento, java.awt.BorderLayout.CENTER);
+        pnlContenedorFecha.revalidate();
+        pnlContenedorFecha.repaint();
     }
 
     /**
@@ -53,7 +69,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         lblIdAcademico = new javax.swing.JLabel();
         txtIdAcademico = new javax.swing.JTextField();
         cmbSemestreSolicitante = new javax.swing.JComboBox<>();
-        txtFechaNacimiento = new javax.swing.JTextField();
         txtNssSolicitante = new javax.swing.JTextField();
         txtDomicilioSolicitante = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -62,6 +77,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         lblCorreoInstitucional = new javax.swing.JLabel();
         txtCorreoInstitucional = new javax.swing.JTextField();
+        pnlContenedorFecha = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -154,12 +170,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         cmbSemestreSolicitante.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cmbSemestreSolicitante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona semestre en curso", "Semestre 0", "Semestre 1", "Semestre 2", "Semestre 3", "Semestre 4", "Semestre 5", "Semestre 6", "Semestre 7", "Semestre 8", "Semestre 9", "Semestre 10" }));
 
-        txtFechaNacimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaNacimientoActionPerformed(evt);
-            }
-        });
-
         txtDomicilioSolicitante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDomicilioSolicitanteActionPerformed(evt);
@@ -176,6 +186,8 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
         lblCorreoInstitucional.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblCorreoInstitucional.setText("Correo institucional:");
+
+        pnlContenedorFecha.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -205,24 +217,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addComponent(chkSexoMasculino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(chkSexoFemenino, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblFechaNacimiento)
-                        .addGap(11, 11, 11)
-                        .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(lblDomicilioSolicitante)
-                        .addGap(21, 21, 21)
-                        .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblCurpSolicitante)
-                        .addGap(17, 17, 17)
-                        .addComponent(txtCurpSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(lblLugarResidencia)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtLugarResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(lblNssSolicitante)
@@ -263,7 +257,29 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addGap(47, 47, 47)
                         .addComponent(lblSemestreSolicitante)
                         .addGap(14, 14, 14)
-                        .addComponent(cmbSemestreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cmbSemestreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCurpSolicitante)
+                                .addGap(17, 17, 17)
+                                .addComponent(txtCurpSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblFechaNacimiento)
+                                .addGap(18, 18, 18)
+                                .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblLugarResidencia)
+                                .addGap(15, 15, 15)
+                                .addComponent(txtLugarResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(lblDomicilioSolicitante)
+                                .addGap(21, 21, 21)
+                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -271,7 +287,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(lblTituloSolicitante)
-                .addGap(24, 24, 24)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,46 +300,49 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                     .addComponent(chkSexoFemenino, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFechaNacimiento)
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDomicilioSolicitante)
-                    .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCurpSolicitante)
-                    .addComponent(txtCurpSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLugarResidencia)
-                    .addComponent(txtLugarResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNssSolicitante)
-                    .addComponent(txtNssSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCelularSolicitante)
-                    .addComponent(cmbCodigoPaisCelSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCelularSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTelefonoSolicitante)
-                    .addComponent(txtTelefonoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCorreoSolicitante)
-                    .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIdAcademico)
-                    .addComponent(txtIdAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCorreoInstitucional)
-                    .addComponent(txtCorreoInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCarreraSolicitante)
-                    .addComponent(txtCarreraSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSemestreSolicitante)
-                    .addComponent(cmbSemestreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDomicilioSolicitante)
+                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblFechaNacimiento))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCurpSolicitante)
+                            .addComponent(txtCurpSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblLugarResidencia)
+                            .addComponent(txtLugarResidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNssSolicitante)
+                            .addComponent(txtNssSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCelularSolicitante)
+                            .addComponent(cmbCodigoPaisCelSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCelularSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTelefonoSolicitante)
+                            .addComponent(txtTelefonoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCorreoSolicitante)
+                            .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3)
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdAcademico)
+                            .addComponent(txtIdAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCorreoInstitucional)
+                            .addComponent(txtCorreoInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCarreraSolicitante)
+                            .addComponent(txtCarreraSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSemestreSolicitante)
+                            .addComponent(cmbSemestreSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -368,10 +387,48 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkSexoMasculinoActionPerformed
 
-    private void txtFechaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaNacimientoActionPerformed
+    /**
+     * Este método es llamado desde FrmRDP para que este panel guarde sus datos
+     * en el maletín.
+     */
+    public void empaquetarDatosPersonales(ResidenteDTO dto) {
+        // datos personales
+        dto.setNombreCompleto(txtNombreSolicitante.getText().trim());
+        dto.setDomicilio(txtDomicilioSolicitante.getText().trim());
+        dto.setCurp(txtCurpSolicitante.getText().trim());
+        dto.setLugarResidencia(txtLugarResidencia.getText().trim());
+        dto.setNss(txtNssSolicitante.getText().trim());
+        dto.setTelefono(txtTelefonoSolicitante.getText().trim());
+        dto.setCorreo(txtCorreoSolicitante.getText().trim());
 
+        // celular
+        String codigoPais = cmbCodigoPaisCelSolicitante.getSelectedItem().toString();
+        dto.setCelular(codigoPais + " " + txtCelularSolicitante.getText().trim());
+
+        // datos académicos
+        dto.setIdAcademico(txtIdAcademico.getText().trim());
+        dto.setCorreoInstitucional(txtCorreoInstitucional.getText().trim());
+        dto.setCarrera(txtCarreraSolicitante.getText().trim());
+        dto.setSemestre(cmbSemestreSolicitante.getSelectedItem().toString());
+
+        //  Sexo (Checkboxes)
+        if (chkSexoMasculino.isSelected()) {
+            dto.setSexo("Masculino");
+        } else if (chkSexoFemenino.isSelected()) {
+            dto.setSexo("Femenino");
+        } else {
+            dto.setSexo("No especificado");
+        }
+
+        // fecha de nacimiento
+        java.util.Date fechaVieja = dateChooserNacimiento.getDate();
+        if (fechaVieja != null) {
+            LocalDate fechaNueva = fechaVieja.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            dto.setFechaNacimiento(fechaNueva);
+        } else {
+            dto.setFechaNacimiento(null);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkSexoFemenino;
@@ -398,13 +455,13 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     private javax.swing.JLabel lblSexoSolicitante;
     private javax.swing.JLabel lblTelefonoSolicitante;
     private javax.swing.JLabel lblTituloSolicitante;
+    private javax.swing.JPanel pnlContenedorFecha;
     private javax.swing.JTextField txtCarreraSolicitante;
     private javax.swing.JTextField txtCelularSolicitante;
     private javax.swing.JTextField txtCorreoInstitucional;
     private javax.swing.JTextField txtCorreoSolicitante;
     private javax.swing.JTextField txtCurpSolicitante;
     private javax.swing.JTextField txtDomicilioSolicitante;
-    private javax.swing.JTextField txtFechaNacimiento;
     private javax.swing.JTextField txtIdAcademico;
     private javax.swing.JTextField txtLugarResidencia;
     private javax.swing.JTextField txtNombreSolicitante;

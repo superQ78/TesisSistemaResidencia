@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -40,7 +36,7 @@ public class coordinadorVistas {
     }
 
     /**
-     * Cierra la ventana anterior 
+     * Cierra la ventana anterior
      */
     private static void cerrarVentanaAnterior(JFrame ventana) {
         if (ventana != null) {
@@ -65,6 +61,7 @@ public class coordinadorVistas {
         info.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
+
     /**
      * Abre el menu principal del Trabajador
      */
@@ -72,5 +69,32 @@ public class coordinadorVistas {
         frmTrabajadorInicio trabajador = new frmTrabajadorInicio();
         trabajador.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre la pantalla principal del Registro de Datos Personales (RDP)
+     */
+    public static void mostrarRDP(JFrame ventanaActual) {
+        frmRDP rdp = new frmRDP();
+        rdp.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre la pantalla del menú de Registrar Residente
+     */
+    public static void mostrarRegistrarResidente(JFrame ventanaActual) {
+        frmRegistrarResidente registrar = new frmRegistrarResidente();
+        registrar.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre la tabla para consultar a los residentes (si ya la tienes creada)
+     */
+    public static void mostrarConsultarResidentes(JFrame ventanaActual) {
+        // frmConsultarResidentes consulta = new frmConsultarResidentes();
+        // consulta.setVisible(true);
+        // cerrarVentanaAnterior(ventanaActual);
     }
 }

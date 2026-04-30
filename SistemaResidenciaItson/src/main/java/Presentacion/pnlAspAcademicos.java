@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Presentacion;
+
+import Negocio.DTOs.ResidenteDTO;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class pnlAspAcademicos extends javax.swing.JPanel {
 
@@ -263,6 +262,47 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkEstudioMuyEfectivoActionPerformed
 
+    /**
+     * metodo para guardar los datos en el DTO.
+     */
+    public void empaquetarDatosAcademicos(ResidenteDTO dto) {
+        
+        // 1. ¿Busca ayuda cuando tiene dificultades académicas?
+        if (chkAyudaSiempre.isSelected()) {
+            dto.setBuscaAyudaAcademica("Siempre");
+        } else if (chkAyudaAVeces.isSelected()) {
+            dto.setBuscaAyudaAcademica("A veces");
+        } else if (chkAyudaNunca.isSelected()) {
+            dto.setBuscaAyudaAcademica("Nunca");
+        } else {
+            dto.setBuscaAyudaAcademica("No especificado");
+        }
+
+        // 2. Efectividad de sus métodos de estudio
+        if (chkEstudioMuyEfectivo.isSelected()) {
+            dto.setEfectividadEstudio("Muy efectivo");
+        } else if (chkEstudioRegular.isSelected()) {
+            dto.setEfectividadEstudio("Regular");
+        } else if (chkEstudioPoco.isSelected()) {
+            dto.setEfectividadEstudio("Poco");
+        } else {
+            dto.setEfectividadEstudio("No especificado");
+        }
+
+        // 3. Efectividad en la administración de su tiempo
+        if (chkTiempoMuyEfectivo.isSelected()) {
+            dto.setEfectividadTiempo("Muy efectivo");
+        } else if (chkTiempoRegular.isSelected()) {
+            dto.setEfectividadTiempo("Regular");
+        } else if (chkTiempoPoco.isSelected()) {
+            dto.setEfectividadTiempo("Poco");
+        } else {
+            dto.setEfectividadTiempo("No especificado");
+        }
+
+        // 4. Aspectos que le gustaría mejorar
+        dto.setAspectosMejoraAcademica(txaMejorasAcademicas.getText().trim());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAyudaAVeces;
