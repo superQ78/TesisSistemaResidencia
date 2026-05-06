@@ -358,10 +358,10 @@ public class frmRDP extends javax.swing.JFrame {
         boolean exito = false;
 
         if (this.idResidenteEdicion == null) {
-            // Es nuevo, hacemos INSERT
+            // Es nuevo hacemos INSERT
             exito = fachada.registrarRDP(dtoNuevo); 
         } else {
-            // Es modificación, aseguramos que lleve el ID original a actualizar
+            // Es modificacion aseguramos que lleve el ID original a actualizar
             dtoNuevo.setIdAcademico(this.idResidenteEdicion); 
             exito = fachada.actualizarRDP(dtoNuevo); 
         }
