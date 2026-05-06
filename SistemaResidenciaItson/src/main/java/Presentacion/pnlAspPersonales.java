@@ -740,18 +740,14 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         dto.setParticipacionGrupo(chkGrupoSi.isSelected());
         dto.setTipoGrupo(cmbxTipoGrupo.getSelectedItem().toString());
         dto.setActividadesRealizadasGrupo(txtActividadesRealizadas.getText().trim());
-
-        // --- Actividades Deseadas (Booleanos) ---
         dto.setDeseaActDeportivas(chkDeseaDeportivas.isSelected());
         dto.setDeseaActCulturales(chkDeseaCulturales.isSelected());
         dto.setDeseaActArtisticas(chkDeseaArtisticas.isSelected());
 
-        // --- Aspectos Finales ---
         dto.setAspectosMejoraPersona(cmbxAspectosMejora.getSelectedItem().toString());
         dto.setOtraInformacion(txaOtraInformacion.getText().trim());
     }
     
-    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
 
     private boolean campoEsValido(javax.swing.JTextField campo) {
         if (campo.getText().trim().isEmpty()) {
@@ -788,17 +784,14 @@ public class pnlAspPersonales extends javax.swing.JPanel {
             return campoEsValido(campo);
         } else {
             campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; // Es válido porque no es obligatorio si no marcó "Sí"
+            return true; 
         }
     }
     
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        // Campo condicional (Solo pinta rojo si marcó que Sí y lo dejó vacío)
         if (!campoCondicionalEsValido(chkVividoFueraSi, txtTiempoVividoFuera)) todoValido = false;
-
-        // Campos normales
         if (!campoEsValido(txtRespuestaApdc4)) todoValido = false; // Razones
         if (!campoEsValido(txtSituacionesNoDeseadas)) todoValido = false;
         if (!campoEsValido(txtActividadesRealizadas)) todoValido = false;
@@ -810,6 +803,78 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         if (!comboEsValido(cmbxAspectosMejora)) todoValido = false;
 
         return todoValido;
+    }
+    /**
+     * Este método recibe los datos de la base de datos y rellena los campos visuales de Aspectos Personales.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) return;
+
+        //Experiencia de vivienda
+        chkVividoFueraSi.setSelected(dto.isHaVividoFuera());
+        chkVividoFueraNo.setSelected(!dto.isHaVividoFuera());
+        txtTiempoVividoFuera.setText(dto.getTiempoVividoFuera());
+
+        // Decision de residencia
+        chkDecisionTuya.setSelected("Tuya".equals(dto.getDecisionResidencia()));
+        chkDecisionPadres.setSelected("Padres".equals(dto.getDecisionResidencia()));
+        chkDecisionAmbos.setSelected("Ambos".equals(dto.getDecisionResidencia()));
+
+        // Razones, adaptacion y convivencia
+        txtRespuestaApdc4.setText(dto.getRazonesVivirResidencia());
+
+        chkAdaptacionFacil.setSelected("Fácil".equals(dto.getAdaptacion()));
+        chkAdaptacionRegular.setSelected("Regular".equals(dto.getAdaptacion()));
+        chkAdaptacionDificil.setSelected("Difícil".equals(dto.getAdaptacion()));
+
+        chkConvivenciaCeder.setSelected("Ceder".equals(dto.getEstiloConvivencia()));
+        chkConvivenciaNegociar.setSelected("Negociar".equals(dto.getEstiloConvivencia()));
+        chkConvivenciaPersuadir.setSelected("Persuadir".equals(dto.getEstiloConvivencia()));
+
+        txtSituacionesNoDeseadas.setText(dto.getSituacionesNoDeseadas());
+
+        //Preferencias de compañero 
+        chkCompaneroExtranjero.setSelected(dto.isBuscaCompaneroExtranjero());
+        chkCompaneroMexicano.setSelected(dto.isBuscaCompaneroMexicano());
+        chkCompaneroReingreso.setSelected(dto.isBuscaCompaneroReingreso());
+
+        //Habitos Diarios
+        if (dto.getHoraDormir() != null) cmbxHoraDormir.setSelectedItem(dto.getHoraDormir());
+        chkToleraRuidoSi.setSelected(dto.isToleraRuido());
+        chkToleraRuidoNo.setSelected(!dto.isToleraRuido());
+
+        chkOrdenMucho.setSelected("Muy importante".equals(dto.getImportanciaOrden()));
+        chkOrdenRegular.setSelected("Regular".equals(dto.getImportanciaOrden()));
+        chkOrdenPoco.setSelected("Poco".equals(dto.getImportanciaOrden()));
+
+        chkHigieneEstricto.setSelected("Estricto".equals(dto.getHabitosHigiene()));
+        chkHigieneRegular.setSelected("Regular".equals(dto.getHabitosHigiene()));
+        chkHigienePoco.setSelected("Poco".equals(dto.getHabitosHigiene()));
+
+        // Objetos a traer 
+        chkObjetoAuto.setSelected(dto.isTraeAuto());
+        chkObjetoComputadora.setSelected(dto.isTraeComputadora());
+        chkObjetoTV.setSelected(dto.isTraeTv());
+        chkObjetoFrigobar.setSelected(dto.isTraeFrigobar());
+
+        // Actividades e Iniciativa
+        chkIniciativaSi.setSelected("Sí".equals(dto.getIniciativaActividades()));
+        chkIniciativaAveses.setSelected("A veces".equals(dto.getIniciativaActividades()));
+        chkIniciativaNo.setSelected("No".equals(dto.getIniciativaActividades()));
+
+        chkGrupoSi.setSelected(dto.isParticipacionGrupo());
+        chkGrupoNo.setSelected(!dto.isParticipacionGrupo());
+        if (dto.getTipoGrupo() != null) cmbxTipoGrupo.setSelectedItem(dto.getTipoGrupo());
+        txtActividadesRealizadas.setText(dto.getActividadesRealizadasGrupo());
+
+        // Actividades Deseadas
+        chkDeseaDeportivas.setSelected(dto.isDeseaActDeportivas());
+        chkDeseaCulturales.setSelected(dto.isDeseaActCulturales());
+        chkDeseaArtisticas.setSelected(dto.isDeseaActArtisticas());
+
+        //Aspectos Finales
+        if (dto.getAspectosMejoraPersona() != null) cmbxAspectosMejora.setSelectedItem(dto.getAspectosMejoraPersona());
+        txaOtraInformacion.setText(dto.getOtraInformacion());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

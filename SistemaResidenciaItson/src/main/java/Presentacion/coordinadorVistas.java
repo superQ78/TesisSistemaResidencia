@@ -8,6 +8,24 @@ import javax.swing.JFrame;
  */
 public class coordinadorVistas {
 
+    public static String rolLogueado = "";
+
+    /**
+     * Regresa al menú correcto dependiendo de quién inició sesión
+     */
+    public static void regresarMenuPrincipal(JFrame ventanaActual) {
+        if ("Administrador".equals(rolLogueado)) {
+            mostrarAdminInicio(ventanaActual);
+
+        } else if ("Trabajador".equals(rolLogueado)) {
+            mostrarTrabajadorInicio(ventanaActual);
+
+        } else {
+            // Por si ocurre un error y se pierde la sesión, lo mandamos al login
+            mostrarInicioSesion(ventanaActual);
+        }
+    }
+
     /**
      * Abre el menu principal del Administrador
      */
@@ -96,5 +114,23 @@ public class coordinadorVistas {
         // frmConsultarResidentes consulta = new frmConsultarResidentes();
         // consulta.setVisible(true);
         // cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre la tabla de Modificar Residentes
+     */
+    public static void mostrarModificarResidente(JFrame ventanaActual) {
+        frmModificarResidente tablaModificar = new frmModificarResidente();
+        tablaModificar.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre el formulario RDP en modo EDICIÓN precargando al residente
+     */
+    public static void mostrarModificarRDP(JFrame ventanaActual, String idResidente) {
+        frmRDP formularioEdicion = new frmRDP(idResidente);
+        formularioEdicion.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
     }
 }

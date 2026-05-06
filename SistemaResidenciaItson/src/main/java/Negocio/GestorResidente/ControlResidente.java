@@ -2,8 +2,7 @@ package Negocio.GestorResidente;
 
 import Negocio.BOs.ResidenteBO;
 import Negocio.DTOs.ResidenteDTO;
-import java.time.LocalDate;
-import java.time.Period;
+import java.util.List;
 
 /**
  *
@@ -12,19 +11,25 @@ import java.time.Period;
 public class ControlResidente {
 
     public boolean procesarRegistroRDP(ResidenteDTO dto) {
-        // 1. El cerebro evalúa que NINGÚN campo obligatorio venga vacío
         if (!aplicarReglasNegocio(dto)) {
             System.out.println("Error: El formulario tiene datos obligatorios en blanco.");
-            return false; // Rebotamos el guardado
+            return false;
         }
 
-        // 2. Si todo está lleno, pasamos al traductor (BO)
+        // Si todo esta lleno pasamos al traductor
         ResidenteBO bo = new ResidenteBO();
         return bo.registrarRDP(dto);
     }
 
+    public ResidenteDTO consultarResidentePorId(String idAcademico) {
+        if (idAcademico == null || idAcademico.trim().isEmpty()) {
+            return null;
+        }
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.consultarResidentePorId(idAcademico);
+    }
+
     private boolean aplicarReglasNegocio(ResidenteDTO dto) {
-        // --- 1. DATOS PERSONALES ---
         if (dto.getFechaNacimiento() == null) {
             return false;
         }
@@ -37,7 +42,6 @@ public class ControlResidente {
             return false;
         }
 
-        // --- 2. DATOS ACADÉMICOS ---
         if (!esValido(dto.getIdAcademico()) || !esValido(dto.getCorreoInstitucional())
                 || !esValido(dto.getCarrera()) || !esValido(dto.getSemestre())
                 || !esValido(dto.getBuscaAyudaAcademica()) || !esValido(dto.getEfectividadEstudio())
@@ -45,7 +49,7 @@ public class ControlResidente {
             return false;
         }
 
-        // --- 3. DATOS DEL TUTOR ---
+        // Datos Tutor
         if (!esValido(dto.getNombreTutor()) || !esValido(dto.getParentescoTutor())
                 || !esValido(dto.getDomicilioTutor()) || !esValido(dto.getLugarTutor())
                 || !esValido(dto.getCelularTutor()) || !esValido(dto.getTelefonoTutor())
@@ -53,7 +57,7 @@ public class ControlResidente {
             return false;
         }
 
-        // --- 4. CONTACTO DE EMERGENCIA ---
+        // Contacto emergencia.
         if (!esValido(dto.getNombreEmergencia()) || !esValido(dto.getParentescoEmergencia())
                 || !esValido(dto.getDomicilioEmergencia()) || !esValido(dto.getLugarEmergencia())
                 || !esValido(dto.getCelularEmergencia()) || !esValido(dto.getTelefonoEmergencia())
@@ -61,13 +65,12 @@ public class ControlResidente {
             return false;
         }
 
-        // --- 5. DATOS MÉDICOS ---
+        // Datos Medicos
         if (!esValido(dto.getEstadoSalud()) || !esValido(dto.getTipoSangre())
                 || !esValido(dto.getAspectosSaludMejora()) || !esValido(dto.getOtraInformacionSalud())) {
             return false;
         }
 
-        // Validaciones inteligentes: Si marcó "Sí" en una enfermedad, TIENE que especificar
         if (dto.isTieneDeficienciaVista() && !esValido(dto.getEspecificarVista())) {
             return false;
         }
@@ -96,7 +99,6 @@ public class ControlResidente {
             return false;
         }
 
-        // --- 6. ASPECTOS PERSONALES Y CONVIVENCIA ---
         if (!esValido(dto.getDecisionResidencia()) || !esValido(dto.getRazonesVivirResidencia())
                 || !esValido(dto.getAdaptacion()) || !esValido(dto.getEstiloConvivencia())
                 || !esValido(dto.getSituacionesNoDeseadas()) || !esValido(dto.getHoraDormir())
@@ -107,19 +109,31 @@ public class ControlResidente {
             return false;
         }
 
-        // Validación inteligente de vivienda anterior
         if (dto.isHaVividoFuera() && !esValido(dto.getTiempoVividoFuera())) {
             return false;
         }
-
-        // Si pasó todos los filtros sin hacer return false
         return true;
     }
 
     /**
-     * Método ayudante que revisa si un texto no es nulo y no está vacío.
+     * Metodo ayudante que revisa si un texto no es nulo y no está vacío.
      */
     private boolean esValido(String texto) {
         return texto != null && !texto.trim().isEmpty() && !texto.toLowerCase().contains("selecciona");
+    }
+
+    public List<ResidenteDTO> consultarResidentes() {
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.consultarResidentes();
+    }
+
+    public boolean actualizarRDP(ResidenteDTO dto) {
+        if (!aplicarReglasNegocio(dto)) {
+            System.out.println("Error: El formulario de actualización tiene datos obligatorios en blanco.");
+            return false;
+        }
+
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.actualizarRDP(dto);
     }
 }

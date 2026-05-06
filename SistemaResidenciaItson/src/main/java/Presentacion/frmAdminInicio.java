@@ -105,6 +105,11 @@ public class frmAdminInicio extends javax.swing.JFrame {
         btnSeleccionarOpcionResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSeleccionarOpcionResidente.setForeground(new java.awt.Color(255, 255, 255));
         btnSeleccionarOpcionResidente.setText("Seleccionar");
+        btnSeleccionarOpcionResidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarOpcionResidenteActionPerformed(evt);
+            }
+        });
         jplAdminInicio.add(btnSeleccionarOpcionResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 190, 50));
 
         jplGTNResidentes.setBackground(new java.awt.Color(119, 180, 241));
@@ -270,6 +275,29 @@ public class frmAdminInicio extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSeleccionarOpcionEmpleado1ActionPerformed
+
+    private void btnSeleccionarOpcionResidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarOpcionResidenteActionPerformed
+        String opcionSelecc = cmbxGestionResidentes.getSelectedItem().toString();
+
+        if (opcionSelecc.equals("Registrar residente")) {
+            frmRegistrarResidente fCrearResi = new frmRegistrarResidente();
+            fCrearResi.setVisible(true);
+            this.dispose();
+        } else if (opcionSelecc.equals("Consultar residente")) {
+            frmConsultarResidente fConsRe = new frmConsultarResidente();
+            fConsRe.setVisible(true);
+            this.dispose();
+        } else if (opcionSelecc.equals("Modificar residente")) {
+            frmModificarResidente fModResi = new frmModificarResidente();
+            fModResi.setVisible(true);
+            this.dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor, selecciona una accion del menu desplegable.",
+                    "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnSeleccionarOpcionResidenteActionPerformed
 
     /**
      * @param args the command line arguments

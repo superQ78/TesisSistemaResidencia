@@ -3,6 +3,7 @@ package Presentacion;
 import Negocio.DTOs.ResidenteDTO;
 import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -18,6 +19,7 @@ public class frmRDP extends javax.swing.JFrame {
     pnlAspAcademicos panelAcademicos = new pnlAspAcademicos();
     pnlAspPersonales panelPersonales = new pnlAspPersonales();
     pnlDatosMedicos panelMedicos = new pnlDatosMedicos();
+    private String idResidenteEdicion = null;
 
     /**
      * Creates new form frmCrearResidente
@@ -34,6 +36,55 @@ public class frmRDP extends javax.swing.JFrame {
 
         tabDatosRegistroResi.revalidate();
         tabDatosRegistroResi.repaint();
+    }
+
+    public frmRDP(String idSeleccionado) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        tabDatosRegistroResi.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        configurarTabs();
+        configurarScrolls();
+        configurarEstiloGeneral();
+
+        // Guardamos el ID
+        this.idResidenteEdicion = idSeleccionado;
+
+        // Cambiamos el texto visual para que el usuario sepa que está editando
+        // Asegúrate de que lblSubTitulo sea el nombre correcto de tu JLabel en la UI
+        lblSubTitulo1.setText("Modificar Datos del Residente");
+
+        cargarDatosParaEditar();
+    }
+
+    private void cargarDatosParaEditar() {
+        // 1. Instanciar la fachada de Residentes
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        
+        // 2. Consultar toda la información del residente usando su ID
+        ResidenteDTO residente = fachada.consultarResidentePorId(this.idResidenteEdicion);
+
+        // 3. Si la base de datos sí nos devolvió la información, llenamos los paneles
+        if (residente != null) {
+            
+            // Le mandamos el "maletín" entero a cada panel para que cada uno agarre lo que necesita
+            panelSolicitante.cargarDatos(residente);
+            panelTutor.cargarDatos(residente);
+            panelEmergencia.cargarDatos(residente);
+            panelPersonales.cargarDatos(residente);
+            panelAcademicos.cargarDatos(residente);
+            panelMedicos.cargarDatos(residente);
+            
+        } else {
+            // Si por alguna razón el ID no existe o hubo un error de conexión
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                    "No se encontró la información del residente en la Base de Datos.", 
+                    "Error de Carga", 
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            
+            // Usamos tu Coordinador para sacarlo de ahí y regresarlo a la tabla
+            coordinadorVistas.mostrarModificarResidente(this);
+        }
     }
 
     /**
@@ -267,32 +318,33 @@ public class frmRDP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        coordinadorVistas.mostrarRegistrarResidente(this);
+        if (this.idResidenteEdicion == null) {
+            coordinadorVistas.mostrarAdminInicio(this); // Regresa al menú si estaba creando
+        } else {
+            coordinadorVistas.mostrarModificarResidente(this); // Regresa a la tabla si estaba editando
+        }
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
 
-        // 1. VALIDACIÓN VISUAL PRIMERO
-        // Le preguntamos a cada panel si sus campos están bien (y que pinte de rojo los malos)
         boolean solValido = panelSolicitante.validarCampos();
         boolean tutValido = panelTutor.validarCampos();
         boolean emeValido = panelEmergencia.validarCampos();
-        // Asumiendo que le pongas el método a todos los paneles:
-         boolean perValido = panelPersonales.validarCampos();
-         boolean acaValido = panelAcademicos.validarCampos();
-         boolean medValido = panelMedicos.validarCampos();
+        boolean perValido = panelPersonales.validarCampos();
+        boolean acaValido = panelAcademicos.validarCampos();
+        boolean medValido = panelMedicos.validarCampos();
 
-        // Si ALGUNO de los paneles devolvió false, detenemos el proceso
-        if (!solValido || !tutValido || !emeValido || !perValido || !acaValido || !medValido) { 
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "Hay campos obligatorios vacíos.", 
-                "Campos incompletos", 
-                javax.swing.JOptionPane.WARNING_MESSAGE);
-            return; // DETENEMOS EL MÉTODO AQUÍ, NO SE GUARDA NADA AÚN
+        if (!solValido || !tutValido || !emeValido || !perValido || !acaValido || !medValido) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Hay campos obligatorios vacíos.",
+                    "Campos incompletos",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
         }
-        
+
         ResidenteDTO dtoNuevo = new ResidenteDTO();
 
+        // Que cada panel meta sus datos al maletín
         panelSolicitante.empaquetarDatosPersonales(dtoNuevo);
         panelTutor.empaquetarDatosTutor(dtoNuevo);
         panelEmergencia.empaquetarDatosEmergencia(dtoNuevo);
@@ -301,17 +353,33 @@ public class frmRDP extends javax.swing.JFrame {
         panelMedicos.empaquetarDatosMedicos(dtoNuevo);
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-        boolean exito = fachada.registrarRDP(dtoNuevo);
+        
+        // Empezamos asumiendo que es falso para que el if de abajo haga la llamada de verdad
+        boolean exito = false;
+
+        if (this.idResidenteEdicion == null) {
+            // Es nuevo, hacemos INSERT
+            exito = fachada.registrarRDP(dtoNuevo); 
+        } else {
+            // Es modificación, aseguramos que lleve el ID original a actualizar
+            dtoNuevo.setIdAcademico(this.idResidenteEdicion); 
+            exito = fachada.actualizarRDP(dtoNuevo); 
+        }
 
         if (exito) {
-            javax.swing.JOptionPane.showMessageDialog(this, "¡Residente registrado con éxito!", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            String msj = (this.idResidenteEdicion == null) ? "¡Residente registrado con éxito!" : "¡Datos actualizados con éxito!";
+            javax.swing.JOptionPane.showMessageDialog(this, msj, "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            if (this.idResidenteEdicion == null) {
+                coordinadorVistas.regresarMenuPrincipal(this);
+            } else {
+                coordinadorVistas.mostrarModificarResidente(this);
+            }
             
-            // CoordinadorVistas para regresar a la tabla
-            // CoordinadorVistas coordinador = new CoordinadorVistas();
-            // coordinador.mostrarGestionResidentes(this);
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al registrar. Revisa los datos y la conexión.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar en la BD. Revisa que el ID o CURP no existan ya.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
+    
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnVaciarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarCamposActionPerformed

@@ -149,16 +149,149 @@ public class ResidenteDAO implements IResidenteDAO {
 
     @Override
     public List<ResidenteEntidad> consultarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<ResidenteEntidad> lista = new ArrayList<>();
+        // Solo traemos a todos para cargar la tabla
+        String sql = "SELECT idAcademico, nombreCompleto, lugarResidencia FROM residentes";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql); java.sql.ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                ResidenteEntidad entidad = new ResidenteEntidad();
+                entidad.setIdAcademico(rs.getString("idAcademico"));
+                entidad.setNombreCompleto(rs.getString("nombreCompleto"));
+                entidad.setLugarResidencia(rs.getString("lugarResidencia"));
+                lista.add(entidad);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al consultar todos los residentes en BD: " + e.getMessage());
+        }
+        return lista;
     }
 
     @Override
-    public ResidenteEntidad consultarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ResidenteEntidad consultarPorId(String idAcademico) {
+        String sql = "SELECT * FROM residentes WHERE idAcademico = ?"; // Usamos el id de estudiante
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, idAcademico);
+            java.sql.ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ResidenteEntidad entidad = new ResidenteEntidad();
+
+                //Personales
+                entidad.setNombreCompleto(rs.getString("nombreCompleto"));
+                entidad.setSexo(rs.getString("sexo"));
+                java.sql.Date fecha = rs.getDate("fechaNacimiento");
+                if (fecha != null) {
+                    entidad.setFechaNacimiento(fecha.toLocalDate());
+                }
+                entidad.setDomicilio(rs.getString("domicilio"));
+                entidad.setCurp(rs.getString("curp"));
+                entidad.setLugarResidencia(rs.getString("lugarResidencia"));
+                entidad.setNss(rs.getString("nss"));
+                entidad.setCelular(rs.getString("celular"));
+                entidad.setTelefono(rs.getString("telefono"));
+                entidad.setCorreo(rs.getString("correo"));
+
+                //Académicos
+                entidad.setIdAcademico(rs.getString("idAcademico"));
+                entidad.setCorreoInstitucional(rs.getString("correoInstitucional"));
+                entidad.setCarrera(rs.getString("carrera"));
+                entidad.setSemestre(rs.getString("semestre"));
+                entidad.setBuscaAyudaAcademica(rs.getString("buscaAyudaAcademica"));
+                entidad.setEfectividadEstudio(rs.getString("efectividadEstudio"));
+                entidad.setEfectividadTiempo(rs.getString("efectividadTiempo"));
+                entidad.setAspectosMejoraAcademica(rs.getString("aspectosMejoraAcademica"));
+
+                //Emergencia
+                entidad.setNombreEmergencia(rs.getString("nombreEmergencia"));
+                entidad.setParentescoEmergencia(rs.getString("parentescoEmergencia"));
+                entidad.setDomicilioEmergencia(rs.getString("domicilioEmergencia"));
+                entidad.setLugarEmergencia(rs.getString("lugarEmergencia"));
+                entidad.setCelularEmergencia(rs.getString("celularEmergencia"));
+                entidad.setTelefonoEmergencia(rs.getString("telefonoEmergencia"));
+                entidad.setCorreoEmergencia(rs.getString("correoEmergencia"));
+
+                //Tutor
+                entidad.setNombreTutor(rs.getString("nombreTutor"));
+                entidad.setParentescoTutor(rs.getString("parentescoTutor"));
+                entidad.setDomicilioTutor(rs.getString("domicilioTutor"));
+                entidad.setLugarTutor(rs.getString("lugarTutor"));
+                entidad.setCelularTutor(rs.getString("celularTutor"));
+                entidad.setTelefonoTutor(rs.getString("telefonoTutor"));
+                entidad.setCorreoTutor(rs.getString("correoTutor"));
+
+                //Médicos
+                entidad.setEstadoSalud(rs.getString("estadoSalud"));
+                entidad.setTieneDeficienciaVista(rs.getBoolean("tieneDeficienciaVista"));
+                entidad.setEspecificarVista(rs.getString("especificarVista"));
+                entidad.setTieneDeficienciaAuditiva(rs.getBoolean("tieneDeficienciaAuditiva"));
+                entidad.setEspecificarAuditiva(rs.getString("especificarAuditiva"));
+                entidad.setTieneDiscapacidadFisica(rs.getBoolean("tieneDiscapacidadFisica"));
+                entidad.setEspecificarFisica(rs.getString("especificarFisica"));
+                entidad.setTieneLesionesGraves(rs.getBoolean("tieneLesionesGraves"));
+                entidad.setEspecificarLesiones(rs.getString("especificarLesiones"));
+                entidad.setTienePadecimientos(rs.getBoolean("tienePadecimientos"));
+                entidad.setEspecificarPadecimientos(rs.getString("especificarPadecimientos"));
+                entidad.setTieneTratamientosPsicologicos(rs.getBoolean("tieneTratamientosPsicologicos"));
+                entidad.setMotivoTratamientosPsicologicos(rs.getString("motivoTratamientosPsicologicos"));
+                entidad.setTieneMedicamentosControlados(rs.getBoolean("tieneMedicamentosControlados"));
+                entidad.setEspecificarMedicamentos(rs.getString("especificarMedicamentos"));
+                entidad.setTieneAlergias(rs.getBoolean("tieneAlergias"));
+                entidad.setEspecificarAlergias(rs.getString("especificarAlergias"));
+                entidad.setTieneTratamientosExternos(rs.getBoolean("tieneTratamientosExternos"));
+                entidad.setMotivoTratamientosExternos(rs.getString("motivoTratamientosExternos"));
+                entidad.setTipoSangre(rs.getString("tipoSangre"));
+                entidad.setAspectosSaludMejora(rs.getString("aspectosSaludMejora"));
+                entidad.setOtraInformacionSalud(rs.getString("otraInformacionSalud"));
+
+                //Convivencia
+                entidad.setHaVividoFuera(rs.getBoolean("haVividoFuera"));
+                entidad.setTiempoVividoFuera(rs.getString("tiempoVividoFuera"));
+                entidad.setDecisionResidencia(rs.getString("decisionResidencia"));
+                entidad.setRazonesVivirResidencia(rs.getString("razonesVivirResidencia"));
+                entidad.setAdaptacion(rs.getString("adaptacion"));
+                entidad.setEstiloConvivencia(rs.getString("estiloConvivencia"));
+                entidad.setSituacionesNoDeseadas(rs.getString("situacionesNoDeseadas"));
+
+                //Compañeros y habitos
+                entidad.setBuscaCompaneroExtranjero(rs.getBoolean("buscaCompaneroExtranjero"));
+                entidad.setBuscaCompaneroMexicano(rs.getBoolean("buscaCompaneroMexicano"));
+                entidad.setBuscaCompaneroReingreso(rs.getBoolean("buscaCompaneroReingreso"));
+                entidad.setHoraDormir(rs.getString("horaDormir"));
+                entidad.setToleraRuido(rs.getBoolean("toleraRuido"));
+                entidad.setImportanciaOrden(rs.getString("importanciaOrden"));
+                entidad.setHabitosHigiene(rs.getString("habitosHigiene"));
+
+                //Objetos
+                entidad.setTraeAuto(rs.getBoolean("traeAuto"));
+                entidad.setTraeComputadora(rs.getBoolean("traeComputadora"));
+                entidad.setTraeTv(rs.getBoolean("traeTv"));
+                entidad.setTraeFrigobar(rs.getBoolean("traeFrigobar"));
+
+                //Actividades y mejora
+                entidad.setIniciativaActividades(rs.getString("iniciativaActividades"));
+                entidad.setParticipacionGrupo(rs.getBoolean("participacionGrupo"));
+                entidad.setTipoGrupo(rs.getString("tipoGrupo"));
+                entidad.setActividadesRealizadasGrupo(rs.getString("actividadesRealizadasGrupo"));
+                entidad.setDeseaActDeportivas(rs.getBoolean("deseaActDeportivas"));
+                entidad.setDeseaActCulturales(rs.getBoolean("deseaActCulturales"));
+                entidad.setDeseaActArtisticas(rs.getBoolean("deseaActArtisticas"));
+                entidad.setAspectosMejoraPersona(rs.getString("aspectosMejoraPersona"));
+                entidad.setOtraInformacion(rs.getString("otraInformacion"));
+
+                return entidad;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al consultar RDP por ID: " + e.getMessage());
+        }
+        return null;
     }
 
     @Override
     public boolean actualizar(ResidenteEntidad entidad) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

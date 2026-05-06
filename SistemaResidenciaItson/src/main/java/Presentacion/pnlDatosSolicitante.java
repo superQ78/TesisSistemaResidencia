@@ -426,9 +426,10 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
             dto.setFechaNacimiento(null);
         }
     }
-    
+
     /**
-     * Método ayudante: Revisa un JTextField. Si está vacío lo pinta rojo, si no, lo deja normal.
+     * Método ayudante: Revisa un JTextField. Si está vacío lo pinta rojo, si
+     * no, lo deja normal.
      */
     private boolean campoEsValido(javax.swing.JTextField campo) {
         if (campo.getText().trim().isEmpty()) {
@@ -448,14 +449,30 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        if (!campoEsValido(txtNombreSolicitante)) todoValido = false;
-        if (!campoEsValido(txtDomicilioSolicitante)) todoValido = false;
-        if (!campoEsValido(txtCurpSolicitante)) todoValido = false;
-        if (!campoEsValido(txtLugarResidencia)) todoValido = false;
-        if (!campoEsValido(txtNssSolicitante)) todoValido = false;
-        if (!campoEsValido(txtTelefonoSolicitante)) todoValido = false;
-        if (!campoEsValido(txtCelularSolicitante)) todoValido = false;
-        if (!campoEsValido(txtCorreoSolicitante)) todoValido = false;
+        if (!campoEsValido(txtNombreSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtDomicilioSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCurpSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtLugarResidencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtNssSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtTelefonoSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCelularSolicitante)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCorreoSolicitante)) {
+            todoValido = false;
+        }
 
         // Validar la fecha del JDateChooser
         if (dateChooserNacimiento.getDate() == null) {
@@ -466,6 +483,62 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         }
 
         return todoValido;
+    }
+
+    /**
+     * Este método recibe los datos de la base de datos y rellena los campos
+     * visuales.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) {
+            return;
+        }
+
+        // Datos Personales
+        txtNombreSolicitante.setText(dto.getNombreCompleto());
+        txtDomicilioSolicitante.setText(dto.getDomicilio());
+        txtCurpSolicitante.setText(dto.getCurp());
+        txtLugarResidencia.setText(dto.getLugarResidencia());
+        txtNssSolicitante.setText(dto.getNss());
+        txtTelefonoSolicitante.setText(dto.getTelefono());
+        txtCorreoSolicitante.setText(dto.getCorreo());
+
+        // Manejo del celular (separar la Lada del número)
+        String celular = dto.getCelular();
+        if (celular != null && celular.contains(" ")) {
+            String[] partes = celular.split(" ", 2);
+            cmbCodigoPaisCelSolicitante.setSelectedItem(partes[0]);
+            txtCelularSolicitante.setText(partes[1]);
+        } else {
+            txtCelularSolicitante.setText(celular);
+        }
+
+        // Datos Académicos
+        txtIdAcademico.setText(dto.getIdAcademico());
+        txtCorreoInstitucional.setText(dto.getCorreoInstitucional());
+        txtCarreraSolicitante.setText(dto.getCarrera());
+        if (dto.getSemestre() != null) {
+            cmbSemestreSolicitante.setSelectedItem(dto.getSemestre());
+        }
+
+        // Sexo
+        if ("Masculino".equalsIgnoreCase(dto.getSexo())) {
+            chkSexoMasculino.setSelected(true);
+            chkSexoFemenino.setSelected(false);
+        } else if ("Femenino".equalsIgnoreCase(dto.getSexo())) {
+            chkSexoFemenino.setSelected(true);
+            chkSexoMasculino.setSelected(false);
+        } else {
+            chkSexoMasculino.setSelected(false);
+            chkSexoFemenino.setSelected(false);
+        }
+
+        // Fecha de Nacimiento
+        if (dto.getFechaNacimiento() != null) {
+            // Convertimos de LocalDate a java.util.Date para el JDateChooser
+            java.util.Date date = java.sql.Date.valueOf(dto.getFechaNacimiento());
+            dateChooserNacimiento.setDate(date);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

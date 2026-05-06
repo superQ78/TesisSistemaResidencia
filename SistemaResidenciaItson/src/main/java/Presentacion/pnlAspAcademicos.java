@@ -352,6 +352,33 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         return todoValido;
     }
 
+    /**
+     * Este método recibe los datos de la base de datos y rellena los campos
+     * visuales de Aspectos Académicos.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) {
+            return;
+        }
+
+        // Preguntas de ayuda
+        chkAyudaSiempre.setSelected("Siempre".equals(dto.getBuscaAyudaAcademica()));
+        chkAyudaAVeces.setSelected("A veces".equals(dto.getBuscaAyudaAcademica()));
+        chkAyudaNunca.setSelected("Nunca".equals(dto.getBuscaAyudaAcademica()));
+
+        // Efectividad de sus metodos de estudio
+        chkEstudioMuyEfectivo.setSelected("Muy efectivo".equals(dto.getEfectividadEstudio()));
+        chkEstudioRegular.setSelected("Regular".equals(dto.getEfectividadEstudio()));
+        chkEstudioPoco.setSelected("Poco".equals(dto.getEfectividadEstudio()));
+
+        // Efectividad en la administracion de su tiempo
+        chkTiempoMuyEfectivo.setSelected("Muy efectivo".equals(dto.getEfectividadTiempo()));
+        chkTiempoRegular.setSelected("Regular".equals(dto.getEfectividadTiempo()));
+        chkTiempoPoco.setSelected("Poco".equals(dto.getEfectividadTiempo()));
+
+        // Aspectos que le gustaria mejorar
+        txaMejorasAcademicas.setText(dto.getAspectosMejoraAcademica());
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAyudaAVeces;
     private javax.swing.JCheckBox chkAyudaNunca;

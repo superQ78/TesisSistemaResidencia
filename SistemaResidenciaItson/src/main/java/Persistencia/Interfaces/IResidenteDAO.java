@@ -13,7 +13,7 @@ public interface IResidenteDAO {
 
     List<ResidenteEntidad> consultarTodos();
 
-    ResidenteEntidad consultarPorId(int id);
+    ResidenteEntidad consultarPorId(String id);
 
     boolean actualizar(ResidenteEntidad entidad);
 

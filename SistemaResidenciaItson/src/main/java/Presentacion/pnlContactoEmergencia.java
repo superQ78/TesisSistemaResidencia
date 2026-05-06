@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import Negocio.DTOs.ResidenteDTO;
@@ -184,8 +183,8 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
 
     private void txtCelularEmergenciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCelularEmergenciaFocusLost
         //        if (!txtCelularSoli.getText().trim().isEmpty()) {
-            //            mostrarSeccion(JpnlDatosTutor);
-            //        }
+        //            mostrarSeccion(JpnlDatosTutor);
+        //        }
     }//GEN-LAST:event_txtCelularEmergenciaFocusLost
 
     private void txtDomicilioEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioEmergenciaActionPerformed
@@ -196,20 +195,20 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
      * Metodo para guardar losdatos en el DTO.
      */
     public void empaquetarDatosEmergencia(ResidenteDTO dto) {
-        
+
         dto.setNombreEmergencia(txtNombreEmergencia.getText().trim());
-        
+
         // Manejo del Parentesco de Emergencia
         String parentesco = cmbParentescoEmergencia.getSelectedItem().toString();
         // valida si dice "Selecciona un parentesco" o algo similar
         if (parentesco.toLowerCase().contains("selecciona")) {
-            dto.setParentescoEmergencia(""); 
+            dto.setParentescoEmergencia("");
         } else {
             dto.setParentescoEmergencia(parentesco);
         }
 
         dto.setDomicilioEmergencia(txtDomicilioEmergencia.getText().trim());
-        
+
         // Ciudad, estado y país
         dto.setLugarEmergencia(txtCiudadEstadoPaisEmergencia.getText().trim());
 
@@ -222,7 +221,6 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
     }
 
     // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
-
     private boolean campoEsValido(javax.swing.JTextField campo) {
         if (campo.getText().trim().isEmpty()) {
             campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
@@ -261,21 +259,68 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
             return true; // Es válido porque no es obligatorio si no marcó "Sí"
         }
     }
-    
+
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        if (!campoEsValido(txtNombreEmergencia)) todoValido = false;
-        if (!comboEsValido(cmbParentescoEmergencia)) todoValido = false;
-        if (!campoEsValido(txtDomicilioEmergencia)) todoValido = false;
-        if (!campoEsValido(txtCiudadEstadoPaisEmergencia)) todoValido = false;
-        if (!campoEsValido(txtCelularEmergencia)) todoValido = false;
-        if (!campoEsValido(txtTelefonoEmergencia)) todoValido = false;
-        if (!campoEsValido(txtCorreoEmergencia)) todoValido = false;
+        if (!campoEsValido(txtNombreEmergencia)) {
+            todoValido = false;
+        }
+        if (!comboEsValido(cmbParentescoEmergencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtDomicilioEmergencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCiudadEstadoPaisEmergencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCelularEmergencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtTelefonoEmergencia)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCorreoEmergencia)) {
+            todoValido = false;
+        }
 
         return todoValido;
     }
-    
+
+    /**
+     * Este método recibe los datos de la base de datos y rellena los campos
+     * visuales de Emergencia.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) {
+            return;
+        }
+
+        txtNombreEmergencia.setText(dto.getNombreEmergencia());
+
+        if (dto.getParentescoEmergencia() != null && !dto.getParentescoEmergencia().isEmpty()) {
+            cmbParentescoEmergencia.setSelectedItem(dto.getParentescoEmergencia());
+        } else {
+            cmbParentescoEmergencia.setSelectedIndex(0);
+        }
+
+        txtDomicilioEmergencia.setText(dto.getDomicilioEmergencia());
+        txtCiudadEstadoPaisEmergencia.setText(dto.getLugarEmergencia());
+
+        String celular = dto.getCelularEmergencia();
+        if (celular != null && celular.contains(" ")) {
+            String[] partes = celular.split(" ", 2);
+            cmbCodigoPaisEmergencia.setSelectedItem(partes[0]);
+            txtCelularEmergencia.setText(partes[1]);
+        } else {
+            txtCelularEmergencia.setText(celular);
+        }
+
+        txtTelefonoEmergencia.setText(dto.getTelefonoEmergencia());
+        txtCorreoEmergencia.setText(dto.getCorreoEmergencia());
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisEmergencia;
     private javax.swing.JComboBox<String> cmbParentescoEmergencia;

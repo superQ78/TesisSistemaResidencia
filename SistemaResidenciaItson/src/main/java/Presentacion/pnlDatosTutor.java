@@ -13,6 +13,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
      */
     public pnlDatosTutor() {
         initComponents();
+
     }
 
     /**
@@ -220,10 +221,8 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         dto.setTelefonoTutor(txtTelefonoTutor.getText().trim());
         dto.setCorreoTutor(txtCorreoTutor.getText().trim());
     }
-    
-    
-    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
 
+    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
     private boolean campoEsValido(javax.swing.JTextField campo) {
         if (campo.getText().trim().isEmpty()) {
             campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
@@ -262,21 +261,69 @@ public class pnlDatosTutor extends javax.swing.JPanel {
             return true; // Es válido porque no es obligatorio si no marcó "Sí"
         }
     }
-    
+
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        if (!campoEsValido(txtNombreTutor)) todoValido = false;
-        if (!comboEsValido(cmbParentescoTutor)) todoValido = false;
-        if (!campoEsValido(txtDomicilioTutor)) todoValido = false;
-        if (!campoEsValido(txtCiudadEstadoPaisTutor)) todoValido = false;
-        if (!campoEsValido(txtCelularTutor)) todoValido = false;
-        if (!campoEsValido(txtTelefonoTutor)) todoValido = false;
-        if (!campoEsValido(txtCorreoTutor)) todoValido = false;
+        if (!campoEsValido(txtNombreTutor)) {
+            todoValido = false;
+        }
+        if (!comboEsValido(cmbParentescoTutor)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtDomicilioTutor)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCiudadEstadoPaisTutor)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCelularTutor)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtTelefonoTutor)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtCorreoTutor)) {
+            todoValido = false;
+        }
 
         return todoValido;
     }
-    
+
+    /**
+     * Este método recibe los datos de la base de datos y rellena los campos
+     * visuales del Tutor.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) {
+            return;
+        }
+
+        txtNombreTutor.setText(dto.getNombreTutor());
+
+        // Manejo del Parentesco
+        if (dto.getParentescoTutor() != null && !dto.getParentescoTutor().isEmpty()) {
+            cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
+        } else {
+            cmbParentescoTutor.setSelectedIndex(0); 
+        }
+
+        txtDomicilioTutor.setText(dto.getDomicilioTutor());
+        txtCiudadEstadoPaisTutor.setText(dto.getLugarTutor());
+
+        // Manejo del celular 
+        String celular = dto.getCelularTutor();
+        if (celular != null && celular.contains(" ")) {
+            String[] partes = celular.split(" ", 2); 
+            cmbCodigoPaisTutor.setSelectedItem(partes[0]); 
+            txtCelularTutor.setText(partes[1]);         
+        } else {
+            txtCelularTutor.setText(celular); // Por si guardaron el celular sin espacio
+        }
+
+        txtTelefonoTutor.setText(dto.getTelefonoTutor());
+        txtCorreoTutor.setText(dto.getCorreoTutor());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisTutor;

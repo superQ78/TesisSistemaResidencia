@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import Negocio.DTOs.ResidenteDTO;
@@ -452,8 +451,8 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
      * metodo para guardar datos médicos en el DTO.
      */
     public void empaquetarDatosMedicos(ResidenteDTO dto) {
-        
-        // --- Estado de Salud General ---
+
+        // Estado de salud general
         if (chkSaludBueno.isSelected()) {
             dto.setEstadoSalud("Bueno");
         } else if (chkSaludRegular.isSelected()) {
@@ -464,7 +463,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
             dto.setEstadoSalud("No especificado");
         }
 
-        // --- Deficiencias y Condiciones (Booleanos + Textos) ---
+        // --- Deficiencias y Condiciones
         dto.setTieneDeficienciaVista(chkVistaSi.isSelected());
         dto.setEspecificarVista(txtEspecificarVista.getText().trim());
 
@@ -492,10 +491,10 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         dto.setTieneTratamientosExternos(chkExternosSi.isSelected());
         dto.setMotivoTratamientosExternos(txtMotivoExternos.getText().trim());
 
-        // --- Sangre y Otros Detalles ---
+        //sangre y Otros detalles
         String tipoSangre = cmbTipoSangre.getSelectedItem().toString();
         if (tipoSangre.toLowerCase().contains("selecciona")) {
-            dto.setTipoSangre(""); 
+            dto.setTipoSangre("");
         } else {
             dto.setTipoSangre(tipoSangre);
         }
@@ -503,8 +502,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         dto.setAspectosSaludMejora(txtAspectosSalud.getText().trim());
         dto.setOtraInformacionSalud(txaOtraInformacionSalud.getText().trim());
     }
-    
-    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
 
     private boolean campoEsValido(javax.swing.JTextField campo) {
         if (campo.getText().trim().isEmpty()) {
@@ -541,30 +538,116 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
             return campoEsValido(campo);
         } else {
             campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; // Es válido porque no es obligatorio si no marcó "Sí"
+            return true; 
         }
     }
-    
+
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        // Campos condicionales (Solo exige texto si marcó el CheckBox "Sí")
-        if (!campoCondicionalEsValido(chkVistaSi, txtEspecificarVista)) todoValido = false;
-        if (!campoCondicionalEsValido(chkAuditivaSi, txtEspecificarAuditiva)) todoValido = false;
-        if (!campoCondicionalEsValido(chkFisicaSi, txtEspecificarFisica)) todoValido = false;
-        if (!campoCondicionalEsValido(chkLesionesSi, txtEspecificarLesiones)) todoValido = false;
-        if (!campoCondicionalEsValido(chkPadecimientosSi, txtEspecificarPadecimientos)) todoValido = false;
-        if (!campoCondicionalEsValido(chkTratamientosSi, txtMotivoTratamientos)) todoValido = false;
-        if (!campoCondicionalEsValido(chkMedicamentosSi, txtEspecificarMedicamentos)) todoValido = false;
-        if (!campoCondicionalEsValido(chkAlergiasSi, txtEspecificarAlergias)) todoValido = false;
-        if (!campoCondicionalEsValido(chkExternosSi, txtMotivoExternos)) todoValido = false;
+        // Campos condicionales 
+        if (!campoCondicionalEsValido(chkVistaSi, txtEspecificarVista)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkAuditivaSi, txtEspecificarAuditiva)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkFisicaSi, txtEspecificarFisica)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkLesionesSi, txtEspecificarLesiones)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkPadecimientosSi, txtEspecificarPadecimientos)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkTratamientosSi, txtMotivoTratamientos)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkMedicamentosSi, txtEspecificarMedicamentos)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkAlergiasSi, txtEspecificarAlergias)) {
+            todoValido = false;
+        }
+        if (!campoCondicionalEsValido(chkExternosSi, txtMotivoExternos)) {
+            todoValido = false;
+        }
 
         // Campos normales y ComboBox
-        if (!comboEsValido(cmbTipoSangre)) todoValido = false;
-        if (!campoEsValido(txtAspectosSalud)) todoValido = false;
-        if (!areaEsValida(txaOtraInformacionSalud)) todoValido = false;
+        if (!comboEsValido(cmbTipoSangre)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtAspectosSalud)) {
+            todoValido = false;
+        }
+        if (!areaEsValida(txaOtraInformacionSalud)) {
+            todoValido = false;
+        }
 
         return todoValido;
+    }
+
+    /**
+     * Este metodo recibe los datos de la base de datos y rellena los campos
+     * visuales de Datos Médicos.
+     */
+    public void cargarDatos(ResidenteDTO dto) {
+        if (dto == null) {
+            return;
+        }
+
+        // Estado de salud general
+        chkSaludBueno.setSelected("Bueno".equals(dto.getEstadoSalud()));
+        chkSaludRegular.setSelected("Regular".equals(dto.getEstadoSalud()));
+        chkSaludMalo.setSelected("Malo".equals(dto.getEstadoSalud()));
+
+        // deficiencias y condiciones
+        chkVistaSi.setSelected(dto.isTieneDeficienciaVista());
+        chkVistaNo.setSelected(!dto.isTieneDeficienciaVista());
+        txtEspecificarVista.setText(dto.getEspecificarVista());
+
+        chkAuditivaSi.setSelected(dto.isTieneDeficienciaAuditiva());
+        chkAuditivaNo.setSelected(!dto.isTieneDeficienciaAuditiva());
+        txtEspecificarAuditiva.setText(dto.getEspecificarAuditiva());
+
+        chkFisicaSi.setSelected(dto.isTieneDiscapacidadFisica());
+        chkFisicaNo.setSelected(!dto.isTieneDiscapacidadFisica());
+        txtEspecificarFisica.setText(dto.getEspecificarFisica());
+
+        chkLesionesSi.setSelected(dto.isTieneLesionesGraves());
+        chkLesionesNo.setSelected(!dto.isTieneLesionesGraves());
+        txtEspecificarLesiones.setText(dto.getEspecificarLesiones());
+
+        chkPadecimientosSi.setSelected(dto.isTienePadecimientos());
+        chkPadecimientosNo.setSelected(!dto.isTienePadecimientos());
+        txtEspecificarPadecimientos.setText(dto.getEspecificarPadecimientos());
+
+        chkTratamientosSi.setSelected(dto.isTieneTratamientosPsicologicos());
+        chkTratamientosNo.setSelected(!dto.isTieneTratamientosPsicologicos());
+        txtMotivoTratamientos.setText(dto.getMotivoTratamientosPsicologicos());
+
+        chkMedicamentosSi.setSelected(dto.isTieneMedicamentosControlados());
+        chkMedicamentosNo.setSelected(!dto.isTieneMedicamentosControlados());
+        txtEspecificarMedicamentos.setText(dto.getEspecificarMedicamentos());
+
+        chkAlergiasSi.setSelected(dto.isTieneAlergias());
+        chkAlergiasNo.setSelected(!dto.isTieneAlergias());
+        txtEspecificarAlergias.setText(dto.getEspecificarAlergias());
+
+        chkExternosSi.setSelected(dto.isTieneTratamientosExternos());
+        chkExternosNo.setSelected(!dto.isTieneTratamientosExternos());
+        txtMotivoExternos.setText(dto.getMotivoTratamientosExternos());
+
+        //Sangre y otros detalles
+        if (dto.getTipoSangre() != null && !dto.getTipoSangre().isEmpty()) {
+            cmbTipoSangre.setSelectedItem(dto.getTipoSangre());
+        } else {
+            cmbTipoSangre.setSelectedIndex(0);
+        }
+
+        txtAspectosSalud.setText(dto.getAspectosSaludMejora());
+        txaOtraInformacionSalud.setText(dto.getOtraInformacionSalud());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

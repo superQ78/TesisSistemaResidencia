@@ -110,6 +110,8 @@ public class frmLogin extends javax.swing.JFrame {
 
         // Validar el resultado y decidir que pantalla abrir
         if (usuarioLogueado != null) {
+            
+            coordinadorVistas.rolLogueado = usuarioLogueado.getRol();
 
             if ("Administrador".equals(usuarioLogueado.getRol())) {
                 coordinadorVistas.mostrarAdminInicio(this);

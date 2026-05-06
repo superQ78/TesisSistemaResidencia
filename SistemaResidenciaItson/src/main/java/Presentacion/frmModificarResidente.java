@@ -20,52 +20,88 @@ public class frmModificarResidente extends javax.swing.JFrame {
     public frmModificarResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        // Llama al método para configurar la tabla
+
+        // Llama al metodo para configurar la tabla
         configurarTabla();
     }
 
     private void configurarTabla() {
-        // 1. Definir el modelo de la tabla (Las columnas que tienes en tu diseño)
+
         DefaultTableModel modelo = new DefaultTableModel() {
-            // Hacemos que las celdas no sean editables al escribir, solo botones
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Permitir click en las columnas de botones (3 y 4)
-                return column == 3 || column == 4; 
+                return column == 3 || column == 4;
             }
         };
 
         modelo.addColumn("ID");
         modelo.addColumn("Nombre residente");
         modelo.addColumn("Nacionalidad");
-        modelo.addColumn("Editar");      
-        modelo.addColumn("Inhabilitar"); 
+        modelo.addColumn("Editar");
+        modelo.addColumn("Inhabilitar");
 
-        // Datos de prueba (Simulando tu imagen)
-        Object[] fila1 = {"00000226088", "Panfilo Filomeno", "Mexicana", "", ""};
-        Object[] fila2 = {"00000226089", "Cesar Duran", "Mexicana", "", ""};
-        
-        modelo.addRow(fila1);
-        modelo.addRow(fila2);
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        java.util.List<Negocio.DTOs.ResidenteDTO> listaResidentes = fachada.consultarResidentes();
 
-        // Asignar el modelo a la tabla
+        if (listaResidentes != null) {
+            for (Negocio.DTOs.ResidenteDTO res : listaResidentes) {
+                String nacionalidad = res.getLugarResidencia() != null ? res.getLugarResidencia() : "N/A";
+
+                Object[] fila = {
+                    res.getIdAcademico(), 
+                    res.getNombreCompleto(),
+                    nacionalidad,
+                    "", 
+                    "" 
+                };
+                modelo.addRow(fila);
+            }
+        }
+
         jTable1.setModel(modelo);
-        
-        // aumentar la altura de las filas para que quepan las imágenes
-        jTable1.setRowHeight(40); 
-
-        // 3. ASIGNAR LOS RENDERIZADORES
-        
+        jTable1.setRowHeight(40);
         jTable1.getColumnModel().getColumn(3).setCellRenderer(
-            new RenderImagen("/imagenes/BtnEditar.png") 
+                new RenderImagen("/imagenes/BtnEditar.png")
         );
 
-        // Para la columna "Inhabilitar" (Índice 4) -> Icono de la X roja
         jTable1.getColumnModel().getColumn(4).setCellRenderer(
-            new RenderImagen("/imagenes/BtnInhabilitar.png") 
+                new RenderImagen("/imagenes/BtnInhabilitar.png")
         );
+
+        // Agregar el escuchador de clics a la tabla
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = jTable1.rowAtPoint(evt.getPoint());
+                int columna = jTable1.columnAtPoint(evt.getPoint());
+
+                // Asegurarnos de que dio clic en una fila válida y en las columnas de botones
+                if (fila >= 0 && (columna == 3 || columna == 4)) {
+                    String idSeleccionado = jTable1.getValueAt(fila, 0).toString();
+                    String nombreSeleccionado = jTable1.getValueAt(fila, 1).toString();
+
+                    if (columna == 3) {
+                        // Clic en EDITAR
+                        coordinadorVistas.mostrarModificarRDP(frmModificarResidente.this, idSeleccionado);
+
+                    } else if (columna == 4) {
+                        // Clic en INHABILITAR
+                        int respuesta = javax.swing.JOptionPane.showConfirmDialog(null,
+                                "¿Estás seguro de inhabilitar al residente: " + nombreSeleccionado + "?",
+                                "Confirmar Inhabilitación",
+                                javax.swing.JOptionPane.YES_NO_OPTION,
+                                javax.swing.JOptionPane.WARNING_MESSAGE);
+
+                        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+                            // Aquí llamaremos a tu fachada de Residentes después
+                            javax.swing.JOptionPane.showMessageDialog(null, "Logica de inhabilitar pendiente...");
+                        }
+                    }
+                }
+            }
+        });
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,9 +182,7 @@ public class frmModificarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.regresarMenuPrincipal(this);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
