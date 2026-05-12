@@ -20,6 +20,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         initComponents();
 
         inicializarCalendario();
+        agruparCasillas();
     }
 
     /**
@@ -428,19 +429,40 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     }
 
     /**
-     * Método ayudante: Revisa un JTextField. Si está vacío lo pinta rojo, si
-     * no, lo deja normal.
+     * Este metodo recibe un DTO y rellena los campos automáticamente.
      */
-    private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            // se pinta el borde de rojo
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            // se regresa su borde normal (gris)
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
+    public void cargarDatosPersonales(ResidenteDTO dto) {
+        if (dto == null) {
+            return; // Si el maletín viene vacío, no hacemos nada
         }
+        // Llenamos las cajas de texto (validando que no vengan nulas)
+        txtNombreSolicitante.setText(dto.getNombreCompleto() != null ? dto.getNombreCompleto() : "");
+        txtDomicilioSolicitante.setText(dto.getDomicilio() != null ? dto.getDomicilio() : "");
+        txtCurpSolicitante.setText(dto.getCurp() != null ? dto.getCurp() : "");
+        txtLugarResidencia.setText(dto.getLugarResidencia() != null ? dto.getLugarResidencia() : "");
+        txtNssSolicitante.setText(dto.getNss() != null ? dto.getNss() : "");
+        txtCelularSolicitante.setText(dto.getCelular() != null ? dto.getCelular() : "");
+        txtTelefonoSolicitante.setText(dto.getTelefono() != null ? dto.getTelefono() : "");
+        txtCorreoSolicitante.setText(dto.getCorreo() != null ? dto.getCorreo() : "");
+
+        // Cargar el JDateChooser
+        if (dto.getFechaNacimiento() != null) {
+            java.util.Date fechaConvertida = java.sql.Date.valueOf(dto.getFechaNacimiento());
+            dateChooserNacimiento.setDate(fechaConvertida);
+        }
+
+        // Cargar los CheckBox del sexo
+        if (dto.getSexo() != null) {
+            if (dto.getSexo().equalsIgnoreCase("Masculino")) {
+                chkSexoMasculino.setSelected(true);
+            } else if (dto.getSexo().equalsIgnoreCase("Femenino")) {
+                chkSexoFemenino.setSelected(true);
+            }
+        }
+    }
+
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        return !campo.getText().trim().isEmpty();
     }
 
     /**
@@ -473,13 +495,9 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         if (!campoEsValido(txtCorreoSolicitante)) {
             todoValido = false;
         }
-
         // Validar la fecha del JDateChooser
         if (dateChooserNacimiento.getDate() == null) {
-            dateChooserNacimiento.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
             todoValido = false;
-        } else {
-            dateChooserNacimiento.setBorder(null); // O el borde que tenía por defecto
         }
 
         return todoValido;
@@ -539,6 +557,21 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
             java.util.Date date = java.sql.Date.valueOf(dto.getFechaNacimiento());
             dateChooserNacimiento.setDate(date);
         }
+    }
+
+    /**
+     * Metodos ayudante que recibe cualquier cantidad de CheckBoxes y los mete
+     * en un mismo grupo para poder seleccionar uno y mas
+     */
+    private void crearGrupo(javax.swing.JCheckBox... casillas) {
+        javax.swing.ButtonGroup grupo = new javax.swing.ButtonGroup();
+        for (javax.swing.JCheckBox casilla : casillas) {
+            grupo.add(casilla);
+        }
+    }
+
+    private void agruparCasillas() {
+        crearGrupo(chkSexoMasculino, chkSexoFemenino);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

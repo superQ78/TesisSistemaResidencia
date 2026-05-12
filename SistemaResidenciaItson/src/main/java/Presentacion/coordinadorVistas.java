@@ -1,5 +1,6 @@
 package Presentacion;
 
+import Negocio.DTOs.ResidenteDTO;
 import javax.swing.JFrame;
 
 /**
@@ -90,19 +91,28 @@ public class coordinadorVistas {
     }
 
     /**
-     * Abre la pantalla principal del Registro de Datos Personales (RDP)
+     * Abre RDP y le pasa los datos que se hayan llenado en Solicitud
      */
-    public static void mostrarRDP(JFrame ventanaActual) {
-        frmRDP rdp = new frmRDP();
+    public static void mostrarRDP(JFrame ventanaActual, ResidenteDTO dtoMemoria) {
+        frmRDP rdp = new frmRDP(dtoMemoria);
         rdp.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+    
+    /**
+     * Abre Solicitud y le pasa los datos que se hayan llenado en RDP
+     */
+    public static void mostrarSolicitud(JFrame ventanaActual, ResidenteDTO dtoMemoria) {
+        frmSolicitudIngreso solicitud = new frmSolicitudIngreso(dtoMemoria);
+        solicitud.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
 
     /**
-     * Abre la pantalla del menú de Registrar Residente
+     * Abre el menú de Registrar Residente llevándose el maletín de datos
      */
-    public static void mostrarRegistrarResidente(JFrame ventanaActual) {
-        frmRegistrarResidente registrar = new frmRegistrarResidente();
+    public static void mostrarRegistrarResidenteConDatos(JFrame ventanaActual, ResidenteDTO dtoMemoria) {
+        frmRegistrarResidente registrar = new frmRegistrarResidente(dtoMemoria);
         registrar.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }

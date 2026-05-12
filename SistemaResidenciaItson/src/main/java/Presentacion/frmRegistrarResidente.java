@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
+import Negocio.DTOs.ResidenteDTO;
 import javax.swing.JFrame;
 
 /**
@@ -11,6 +8,8 @@ import javax.swing.JFrame;
  * @author cesar
  */
 public class frmRegistrarResidente extends javax.swing.JFrame {
+
+    private ResidenteDTO dtoCompartido = null;
 
     /**
      * Creates new form frmRegistrarResidente
@@ -20,6 +19,15 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         configurarTabla();
 
+    }
+
+    public frmRegistrarResidente(ResidenteDTO dtoMemoria) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarTabla();
+
+        // se guardan los datos en la recepción
+        this.dtoCompartido = dtoMemoria;
     }
 
     private void configurarTabla() {
@@ -39,7 +47,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 3; 
+                return column == 3;
             }
         };
 
@@ -47,7 +55,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         tblRegistroResidente.setRowHeight(51);
         tblRegistroResidente.setBackground(java.awt.Color.WHITE);
         tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(),tblRegistroResidente,"/imagenes/SubirArchivo.png"));
+        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblRegistroResidente, "/imagenes/SubirArchivo.png"));
         tblRegistroResidente.getColumnModel().getColumn(3).setPreferredWidth(50);
     }
 
@@ -62,22 +70,22 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jplFrmRegisResi = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRegistroResidente = new javax.swing.JTable();
         btnRDP = new javax.swing.JButton();
         btnSolicitudIngreso = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblDetallesInf = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jplFrmRegisResi.setBackground(new java.awt.Color(255, 255, 255));
         jplFrmRegisResi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        jLabel1.setText("Gestion Residente");
-        jplFrmRegisResi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setText("Gestion Residente");
+        jplFrmRegisResi.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, -1, -1));
 
         tblRegistroResidente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,20 +122,20 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         });
         jplFrmRegisResi.add(btnSolicitudIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 320, 70));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel2.setText("Las identificaciones y comprobantes deben de ser recientes y o vigentes");
-        jplFrmRegisResi.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, -1, -1));
+        lblDetallesInf.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        lblDetallesInf.setText("Las identificaciones y comprobantes deben de ser recientes y o vigentes.");
+        jplFrmRegisResi.add(lblDetallesInf, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 730, -1, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
+        btnVolver.setContentAreaFilled(false);
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jplFrmRegisResi.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        jplFrmRegisResi.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,23 +165,26 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRDPActionPerformed
-        frmRDP cr = new frmRDP();
-        cr.setVisible(true);
-        this.dispose();
+        // Si no hay datos, lleva a llenar la rdp. Si hay, se lo pasamos.
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+        coordinadorVistas.mostrarRDP(this, this.dtoCompartido);
 
     }//GEN-LAST:event_btnRDPActionPerformed
 
     private void btnSolicitudIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudIngresoActionPerformed
-        frmSolicitudIngreso solicitud = new frmSolicitudIngreso();
-        solicitud.setVisible(true);
-        this.dispose();
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+        coordinadorVistas.mostrarSolicitud(this, this.dtoCompartido);
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         frmAdminInicio fradm = new frmAdminInicio();
         fradm.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,12 +224,12 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRDP;
     private javax.swing.JButton btnSolicitudIngreso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jplFrmRegisResi;
+    private javax.swing.JLabel lblDetallesInf;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblRegistroResidente;
     // End of variables declaration//GEN-END:variables
 }

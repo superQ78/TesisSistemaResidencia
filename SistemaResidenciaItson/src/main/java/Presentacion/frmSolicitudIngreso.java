@@ -1,5 +1,6 @@
 package Presentacion;
 
+import Negocio.DTOs.ResidenteDTO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -16,6 +17,9 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     pnlFormaPago panelPago = new pnlFormaPago();
     pnlCompanero panelCompanero = new pnlCompanero();
 
+    // dto compartido, para rellenar datos
+    private ResidenteDTO dtoCompartido = null;
+
     /**
      * Creates new form frmSolicitudIngreso
      */
@@ -31,6 +35,34 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
         tabSolicitud.revalidate();
         tabSolicitud.repaint();
+    }
+
+    /**
+     * Constructor para recibir datos compartidos desde el RDP (o empezar uno
+     * nuevo)
+     */
+    public frmSolicitudIngreso(ResidenteDTO dtoMemoria) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        tabSolicitud.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        configurarTabs();
+        configurarScrolls();
+        configurarEstiloGeneral();
+
+        tabSolicitud.revalidate();
+        tabSolicitud.repaint();
+
+        // guarda los daots
+        this.dtoCompartido = dtoMemoria;
+
+        // Si trae datos, aparecen en los paneles
+        if (this.dtoCompartido != null) {
+            panelSolicitante.cargarDatosPersonales(this.dtoCompartido);
+            panelTutor.cargarDatosTutor(this.dtoCompartido);
+            panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+        }
     }
 
     /**
@@ -139,8 +171,8 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         tabSolicitud.addTab("Solicitante", crearScroll(panelSolicitante));
         tabSolicitud.addTab("Tutor", crearScroll(panelTutor));
         tabSolicitud.addTab("Emergencia", crearScroll(panelEmergencia));
-        tabSolicitud.addTab("Personales", crearScroll(panelPago));
-        tabSolicitud.addTab("Académicos", crearScroll(panelCompanero));
+        tabSolicitud.addTab("Pago", crearScroll(panelPago));
+        tabSolicitud.addTab("Compañero", crearScroll(panelCompanero));
     }
 
     /**
@@ -171,8 +203,8 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnVaciarCampos = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
         lblSubTitulo = new javax.swing.JLabel();
-        lblSubTitulo1 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
         pnlFondoTabs = new javax.swing.JPanel();
         tabSolicitud = new javax.swing.JTabbedPane();
@@ -185,6 +217,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnVaciarCampos.setBackground(new java.awt.Color(255, 51, 51));
         btnVaciarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -196,7 +233,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap(613, Short.MAX_VALUE)
+                .addContainerGap(369, Short.MAX_VALUE)
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,13 +254,13 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
         pnlTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
-        lblSubTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
-        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
+        pnlTitulo.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
-        lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblSubTitulo1.setText("Solicitud de ingreso");
-        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 250, -1));
+        lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblSubTitulo.setText("Solicitud de ingreso");
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 250, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -251,10 +288,30 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmRegistrarResidente volver = new frmRegistrarResidente();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // Trae los datos ya igresados
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+
+        // indica a los paneles que guarden todo lo que el usuario escribio
+        panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
+        panelTutor.empaquetarDatosTutor(this.dtoCompartido);
+        panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
+
+        // (Aquí después puedes agregar la validación visual que hicimos para el RDP)
+        //  mensaje para que el usuario sepa que todo salió bien
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Datos guardados correctamente.",
+                "Progreso guardado",
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,16 +327,24 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmSolicitudIngreso.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -296,7 +361,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
-    private javax.swing.JLabel lblSubTitulo1;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlFondoTabs;
     private javax.swing.JPanel pnlTitulo;

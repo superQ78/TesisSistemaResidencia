@@ -222,44 +222,42 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         dto.setCorreoTutor(txtCorreoTutor.getText().trim());
     }
 
-    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
-    private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
+    /**
+     * Este metodo recibe un DTO y rellena los campos automáticamente.
+     */
+    public void cargarDatosTutor(ResidenteDTO dto) {
+        if (dto == null) return;
+
+        txtNombreTutor.setText(dto.getNombreTutor() != null ? dto.getNombreTutor() : "");
+        txtDomicilioTutor.setText(dto.getDomicilioTutor() != null ? dto.getDomicilioTutor() : "");
+        txtCiudadEstadoPaisTutor.setText(dto.getLugarTutor() != null ? dto.getLugarTutor() : "");
+        txtCelularTutor.setText(dto.getCelularTutor() != null ? dto.getCelularTutor() : "");
+        txtTelefonoTutor.setText(dto.getTelefonoTutor() != null ? dto.getTelefonoTutor() : "");
+        txtCorreoTutor.setText(dto.getCorreoTutor() != null ? dto.getCorreoTutor() : "");
+
+        if (dto.getParentescoTutor() != null) {
+            cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
         }
+    }
+    
+    //metodos ayudantes de validación
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        return !campo.getText().trim().isEmpty();
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        if (area.getText().trim().isEmpty()) {
-            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
-            return true;
-        }
+        return !area.getText().trim().isEmpty();
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
-            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            combo.setBorder(null);
-            return true;
-        }
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; // Es válido porque no es obligatorio si no marcó "Sí"
         }
+        return true;
     }
 
     public boolean validarCampos() {
@@ -305,7 +303,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         if (dto.getParentescoTutor() != null && !dto.getParentescoTutor().isEmpty()) {
             cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
         } else {
-            cmbParentescoTutor.setSelectedIndex(0); 
+            cmbParentescoTutor.setSelectedIndex(0);
         }
 
         txtDomicilioTutor.setText(dto.getDomicilioTutor());
@@ -314,9 +312,9 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         // Manejo del celular 
         String celular = dto.getCelularTutor();
         if (celular != null && celular.contains(" ")) {
-            String[] partes = celular.split(" ", 2); 
-            cmbCodigoPaisTutor.setSelectedItem(partes[0]); 
-            txtCelularTutor.setText(partes[1]);         
+            String[] partes = celular.split(" ", 2);
+            cmbCodigoPaisTutor.setSelectedItem(partes[0]);
+            txtCelularTutor.setText(partes[1]);
         } else {
             txtCelularTutor.setText(celular); // Por si guardaron el celular sin espacio
         }

@@ -191,6 +191,26 @@ public class pnlFormaPago extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoCuatroPagosHermanosActionPerformed
 
+    
+        //metodos ayudantes de validación
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        return !campo.getText().trim().isEmpty();
+    }
+
+    private boolean areaEsValida(javax.swing.JTextArea area) {
+        return !area.getText().trim().isEmpty();
+    }
+
+    private boolean comboEsValido(javax.swing.JComboBox combo) {
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+    }
+
+    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
+        if (checkSi.isSelected()) {
+            return campoEsValido(campo);
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkCincuentaInicial;

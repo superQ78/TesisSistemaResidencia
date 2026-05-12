@@ -13,6 +13,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
      */
     public pnlDatosMedicos() {
         initComponents();
+        agruparCasillas();
     }
 
     /**
@@ -94,7 +95,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkSaludMalo.setText("Malo");
 
         txtEspecificarVista.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarVista.setText("especificar");
 
         chkVistaNo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkVistaNo.setText("NO");
@@ -115,7 +115,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkAuditivaNo.setText("NO");
 
         txtEspecificarAuditiva.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarAuditiva.setText("especificar");
 
         lblDiscapacidadFisica.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblDiscapacidadFisica.setText("Discapacidad física");
@@ -127,7 +126,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkFisicaNo.setText("NO");
 
         txtEspecificarFisica.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarFisica.setText("especificar");
 
         lblLesionesGraves.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblLesionesGraves.setText("Lesiones graves");
@@ -139,7 +137,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkLesionesNo.setText("NO");
 
         txtEspecificarLesiones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarLesiones.setText("especificar");
 
         lblPadecimientos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblPadecimientos.setText("Padecimientos actuales o previos");
@@ -151,7 +148,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkPadecimientosNo.setText("NO");
 
         txtEspecificarPadecimientos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarPadecimientos.setText("especificar");
 
         lblTratamientosPsicologicos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTratamientosPsicologicos.setText("Tratamientos médicos, psiquiátricos ");
@@ -166,7 +162,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkTratamientosNo.setText("NO");
 
         txtMotivoTratamientos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtMotivoTratamientos.setText("Motivo o pronostico");
 
         lblMedicamentos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblMedicamentos.setText("Medicamentos controlados");
@@ -178,7 +173,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkMedicamentosNo.setText("NO");
 
         txtEspecificarMedicamentos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarMedicamentos.setText("especificar");
 
         lblAlergias.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblAlergias.setText("Alergias");
@@ -190,7 +184,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkAlergiasNo.setText("NO");
 
         txtEspecificarAlergias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtEspecificarAlergias.setText("especificar");
 
         lblTratamientosExternos.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTratamientosExternos.setText("Tratamientos externos");
@@ -202,7 +195,6 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         chkExternosNo.setText("NO");
 
         txtMotivoExternos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtMotivoExternos.setText("Motivo");
 
         lblTipoSangre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblTipoSangre.setText("Tipo de sangre");
@@ -222,7 +214,9 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         txtAspectosSalud.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         txaOtraInformacionSalud.setColumns(20);
+        txaOtraInformacionSalud.setLineWrap(true);
         txaOtraInformacionSalud.setRows(5);
+        txaOtraInformacionSalud.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txaOtraInformacionSalud);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -238,9 +232,9 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
                             .addComponent(lblAspectosSalud)
                             .addComponent(lblOtraInformacionSalud))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAspectosSalud, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAspectosSalud, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,43 +497,25 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         dto.setOtraInformacionSalud(txaOtraInformacionSalud.getText().trim());
     }
 
+    
+    // metodos ayudantes de validaciones
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
-        }
+        return !campo.getText().trim().isEmpty();
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        if (area.getText().trim().isEmpty()) {
-            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
-            return true;
-        }
+        return !area.getText().trim().isEmpty();
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
-            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            combo.setBorder(null);
-            return true;
-        }
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; 
         }
+        return true;
     }
 
     public boolean validarCampos() {
@@ -648,6 +624,31 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
 
         txtAspectosSalud.setText(dto.getAspectosSaludMejora());
         txaOtraInformacionSalud.setText(dto.getOtraInformacionSalud());
+    }
+    
+     /**
+     * Metodos ayudante que recibe cualquier cantidad de CheckBoxes y los mete
+     * en un mismo grupo para poder seleccionar uno y mas
+     */
+    private void crearGrupo(javax.swing.JCheckBox... casillas) {
+        javax.swing.ButtonGroup grupo = new javax.swing.ButtonGroup();
+        for (javax.swing.JCheckBox casilla : casillas) {
+            grupo.add(casilla);
+        }
+    }
+    
+    private void agruparCasillas() {
+        crearGrupo(chkSaludBueno, chkSaludRegular, chkSaludMalo);
+        
+        crearGrupo(chkVistaSi, chkVistaNo);
+        crearGrupo(chkAuditivaSi, chkAuditivaNo);
+        crearGrupo(chkFisicaSi, chkFisicaNo);
+        crearGrupo(chkLesionesSi, chkLesionesNo);
+        crearGrupo(chkPadecimientosSi, chkPadecimientosNo);
+        crearGrupo(chkTratamientosSi, chkTratamientosNo);
+        crearGrupo(chkMedicamentosSi, chkMedicamentosNo);
+        crearGrupo(chkAlergiasSi, chkAlergiasNo);
+        crearGrupo(chkExternosSi, chkExternosNo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

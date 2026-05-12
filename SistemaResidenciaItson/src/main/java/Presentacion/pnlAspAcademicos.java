@@ -13,6 +13,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
      */
     public pnlAspAcademicos() {
         initComponents();
+        agruparCasillas();
     }
 
     /**
@@ -64,7 +65,9 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         lblEfectividadEstudio.setText("Efectividad de tu método de estudio:");
 
         txaMejorasAcademicas.setColumns(20);
+        txaMejorasAcademicas.setLineWrap(true);
         txaMejorasAcademicas.setRows(5);
+        txaMejorasAcademicas.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txaMejorasAcademicas);
 
         chkAyudaNunca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -144,42 +147,45 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(lblTituloAcademicos))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblBuscarAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(chkAyudaSiempre)
-                .addGap(43, 43, 43)
-                .addComponent(chkAyudaAVeces)
-                .addGap(55, 55, 55)
-                .addComponent(chkAyudaNunca))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblEfectividadEstudio)
-                .addGap(213, 213, 213)
-                .addComponent(chkEstudioPoco)
-                .addGap(38, 38, 38)
-                .addComponent(chkEstudioRegular)
-                .addGap(54, 54, 54)
-                .addComponent(chkEstudioMuyEfectivo))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblEfectividadTiempo)
-                .addGap(153, 153, 153)
-                .addComponent(chkTiempoPoco)
-                .addGap(38, 38, 38)
-                .addComponent(chkTiempoRegular)
-                .addGap(54, 54, 54)
-                .addComponent(chkTiempoMuyEfectivo))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMejorasAcademicas)
-                    .addComponent(lblMejorasAcademicas2))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(lblTituloAcademicos))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblBuscarAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(chkAyudaSiempre)
+                        .addGap(43, 43, 43)
+                        .addComponent(chkAyudaAVeces)
+                        .addGap(55, 55, 55)
+                        .addComponent(chkAyudaNunca))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblEfectividadEstudio)
+                        .addGap(213, 213, 213)
+                        .addComponent(chkEstudioPoco)
+                        .addGap(38, 38, 38)
+                        .addComponent(chkEstudioRegular)
+                        .addGap(54, 54, 54)
+                        .addComponent(chkEstudioMuyEfectivo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblEfectividadTiempo)
+                        .addGap(153, 153, 153)
+                        .addComponent(chkTiempoPoco)
+                        .addGap(38, 38, 38)
+                        .addComponent(chkTiempoRegular)
+                        .addGap(54, 54, 54)
+                        .addComponent(chkTiempoMuyEfectivo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMejorasAcademicas)
+                            .addComponent(lblMejorasAcademicas2))
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +216,8 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
                         .addComponent(lblMejorasAcademicas)
                         .addGap(3, 3, 3)
                         .addComponent(lblMejorasAcademicas2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -302,45 +309,25 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         // 4. Aspectos que le gustaría mejorar
         dto.setAspectosMejoraAcademica(txaMejorasAcademicas.getText().trim());
     }
-// --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
 
+    //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
-        }
+        return !campo.getText().trim().isEmpty();
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        if (area.getText().trim().isEmpty()) {
-            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
-            return true;
-        }
+        return !area.getText().trim().isEmpty();
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
-            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            combo.setBorder(null);
-            return true;
-        }
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; // Es válido porque no es obligatorio si no marcó "Sí"
         }
+        return true;
     }
 
     public boolean validarCampos() {
@@ -379,6 +366,24 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         // Aspectos que le gustaria mejorar
         txaMejorasAcademicas.setText(dto.getAspectosMejoraAcademica());
     }
+    
+    /**
+     * Metodo ayudante que recibe cualquier cantidad de CheckBoxes y los mete en
+     * un mismo grupo para poder seleccionar uno y mas
+     */
+    private void crearGrupo(javax.swing.JCheckBox... casillas) {
+        javax.swing.ButtonGroup grupo = new javax.swing.ButtonGroup();
+        for (javax.swing.JCheckBox casilla : casillas) {
+            grupo.add(casilla);
+        }
+    }
+    
+    private void agruparCasillas() {
+        crearGrupo(chkAyudaSiempre, chkAyudaAVeces, chkAyudaNunca);
+        crearGrupo(chkEstudioMuyEfectivo, chkEstudioRegular, chkEstudioPoco);
+        crearGrupo(chkTiempoMuyEfectivo, chkTiempoRegular, chkTiempoPoco);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAyudaAVeces;
     private javax.swing.JCheckBox chkAyudaNunca;

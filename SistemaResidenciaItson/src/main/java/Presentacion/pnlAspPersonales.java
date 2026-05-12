@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import Negocio.DTOs.ResidenteDTO;
@@ -14,6 +13,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
      */
     public pnlAspPersonales() {
         initComponents();
+        agruparCasillas();
     }
 
     /**
@@ -90,10 +90,11 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         chkDeseaCulturales = new javax.swing.JCheckBox();
         chkDeseaArtisticas = new javax.swing.JCheckBox();
         cmbxAspectosMejora = new javax.swing.JComboBox<>();
-        txaOtraInformacion = new javax.swing.JTextField();
         lblOtraInformacion = new javax.swing.JLabel();
         lblAspectosMejora = new javax.swing.JLabel();
         lblAspectosMejora2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txaOtraInformacion = new javax.swing.JTextArea();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -297,12 +298,6 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         cmbxAspectosMejora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxAspectosMejora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un aspecto", "Comunicación", "Habilidades blancas", "Compañerismo", "Autoevaluación" }));
 
-        txaOtraInformacion.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txaOtraInformacionFocusLost(evt);
-            }
-        });
-
         lblOtraInformacion.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblOtraInformacion.setText("Otra información importante sobre ti:");
 
@@ -312,302 +307,311 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         lblAspectosMejora2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblAspectosMejora2.setText("mejor o conocer más:");
 
+        txaOtraInformacion.setColumns(20);
+        txaOtraInformacion.setLineWrap(true);
+        txaOtraInformacion.setRows(5);
+        txaOtraInformacion.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(txaOtraInformacion);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblVividoFuera)
-                .addGap(132, 132, 132)
-                .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblTiempoVividoFuera)
-                .addGap(153, 153, 153)
-                .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDecisionResidencia)
-                    .addComponent(lblDecisionResidencia2))
-                .addGap(210, 210, 210)
-                .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRazonesVivir)
-                    .addComponent(lblRazonesVivir2))
-                .addGap(163, 163, 163)
-                .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblAdaptacion)
-                .addGap(90, 90, 90)
-                .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblEstiloConvivencia)
-                .addGap(54, 54, 54)
-                .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSituacionesNoDeseadas2)
-                    .addComponent(lblSituacionesNoDeseadas))
-                .addGap(166, 166, 166)
-                .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblCaracteristicasCompanero)
-                .addGap(18, 18, 18)
-                .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblHoraDormir)
-                .addGap(202, 202, 202)
-                .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblToleraRuido)
-                .addGap(232, 232, 232)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblVividoFuera)
+                        .addGap(132, 132, 132)
+                        .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblTiempoVividoFuera)
+                        .addGap(153, 153, 153)
+                        .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDecisionResidencia)
+                            .addComponent(lblDecisionResidencia2))
+                        .addGap(210, 210, 210)
+                        .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRazonesVivir)
+                            .addComponent(lblRazonesVivir2))
+                        .addGap(163, 163, 163)
+                        .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblAdaptacion)
                         .addGap(90, 90, 90)
-                        .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblImportanciaOrden)
-                .addGap(240, 240, 240)
-                .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblHabitosHigiene)
-                .addGap(349, 349, 349)
-                .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblObjetosTraer)
-                .addGap(341, 341, 341)
-                .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblActividadesIniciativa)
-                .addGap(102, 102, 102)
-                .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblParticipacionGrupo)
-                .addGap(86, 86, 86)
-                .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblTipoGrupo)
-                .addGap(389, 389, 389)
-                .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblActividadesRealizadas)
-                    .addComponent(lblActividadesRealizad2as))
-                .addGap(142, 142, 142)
-                .addComponent(txtActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblActividadesDeseadas)
-                .addGap(70, 70, 70)
-                .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAspectosMejora2)
-                    .addComponent(lblAspectosMejora))
-                .addGap(138, 138, 138)
-                .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(lblOtraInformacion)
-                .addGap(187, 187, 187)
-                .addComponent(txaOtraInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblEstiloConvivencia)
+                        .addGap(54, 54, 54)
+                        .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSituacionesNoDeseadas2)
+                            .addComponent(lblSituacionesNoDeseadas))
+                        .addGap(166, 166, 166)
+                        .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblCaracteristicasCompanero)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblHoraDormir)
+                        .addGap(202, 202, 202)
+                        .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblToleraRuido)
+                        .addGap(232, 232, 232)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblImportanciaOrden)
+                        .addGap(240, 240, 240)
+                        .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblHabitosHigiene)
+                        .addGap(349, 349, 349)
+                        .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblObjetosTraer)
+                        .addGap(341, 341, 341)
+                        .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblActividadesIniciativa)
+                        .addGap(102, 102, 102)
+                        .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblParticipacionGrupo)
+                        .addGap(86, 86, 86)
+                        .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblTipoGrupo)
+                        .addGap(389, 389, 389)
+                        .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActividadesRealizadas)
+                            .addComponent(lblActividadesRealizad2as))
+                        .addGap(142, 142, 142)
+                        .addComponent(txtActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(lblActividadesDeseadas)
+                        .addGap(70, 70, 70)
+                        .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAspectosMejora2)
+                            .addComponent(lblAspectosMejora)
+                            .addComponent(lblOtraInformacion))
+                        .addGap(138, 138, 138)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblVividoFuera)
-                    .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTiempoVividoFuera)
-                    .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblDecisionResidencia)
-                        .addGap(3, 3, 3)
-                        .addComponent(lblDecisionResidencia2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRazonesVivir)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblRazonesVivir2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(lblVividoFuera)
+                            .addComponent(chkVividoFueraSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkVividoFueraNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTiempoVividoFuera)
+                            .addComponent(txtTiempoVividoFuera, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblDecisionResidencia)
+                                .addGap(3, 3, 3)
+                                .addComponent(lblDecisionResidencia2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkDecisionTuya, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chkDecisionPadres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chkDecisionAmbos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblRazonesVivir)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lblRazonesVivir2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAdaptacion)
+                            .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
-                        .addComponent(txtRespuestaApdc4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAdaptacion)
-                    .addComponent(chkAdaptacionDificil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkAdaptacionRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkAdaptacionFacil, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEstiloConvivencia)
-                    .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstiloConvivencia)
+                            .addComponent(chkConvivenciaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkConvivenciaNegociar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkConvivenciaPersuadir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lblSituacionesNoDeseadas2))
+                            .addComponent(lblSituacionesNoDeseadas)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCaracteristicasCompanero)
+                            .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHoraDormir)
+                            .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblToleraRuido)
+                            .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblImportanciaOrden)
+                            .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHabitosHigiene)
+                            .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblObjetosTraer)
+                            .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActividadesIniciativa)
+                            .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblParticipacionGrupo)
+                            .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTipoGrupo)
+                            .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActividadesRealizadas)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lblActividadesRealizad2as)))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActividadesDeseadas)
+                            .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(lblAspectosMejora2))
+                            .addComponent(lblAspectosMejora)
+                            .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblOtraInformacion)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblSituacionesNoDeseadas2))
-                    .addComponent(lblSituacionesNoDeseadas)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtSituacionesNoDeseadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCaracteristicasCompanero)
-                    .addComponent(chkCompaneroExtranjero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkCompaneroMexicano, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkCompaneroReingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHoraDormir)
-                    .addComponent(cmbxHoraDormir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblToleraRuido)
-                    .addComponent(chkToleraRuidoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkToleraRuidoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImportanciaOrden)
-                    .addComponent(chkOrdenPoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkOrdenRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkOrdenMucho, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHabitosHigiene)
-                    .addComponent(chkHigienePoco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkHigieneRegular, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkHigieneEstricto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblObjetosTraer)
-                    .addComponent(chkObjetoAuto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkObjetoComputadora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkObjetoTV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkObjetoFrigobar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblActividadesIniciativa)
-                    .addComponent(chkIniciativaSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkIniciativaNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkIniciativaAveses, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblParticipacionGrupo)
-                    .addComponent(chkGrupoSi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkGrupoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTipoGrupo)
-                    .addComponent(cmbxTipoGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblActividadesRealizadas)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblActividadesRealizad2as))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(900, 900, 900)
                         .addComponent(txtActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblActividadesDeseadas)
-                    .addComponent(chkDeseaDeportivas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkDeseaCulturales, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkDeseaArtisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblAspectosMejora2))
-                    .addComponent(lblAspectosMejora)
-                    .addComponent(cmbxAspectosMejora, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblOtraInformacion)
-                    .addComponent(txaOtraInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -640,13 +644,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_chkObjetoAutoActionPerformed
 
-    private void txaOtraInformacionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txaOtraInformacionFocusLost
-//        if (!txtApdcInfoResi20.getText().trim().isEmpty()) {
-//            mostrarSeccion(JpnlAspectosAcademicos);
-//        }
-    }//GEN-LAST:event_txaOtraInformacionFocusLost
-
-/**
+    /**
      * Este método para guarder los datos personales en el dto.
      */
     public void empaquetarDatosPersonales(ResidenteDTO dto) {
@@ -747,68 +745,67 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         dto.setAspectosMejoraPersona(cmbxAspectosMejora.getSelectedItem().toString());
         dto.setOtraInformacion(txaOtraInformacion.getText().trim());
     }
-    
 
+    //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
-        }
+        return !campo.getText().trim().isEmpty();
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        if (area.getText().trim().isEmpty()) {
-            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
-            return true;
-        }
+        return !area.getText().trim().isEmpty();
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
-            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            combo.setBorder(null);
-            return true;
-        }
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; 
         }
+        return true;
     }
-    
+
     public boolean validarCampos() {
         boolean todoValido = true;
 
-        if (!campoCondicionalEsValido(chkVividoFueraSi, txtTiempoVividoFuera)) todoValido = false;
-        if (!campoEsValido(txtRespuestaApdc4)) todoValido = false; // Razones
-        if (!campoEsValido(txtSituacionesNoDeseadas)) todoValido = false;
-        if (!campoEsValido(txtActividadesRealizadas)) todoValido = false;
-        if (!campoEsValido(txaOtraInformacion)) todoValido = false; // Suponiendo que es JTextField a pesar del nombre
-
+        if (!campoCondicionalEsValido(chkVividoFueraSi, txtTiempoVividoFuera)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtRespuestaApdc4)) {
+            todoValido = false; // Razones
+        }
+        if (!campoEsValido(txtSituacionesNoDeseadas)) {
+            todoValido = false;
+        }
+        if (!campoEsValido(txtActividadesRealizadas)) {
+            todoValido = false;
+        }
+        if (!areaEsValida(txaOtraInformacion)) {
+            todoValido = false;
+        }
         // ComboBoxes
-        if (!comboEsValido(cmbxHoraDormir)) todoValido = false;
-        if (!comboEsValido(cmbxTipoGrupo)) todoValido = false;
-        if (!comboEsValido(cmbxAspectosMejora)) todoValido = false;
+        if (!comboEsValido(cmbxHoraDormir)) {
+            todoValido = false;
+        }
+        if (!comboEsValido(cmbxTipoGrupo)) {
+            todoValido = false;
+        }
+        if (!comboEsValido(cmbxAspectosMejora)) {
+            todoValido = false;
+        }
 
         return todoValido;
     }
+
     /**
-     * Este método recibe los datos de la base de datos y rellena los campos visuales de Aspectos Personales.
+     * Este método recibe los datos de la base de datos y rellena los campos
+     * visuales de Aspectos Personales.
      */
     public void cargarDatos(ResidenteDTO dto) {
-        if (dto == null) return;
+        if (dto == null) {
+            return;
+        }
 
         //Experiencia de vivienda
         chkVividoFueraSi.setSelected(dto.isHaVividoFuera());
@@ -839,7 +836,9 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         chkCompaneroReingreso.setSelected(dto.isBuscaCompaneroReingreso());
 
         //Habitos Diarios
-        if (dto.getHoraDormir() != null) cmbxHoraDormir.setSelectedItem(dto.getHoraDormir());
+        if (dto.getHoraDormir() != null) {
+            cmbxHoraDormir.setSelectedItem(dto.getHoraDormir());
+        }
         chkToleraRuidoSi.setSelected(dto.isToleraRuido());
         chkToleraRuidoNo.setSelected(!dto.isToleraRuido());
 
@@ -864,7 +863,9 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 
         chkGrupoSi.setSelected(dto.isParticipacionGrupo());
         chkGrupoNo.setSelected(!dto.isParticipacionGrupo());
-        if (dto.getTipoGrupo() != null) cmbxTipoGrupo.setSelectedItem(dto.getTipoGrupo());
+        if (dto.getTipoGrupo() != null) {
+            cmbxTipoGrupo.setSelectedItem(dto.getTipoGrupo());
+        }
         txtActividadesRealizadas.setText(dto.getActividadesRealizadasGrupo());
 
         // Actividades Deseadas
@@ -873,10 +874,36 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         chkDeseaArtisticas.setSelected(dto.isDeseaActArtisticas());
 
         //Aspectos Finales
-        if (dto.getAspectosMejoraPersona() != null) cmbxAspectosMejora.setSelectedItem(dto.getAspectosMejoraPersona());
+        if (dto.getAspectosMejoraPersona() != null) {
+            cmbxAspectosMejora.setSelectedItem(dto.getAspectosMejoraPersona());
+        }
         txaOtraInformacion.setText(dto.getOtraInformacion());
     }
-    
+
+    /**
+     * Metodo ayudante que recibe cualquier cantidad de CheckBoxes y los mete en
+     * un mismo grupo para poder seleccionar uno y mas
+     */
+    private void crearGrupo(javax.swing.JCheckBox... casillas) {
+        javax.swing.ButtonGroup grupo = new javax.swing.ButtonGroup();
+        for (javax.swing.JCheckBox casilla : casillas) {
+            grupo.add(casilla);
+        }
+    }
+
+    private void agruparCasillas() {
+        crearGrupo(chkGrupoSi, chkGrupoNo);
+        crearGrupo(chkToleraRuidoSi, chkToleraRuidoNo);
+        crearGrupo(chkVividoFueraSi, chkVividoFueraNo);
+
+        crearGrupo(chkAdaptacionFacil, chkAdaptacionRegular, chkAdaptacionDificil);
+        crearGrupo(chkConvivenciaCeder, chkConvivenciaNegociar, chkConvivenciaPersuadir);
+        crearGrupo(chkDecisionTuya, chkDecisionPadres, chkDecisionAmbos);
+        crearGrupo(chkOrdenMucho, chkOrdenRegular, chkOrdenPoco);
+        crearGrupo(chkHigieneEstricto, chkHigieneRegular, chkHigienePoco);
+        crearGrupo(chkIniciativaSi, chkIniciativaAveses, chkIniciativaNo);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAdaptacionDificil;
     private javax.swing.JCheckBox chkAdaptacionFacil;
@@ -917,6 +944,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbxTipoGrupo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblActividadesDeseadas;
     private javax.swing.JLabel lblActividadesIniciativa;
     private javax.swing.JLabel lblActividadesRealizad2as;
@@ -942,7 +970,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
     private javax.swing.JLabel lblTipoGrupo;
     private javax.swing.JLabel lblToleraRuido;
     private javax.swing.JLabel lblVividoFuera;
-    private javax.swing.JTextField txaOtraInformacion;
+    private javax.swing.JTextArea txaOtraInformacion;
     private javax.swing.JTextField txtActividadesRealizadas;
     private javax.swing.JTextField txtRespuestaApdc4;
     private javax.swing.JTextField txtSituacionesNoDeseadas;

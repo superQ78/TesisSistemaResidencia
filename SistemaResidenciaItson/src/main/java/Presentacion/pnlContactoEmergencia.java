@@ -219,45 +219,43 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         dto.setTelefonoEmergencia(txtTelefonoEmergencia.getText().trim());
         dto.setCorreoEmergencia(txtCorreoEmergencia.getText().trim());
     }
+    
+    /**
+     * Este metodo recibe un DTO y rellena los campos automáticamente.
+     */
+    public void cargarDatosEmergencia(ResidenteDTO dto) {
+        if (dto == null) return;
 
-    // --- MÉTODOS AYUDANTES DE VALIDACIÓN VISUAL ---
-    private boolean campoEsValido(javax.swing.JTextField campo) {
-        if (campo.getText().trim().isEmpty()) {
-            campo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border"));
-            return true;
+        txtNombreEmergencia.setText(dto.getNombreEmergencia() != null ? dto.getNombreEmergencia() : "");
+        txtDomicilioEmergencia.setText(dto.getDomicilioEmergencia() != null ? dto.getDomicilioEmergencia() : "");
+        txtCiudadEstadoPaisEmergencia.setText(dto.getLugarEmergencia() != null ? dto.getLugarEmergencia() : "");
+        txtCelularEmergencia.setText(dto.getCelularEmergencia() != null ? dto.getCelularEmergencia() : "");
+        txtTelefonoEmergencia.setText(dto.getTelefonoEmergencia() != null ? dto.getTelefonoEmergencia() : "");
+        txtCorreoEmergencia.setText(dto.getCorreoEmergencia() != null ? dto.getCorreoEmergencia() : "");
+
+        if (dto.getParentescoEmergencia() != null) {
+            cmbParentescoEmergencia.setSelectedItem(dto.getParentescoEmergencia());
         }
+    }
+
+    //metodos ayudantes de validación
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        return !campo.getText().trim().isEmpty();
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        if (area.getText().trim().isEmpty()) {
-            area.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            area.setBorder(javax.swing.UIManager.getBorder("TextArea.border"));
-            return true;
-        }
+        return !area.getText().trim().isEmpty();
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        if (combo.getSelectedIndex() == 0 || combo.getSelectedItem().toString().toLowerCase().contains("selecciona")) {
-            combo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.RED, 2));
-            return false;
-        } else {
-            combo.setBorder(null);
-            return true;
-        }
+        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
-        } else {
-            campo.setBorder(javax.swing.UIManager.getBorder("TextField.border")); // Lo regresamos a la normalidad
-            return true; // Es válido porque no es obligatorio si no marcó "Sí"
         }
+        return true;
     }
 
     public boolean validarCampos() {

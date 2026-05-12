@@ -20,6 +20,7 @@ public class frmRDP extends javax.swing.JFrame {
     pnlAspPersonales panelPersonales = new pnlAspPersonales();
     pnlDatosMedicos panelMedicos = new pnlDatosMedicos();
     private String idResidenteEdicion = null;
+    private ResidenteDTO dtoCompartido = null;
 
     /**
      * Creates new form frmCrearResidente
@@ -51,10 +52,32 @@ public class frmRDP extends javax.swing.JFrame {
         this.idResidenteEdicion = idSeleccionado;
 
         // Cambiamos el texto visual para que el usuario sepa que está editando
-        // Asegúrate de que lblSubTitulo sea el nombre correcto de tu JLabel en la UI
         lblSubTitulo1.setText("Modificar Datos del Residente");
 
         cargarDatosParaEditar();
+    }
+    
+    /**
+     * Constructor para recibir datos compartidos desde la pantalla de Solicitud
+     */
+    public frmRDP(ResidenteDTO dtoMemoria) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        tabDatosRegistroResi.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        configurarTabs();
+        configurarScrolls();
+        configurarEstiloGeneral();
+
+        // guarda los datos que se pasaron
+        this.dtoCompartido = dtoMemoria;
+
+        // se estraen los datos a los paneles comunes
+        if (this.dtoCompartido != null) {
+            panelSolicitante.cargarDatosPersonales(this.dtoCompartido);
+             panelTutor.cargarDatosTutor(this.dtoCompartido);
+             panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+        }
     }
 
     private void cargarDatosParaEditar() {
@@ -342,15 +365,15 @@ public class frmRDP extends javax.swing.JFrame {
             return;
         }
 
-        ResidenteDTO dtoNuevo = new ResidenteDTO();
+        ResidenteDTO dtoGuardar = (this.dtoCompartido != null) ? this.dtoCompartido : new ResidenteDTO();
 
         // Que cada panel meta sus datos al maletín
-        panelSolicitante.empaquetarDatosPersonales(dtoNuevo);
-        panelTutor.empaquetarDatosTutor(dtoNuevo);
-        panelEmergencia.empaquetarDatosEmergencia(dtoNuevo);
-        panelPersonales.empaquetarDatosPersonales(dtoNuevo);
-        panelAcademicos.empaquetarDatosAcademicos(dtoNuevo);
-        panelMedicos.empaquetarDatosMedicos(dtoNuevo);
+        panelSolicitante.empaquetarDatosPersonales(dtoGuardar);
+        panelTutor.empaquetarDatosTutor(dtoGuardar);
+        panelEmergencia.empaquetarDatosEmergencia(dtoGuardar);
+        panelPersonales.empaquetarDatosPersonales(dtoGuardar);
+        panelAcademicos.empaquetarDatosAcademicos(dtoGuardar);
+        panelMedicos.empaquetarDatosMedicos(dtoGuardar);
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
         
@@ -359,11 +382,11 @@ public class frmRDP extends javax.swing.JFrame {
 
         if (this.idResidenteEdicion == null) {
             // Es nuevo hacemos INSERT
-            exito = fachada.registrarRDP(dtoNuevo); 
+            exito = fachada.registrarRDP(dtoGuardar); 
         } else {
             // Es modificacion aseguramos que lleve el ID original a actualizar
-            dtoNuevo.setIdAcademico(this.idResidenteEdicion); 
-            exito = fachada.actualizarRDP(dtoNuevo); 
+            dtoGuardar.setIdAcademico(this.idResidenteEdicion); 
+            exito = fachada.actualizarRDP(dtoGuardar); 
         }
 
         if (exito) {
