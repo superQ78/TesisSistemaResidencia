@@ -394,7 +394,7 @@ public class frmRDP extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, msj, "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
             if (this.idResidenteEdicion == null) {
-                coordinadorVistas.regresarMenuPrincipal(this);
+                coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
             } else {
                 coordinadorVistas.mostrarModificarResidente(this);
             }

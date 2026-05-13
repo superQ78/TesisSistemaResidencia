@@ -2,6 +2,7 @@ package Negocio.GestorResidente;
 
 import Negocio.BOs.ResidenteBO;
 import Negocio.DTOs.ResidenteDTO;
+import Negocio.DTOs.SolicitudIngresoDTO;
 import java.util.List;
 
 /**
@@ -135,5 +136,23 @@ public class ControlResidente {
 
         Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
         return bo.actualizarRDP(dto);
+    }
+
+    
+    // metodos de solicitud
+    public boolean procesarSolicitudIngreso(SolicitudIngresoDTO dto) {
+        if (!aplicarReglasNegocio(dto)) {
+            return false;
+        }
+
+        ResidenteBO bo = new ResidenteBO();
+        return bo.registrarSolicitud(dto);
+    }
+
+    private boolean aplicarReglasNegocio(SolicitudIngresoDTO dto) {
+        if (dto.getCurpResidente() == null || dto.getTipoPago() == null) {
+            return false;
+        }
+        return true;
     }
 }

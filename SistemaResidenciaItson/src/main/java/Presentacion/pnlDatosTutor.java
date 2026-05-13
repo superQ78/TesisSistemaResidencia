@@ -316,7 +316,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
             cmbCodigoPaisTutor.setSelectedItem(partes[0]);
             txtCelularTutor.setText(partes[1]);
         } else {
-            txtCelularTutor.setText(celular); // Por si guardaron el celular sin espacio
+            txtCelularTutor.setText(celular);
         }
 
         txtTelefonoTutor.setText(dto.getTelefonoTutor());

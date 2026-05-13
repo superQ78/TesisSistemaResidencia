@@ -1,6 +1,7 @@
 package Negocio.GestorResidente;
 
 import Negocio.DTOs.ResidenteDTO;
+import Negocio.DTOs.SolicitudIngresoDTO;
 
 /**
  *
@@ -15,4 +16,6 @@ public interface IResidente {
     public java.util.List<ResidenteDTO> consultarResidentes();
     
     public boolean actualizarRDP(ResidenteDTO dto);
+    
+    boolean registrarSolicitud(SolicitudIngresoDTO dto);
 }

@@ -645,15 +645,15 @@ public class pnlAspPersonales extends javax.swing.JPanel {
     }//GEN-LAST:event_chkObjetoAutoActionPerformed
 
     /**
-     * Este método para guarder los datos personales en el dto.
+     * Este metodo para guarder los datos personales en el dto.
      */
     public void empaquetarDatosPersonales(ResidenteDTO dto) {
 
-        // --- Experiencia de vivienda ---
+        // experiencia de vivienda
         dto.setHaVividoFuera(chkVividoFueraSi.isSelected());
         dto.setTiempoVividoFuera(txtTiempoVividoFuera.getText().trim());
 
-        // --- Decisión de residencia ---
+        // desicion de recidencia
         if (chkDecisionTuya.isSelected()) {
             dto.setDecisionResidencia("Tuya");
         } else if (chkDecisionPadres.isSelected()) {
@@ -664,8 +664,8 @@ public class pnlAspPersonales extends javax.swing.JPanel {
             dto.setDecisionResidencia("No especificado");
         }
 
-        // --- Razones, Adaptación y Convivencia ---
-        dto.setRazonesVivirResidencia(txtRespuestaApdc4.getText().trim()); // Asumo que este campo es para las razones
+        //raziones, adaptacion
+        dto.setRazonesVivirResidencia(txtRespuestaApdc4.getText().trim());
 
         if (chkAdaptacionFacil.isSelected()) {
             dto.setAdaptacion("Fácil");
@@ -689,12 +689,12 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 
         dto.setSituacionesNoDeseadas(txtSituacionesNoDeseadas.getText().trim());
 
-        // --- Preferencias de Compañero (Booleanos) ---
+        //perferencias de compañeros
         dto.setBuscaCompaneroExtranjero(chkCompaneroExtranjero.isSelected());
         dto.setBuscaCompaneroMexicano(chkCompaneroMexicano.isSelected());
         dto.setBuscaCompaneroReingreso(chkCompaneroReingreso.isSelected());
 
-        // --- Hábitos Diarios ---
+        // habitos 
         dto.setHoraDormir(cmbxHoraDormir.getSelectedItem().toString());
         dto.setToleraRuido(chkToleraRuidoSi.isSelected());
 
@@ -718,13 +718,12 @@ public class pnlAspPersonales extends javax.swing.JPanel {
             dto.setHabitosHigiene("No especificado");
         }
 
-        // --- Objetos a traer (Booleanos) ---
         dto.setTraeAuto(chkObjetoAuto.isSelected());
         dto.setTraeComputadora(chkObjetoComputadora.isSelected());
         dto.setTraeTv(chkObjetoTV.isSelected());
         dto.setTraeFrigobar(chkObjetoFrigobar.isSelected());
 
-        // --- Actividades e Iniciativa ---
+        //actividades
         if (chkIniciativaSi.isSelected()) {
             dto.setIniciativaActividades("Sí");
         } else if (chkIniciativaAveses.isSelected()) {
@@ -807,17 +806,17 @@ public class pnlAspPersonales extends javax.swing.JPanel {
             return;
         }
 
-        //Experiencia de vivienda
+        //experiencia de vivienda
         chkVividoFueraSi.setSelected(dto.isHaVividoFuera());
         chkVividoFueraNo.setSelected(!dto.isHaVividoFuera());
         txtTiempoVividoFuera.setText(dto.getTiempoVividoFuera());
 
-        // Decision de residencia
+        //decision de residencia
         chkDecisionTuya.setSelected("Tuya".equals(dto.getDecisionResidencia()));
         chkDecisionPadres.setSelected("Padres".equals(dto.getDecisionResidencia()));
         chkDecisionAmbos.setSelected("Ambos".equals(dto.getDecisionResidencia()));
 
-        // Razones, adaptacion y convivencia
+        //razones, adaptacion y convivencia
         txtRespuestaApdc4.setText(dto.getRazonesVivirResidencia());
 
         chkAdaptacionFacil.setSelected("Fácil".equals(dto.getAdaptacion()));
@@ -830,12 +829,12 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 
         txtSituacionesNoDeseadas.setText(dto.getSituacionesNoDeseadas());
 
-        //Preferencias de compañero 
+        //preferencias de compañero 
         chkCompaneroExtranjero.setSelected(dto.isBuscaCompaneroExtranjero());
         chkCompaneroMexicano.setSelected(dto.isBuscaCompaneroMexicano());
         chkCompaneroReingreso.setSelected(dto.isBuscaCompaneroReingreso());
 
-        //Habitos Diarios
+        //habitos Diarios
         if (dto.getHoraDormir() != null) {
             cmbxHoraDormir.setSelectedItem(dto.getHoraDormir());
         }
@@ -850,13 +849,13 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         chkHigieneRegular.setSelected("Regular".equals(dto.getHabitosHigiene()));
         chkHigienePoco.setSelected("Poco".equals(dto.getHabitosHigiene()));
 
-        // Objetos a traer 
+        //objetos a traer 
         chkObjetoAuto.setSelected(dto.isTraeAuto());
         chkObjetoComputadora.setSelected(dto.isTraeComputadora());
         chkObjetoTV.setSelected(dto.isTraeTv());
         chkObjetoFrigobar.setSelected(dto.isTraeFrigobar());
 
-        // Actividades e Iniciativa
+        //actividades e Iniciativa
         chkIniciativaSi.setSelected("Sí".equals(dto.getIniciativaActividades()));
         chkIniciativaAveses.setSelected("A veces".equals(dto.getIniciativaActividades()));
         chkIniciativaNo.setSelected("No".equals(dto.getIniciativaActividades()));
@@ -868,12 +867,12 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         }
         txtActividadesRealizadas.setText(dto.getActividadesRealizadasGrupo());
 
-        // Actividades Deseadas
+        //actividades Deseadas
         chkDeseaDeportivas.setSelected(dto.isDeseaActDeportivas());
         chkDeseaCulturales.setSelected(dto.isDeseaActCulturales());
         chkDeseaArtisticas.setSelected(dto.isDeseaActArtisticas());
 
-        //Aspectos Finales
+        //aspectos Finales
         if (dto.getAspectosMejoraPersona() != null) {
             cmbxAspectosMejora.setSelectedItem(dto.getAspectosMejoraPersona());
         }

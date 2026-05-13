@@ -387,7 +387,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
     /**
      * Este método es llamado desde FrmRDP para que este panel guarde sus datos
-     * en el maletín.
      */
     public void empaquetarDatosPersonales(ResidenteDTO dto) {
         // datos personales
@@ -435,7 +434,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         if (dto == null) {
             return; // Si el maletín viene vacío, no hacemos nada
         }
-        // Llenamos las cajas de texto (validando que no vengan nulas)
+        // carga los datos personales
         txtNombreSolicitante.setText(dto.getNombreCompleto() != null ? dto.getNombreCompleto() : "");
         txtDomicilioSolicitante.setText(dto.getDomicilio() != null ? dto.getDomicilio() : "");
         txtCurpSolicitante.setText(dto.getCurp() != null ? dto.getCurp() : "");
@@ -444,6 +443,18 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         txtCelularSolicitante.setText(dto.getCelular() != null ? dto.getCelular() : "");
         txtTelefonoSolicitante.setText(dto.getTelefono() != null ? dto.getTelefono() : "");
         txtCorreoSolicitante.setText(dto.getCorreo() != null ? dto.getCorreo() : "");
+
+        //Cargar los datos Academicos
+        txtIdAcademico.setText(dto.getIdAcademico() != null ? dto.getIdAcademico() : "");
+        txtCorreoInstitucional.setText(dto.getCorreoInstitucional() != null ? dto.getCorreoInstitucional() : "");
+        txtCarreraSolicitante.setText(dto.getCarrera() != null ? dto.getCarrera() : "");
+
+        // Para el ComboBox del semestre
+        if (dto.getSemestre() != null && !dto.getSemestre().isEmpty()) {
+            cmbSemestreSolicitante.setSelectedItem(dto.getSemestre());
+        } else {
+            cmbSemestreSolicitante.setSelectedIndex(0);
+        }
 
         // Cargar el JDateChooser
         if (dto.getFechaNacimiento() != null) {
@@ -466,7 +477,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     }
 
     /**
-     * Revisa todos los campos del panel y devuelve true si todos están llenos.
+     * Revisa todos los campos del panel y devuelve true si todos estan llenos
      */
     public boolean validarCampos() {
         boolean todoValido = true;
@@ -495,7 +506,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         if (!campoEsValido(txtCorreoSolicitante)) {
             todoValido = false;
         }
-        // Validar la fecha del JDateChooser
+        // Validar la fecha
         if (dateChooserNacimiento.getDate() == null) {
             todoValido = false;
         }
@@ -553,14 +564,13 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
         // Fecha de Nacimiento
         if (dto.getFechaNacimiento() != null) {
-            // Convertimos de LocalDate a java.util.Date para el JDateChooser
             java.util.Date date = java.sql.Date.valueOf(dto.getFechaNacimiento());
             dateChooserNacimiento.setDate(date);
         }
     }
 
     /**
-     * Metodos ayudante que recibe cualquier cantidad de CheckBoxes y los mete
+     * Metodos ayudante que recibe cualquier cantidad de checkboxes y los mete
      * en un mismo grupo para poder seleccionar uno y mas
      */
     private void crearGrupo(javax.swing.JCheckBox... casillas) {

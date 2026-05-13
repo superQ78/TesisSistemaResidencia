@@ -273,7 +273,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
      */
     public void empaquetarDatosAcademicos(ResidenteDTO dto) {
 
-        // 1. ¿Busca ayuda cuando tiene dificultades académicas?
+        // dificultades academicas
         if (chkAyudaSiempre.isSelected()) {
             dto.setBuscaAyudaAcademica("Siempre");
         } else if (chkAyudaAVeces.isSelected()) {
@@ -284,7 +284,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
             dto.setBuscaAyudaAcademica("No especificado");
         }
 
-        // 2. Efectividad de sus métodos de estudio
+        // Efectividad de sus metodos de estudio
         if (chkEstudioMuyEfectivo.isSelected()) {
             dto.setEfectividadEstudio("Muy efectivo");
         } else if (chkEstudioRegular.isSelected()) {
@@ -295,7 +295,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
             dto.setEfectividadEstudio("No especificado");
         }
 
-        // 3. Efectividad en la administración de su tiempo
+        // efectividad en la administración de su tiempo
         if (chkTiempoMuyEfectivo.isSelected()) {
             dto.setEfectividadTiempo("Muy efectivo");
         } else if (chkTiempoRegular.isSelected()) {
@@ -306,7 +306,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
             dto.setEfectividadTiempo("No especificado");
         }
 
-        // 4. Aspectos que le gustaría mejorar
+        // aspectos que le gustaría mejorar
         dto.setAspectosMejoraAcademica(txaMejorasAcademicas.getText().trim());
     }
 
@@ -332,7 +332,6 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
 
     public boolean validarCampos() {
         boolean todoValido = true;
-        // Solo validamos el área de texto, los checkboxes asumimos que elegirá alguno
         if (!areaEsValida(txaMejorasAcademicas)) {
             todoValido = false;
         }
@@ -340,30 +339,30 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
     }
 
     /**
-     * Este método recibe los datos de la base de datos y rellena los campos
-     * visuales de Aspectos Académicos.
+     * Este metodo recibe los datos de la base de datos y rellena los campos
+     * visuales de aspectos académicos.
      */
     public void cargarDatos(ResidenteDTO dto) {
         if (dto == null) {
             return;
         }
 
-        // Preguntas de ayuda
+        //preguntas de ayuda
         chkAyudaSiempre.setSelected("Siempre".equals(dto.getBuscaAyudaAcademica()));
         chkAyudaAVeces.setSelected("A veces".equals(dto.getBuscaAyudaAcademica()));
         chkAyudaNunca.setSelected("Nunca".equals(dto.getBuscaAyudaAcademica()));
 
-        // Efectividad de sus metodos de estudio
+        //efectividad de sus metodos de estudio
         chkEstudioMuyEfectivo.setSelected("Muy efectivo".equals(dto.getEfectividadEstudio()));
         chkEstudioRegular.setSelected("Regular".equals(dto.getEfectividadEstudio()));
         chkEstudioPoco.setSelected("Poco".equals(dto.getEfectividadEstudio()));
 
-        // Efectividad en la administracion de su tiempo
+        //efectividad en la administracion de su tiempo
         chkTiempoMuyEfectivo.setSelected("Muy efectivo".equals(dto.getEfectividadTiempo()));
         chkTiempoRegular.setSelected("Regular".equals(dto.getEfectividadTiempo()));
         chkTiempoPoco.setSelected("Poco".equals(dto.getEfectividadTiempo()));
 
-        // Aspectos que le gustaria mejorar
+        //aspectos que le gustaria mejorar
         txaMejorasAcademicas.setText(dto.getAspectosMejoraAcademica());
     }
     

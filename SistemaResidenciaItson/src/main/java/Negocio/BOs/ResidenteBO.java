@@ -1,8 +1,10 @@
 package Negocio.BOs;
 
 import Negocio.DTOs.ResidenteDTO;
+import Negocio.DTOs.SolicitudIngresoDTO;
 import Persistencia.DAOs.ResidenteDAO;
 import Persistencia.Entidades.ResidenteEntidad;
+import Persistencia.Entidades.SolicitudIngresoEntidad;
 import Persistencia.Interfaces.IResidenteDAO;
 import java.util.List;
 
@@ -348,5 +350,24 @@ public class ResidenteBO {
 
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.actualizar(entidad);
+    }
+    
+    
+    //metodos de solicitud
+    public boolean registrarSolicitud(SolicitudIngresoDTO dto) {
+        SolicitudIngresoEntidad entidad = convertirSolicitudAEntidad(dto);
+        
+        IResidenteDAO dao = new ResidenteDAO();
+        return dao.insertarSolicitud(entidad);
+    }
+
+    private SolicitudIngresoEntidad convertirSolicitudAEntidad(SolicitudIngresoDTO dto) {
+        SolicitudIngresoEntidad entidad = new SolicitudIngresoEntidad();
+        entidad.setCurpResidente(dto.getCurpResidente());
+        entidad.setTipoPago(dto.getTipoPago());
+        entidad.setMontoPago(dto.getMontoPago());
+        entidad.setNombreCompanero(dto.getNombreCompanero());
+        entidad.setIdCompanero(dto.getIdCompanero());
+        return entidad;
     }
 }

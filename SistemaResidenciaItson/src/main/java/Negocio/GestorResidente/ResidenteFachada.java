@@ -1,6 +1,7 @@
 package Negocio.GestorResidente;
 
 import Negocio.DTOs.ResidenteDTO;
+import Negocio.DTOs.SolicitudIngresoDTO;
 
 /**
  *
@@ -30,5 +31,12 @@ public class ResidenteFachada implements IResidente {
     public boolean actualizarRDP(ResidenteDTO dto) {
         ControlResidente control = new ControlResidente();
         return control.actualizarRDP(dto);
+    }
+    
+    //metodo de solicitud
+    @Override
+    public boolean registrarSolicitud(SolicitudIngresoDTO dto) {
+        ControlResidente control = new ControlResidente();
+        return control.procesarSolicitudIngreso(dto); 
     }
 }

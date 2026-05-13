@@ -1,6 +1,10 @@
-package Negocio.DTOs;
+package Persistencia.Entidades;
 
-public class SolicitudIngresoDTO {
+/**
+ *
+ * @author User
+ */
+public class SolicitudIngresoEntidad {
 
     private int idSolicitud;
     private String curpResidente;
@@ -9,7 +13,7 @@ public class SolicitudIngresoDTO {
     private String nombreCompanero;
     private String idCompanero;
 
-    public SolicitudIngresoDTO(int idSolicitud, String curpResidente, String tipoPago, String montoPago, String nombreCompanero, String idCompanero) {
+    public SolicitudIngresoEntidad(int idSolicitud, String curpResidente, String tipoPago, String montoPago, String nombreCompanero, String idCompanero) {
         this.idSolicitud = idSolicitud;
         this.curpResidente = curpResidente;
         this.tipoPago = tipoPago;
@@ -18,7 +22,7 @@ public class SolicitudIngresoDTO {
         this.idCompanero = idCompanero;
     }
 
-    public SolicitudIngresoDTO() {
+    public SolicitudIngresoEntidad() {
     }
 
     public int getIdSolicitud() {
@@ -28,7 +32,7 @@ public class SolicitudIngresoDTO {
     public void setIdSolicitud(int idSolicitud) {
         this.idSolicitud = idSolicitud;
     }
-    
+
     public String getCurpResidente() {
         return curpResidente;
     }

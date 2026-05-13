@@ -14,6 +14,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     public pnlDatosMedicos() {
         initComponents();
         agruparCasillas();
+        configurarDinamismo();
     }
 
     /**
@@ -441,8 +442,21 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // metodo que vincula cada Checkbox de Si y No con su text field
+    private void configurarDinamismo() {
+        vincularCasilla(chkVistaSi, chkVistaNo, txtEspecificarVista, "Especificar deficiencia...");
+        vincularCasilla(chkAuditivaSi, chkAuditivaNo, txtEspecificarAuditiva, "Especificar deficiencia...");
+        vincularCasilla(chkFisicaSi, chkFisicaNo, txtEspecificarFisica, "Especificar discapacidad...");
+        vincularCasilla(chkLesionesSi, chkLesionesNo, txtEspecificarLesiones, "Especificar lesión...");
+        vincularCasilla(chkPadecimientosSi, chkPadecimientosNo, txtEspecificarPadecimientos, "Especificar padecimiento...");
+        vincularCasilla(chkTratamientosSi, chkTratamientosNo, txtMotivoTratamientos, "Motivo del tratamiento...");
+        vincularCasilla(chkMedicamentosSi, chkMedicamentosNo, txtEspecificarMedicamentos, "Especificar medicamento...");
+        vincularCasilla(chkAlergiasSi, chkAlergiasNo, txtEspecificarAlergias, "Especificar alergia...");
+        vincularCasilla(chkExternosSi, chkExternosNo, txtMotivoExternos, "Motivo del tratamiento...");
+    }
+
     /**
-     * metodo para guardar datos médicos en el DTO.
+     * metodo para guardar datos médicos en el dto
      */
     public void empaquetarDatosMedicos(ResidenteDTO dto) {
 
@@ -457,35 +471,34 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
             dto.setEstadoSalud("No especificado");
         }
 
-        // --- Deficiencias y Condiciones
         dto.setTieneDeficienciaVista(chkVistaSi.isSelected());
-        dto.setEspecificarVista(txtEspecificarVista.getText().trim());
+        dto.setEspecificarVista(obtenerTextoReal(txtEspecificarVista, "Especificar deficiencia..."));
 
         dto.setTieneDeficienciaAuditiva(chkAuditivaSi.isSelected());
-        dto.setEspecificarAuditiva(txtEspecificarAuditiva.getText().trim());
+        dto.setEspecificarAuditiva(obtenerTextoReal(txtEspecificarAuditiva, "Especificar deficiencia..."));
 
         dto.setTieneDiscapacidadFisica(chkFisicaSi.isSelected());
-        dto.setEspecificarFisica(txtEspecificarFisica.getText().trim());
+        dto.setEspecificarFisica(obtenerTextoReal(txtEspecificarFisica, "Especificar discapacidad..."));
 
         dto.setTieneLesionesGraves(chkLesionesSi.isSelected());
-        dto.setEspecificarLesiones(txtEspecificarLesiones.getText().trim());
+        dto.setEspecificarLesiones(obtenerTextoReal(txtEspecificarLesiones, "Especificar lesión..."));
 
         dto.setTienePadecimientos(chkPadecimientosSi.isSelected());
-        dto.setEspecificarPadecimientos(txtEspecificarPadecimientos.getText().trim());
+        dto.setEspecificarPadecimientos(obtenerTextoReal(txtEspecificarPadecimientos, "Especificar padecimiento..."));
 
         dto.setTieneTratamientosPsicologicos(chkTratamientosSi.isSelected());
-        dto.setMotivoTratamientosPsicologicos(txtMotivoTratamientos.getText().trim());
+        dto.setMotivoTratamientosPsicologicos(obtenerTextoReal(txtMotivoTratamientos, "Motivo del tratamiento..."));
 
         dto.setTieneMedicamentosControlados(chkMedicamentosSi.isSelected());
-        dto.setEspecificarMedicamentos(txtEspecificarMedicamentos.getText().trim());
+        dto.setEspecificarMedicamentos(obtenerTextoReal(txtEspecificarMedicamentos, "Especificar medicamento..."));
 
         dto.setTieneAlergias(chkAlergiasSi.isSelected());
-        dto.setEspecificarAlergias(txtEspecificarAlergias.getText().trim());
+        dto.setEspecificarAlergias(obtenerTextoReal(txtEspecificarAlergias, "Especificar alergia..."));
 
         dto.setTieneTratamientosExternos(chkExternosSi.isSelected());
-        dto.setMotivoTratamientosExternos(txtMotivoExternos.getText().trim());
+        dto.setMotivoTratamientosExternos(obtenerTextoReal(txtMotivoExternos, "Motivo del tratamiento..."));
 
-        //sangre y Otros detalles
+        // sangre y Otros detalles
         String tipoSangre = cmbTipoSangre.getSelectedItem().toString();
         if (tipoSangre.toLowerCase().contains("selecciona")) {
             dto.setTipoSangre("");
@@ -497,10 +510,10 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         dto.setOtraInformacionSalud(txaOtraInformacionSalud.getText().trim());
     }
 
-    
     // metodos ayudantes de validaciones
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        String texto = campo.getText().trim();
+        return !texto.isEmpty() && !texto.contains("Especificar") && !texto.contains("Motivo");
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
@@ -625,8 +638,8 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         txtAspectosSalud.setText(dto.getAspectosSaludMejora());
         txaOtraInformacionSalud.setText(dto.getOtraInformacionSalud());
     }
-    
-     /**
+
+    /**
      * Metodos ayudante que recibe cualquier cantidad de CheckBoxes y los mete
      * en un mismo grupo para poder seleccionar uno y mas
      */
@@ -636,10 +649,10 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
             grupo.add(casilla);
         }
     }
-    
+
     private void agruparCasillas() {
         crearGrupo(chkSaludBueno, chkSaludRegular, chkSaludMalo);
-        
+
         crearGrupo(chkVistaSi, chkVistaNo);
         crearGrupo(chkAuditivaSi, chkAuditivaNo);
         crearGrupo(chkFisicaSi, chkFisicaNo);
@@ -649,6 +662,66 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         crearGrupo(chkMedicamentosSi, chkMedicamentosNo);
         crearGrupo(chkAlergiasSi, chkAlergiasNo);
         crearGrupo(chkExternosSi, chkExternosNo);
+    }
+
+    /**
+     * Crea el efecto de texto de especficar en el text field
+     */
+    private void aplicarPlaceholder(javax.swing.JTextField campo, String textoPlaceholder) {
+        campo.setText(textoPlaceholder);
+        campo.setForeground(new java.awt.Color(153, 153, 153));
+
+        campo.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (campo.getText().equals(textoPlaceholder)) {
+                    campo.setText("");
+                    campo.setForeground(new java.awt.Color(0, 0, 0));
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (campo.getText().trim().isEmpty()) {
+                    campo.setText(textoPlaceholder);
+                    campo.setForeground(new java.awt.Color(153, 153, 153));
+                }
+            }
+        });
+    }
+
+    /**
+     * Vincula el text field de texto con su CheckBox para que se prenda o
+     * apague
+     */
+    private void vincularCasilla(javax.swing.JCheckBox chkSi, javax.swing.JCheckBox chkNo, javax.swing.JTextField campo, String placeholder) {
+        campo.setEnabled(false); // Apagado por defecto
+        aplicarPlaceholder(campo, placeholder);
+
+        java.awt.event.ActionListener accion = evt -> {
+            if (chkSi.isSelected()) {
+                campo.setEnabled(true);
+                campo.requestFocus(); // El cursor salta automático al texto field
+            } else {
+                campo.setEnabled(false);
+                campo.setText(placeholder); // Regresa el texto 
+                campo.setForeground(new java.awt.Color(153, 153, 153));
+            }
+        };
+
+        chkSi.addActionListener(accion);
+        chkNo.addActionListener(accion);
+    }
+
+    /**
+     * Extrae el texto real
+     */
+    private String obtenerTextoReal(javax.swing.JTextField campo, String placeholder) {
+        String texto = campo.getText().trim();
+        if (texto.equals(placeholder)) {
+            return "";
+        }
+        return texto;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

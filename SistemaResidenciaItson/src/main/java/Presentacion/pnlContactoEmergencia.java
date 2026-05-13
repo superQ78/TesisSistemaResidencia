@@ -209,10 +209,10 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
 
         dto.setDomicilioEmergencia(txtDomicilioEmergencia.getText().trim());
 
-        // Ciudad, estado y país
+        //ciudad, estado y país
         dto.setLugarEmergencia(txtCiudadEstadoPaisEmergencia.getText().trim());
 
-        // Concatenar el código de país con el celular
+        //concatenar el código de país con el celular
         String codigoPais = cmbCodigoPaisEmergencia.getSelectedItem().toString();
         dto.setCelularEmergencia(codigoPais + " " + txtCelularEmergencia.getText().trim());
 

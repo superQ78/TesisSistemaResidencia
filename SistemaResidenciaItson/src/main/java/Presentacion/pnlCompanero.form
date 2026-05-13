@@ -38,21 +38,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="lblTituloTutor" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTituloCompanero" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="120" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblDomicilioTutor" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombreCompanero" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="txtDomicilioTutor" min="-2" pref="477" max="-2" attributes="0"/>
+                          <Component id="txtNombreCompanero" min="-2" pref="477" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="lblNombreTutor" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIdCompanero" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="txtNombreTutor" min="-2" pref="231" max="-2" attributes="0"/>
+                          <Component id="txtIdCompanero" min="-2" pref="231" max="-2" attributes="0"/>
                       </Group>
                       <Component id="lblNotaInformativaPago2" min="-2" max="-2" attributes="0"/>
                       <Component id="lblNotaInformativaPago" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -66,16 +66,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="lblTituloTutor" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblTituloCompanero" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblNombreTutor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNombreTutor" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblIdCompanero" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdCompanero" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDomicilioTutor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDomicilioTutor" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="lblNombreCompanero" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombreCompanero" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="lblNotaInformativaPago" min="-2" max="-2" attributes="0"/>
@@ -89,7 +89,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblTituloTutor">
+        <Component class="javax.swing.JLabel" name="lblTituloCompanero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="26" style="1"/>
@@ -97,12 +97,12 @@
             <Property name="text" type="java.lang.String" value="Petici&#xf3;n de compa&#xf1;ero de cuarto"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreTutor">
+        <Component class="javax.swing.JTextField" name="txtIdCompanero">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreTutorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdCompaneroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDomicilioTutor">
+        <Component class="javax.swing.JLabel" name="lblNombreCompanero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -110,12 +110,12 @@
             <Property name="text" type="java.lang.String" value="Nombre completo del compa&#xf1;ero deseado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDomicilioTutor">
+        <Component class="javax.swing.JTextField" name="txtNombreCompanero">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDomicilioTutorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreCompaneroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNombreTutor">
+        <Component class="javax.swing.JLabel" name="lblIdCompanero">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>

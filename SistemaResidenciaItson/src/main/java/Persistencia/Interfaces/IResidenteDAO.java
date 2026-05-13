@@ -1,6 +1,7 @@
 package Persistencia.Interfaces;
 
 import Persistencia.Entidades.ResidenteEntidad;
+import Persistencia.Entidades.SolicitudIngresoEntidad;
 import java.util.List;
 
 /**
@@ -16,5 +17,7 @@ public interface IResidenteDAO {
     ResidenteEntidad consultarPorId(String id);
 
     boolean actualizar(ResidenteEntidad entidad);
+    
+    boolean insertarSolicitud(SolicitudIngresoEntidad entidad);
 
 }

@@ -27,15 +27,15 @@ CREATE TABLE Residentes (
     sexo VARCHAR(20),
     fechaNacimiento DATE,
     domicilio VARCHAR(150),
-    curp VARCHAR(20),
+    curp VARCHAR(18) UNIQUE NOT NULL,
     lugarResidencia VARCHAR(150),
-    nss VARCHAR(20),
-    celular VARCHAR(20),
-    telefono VARCHAR(20),
+    nss VARCHAR(11),
+    celular VARCHAR(10),
+    telefono VARCHAR(10),
     correo VARCHAR(100),
 
     -- DATOS ACADÉMICOS
-    idAcademico VARCHAR(20),
+    idAcademico VARCHAR(20) UNIQUE NOT NULL,
     correoInstitucional VARCHAR(100),
     carrera VARCHAR(100),
     semestre VARCHAR(20),
@@ -49,8 +49,8 @@ CREATE TABLE Residentes (
     parentescoEmergencia VARCHAR(50),
     domicilioEmergencia VARCHAR(150),
     lugarEmergencia VARCHAR(150),
-    celularEmergencia VARCHAR(20),
-    telefonoEmergencia VARCHAR(20),
+    celularEmergencia VARCHAR(10),
+    telefonoEmergencia VARCHAR(10),
     correoEmergencia VARCHAR(100),
 
     -- DATOS DEL TUTOR
@@ -58,8 +58,8 @@ CREATE TABLE Residentes (
     parentescoTutor VARCHAR(50),
     domicilioTutor VARCHAR(150),
     lugarTutor VARCHAR(150),
-    celularTutor VARCHAR(20),
-    telefonoTutor VARCHAR(20),
+    celularTutor VARCHAR(10),
+    telefonoTutor VARCHAR(10),
     correoTutor VARCHAR(100),
 
     -- DATOS MÉDICOS
@@ -117,4 +117,15 @@ CREATE TABLE Residentes (
 
     -- CONTROL
     fechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    
 );
+
+CREATE TABLE SolicitudesIngreso (
+    idSolicitud INT AUTO_INCREMENT PRIMARY KEY,
+    curpResidente VARCHAR(18) NOT NULL,
+    tipoPago VARCHAR(100) NOT NULL,
+    montoPago VARCHAR(50) NOT NULL,
+    idCompanero VARCHAR(50) NOT NULL,
+    nombreCompanero VARCHAR(150) NOT NULL
+);
+

@@ -292,24 +292,63 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // Trae los datos ya igresados
+ 
+        boolean solValido = panelSolicitante.validarCampos();
+        boolean tutValido = panelTutor.validarCampos();
+        boolean emeValido = panelEmergencia.validarCampos();
+        boolean pagoValido = panelPago.validarCampos();
+        boolean companeroValido = panelCompanero.validarCampos();
+        
+        if (!solValido || !tutValido || !emeValido || !pagoValido || !companeroValido) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor, asegúrate de llenar todos los campos obligatorios.",
+                    "Campos incompletos",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
+        
         if (this.dtoCompartido == null) {
-            this.dtoCompartido = new ResidenteDTO();
+            this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
         }
 
-        // indica a los paneles que guarden todo lo que el usuario escribio
+        // se guarda lo ingresado en los paneles que comparte con rdp
         panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
         panelTutor.empaquetarDatosTutor(this.dtoCompartido);
         panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
 
-        // (Aquí después puedes agregar la validación visual que hicimos para el RDP)
-        //  mensaje para que el usuario sepa que todo salió bien
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Datos guardados correctamente.",
-                "Progreso guardado",
-                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (this.dtoCompartido.getCurp() == null || this.dtoCompartido.getCurp().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "La CURP del solicitante es obligatoria para poder guardar la solicitud.",
+                    "Faltan datos",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        // crear la solicitud
+        Negocio.DTOs.SolicitudIngresoDTO dtoSolicitud = new Negocio.DTOs.SolicitudIngresoDTO();
+ 
+        dtoSolicitud.setCurpResidente(this.dtoCompartido.getCurp());
 
-        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
+        panelPago.empaquetarDatosPago(dtoSolicitud);
+        panelCompanero.empaquetarDatosCompanero(dtoSolicitud);
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        boolean exito = fachada.registrarSolicitud(dtoSolicitud);
+
+        if (exito) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Solicitud de ingreso guardada correctamente en la Base de Datos.",
+                    "Éxito",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
+            
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al guardar la solicitud en BD. Revisa tu conexión o los datos ingresados.",
+                    "Error de guardado",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 

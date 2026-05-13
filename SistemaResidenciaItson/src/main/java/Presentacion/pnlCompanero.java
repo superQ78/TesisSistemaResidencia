@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Presentacion;
 
 /**
@@ -27,37 +24,37 @@ public class pnlCompanero extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblTituloTutor = new javax.swing.JLabel();
-        txtNombreTutor = new javax.swing.JTextField();
-        lblDomicilioTutor = new javax.swing.JLabel();
-        txtDomicilioTutor = new javax.swing.JTextField();
-        lblNombreTutor = new javax.swing.JLabel();
+        lblTituloCompanero = new javax.swing.JLabel();
+        txtIdCompanero = new javax.swing.JTextField();
+        lblNombreCompanero = new javax.swing.JLabel();
+        txtNombreCompanero = new javax.swing.JTextField();
+        lblIdCompanero = new javax.swing.JLabel();
         lblNotaInformativaPago = new javax.swing.JLabel();
         lblNotaInformativaPago1 = new javax.swing.JLabel();
         lblNotaInformativaPago2 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblTituloTutor.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblTituloTutor.setText("Petición de compañero de cuarto");
+        lblTituloCompanero.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblTituloCompanero.setText("Petición de compañero de cuarto");
 
-        txtNombreTutor.addActionListener(new java.awt.event.ActionListener() {
+        txtIdCompanero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreTutorActionPerformed(evt);
+                txtIdCompaneroActionPerformed(evt);
             }
         });
 
-        lblDomicilioTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblDomicilioTutor.setText("Nombre completo del compañero deseado:");
+        lblNombreCompanero.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblNombreCompanero.setText("Nombre completo del compañero deseado:");
 
-        txtDomicilioTutor.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreCompanero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDomicilioTutorActionPerformed(evt);
+                txtNombreCompaneroActionPerformed(evt);
             }
         });
 
-        lblNombreTutor.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblNombreTutor.setText("ID:");
+        lblIdCompanero.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        lblIdCompanero.setText("ID:");
 
         lblNotaInformativaPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNotaInformativaPago.setText("Las Residencias Estudiantiles son exclusivas para alumnos ITSON. Si deseas compartir habitación con un alumno");
@@ -74,19 +71,19 @@ public class pnlCompanero extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(lblTituloTutor)
+                .addComponent(lblTituloCompanero)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(120, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblDomicilioTutor)
+                        .addComponent(lblNombreCompanero)
                         .addGap(28, 28, 28)
-                        .addComponent(txtDomicilioTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNombreCompanero, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNombreTutor)
+                        .addComponent(lblIdCompanero)
                         .addGap(28, 28, 28)
-                        .addComponent(txtNombreTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIdCompanero, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblNotaInformativaPago2)
                     .addComponent(lblNotaInformativaPago)
                     .addComponent(lblNotaInformativaPago1))
@@ -96,15 +93,15 @@ public class pnlCompanero extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(lblTituloTutor)
+                .addComponent(lblTituloCompanero)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreTutor)
-                    .addComponent(txtNombreTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblIdCompanero)
+                    .addComponent(txtIdCompanero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDomicilioTutor)
-                    .addComponent(txtDomicilioTutor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombreCompanero)
+                    .addComponent(txtNombreCompanero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(lblNotaInformativaPago)
                 .addGap(0, 0, 0)
@@ -126,24 +123,45 @@ public class pnlCompanero extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTutorActionPerformed
+    private void txtIdCompaneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdCompaneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreTutorActionPerformed
+    }//GEN-LAST:event_txtIdCompaneroActionPerformed
 
-    private void txtDomicilioTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDomicilioTutorActionPerformed
+    private void txtNombreCompaneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompaneroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDomicilioTutorActionPerformed
+    }//GEN-LAST:event_txtNombreCompaneroActionPerformed
+    
+    /**
+     * Este método es llamado desde FrmSolicitudIngreso para guardar los datos
+     * del compañero en el maletín de la Solicitud.
+     * @param dtoSol
+     */
+    public void empaquetarDatosCompanero(Negocio.DTOs.SolicitudIngresoDTO dtoSol) {
+        dtoSol.setIdCompanero(txtIdCompanero.getText().trim()); 
+        dtoSol.setNombreCompanero(txtNombreCompanero.getText().trim());
+    }
 
+    /**
+     * Valida la sección del compañero. 
+     */
+    public boolean validarCampos() {
+        return campoEsValido(txtNombreCompanero) && campoEsValido(txtIdCompanero);
+    }
+
+    // Método ayudante para la validación
+    private boolean campoEsValido(javax.swing.JTextField campo) {
+        return !campo.getText().trim().isEmpty();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblDomicilioTutor;
-    private javax.swing.JLabel lblNombreTutor;
+    private javax.swing.JLabel lblIdCompanero;
+    private javax.swing.JLabel lblNombreCompanero;
     private javax.swing.JLabel lblNotaInformativaPago;
     private javax.swing.JLabel lblNotaInformativaPago1;
     private javax.swing.JLabel lblNotaInformativaPago2;
-    private javax.swing.JLabel lblTituloTutor;
-    private javax.swing.JTextField txtDomicilioTutor;
-    private javax.swing.JTextField txtNombreTutor;
+    private javax.swing.JLabel lblTituloCompanero;
+    private javax.swing.JTextField txtIdCompanero;
+    private javax.swing.JTextField txtNombreCompanero;
     // End of variables declaration//GEN-END:variables
 }

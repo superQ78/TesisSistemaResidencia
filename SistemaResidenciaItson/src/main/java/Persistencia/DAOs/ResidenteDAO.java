@@ -2,6 +2,7 @@ package Persistencia.DAOs;
 
 import Persistencia.Conexion.Conexion;
 import Persistencia.Entidades.ResidenteEntidad;
+import Persistencia.Entidades.SolicitudIngresoEntidad;
 import Persistencia.Interfaces.IResidenteDAO;
 
 import java.sql.Connection;
@@ -294,4 +295,38 @@ public class ResidenteDAO implements IResidenteDAO {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    // metodo solicitud
+    @Override
+    public boolean insertarSolicitud(SolicitudIngresoEntidad entidad) {
+        String sql = "INSERT INTO SolicitudesIngreso "
+                   + "(curpResidente, tipoPago, montoPago, nombreCompanero, idCompanero) "
+                   + "VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, entidad.getCurpResidente());
+            ps.setString(2, entidad.getTipoPago());
+            ps.setString(3, entidad.getMontoPago());
+
+            if (entidad.getNombreCompanero() != null && !entidad.getNombreCompanero().trim().isEmpty()) {
+                ps.setString(4, entidad.getNombreCompanero());
+            } else {
+                ps.setNull(4, java.sql.Types.VARCHAR);
+            }
+
+            if (entidad.getIdCompanero() != null && !entidad.getIdCompanero().trim().isEmpty()) {
+                ps.setString(5, entidad.getIdCompanero());
+            } else {
+                ps.setNull(5, java.sql.Types.VARCHAR);
+            }
+
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Error al insertar la solicitud en la base de datos: " + e.getMessage());
+            e.printStackTrace(); 
+            return false;
+        }
+    }
 }
