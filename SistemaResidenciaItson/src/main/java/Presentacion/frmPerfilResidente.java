@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -14,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 public class frmPerfilResidente extends javax.swing.JFrame {
 
     private DefaultTableModel modeloActaResidentes;
+    private String idResidente;
+
     /**
      * Creates new form frmPerfilResidente
      */
@@ -21,6 +19,47 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         configurarYcargarTabla();
+    }
+
+    /**
+     * Atrapa el ID que envía frmConsultarResidente para ver los datos del recidnete
+     */
+    public frmPerfilResidente(String idResidenteSeleccionado) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarYcargarTabla();
+
+        this.idResidente = idResidenteSeleccionado;
+
+        cargarDatosGenerales();
+    }
+
+    /**
+     * Consulta la BD con el ID del residente y llena los Labels de los datos
+     * con la infromacion del recidente.
+     */
+    private void cargarDatosGenerales() {
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        Negocio.DTOs.ResidenteDTO residente = fachada.consultarResidentePorId(this.idResidente);
+
+        if (residente != null) {
+
+            // Usa un operador ternario por si algun dato viene nulo, que ponga "N/A"
+            lblNombreValor.setText(residente.getNombreCompleto() != null ? residente.getNombreCompleto() : "N/A");
+            lblIdValor.setText(residente.getIdAcademico() != null ? residente.getIdAcademico() : "N/A");
+            lblCelularValor.setText(residente.getCelular() != null ? residente.getCelular() : "N/A");
+            lblCorreoValor.setText(residente.getCorreo() != null ? residente.getCorreo() : "N/A");
+            lblImssValor.setText(residente.getNss() != null ? residente.getNss() : "N/A");
+            lblSemestresValor.setText(residente.getSemestre() != null ? residente.getSemestre() : "N/A");
+            lblCarreraValor.setText(residente.getCarrera() != null ? residente.getCarrera() : "N/A");
+
+        } else {
+            // Si por error no lo encuentra
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se pudo cargar la información de este residente.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -307,7 +346,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActaNacimientoActionPerformed
 
-     public void configurarYcargarTabla() {
+    public void configurarYcargarTabla() {
         // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
         String[] titulos = {"ID", "Fecha", "Seleccionar"};
 
@@ -320,11 +359,11 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         };
 
         tblActasAdmin.setModel(modeloActaResidentes);
-        tblActasAdmin.setRowHeight(55); 
+        tblActasAdmin.setRowHeight(55);
         tblActasAdmin.setBackground(java.awt.Color.WHITE);
 
         // Usamos la ruta para asegurar que salga el botón seleccionar
-        String rutaBoton = "/Imagenes/cursor.png"; 
+        String rutaBoton = "/Imagenes/cursor.png";
 
         tblActasAdmin.getColumnModel().getColumn(2).setCellRenderer(
                 new Utilidades.RenderImagen(rutaBoton)
@@ -356,7 +395,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         modeloActaResidentes.addRow(fila2);
         modeloActaResidentes.addRow(fila3);
     }
-    
+
     /**
      * @param args the command line arguments
      */

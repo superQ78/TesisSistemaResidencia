@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -114,24 +110,21 @@ public class frmConsultarResidente extends javax.swing.JFrame {
      * Configura el modelo de las columnas y carga datos de ejemplo.
      */
     public void configurarYcargarTabla() {
-        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
+        // Títulos de columnas
         String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};
 
         modeloResidentes = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Solo la columna 3 (donde va el botón SELECT) es editable para recibir clics
                 return column == 3;
             }
         };
 
         tblActas.setModel(modeloResidentes);
-        tblActas.setRowHeight(55); // Un poco más alto para que quepa bien el botón azul
+        tblActas.setRowHeight(55);
         tblActas.setBackground(java.awt.Color.WHITE);
 
-        // 2. Configurar Render y Editor solo para la Columna 3 (Índice 3)
-        // Usamos la ruta forzada para asegurar que salga el botón "SELECT"
-        String rutaBoton = "/Imagenes/cursor.png"; // Asegúrate que tu imagen se llame así
+        String rutaBoton = "/Imagenes/cursor.png";
 
         tblActas.getColumnModel().getColumn(3).setCellRenderer(
                 new Utilidades.RenderImagen(rutaBoton)
@@ -141,30 +134,61 @@ public class frmConsultarResidente extends javax.swing.JFrame {
                 new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas, rutaBoton)
         );
 
-        // 3. Ajuste de anchos para que se parezca a la imagen
+        // Ajuste de ancho de las columnas
         tblActas.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
-        tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre (más ancho)
+        tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre
         tblActas.getColumnModel().getColumn(2).setPreferredWidth(100); // Nacionalidad
         tblActas.getColumnModel().getColumn(3).setPreferredWidth(100); // Botón
 
-        // 4. Cargar datos de prueba
-        llenarTablaEjemplo();
+        // cargar datos
+        cargarResidentes();
+        
+        tblActas.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblActas.rowAtPoint(evt.getPoint());
+                int columna = tblActas.columnAtPoint(evt.getPoint());
+
+                if (fila >= 0 && columna == 3) {
+
+                    // extrae el id del residente de esa fila
+                    String idSeleccionado = tblActas.getValueAt(fila, 0).toString();
+                    
+                    coordinadorVistas.mostrarPerfilResidente(frmConsultarResidente.this, idSeleccionado);
+                }
+            }
+        });
     }
 
     /**
-     * Simula los datos mostrados en la imagen.
+     * Consulta la Base de Datos y llena la tabla con los residentes reales.
      */
-    private void llenarTablaEjemplo() {
-        // Datos extraídos visualmente de tu imagen
-        Object[] fila1 = {"00000226088", "panfilo filomeno", "Méxicana", "SELECT"};
-        Object[] fila2 = {"00000226089", "Cesar Adrian Duran Avalos", "Méxicana", "SELECT"};
-        Object[] fila3 = {"00000226090", "Georgina Aviles", "Colombiano", "SELECT"};
-        Object[] fila4 = {"00000226091", "Jose Duran", "Colombiano", "SELECT"};
+    private void cargarResidentes() {
+        // limpia la tabla por si tuviera datos viejos
+        modeloResidentes.setRowCount(0);
 
-        modeloResidentes.addRow(fila1);
-        modeloResidentes.addRow(fila2);
-        modeloResidentes.addRow(fila3);
-        modeloResidentes.addRow(fila4);
+        // llama a fachada
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        java.util.List<Negocio.DTOs.ResidenteDTO> listaResidentes = fachada.consultarResidentes();
+
+        // muestar los recidentes
+        if (listaResidentes != null) {
+            for (Negocio.DTOs.ResidenteDTO res : listaResidentes) {
+
+                String id = res.getIdAcademico();
+                String nombre = res.getNombreCompleto();
+                String nacionalidad = res.getLugarResidencia() != null ? res.getLugarResidencia() : "N/A";
+
+                Object[] fila = {
+                    id,
+                    nombre,
+                    nacionalidad,
+                    ""
+                };
+
+                modeloResidentes.addRow(fila);
+            }
+        }
     }
 
     /**

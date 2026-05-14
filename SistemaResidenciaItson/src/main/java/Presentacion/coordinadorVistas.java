@@ -98,7 +98,7 @@ public class coordinadorVistas {
         rdp.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
-    
+
     /**
      * Abre Solicitud y le pasa los datos que se hayan llenado en RDP
      */
@@ -141,6 +141,17 @@ public class coordinadorVistas {
     public static void mostrarModificarRDP(JFrame ventanaActual, String idResidente) {
         frmRDP formularioEdicion = new frmRDP(idResidente);
         formularioEdicion.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * abre la pantalla del Perfil del Residente, pasándole el ID para que
+     * busque su información.
+     */
+    public static void mostrarPerfilResidente(JFrame ventanaActual, String idResidente) {
+        // 1. Creamos la nueva pantalla y le damos el ID
+        frmPerfilResidente pantallaPerfil = new frmPerfilResidente(idResidente);
+        pantallaPerfil.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
 }
