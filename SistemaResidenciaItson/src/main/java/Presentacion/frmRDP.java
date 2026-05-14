@@ -40,6 +40,7 @@ public class frmRDP extends javax.swing.JFrame {
         tabDatosRegistroResi.repaint();
     }
 
+    //Constructor para modificar informacion de recidentes
     public frmRDP(String idSeleccionado) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -58,7 +59,7 @@ public class frmRDP extends javax.swing.JFrame {
 
         cargarDatosParaEditar();
     }
-    
+
     /**
      * Constructor para recibir datos compartidos desde la pantalla de Solicitud
      */
@@ -78,21 +79,21 @@ public class frmRDP extends javax.swing.JFrame {
         // se estraen los datos a los paneles comunes
         if (this.dtoCompartido != null) {
             panelSolicitante.cargarDatosPersonales(this.dtoCompartido);
-             panelTutor.cargarDatosTutor(this.dtoCompartido);
-             panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+            panelTutor.cargarDatosTutor(this.dtoCompartido);
+            panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
         }
     }
 
     private void cargarDatosParaEditar() {
         // 1. Instanciar la fachada de Residentes
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-        
+
         // 2. Consultar toda la información del residente usando su ID
         ResidenteDTO residente = fachada.consultarResidentePorId(this.idResidenteEdicion);
 
         // 3. Si la base de datos sí nos devolvió la información, llenamos los paneles
         if (residente != null) {
-            
+
             // Le mandamos el "maletín" entero a cada panel para que cada uno agarre lo que necesita
             panelSolicitante.cargarDatos(residente);
             panelTutor.cargarDatos(residente);
@@ -100,19 +101,19 @@ public class frmRDP extends javax.swing.JFrame {
             panelPersonales.cargarDatos(residente);
             panelAcademicos.cargarDatos(residente);
             panelMedicos.cargarDatos(residente);
-            
+
         } else {
             // Si por alguna razón el ID no existe o hubo un error de conexión
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                    "No se encontró la información del residente en la Base de Datos.", 
-                    "Error de Carga", 
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontró la información del residente en la Base de Datos.",
+                    "Error de Carga",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
-            
+
             // Usamos tu Coordinador para sacarlo de ahí y regresarlo a la tabla
             coordinadorVistas.mostrarModificarResidente(this);
         }
     }
-    
+
     /**
      * Si el usaurio escoje el mismo parentesco que el del tutor, copia todos
      * los datos automaticamente.
@@ -403,17 +404,17 @@ public class frmRDP extends javax.swing.JFrame {
         panelMedicos.empaquetarDatosMedicos(dtoGuardar);
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-        
+
         // Empezamos asumiendo que es falso para que el if de abajo haga la llamada de verdad
         boolean exito = false;
 
         if (this.idResidenteEdicion == null) {
             // Es nuevo hacemos INSERT
-            exito = fachada.registrarRDP(dtoGuardar); 
+            exito = fachada.registrarRDP(dtoGuardar);
         } else {
             // Es modificacion aseguramos que lleve el ID original a actualizar
-            dtoGuardar.setIdAcademico(this.idResidenteEdicion); 
-            exito = fachada.actualizarRDP(dtoGuardar); 
+            dtoGuardar.setIdAcademico(this.idResidenteEdicion);
+            exito = fachada.actualizarRDP(dtoGuardar);
         }
 
         if (exito) {
@@ -425,16 +426,80 @@ public class frmRDP extends javax.swing.JFrame {
             } else {
                 coordinadorVistas.mostrarModificarResidente(this);
             }
-            
+
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar en la BD. Revisa que el ID o CURP no existan ya.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+
     private void btnVaciarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarCamposActionPerformed
-        // TODO add your handling code here:
+
+        // pregunta se desea borrar todos los datos
+        int respuesta = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Estás seguro de que deseas vaciar todos los campos? Se perderá la información no guardada.",
+                "Confirmar limpieza",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+
+        // si dice si
+        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+
+            limpiarComponentes(panelSolicitante);
+            limpiarComponentes(panelTutor);
+            limpiarComponentes(panelEmergencia);
+            limpiarComponentes(panelAcademicos);
+            limpiarComponentes(panelPersonales);
+            limpiarComponentes(panelMedicos);
+
+            // borra la memoria del programa para que no intente
+            // volver a cargar los datos viejos si cambiamos de pestaña.
+            this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
+            this.idResidenteEdicion = null; // si esta editanto, lo convierte en nuevo
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Se borraron todos los datos ingresados.");
+        }
     }//GEN-LAST:event_btnVaciarCamposActionPerformed
+
+    /**
+     * Metodo recursivo que busca todas las cajas de texto, combos y fechas
+     * dentro de un panel y los vacia.
+     */
+    private void limpiarComponentes(java.awt.Container contenedor) {
+        for (java.awt.Component comp : contenedor.getComponents()) {
+            
+            if (comp instanceof javax.swing.JTextField) {
+                ((javax.swing.JTextField) comp).setText("");
+            } 
+            else if (comp instanceof javax.swing.JTextArea) {
+                ((javax.swing.JTextArea) comp).setText("");
+            } 
+            else if (comp instanceof javax.swing.JComboBox) {
+                if (((javax.swing.JComboBox<?>) comp).getItemCount() > 0) {
+                    ((javax.swing.JComboBox<?>) comp).setSelectedIndex(0); // Vuelve a "Selecciona..."
+                }
+            } 
+            else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
+                javax.swing.AbstractButton boton = (javax.swing.AbstractButton) comp;
+                boton.setSelected(false);
+                
+                if (boton.getModel() instanceof javax.swing.DefaultButtonModel) {
+                    javax.swing.ButtonGroup grupo = ((javax.swing.DefaultButtonModel) boton.getModel()).getGroup();
+                    if (grupo != null) {
+                        grupo.clearSelection();
+                    }
+                }
+            } 
+            else if (comp instanceof com.toedter.calendar.JDateChooser) {
+                ((com.toedter.calendar.JDateChooser) comp).setDate(null);
+            }
+            
+            if (comp instanceof java.awt.Container) {
+                limpiarComponentes((java.awt.Container) comp);
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments

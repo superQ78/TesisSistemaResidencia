@@ -68,16 +68,8 @@ public class ControlResidente {
                 || !esValido(dto.getDomicilioEmergencia()) || !esValido(dto.getLugarEmergencia())
                 || !esValido(dto.getCelularEmergencia()) || !esValido(dto.getCorreoEmergencia())) {
             
-            // ¡EL CHISMOSO! Nos dirá qué variable exacta está vacía
-            System.out.println("--- DIAGNÓSTICO DE EMERGENCIA ---");
-            System.out.println("Nombre: [" + dto.getNombreEmergencia() + "]");
-            System.out.println("Parentesco: [" + dto.getParentescoEmergencia() + "]");
-            System.out.println("Domicilio: [" + dto.getDomicilioEmergencia() + "]");
-            System.out.println("Lugar: [" + dto.getLugarEmergencia() + "]");
-            System.out.println("Celular: [" + dto.getCelularEmergencia() + "]");
-            System.out.println("Correo: [" + dto.getCorreoEmergencia() + "]");
-            System.out.println("---------------------------------");
-            
+            System.out.println("Falla en: Contacto de emergencias");
+                    
             return false;
         }
         // Datos medicos

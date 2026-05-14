@@ -253,6 +253,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         btnVaciarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnVaciarCampos.setForeground(new java.awt.Color(255, 255, 255));
         btnVaciarCampos.setText("Vaciar campos");
+        btnVaciarCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVaciarCamposActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -377,6 +382,71 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnVaciarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarCamposActionPerformed
+
+        // pregunta se desea borrar todos los datos
+        int respuesta = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Estás seguro de que deseas vaciar todos los campos? Se perderá la información no guardada.",
+                "Confirmar limpieza",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+
+        // si dice si
+        if (respuesta == javax.swing.JOptionPane.YES_OPTION) {
+
+            limpiarComponentes(panelSolicitante);
+            limpiarComponentes(panelTutor);
+            limpiarComponentes(panelEmergencia);
+            limpiarComponentes(panelPago);
+            limpiarComponentes(panelCompanero);
+            // borra la memoria del programa para que no intente
+            // volver a cargar los datos viejos si cambiamos de pestaña.
+            this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
+            //   this.idResidenteEdicion = null; // si esta editanto, lo convierte en nuevo
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Se borraron todos los datos ingresados.");
+        }
+    }//GEN-LAST:event_btnVaciarCamposActionPerformed
+
+    /**
+     * Metodo recursivo que busca todas las cajas de texto, combos y fechas
+     * dentro de un panel y los vacia.
+     */
+    private void limpiarComponentes(java.awt.Container contenedor) {
+        for (java.awt.Component comp : contenedor.getComponents()) {
+            
+            if (comp instanceof javax.swing.JTextField) {
+                ((javax.swing.JTextField) comp).setText("");
+            } 
+            else if (comp instanceof javax.swing.JTextArea) {
+                ((javax.swing.JTextArea) comp).setText("");
+            } 
+            else if (comp instanceof javax.swing.JComboBox) {
+                if (((javax.swing.JComboBox<?>) comp).getItemCount() > 0) {
+                    ((javax.swing.JComboBox<?>) comp).setSelectedIndex(0); // Vuelve a seleccionar
+                }
+            } 
+            else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
+                javax.swing.AbstractButton boton = (javax.swing.AbstractButton) comp;
+                boton.setSelected(false);
+                
+                if (boton.getModel() instanceof javax.swing.DefaultButtonModel) {
+                    javax.swing.ButtonGroup grupo = ((javax.swing.DefaultButtonModel) boton.getModel()).getGroup();
+                    if (grupo != null) {
+                        grupo.clearSelection();
+                    }
+                }
+            } 
+            else if (comp instanceof com.toedter.calendar.JDateChooser) {
+                ((com.toedter.calendar.JDateChooser) comp).setDate(null);
+            }
+            
+            if (comp instanceof java.awt.Container) {
+                limpiarComponentes((java.awt.Container) comp);
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
