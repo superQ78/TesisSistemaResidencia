@@ -219,12 +219,14 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         dto.setTelefonoEmergencia(txtTelefonoEmergencia.getText().trim());
         dto.setCorreoEmergencia(txtCorreoEmergencia.getText().trim());
     }
-    
+
     /**
      * Este metodo recibe un DTO y rellena los campos automáticamente.
      */
     public void cargarDatosEmergencia(ResidenteDTO dto) {
-        if (dto == null) return;
+        if (dto == null) {
+            return;
+        }
 
         txtNombreEmergencia.setText(dto.getNombreEmergencia() != null ? dto.getNombreEmergencia() : "");
         txtDomicilioEmergencia.setText(dto.getDomicilioEmergencia() != null ? dto.getDomicilioEmergencia() : "");
@@ -240,7 +242,9 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
 
     //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
@@ -248,7 +252,9 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        marcarError(combo, valido);
+        return valido;
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
@@ -258,32 +264,53 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         return true;
     }
 
+    /**
+     * Valida que los formatos de Celular y Correo de emergencia sean correctos.
+     */
+    private boolean validarFormatosEstrictos() {
+        boolean todoCorrecto = true;
+
+        // valida celular
+        String celular = txtCelularEmergencia.getText().trim().replace(" ", "");
+        if (!celular.matches("\\d{10}")) {
+            marcarError(txtCelularEmergencia, false);
+            javax.swing.JOptionPane.showMessageDialog(this, "El celular de emergencia debe tener exactamente 10 dígitos.", "Error en Celular", javax.swing.JOptionPane.ERROR_MESSAGE);
+            todoCorrecto = false;
+        }
+
+        // valida correo
+        String correo = txtCorreoEmergencia.getText().trim();
+        if (!correo.contains("@") || !correo.contains(".")) {
+            marcarError(txtCorreoEmergencia, false);
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un correo electrónico válido para el contacto de emergencia.", "Error en Correo", javax.swing.JOptionPane.ERROR_MESSAGE);
+            todoCorrecto = false;
+        }
+
+        return todoCorrecto;
+    }
+
+    /**
+     * Revisa todos los campos del panel y devuelve true si todos estan llenos y
+     * con los formatos correctos.
+     */
     public boolean validarCampos() {
-        boolean todoValido = true;
+        // Evaluamos todos de golpe para que se pinten todos los que falten
+        boolean v1 = campoEsValido(txtNombreEmergencia);
+        boolean v2 = comboEsValido(cmbParentescoEmergencia);
+        boolean v3 = campoEsValido(txtDomicilioEmergencia);
+        boolean v4 = campoEsValido(txtCiudadEstadoPaisEmergencia);
+        boolean v5 = campoEsValido(txtCelularEmergencia);
+        boolean v6 = campoEsValido(txtCorreoEmergencia);
+        boolean v7 = comboEsValido(cmbCodigoPaisEmergencia);
+        boolean v8 = campoEsValido(txtTelefonoEmergencia);
 
-        if (!campoEsValido(txtNombreEmergencia)) {
-            todoValido = false;
-        }
-        if (!comboEsValido(cmbParentescoEmergencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtDomicilioEmergencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCiudadEstadoPaisEmergencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCelularEmergencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtTelefonoEmergencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCorreoEmergencia)) {
-            todoValido = false;
+        // si alguno de los componentes está vacio o sin seleccionar, resegra flase
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8) {
+            return false;
         }
 
-        return todoValido;
+        //si todo esta lleno valida el formato de los datos
+        return validarFormatosEstrictos();
     }
 
     /**
@@ -317,6 +344,49 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
 
         txtTelefonoEmergencia.setText(dto.getTelefonoEmergencia());
         txtCorreoEmergencia.setText(dto.getCorreoEmergencia());
+    }
+
+    /**
+     * Extrae el ComboBox para que la ventana principal pueda ponerle un evento
+     */
+    public javax.swing.JComboBox<String> getCmbParentescoEmergencia() {
+        return cmbParentescoEmergencia; // Asegúrate de que este sea el nombre real de tu variable
+    }
+
+    /**
+     * Recibe el DTO con los datos del Tutor y autocompleta los campos de
+     * Emergencia
+     */
+    public void autocompletarConTutor(Negocio.DTOs.ResidenteDTO dtoTutor) {
+        txtNombreEmergencia.setText(dtoTutor.getNombreTutor());
+        txtDomicilioEmergencia.setText(dtoTutor.getDomicilioTutor());
+        txtCiudadEstadoPaisEmergencia.setText(dtoTutor.getLugarTutor());
+        txtCorreoEmergencia.setText(dtoTutor.getCorreoTutor());
+        txtTelefonoEmergencia.setText(dtoTutor.getTelefonoTutor());
+
+        String celular = dtoTutor.getCelularTutor();
+        if (celular != null && celular.contains(" ")) {
+            String[] partes = celular.split(" ", 2);
+            cmbCodigoPaisEmergencia.setSelectedItem(partes[0]);
+            txtCelularEmergencia.setText(partes[1]);
+        }
+    }
+
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            // Color rosa/rojizo de error (RGB: 255, 235, 235)
+            componente.setBackground(new java.awt.Color(255, 235, 235));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

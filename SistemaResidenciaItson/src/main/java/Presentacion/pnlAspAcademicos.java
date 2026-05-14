@@ -315,27 +315,50 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         return !campo.getText().trim().isEmpty();
     }
 
+    // para text area
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        return !area.getText().trim().isEmpty();
+        boolean valido = !area.getText().trim().isEmpty();
+        marcarError(area, valido);
+        return valido;
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
         return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
     }
 
-    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
-        if (checkSi.isSelected()) {
-            return campoEsValido(campo);
+    /**
+     * Valida que al menos una opción de un grupo de check boxes haya sido
+     * seleccionada. Si no se eligio ninguna, pinta todas las casillas del grupo
+     */
+    private boolean grupoChecksEsValido(javax.swing.JCheckBox... checks) {
+        boolean alMenosUno = false;
+        for (javax.swing.JCheckBox chk : checks) {
+            if (chk.isSelected()) {
+                alMenosUno = true;
+                break;
+            }
         }
-        return true;
+        // Pintamos TODOS los del grupo
+        for (javax.swing.JCheckBox chk : checks) {
+            marcarError(chk, alMenosUno);
+        }
+        return alMenosUno;
     }
 
+    /**
+     * Revisa todos los campos del panel y pinta los que falten.
+     */
     public boolean validarCampos() {
-        boolean todoValido = true;
-        if (!areaEsValida(txaMejorasAcademicas)) {
-            todoValido = false;
+        boolean v1 = grupoChecksEsValido(chkAyudaSiempre, chkAyudaAVeces, chkAyudaNunca);
+        boolean v2 = grupoChecksEsValido(chkEstudioMuyEfectivo, chkEstudioRegular, chkEstudioPoco);
+        boolean v3 = grupoChecksEsValido(chkTiempoMuyEfectivo, chkTiempoRegular, chkTiempoPoco);
+        boolean v4 = areaEsValida(txaMejorasAcademicas);
+
+        if (!v1 || !v2 || !v3 || !v4) {
+            return false;
         }
-        return todoValido;
+
+        return true;
     }
 
     /**
@@ -365,7 +388,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
         //aspectos que le gustaria mejorar
         txaMejorasAcademicas.setText(dto.getAspectosMejoraAcademica());
     }
-    
+
     /**
      * Metodo ayudante que recibe cualquier cantidad de CheckBoxes y los mete en
      * un mismo grupo para poder seleccionar uno y mas
@@ -376,13 +399,32 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
             grupo.add(casilla);
         }
     }
-    
+
     private void agruparCasillas() {
         crearGrupo(chkAyudaSiempre, chkAyudaAVeces, chkAyudaNunca);
         crearGrupo(chkEstudioMuyEfectivo, chkEstudioRegular, chkEstudioPoco);
         crearGrupo(chkTiempoMuyEfectivo, chkTiempoRegular, chkTiempoPoco);
     }
-    
+
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235));
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox chkAyudaAVeces;
     private javax.swing.JCheckBox chkAyudaNunca;

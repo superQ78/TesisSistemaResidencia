@@ -511,70 +511,92 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
     }
 
     // metodos ayudantes de validaciones
-    private boolean campoEsValido(javax.swing.JTextField campo) {
-        String texto = campo.getText().trim();
-        return !texto.isEmpty() && !texto.contains("Especificar") && !texto.contains("Motivo");
-    }
-
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        return !area.getText().trim().isEmpty();
+        boolean valido = !area.getText().trim().isEmpty();
+        marcarError(area, valido);
+        return valido;
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        marcarError(combo, valido);
+        return valido;
     }
 
-    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
-        if (checkSi.isSelected()) {
-            return campoEsValido(campo);
+    private boolean campoNormalEsValido(javax.swing.JTextField campo) {
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
+    }
+
+    // Método especial para las cajitas que tienen texto fantasma en gris
+    private boolean campoConPlaceholderEsValido(javax.swing.JTextField campo) {
+        String texto = campo.getText().trim();
+        // Es inválido si está vacío, o si todavía dice "Especificar..." o "Motivo..."
+        boolean valido = !texto.isEmpty() && !texto.contains("Especificar") && !texto.contains("Motivo");
+        marcarError(campo, valido);
+        return valido;
+    }
+
+    private boolean grupoChecksEsValido(javax.swing.JCheckBox... checks) {
+        boolean alMenosUno = false;
+        for (javax.swing.JCheckBox chk : checks) {
+            if (chk.isSelected()) {
+                alMenosUno = true;
+                break;
+            }
         }
-        return true;
+        for (javax.swing.JCheckBox chk : checks) {
+            marcarError(chk, alMenosUno);
+        }
+        return alMenosUno;
     }
 
+    /**
+     * Valida la pregunta completa: Que haya elegido Sí o No, y si eligió Sí,
+     * que haya especificado en la caja de texto.
+     */
+    private boolean validacionCondicionalCompleta(javax.swing.JCheckBox chkSi, javax.swing.JCheckBox chkNo, javax.swing.JTextField campo) {
+        // 1. Revisamos que haya contestado la pregunta obligatoria (Sí o No)
+        boolean respondio = grupoChecksEsValido(chkSi, chkNo);
+
+        // 2. Si eligió que Sí, revisamos la cajita
+        if (chkSi.isSelected()) {
+            boolean campoLleno = campoConPlaceholderEsValido(campo);
+            return respondio && campoLleno;
+        } else {
+            // Si eligió No o no ha contestado, la cajita debe verse normal
+            marcarError(campo, true);
+            return respondio;
+        }
+    }
+
+    /**
+     * Revisa todos los campos del panel y pinta los que falten.
+     */
     public boolean validarCampos() {
-        boolean todoValido = true;
+        boolean v1 = grupoChecksEsValido(chkSaludBueno, chkSaludRegular, chkSaludMalo);
 
-        // Campos condicionales 
-        if (!campoCondicionalEsValido(chkVistaSi, txtEspecificarVista)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkAuditivaSi, txtEspecificarAuditiva)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkFisicaSi, txtEspecificarFisica)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkLesionesSi, txtEspecificarLesiones)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkPadecimientosSi, txtEspecificarPadecimientos)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkTratamientosSi, txtMotivoTratamientos)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkMedicamentosSi, txtEspecificarMedicamentos)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkAlergiasSi, txtEspecificarAlergias)) {
-            todoValido = false;
-        }
-        if (!campoCondicionalEsValido(chkExternosSi, txtMotivoExternos)) {
-            todoValido = false;
+        boolean v2 = validacionCondicionalCompleta(chkVistaSi, chkVistaNo, txtEspecificarVista);
+        boolean v3 = validacionCondicionalCompleta(chkAuditivaSi, chkAuditivaNo, txtEspecificarAuditiva);
+        boolean v4 = validacionCondicionalCompleta(chkFisicaSi, chkFisicaNo, txtEspecificarFisica);
+        boolean v5 = validacionCondicionalCompleta(chkLesionesSi, chkLesionesNo, txtEspecificarLesiones);
+        boolean v6 = validacionCondicionalCompleta(chkPadecimientosSi, chkPadecimientosNo, txtEspecificarPadecimientos);
+        boolean v7 = validacionCondicionalCompleta(chkTratamientosSi, chkTratamientosNo, txtMotivoTratamientos);
+        boolean v8 = validacionCondicionalCompleta(chkMedicamentosSi, chkMedicamentosNo, txtEspecificarMedicamentos);
+        boolean v9 = validacionCondicionalCompleta(chkAlergiasSi, chkAlergiasNo, txtEspecificarAlergias);
+        boolean v10 = validacionCondicionalCompleta(chkExternosSi, chkExternosNo, txtMotivoExternos);
+
+        boolean v11 = comboEsValido(cmbTipoSangre);
+        boolean v12 = campoNormalEsValido(txtAspectosSalud);
+
+        boolean v13 = areaEsValida(txaOtraInformacionSalud); // si no es obligatoria borrar!!!
+
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13) {
+            return false;
         }
 
-        // Campos normales y ComboBox
-        if (!comboEsValido(cmbTipoSangre)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtAspectosSalud)) {
-            todoValido = false;
-        }
-        if (!areaEsValida(txaOtraInformacionSalud)) {
-            todoValido = false;
-        }
-
-        return todoValido;
+        return true;
     }
 
     /**
@@ -722,6 +744,25 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
             return "";
         }
         return texto;
+    }
+
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

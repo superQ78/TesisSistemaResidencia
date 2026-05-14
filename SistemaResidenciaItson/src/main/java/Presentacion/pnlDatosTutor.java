@@ -226,7 +226,9 @@ public class pnlDatosTutor extends javax.swing.JPanel {
      * Este metodo recibe un DTO y rellena los campos automáticamente.
      */
     public void cargarDatosTutor(ResidenteDTO dto) {
-        if (dto == null) return;
+        if (dto == null) {
+            return;
+        }
 
         txtNombreTutor.setText(dto.getNombreTutor() != null ? dto.getNombreTutor() : "");
         txtDomicilioTutor.setText(dto.getDomicilioTutor() != null ? dto.getDomicilioTutor() : "");
@@ -239,18 +241,49 @@ public class pnlDatosTutor extends javax.swing.JPanel {
             cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
         }
     }
-    
+
+    /**
+     * Valida que los formatos de de datos sean correctos.
+     */
+    private boolean validarFormatosEstrictos() {
+        boolean todoCorrecto = true;
+
+        // valida celular
+        String celular = txtCelularTutor.getText().trim().replace(" ", "");
+        if (!celular.matches("\\d{10}")) {
+            marcarError(txtCelularTutor, false);
+            javax.swing.JOptionPane.showMessageDialog(this, "El celular del tutor debe tener exactamente 10 dígitos.", "Error en Celular", javax.swing.JOptionPane.ERROR_MESSAGE);
+            todoCorrecto = false;
+        }
+
+        // validar el correo
+        String correo = txtCorreoTutor.getText().trim();
+        if (!correo.contains("@") || !correo.contains(".")) {
+            marcarError(txtCorreoTutor, false);
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un correo electrónico válido para el tutor.", "Error en Correo", javax.swing.JOptionPane.ERROR_MESSAGE);
+            todoCorrecto = false;
+        }
+
+        return todoCorrecto;
+    }
+
     //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        return !area.getText().trim().isEmpty();
+        boolean valido = !area.getText().trim().isEmpty();
+        marcarError(area, valido);
+        return valido;
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        marcarError(combo, valido);
+        return valido;
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
@@ -260,32 +293,26 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         return true;
     }
 
+     /**
+     * Revisa todos los campos del panel y devuelve true si todos estan llenos y
+     * con los formatos correctos.
+     */
     public boolean validarCampos() {
-        boolean todoValido = true;
+        boolean v1 = campoEsValido(txtNombreTutor);
+        boolean v2 = comboEsValido(cmbParentescoTutor);
+        boolean v3 = campoEsValido(txtDomicilioTutor);
+        boolean v4 = campoEsValido(txtCiudadEstadoPaisTutor);
+        boolean v5 = campoEsValido(txtCelularTutor);
+        boolean v6 = campoEsValido(txtCorreoTutor);
+        boolean v7 = comboEsValido(cmbCodigoPaisTutor);
 
-        if (!campoEsValido(txtNombreTutor)) {
-            todoValido = false;
-        }
-        if (!comboEsValido(cmbParentescoTutor)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtDomicilioTutor)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCiudadEstadoPaisTutor)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCelularTutor)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtTelefonoTutor)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCorreoTutor)) {
-            todoValido = false;
+        // si alguno de los componentes está vacio o sin seleccionar, resegra flase
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7) {
+            return false;
         }
 
-        return todoValido;
+        //si todo esta lleno valida el formato de los datos
+        return validarFormatosEstrictos();
     }
 
     /**
@@ -299,7 +326,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
 
         txtNombreTutor.setText(dto.getNombreTutor());
 
-        // Manejo del Parentesco
+        // parentesco
         if (dto.getParentescoTutor() != null && !dto.getParentescoTutor().isEmpty()) {
             cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
         } else {
@@ -309,7 +336,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         txtDomicilioTutor.setText(dto.getDomicilioTutor());
         txtCiudadEstadoPaisTutor.setText(dto.getLugarTutor());
 
-        // Manejo del celular 
+        // celular
         String celular = dto.getCelularTutor();
         if (celular != null && celular.contains(" ")) {
             String[] partes = celular.split(" ", 2);
@@ -323,6 +350,25 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         txtCorreoTutor.setText(dto.getCorreoTutor());
     }
 
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235));
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisTutor;
     private javax.swing.JComboBox<String> cmbParentescoTutor;

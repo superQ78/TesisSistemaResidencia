@@ -12,6 +12,7 @@ public class pnlFormaPago extends javax.swing.JPanel {
     public pnlFormaPago() {
         initComponents();
         agruparCasillas();
+        configurarDinamismo();
     }
 
     /**
@@ -175,9 +176,50 @@ public class pnlFormaPago extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoCuatroPagosHermanosActionPerformed
 
+    private void configurarDinamismo() {
+        // Al arrancar, forzamos a que todas se apaguen y digan 0.00
+        actualizarCajasPago();
+
+        // Le ponemos un "escuchador" a cada checkbox. Cuando le den clic a cualquiera,
+        // se revisan todas las cajas para ver cuál se enciende y cuáles se apagan.
+        java.awt.event.ActionListener accionListener = evt -> actualizarCajasPago();
+
+        chkContadoIndividual.addActionListener(accionListener);
+        chkCincuentaInicial.addActionListener(accionListener);
+        chkCuatroPagosIguales.addActionListener(accionListener);
+        chkContadoHermanos.addActionListener(accionListener);
+        chkCuatroPagosHermanos.addActionListener(accionListener);
+    }
+
+    private void actualizarCajasPago() {
+        manejarCaja(chkContadoIndividual, txtMontoContadoIndividual);
+        manejarCaja(chkCincuentaInicial, txtMontoCincuentaInicial);
+        manejarCaja(chkCuatroPagosIguales, txtMontoCuatroPagosIguales);
+        manejarCaja(chkContadoHermanos, txtMontoContadoHermanos);
+        manejarCaja(chkCuatroPagosHermanos, txtMontoCuatroPagosHermanos);
+    }
+
+    private void manejarCaja(javax.swing.JCheckBox chk, javax.swing.JTextField txt) {
+        if (chk.isSelected()) {
+            txt.setEnabled(true);
+            txt.setForeground(java.awt.Color.BLACK);
+            // Si tiene el texto por defecto, lo limpiamos para que el usuario escriba
+            if (txt.getText().equals("0.00")) {
+                txt.setText("");
+            }
+            txt.requestFocus(); // Manda el cursor ahí automáticamente
+        } else {
+            txt.setEnabled(false);
+            txt.setText("0.00");
+            txt.setForeground(new java.awt.Color(153, 153, 153)); // Color gris
+            marcarError(txt, true); // Le quitamos el fondo rosa si estaba marcado como error
+        }
+    }
+
     /**
      * Este metodo es llamado desde FrmSolicitudIngreso para que este panel
      * guarde sus datos en el maletín de la Solicitud.
+     *
      * @param dtoSol
      */
     public void empaquetarDatosPago(Negocio.DTOs.SolicitudIngresoDTO dtoSol) {
@@ -211,15 +253,28 @@ public class pnlFormaPago extends javax.swing.JPanel {
 
     //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        String texto = campo.getText().trim();
+        boolean valido = !texto.isEmpty() && !texto.equals("0.00");
+        marcarError(campo, valido);
+        return valido;
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
         return !area.getText().trim().isEmpty();
     }
 
-    private boolean comboEsValido(javax.swing.JComboBox combo) {
-        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+    private boolean grupoChecksEsValido(javax.swing.JCheckBox... checks) {
+        boolean alMenosUno = false;
+        for (javax.swing.JCheckBox chk : checks) {
+            if (chk.isSelected()) {
+                alMenosUno = true;
+                break;
+            }
+        }
+        for (javax.swing.JCheckBox chk : checks) {
+            marcarError(chk, alMenosUno);
+        }
+        return alMenosUno;
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
@@ -228,32 +283,22 @@ public class pnlFormaPago extends javax.swing.JPanel {
         }
         return true;
     }
-    
+
     /**
-     * Valida que se haya seleccionado una forma de pago y que su monto no este vacio.
-     * Retorna true si todo está correcto, o false si falta algo.
+     * Valida que se haya seleccionado una forma de pago y que su monto no este
+     * vacio.
      */
     public boolean validarCampos() {
-        
-        // verifica que al menos una opción este seleccionada
-        boolean algunaSeleccionada = chkContadoIndividual.isSelected() || 
-                                     chkCincuentaInicial.isSelected() || 
-                                     chkCuatroPagosIguales.isSelected() || 
-                                     chkContadoHermanos.isSelected() || 
-                                     chkCuatroPagosHermanos.isSelected();
-                                     
-        if (!algunaSeleccionada) {
-            return false; // Falla si no eligio ninguna opción
-        }
+        boolean v1 = grupoChecksEsValido(chkContadoIndividual, chkCincuentaInicial,
+                chkCuatroPagosIguales, chkContadoHermanos, chkCuatroPagosHermanos);
 
-        // se usa el metodo ayudante para revisar que la opción elegida tenga texto
-        boolean montosValidos = campoCondicionalEsValido(chkContadoIndividual, txtMontoContadoIndividual) &&
-                                campoCondicionalEsValido(chkCincuentaInicial, txtMontoCincuentaInicial) &&
-                                campoCondicionalEsValido(chkCuatroPagosIguales, txtMontoCuatroPagosIguales) &&
-                                campoCondicionalEsValido(chkContadoHermanos, txtMontoContadoHermanos) &&
-                                campoCondicionalEsValido(chkCuatroPagosHermanos, txtMontoCuatroPagosHermanos);
+        boolean v2 = campoCondicionalEsValido(chkContadoIndividual, txtMontoContadoIndividual);
+        boolean v3 = campoCondicionalEsValido(chkCincuentaInicial, txtMontoCincuentaInicial);
+        boolean v4 = campoCondicionalEsValido(chkCuatroPagosIguales, txtMontoCuatroPagosIguales);
+        boolean v5 = campoCondicionalEsValido(chkContadoHermanos, txtMontoContadoHermanos);
+        boolean v6 = campoCondicionalEsValido(chkCuatroPagosHermanos, txtMontoCuatroPagosHermanos);
 
-        return montosValidos;
+        return v1 && v2 && v3 && v4 && v5 && v6;
     }
 
     /**
@@ -270,6 +315,18 @@ public class pnlFormaPago extends javax.swing.JPanel {
 
     private void agruparCasillas() {
         crearGrupo(chkContadoIndividual, chkCincuentaInicial, chkCuatroPagosIguales, chkContadoHermanos, chkCuatroPagosHermanos);
+    }
+
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox) {
+            componente.setOpaque(true);
+            componente.setBackground(valido ? null : new java.awt.Color(255, 235, 235));
+        } else {
+            componente.setBackground(valido ? java.awt.Color.WHITE : new java.awt.Color(255, 235, 235));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

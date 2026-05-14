@@ -398,9 +398,10 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         dto.setTelefono(txtTelefonoSolicitante.getText().trim());
         dto.setCorreo(txtCorreoSolicitante.getText().trim());
 
-        // celular
+        // celular        
         String codigoPais = cmbCodigoPaisCelSolicitante.getSelectedItem().toString();
-        dto.setCelular(codigoPais + " " + txtCelularSolicitante.getText().trim());
+        String celularLimpio = txtCelularSolicitante.getText().trim();
+        dto.setCelular(codigoPais + " " + celularLimpio);
 
         // datos académicos
         dto.setIdAcademico(txtIdAcademico.getText().trim());
@@ -440,7 +441,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         txtCurpSolicitante.setText(dto.getCurp() != null ? dto.getCurp() : "");
         txtLugarResidencia.setText(dto.getLugarResidencia() != null ? dto.getLugarResidencia() : "");
         txtNssSolicitante.setText(dto.getNss() != null ? dto.getNss() : "");
-        txtCelularSolicitante.setText(dto.getCelular() != null ? dto.getCelular() : "");
         txtTelefonoSolicitante.setText(dto.getTelefono() != null ? dto.getTelefono() : "");
         txtCorreoSolicitante.setText(dto.getCorreo() != null ? dto.getCorreo() : "");
 
@@ -448,6 +448,22 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         txtIdAcademico.setText(dto.getIdAcademico() != null ? dto.getIdAcademico() : "");
         txtCorreoInstitucional.setText(dto.getCorreoInstitucional() != null ? dto.getCorreoInstitucional() : "");
         txtCarreraSolicitante.setText(dto.getCarrera() != null ? dto.getCarrera() : "");
+
+        // Carga el celular separando automáticamente el codigo del pais
+        if (dto.getCelular() != null && !dto.getCelular().trim().isEmpty()) {
+            String celCompleto = dto.getCelular();
+
+            if (celCompleto.contains(" ")) {
+                String[] partes = celCompleto.split(" ", 2);
+                String codigo = partes[0];
+                String numero = partes[1];
+
+                cmbCodigoPaisCelSolicitante.setSelectedItem(codigo);
+                txtCelularSolicitante.setText(numero);
+            } else {
+                txtCelularSolicitante.setText(celCompleto);
+            }
+        }
 
         // Para el ComboBox del semestre
         if (dto.getSemestre() != null && !dto.getSemestre().isEmpty()) {
@@ -472,46 +488,140 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         }
     }
 
+    // Validar los campos de datos
+    // para los text field
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
+    }
+
+    // para text area
+    private boolean areaEsValida(javax.swing.JTextArea area) {
+        boolean valido = !area.getText().trim().isEmpty();
+        marcarError(area, valido);
+        return valido;
+    }
+
+    // para comobo box
+    private boolean comboEsValido(javax.swing.JComboBox combo) {
+        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        marcarError(combo, valido);
+        return valido;
+    }
+
+    // para check boxes
+    private boolean checkObligatorioEsValido(javax.swing.JCheckBox check) {
+        boolean valido = check.isSelected();
+        marcarError(check, valido);
+        return valido;
+    }
+
+    // para grupos de check box
+    private boolean grupoChecksEsValido(javax.swing.JCheckBox... checks) {
+        boolean alMenosUno = false;
+        for (javax.swing.JCheckBox chk : checks) {
+            if (chk.isSelected()) {
+                alMenosUno = true;
+                break;
+            }
+        }
+        // se pintan todos si no se selecciona ninguno
+        for (javax.swing.JCheckBox chk : checks) {
+            marcarError(chk, alMenosUno);
+        }
+        return alMenosUno;
+    }
+
+    // para la ehca
+    private boolean fechaEsValida(com.toedter.calendar.JDateChooser calendario) {
+        boolean valido = calendario.getDate() != null;
+        javax.swing.JComponent editor = (javax.swing.JComponent) calendario.getDateEditor().getUiComponent();
+        marcarError(editor, valido);
+        return valido;
     }
 
     /**
-     * Revisa todos los campos del panel y devuelve true si todos estan llenos
+     * Valida que los formatos de los datos ingresados sean correctos. Muestra
+     * un mensaje y retorna false si alguno esta mal.
+     */
+    private boolean validarFormatosDatos() {
+        // validar curp)
+        String curp = txtCurpSolicitante.getText().trim();
+        if (curp.length() != 18) {
+            javax.swing.JOptionPane.showMessageDialog(this, "La CURP debe tener exactamente 18 caracteres.", "Error en CURP", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        // validar nss
+        String nss = txtNssSolicitante.getText().trim();
+        if (!nss.matches("\\d{11}")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El NSS debe tener exactamente 11 números.", "Error en NSS", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        // vaidar celular
+        String celular = txtCelularSolicitante.getText().trim().replace(" ", "");
+        if (!celular.matches("\\d{10}")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El celular debe tener exactamente 10 dígitos.", "Error en Celular", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        // validar correo
+        String correo = txtCorreoSolicitante.getText().trim();
+        if (!correo.contains("@") || !correo.contains(".")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un correo electrónico válido (ejemplo: usuario@correo.com).", "Error en Correo", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        // validar id academico
+        String id = txtIdAcademico.getText().trim();
+        if (!id.matches("\\d+")) { // "\\d+" significa "Puros números, sin letras ni símbolos"
+            javax.swing.JOptionPane.showMessageDialog(this, "El ID Académico debe contener únicamente números.", "Error en ID", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        // validar correo institucional
+        String correoInst = txtCorreoInstitucional.getText().trim();
+        if (!correoInst.toLowerCase().endsWith("@potros.itson.edu.mx")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El correo institucional debe ser el oficial (ejemplo: al123456@potros.itson.edu.mx).", "Error en Correo Institucional", javax.swing.JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Revisa todos los campos del panel y devuelve true si todos estan llenos y
+     * con los formatos correctos.
      */
     public boolean validarCampos() {
-        boolean todoValido = true;
 
-        if (!campoEsValido(txtNombreSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtDomicilioSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCurpSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtLugarResidencia)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtNssSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtTelefonoSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCelularSolicitante)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtCorreoSolicitante)) {
-            todoValido = false;
-        }
-        // Validar la fecha
-        if (dateChooserNacimiento.getDate() == null) {
-            todoValido = false;
+        // datos personales
+        boolean v1 = campoEsValido(txtNombreSolicitante);
+        boolean v2 = campoEsValido(txtDomicilioSolicitante);
+        boolean v3 = campoEsValido(txtCurpSolicitante);
+        boolean v4 = campoEsValido(txtLugarResidencia);
+        boolean v5 = campoEsValido(txtNssSolicitante);
+        boolean v6 = campoEsValido(txtCelularSolicitante);
+        boolean v7 = campoEsValido(txtCorreoSolicitante);
+        boolean v8 = campoEsValido(txtTelefonoSolicitante);
+        boolean v9 = grupoChecksEsValido(chkSexoMasculino, chkSexoFemenino);
+        boolean v10 = fechaEsValida(dateChooserNacimiento);
+
+        // datos acadmicos
+        boolean v11 = campoEsValido(txtIdAcademico);
+        boolean v12 = campoEsValido(txtCorreoInstitucional);
+        boolean v13 = campoEsValido(txtCarreraSolicitante);
+        boolean v14 = comboEsValido(cmbSemestreSolicitante);
+
+        // si alguno de los componentes está vacio o sin seleccionar, resegra flase
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14) {
+            return false;
         }
 
-        return todoValido;
+        //si todo esta lleno valida el formato de los datos
+        return validarFormatosDatos();
     }
 
     /**
@@ -582,6 +692,25 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
     private void agruparCasillas() {
         crearGrupo(chkSexoMasculino, chkSexoFemenino);
+    }
+
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235));
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

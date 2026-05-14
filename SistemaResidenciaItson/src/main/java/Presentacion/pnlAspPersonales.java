@@ -14,6 +14,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
     public pnlAspPersonales() {
         initComponents();
         agruparCasillas();
+        configurarDinamismo();
     }
 
     /**
@@ -747,54 +748,81 @@ public class pnlAspPersonales extends javax.swing.JPanel {
 
     //metodos ayudantes de validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
     }
 
     private boolean areaEsValida(javax.swing.JTextArea area) {
-        return !area.getText().trim().isEmpty();
+        boolean valido = !area.getText().trim().isEmpty();
+        marcarError(area, valido);
+        return valido;
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        return combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        marcarError(combo, valido);
+        return valido;
+    }
+
+    private boolean grupoChecksEsValido(javax.swing.JCheckBox... checks) {
+        boolean alMenosUno = false;
+        for (javax.swing.JCheckBox chk : checks) {
+            if (chk.isSelected()) {
+                alMenosUno = true;
+                break;
+            }
+        }
+        for (javax.swing.JCheckBox chk : checks) {
+            marcarError(chk, alMenosUno);
+        }
+        return alMenosUno;
     }
 
     private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
         if (checkSi.isSelected()) {
             return campoEsValido(campo);
         }
+        marcarError(campo, true);
         return true;
     }
 
+    private boolean comboCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JComboBox combo) {
+        if (checkSi.isSelected()) {
+            return comboEsValido(combo);
+        }
+        marcarError(combo, true);
+        return true;
+    }
+    
+    
+
     public boolean validarCampos() {
-        boolean todoValido = true;
+        boolean v1 = grupoChecksEsValido(chkVividoFueraSi, chkVividoFueraNo);
+        boolean v2 = grupoChecksEsValido(chkDecisionTuya, chkDecisionPadres, chkDecisionAmbos);
+        boolean v3 = grupoChecksEsValido(chkAdaptacionFacil, chkAdaptacionRegular, chkAdaptacionDificil);
+        boolean v4 = grupoChecksEsValido(chkConvivenciaCeder, chkConvivenciaNegociar, chkConvivenciaPersuadir);
+        boolean v5 = grupoChecksEsValido(chkToleraRuidoSi, chkToleraRuidoNo);
+        boolean v6 = grupoChecksEsValido(chkOrdenMucho, chkOrdenRegular, chkOrdenPoco);
+        boolean v7 = grupoChecksEsValido(chkHigieneEstricto, chkHigieneRegular, chkHigienePoco);
+        boolean v8 = grupoChecksEsValido(chkIniciativaSi, chkIniciativaAveses, chkIniciativaNo);
+        boolean v9 = grupoChecksEsValido(chkGrupoSi, chkGrupoNo);
 
-        if (!campoCondicionalEsValido(chkVividoFueraSi, txtTiempoVividoFuera)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtRespuestaApdc4)) {
-            todoValido = false; // Razones
-        }
-        if (!campoEsValido(txtSituacionesNoDeseadas)) {
-            todoValido = false;
-        }
-        if (!campoEsValido(txtActividadesRealizadas)) {
-            todoValido = false;
-        }
-        if (!areaEsValida(txaOtraInformacion)) {
-            todoValido = false;
-        }
-        // ComboBoxes
-        if (!comboEsValido(cmbxHoraDormir)) {
-            todoValido = false;
-        }
-        if (!comboEsValido(cmbxTipoGrupo)) {
-            todoValido = false;
-        }
-        if (!comboEsValido(cmbxAspectosMejora)) {
-            todoValido = false;
+        boolean v10 = campoEsValido(txtRespuestaApdc4); 
+        boolean v11 = campoEsValido(txtSituacionesNoDeseadas);
+        boolean v12 = comboEsValido(cmbxHoraDormir);
+        boolean v13 = comboEsValido(cmbxAspectosMejora);
+        boolean v14 = areaEsValida(txaOtraInformacion); // si no es obligatoria quitar!!!! y de if
+
+        boolean v15 = campoCondicionalEsValido(chkVividoFueraSi, txtTiempoVividoFuera);
+        boolean v16 = comboCondicionalEsValido(chkGrupoSi, cmbxTipoGrupo);
+        boolean v17 = campoCondicionalEsValido(chkGrupoSi, txtActividadesRealizadas);
+
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14 || !v15 || !v16 || !v17) {
+            return false;
         }
 
-        return todoValido;
+        return true;
     }
 
     /**
@@ -901,6 +929,55 @@ public class pnlAspPersonales extends javax.swing.JPanel {
         crearGrupo(chkOrdenMucho, chkOrdenRegular, chkOrdenPoco);
         crearGrupo(chkHigieneEstricto, chkHigieneRegular, chkHigienePoco);
         crearGrupo(chkIniciativaSi, chkIniciativaAveses, chkIniciativaNo);
+    }
+
+    /**
+     * Configura que el txt se habilitan dependiendo de lo que elija el usuario
+     */
+    private void configurarDinamismo() {
+        txtTiempoVividoFuera.setEnabled(false); // si a vivido afuera
+        java.awt.event.ActionListener accionVivido = evt -> {
+            boolean encender = chkVividoFueraSi.isSelected();
+            txtTiempoVividoFuera.setEnabled(encender);
+            if (!encender) {
+                txtTiempoVividoFuera.setText("");
+                txtTiempoVividoFuera.setBackground(java.awt.Color.WHITE);
+            }
+        };
+        chkVividoFueraSi.addActionListener(accionVivido);
+        chkVividoFueraNo.addActionListener(accionVivido);
+
+        // si a participado en un grupo
+        cmbxTipoGrupo.setEnabled(false);
+        txtActividadesRealizadas.setEnabled(false);
+        java.awt.event.ActionListener accionGrupo = evt -> {
+            boolean encender = chkGrupoSi.isSelected();
+            cmbxTipoGrupo.setEnabled(encender);
+            txtActividadesRealizadas.setEnabled(encender);
+            if (!encender) {
+                cmbxTipoGrupo.setSelectedIndex(0);
+                txtActividadesRealizadas.setText("");
+                cmbxTipoGrupo.setBackground(java.awt.Color.WHITE);
+                txtActividadesRealizadas.setBackground(java.awt.Color.WHITE);
+            }
+        };
+        chkGrupoSi.addActionListener(accionGrupo);
+        chkGrupoNo.addActionListener(accionGrupo);
+    }
+
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (componente instanceof javax.swing.JCheckBox || componente instanceof javax.swing.JRadioButton) {
+            componente.setOpaque(true);
+        }
+        if (valido) {
+            if (componente instanceof javax.swing.JCheckBox) {
+                componente.setBackground(null);
+            } else {
+                componente.setBackground(java.awt.Color.WHITE);
+            }
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235)); // Rosa pastel
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

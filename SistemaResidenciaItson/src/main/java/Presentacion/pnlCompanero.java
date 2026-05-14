@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 /**
@@ -130,27 +129,44 @@ public class pnlCompanero extends javax.swing.JPanel {
     private void txtNombreCompaneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompaneroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreCompaneroActionPerformed
-    
+
     /**
      * Este método es llamado desde FrmSolicitudIngreso para guardar los datos
      * del compañero en el maletín de la Solicitud.
+     *
      * @param dtoSol
      */
     public void empaquetarDatosCompanero(Negocio.DTOs.SolicitudIngresoDTO dtoSol) {
-        dtoSol.setIdCompanero(txtIdCompanero.getText().trim()); 
+        dtoSol.setIdCompanero(txtIdCompanero.getText().trim());
         dtoSol.setNombreCompanero(txtNombreCompanero.getText().trim());
     }
 
     /**
-     * Valida la sección del compañero. 
+     * Valida la sección del compañero.
      */
     public boolean validarCampos() {
-        return campoEsValido(txtNombreCompanero) && campoEsValido(txtIdCompanero);
+        boolean v1 = campoEsValido(txtNombreCompanero);
+        boolean v2 = campoEsValido(txtIdCompanero);
+
+        return v1 && v2;
     }
 
     // Método ayudante para la validación
     private boolean campoEsValido(javax.swing.JTextField campo) {
-        return !campo.getText().trim().isEmpty();
+        boolean valido = !campo.getText().trim().isEmpty();
+        marcarError(campo, valido);
+        return valido;
+    }
+
+    /**
+     * Pinta el fondo de cualquier dato de color si hay error.
+     */
+    private void marcarError(javax.swing.JComponent componente, boolean valido) {
+        if (valido) {
+            componente.setBackground(java.awt.Color.WHITE);
+        } else {
+            componente.setBackground(new java.awt.Color(255, 235, 235)); // Rosa pastel
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
