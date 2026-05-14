@@ -216,7 +216,8 @@ public class pnlDatosTutor extends javax.swing.JPanel {
 
         // Concatenar el código de país con el celular
         String codigoPais = cmbCodigoPaisTutor.getSelectedItem().toString();
-        dto.setCelularTutor(codigoPais + " " + txtCelularTutor.getText().trim());
+        String celularLimpio = txtCelularTutor.getText().replaceAll("[^0-9]", "");
+        dto.setCelularTutor(codigoPais + " " + celularLimpio);
 
         dto.setTelefonoTutor(txtTelefonoTutor.getText().trim());
         dto.setCorreoTutor(txtCorreoTutor.getText().trim());
@@ -233,9 +234,29 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         txtNombreTutor.setText(dto.getNombreTutor() != null ? dto.getNombreTutor() : "");
         txtDomicilioTutor.setText(dto.getDomicilioTutor() != null ? dto.getDomicilioTutor() : "");
         txtCiudadEstadoPaisTutor.setText(dto.getLugarTutor() != null ? dto.getLugarTutor() : "");
-        txtCelularTutor.setText(dto.getCelularTutor() != null ? dto.getCelularTutor() : "");
         txtTelefonoTutor.setText(dto.getTelefonoTutor() != null ? dto.getTelefonoTutor() : "");
         txtCorreoTutor.setText(dto.getCorreoTutor() != null ? dto.getCorreoTutor() : "");
+
+        // Carga el celular separando automáticamente el codigo del pais
+        if (dto.getCelularTutor() != null && !dto.getCelularTutor().trim().isEmpty()) {
+            String celCompleto = dto.getCelularTutor();
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", "");
+
+            if (soloNumeros.length() >= 10) {
+                String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
+                txtCelularTutor.setText(numeroFinal);
+
+                if (soloNumeros.length() > 10) {
+                    String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
+                    if (codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2);
+                    }
+                    cmbCodigoPaisTutor.setSelectedItem("+" + codigoFinal);
+                }
+            } else {
+                txtCelularTutor.setText(celCompleto);
+            }
+        }
 
         if (dto.getParentescoTutor() != null) {
             cmbParentescoTutor.setSelectedItem(dto.getParentescoTutor());
@@ -281,7 +302,11 @@ public class pnlDatosTutor extends javax.swing.JPanel {
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        if (combo.getSelectedItem() == null) {
+            return false;
+        }
+        String textoElegido = combo.getSelectedItem().toString().toLowerCase();
+        boolean valido = !textoElegido.contains("selecciona") && !textoElegido.contains("código");
         marcarError(combo, valido);
         return valido;
     }
@@ -293,7 +318,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
         return true;
     }
 
-     /**
+    /**
      * Revisa todos los campos del panel y devuelve true si todos estan llenos y
      * con los formatos correctos.
      */
@@ -335,19 +360,30 @@ public class pnlDatosTutor extends javax.swing.JPanel {
 
         txtDomicilioTutor.setText(dto.getDomicilioTutor());
         txtCiudadEstadoPaisTutor.setText(dto.getLugarTutor());
-
-        // celular
-        String celular = dto.getCelularTutor();
-        if (celular != null && celular.contains(" ")) {
-            String[] partes = celular.split(" ", 2);
-            cmbCodigoPaisTutor.setSelectedItem(partes[0]);
-            txtCelularTutor.setText(partes[1]);
-        } else {
-            txtCelularTutor.setText(celular);
-        }
-
         txtTelefonoTutor.setText(dto.getTelefonoTutor());
         txtCorreoTutor.setText(dto.getCorreoTutor());
+
+        // celular
+        if (dto.getCelularTutor() != null && !dto.getCelularTutor().trim().isEmpty()) {
+            String celCompleto = dto.getCelularTutor();
+
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", "");
+
+            if (soloNumeros.length() >= 10) {
+                String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
+                txtCelularTutor.setText(numeroFinal);
+
+                if (soloNumeros.length() > 10) {
+                    String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
+                    if (codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2);
+                    }
+                    cmbCodigoPaisTutor.setSelectedItem("+" + codigoFinal);
+                }
+            } else {
+                txtCelularTutor.setText(celCompleto);
+            }
+        }
     }
 
     /**
@@ -368,7 +404,7 @@ public class pnlDatosTutor extends javax.swing.JPanel {
             componente.setBackground(new java.awt.Color(255, 235, 235));
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbCodigoPaisTutor;
     private javax.swing.JComboBox<String> cmbParentescoTutor;

@@ -400,7 +400,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
         // celular        
         String codigoPais = cmbCodigoPaisCelSolicitante.getSelectedItem().toString();
-        String celularLimpio = txtCelularSolicitante.getText().trim();
+        String celularLimpio = txtCelularSolicitante.getText().replaceAll("[^0-9]", "");
         dto.setCelular(codigoPais + " " + celularLimpio);
 
         // datos académicos
@@ -505,7 +505,11 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
     // para comobo box
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        if (combo.getSelectedItem() == null) {
+            return false;
+        }
+        String textoElegido = combo.getSelectedItem().toString().toLowerCase();
+        boolean valido = !textoElegido.contains("selecciona") && !textoElegido.contains("código");
         marcarError(combo, valido);
         return valido;
     }
@@ -642,14 +646,25 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         txtTelefonoSolicitante.setText(dto.getTelefono());
         txtCorreoSolicitante.setText(dto.getCorreo());
 
-        // Manejo del celular (separar la Lada del número)
-        String celular = dto.getCelular();
-        if (celular != null && celular.contains(" ")) {
-            String[] partes = celular.split(" ", 2);
-            cmbCodigoPaisCelSolicitante.setSelectedItem(partes[0]);
-            txtCelularSolicitante.setText(partes[1]);
-        } else {
-            txtCelularSolicitante.setText(celular);
+        // Manejo del celular
+        if (dto.getCelular() != null && !dto.getCelular().trim().isEmpty()) {
+            String celCompleto = dto.getCelular();
+            
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", ""); 
+            
+            if (soloNumeros.length() >= 10) {
+                String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
+                txtCelularSolicitante.setText(numeroFinal);
+                if (soloNumeros.length() > 10) {
+                    String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
+                    if(codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2); 
+                    }
+                    cmbCodigoPaisCelSolicitante.setSelectedItem("+" + codigoFinal);
+                }
+            } else {
+                txtCelularSolicitante.setText(celCompleto); 
+            }
         }
 
         // Datos Académicos

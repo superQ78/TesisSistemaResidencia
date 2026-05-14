@@ -42,7 +42,11 @@ public class ResidenteDAO implements IResidenteDAO {
             // 1-10 Personales
             ps.setString(1, entidad.getNombreCompleto());
             ps.setString(2, entidad.getSexo());
-            ps.setDate(3, entidad.getFechaNacimiento() != null ? Date.valueOf(entidad.getFechaNacimiento()) : null);
+            if (entidad.getFechaNacimiento() != null) {
+                ps.setDate(3, java.sql.Date.valueOf(entidad.getFechaNacimiento()));
+            } else {
+                ps.setNull(3, java.sql.Types.DATE);
+            }
             ps.setString(4, entidad.getDomicilio());
             ps.setString(5, entidad.getCurp());
             ps.setString(6, entidad.getLugarResidencia());
@@ -142,8 +146,16 @@ public class ResidenteDAO implements IResidenteDAO {
             return filasInsertadas > 0;
 
         } catch (SQLException e) {
+            // Esto imprimirá el error en rojo en la consola de NetBeans
             System.err.println("Error al insertar RDP en BD: " + e.getMessage());
             e.printStackTrace();
+            
+            // ¡NUEVO! Esto te sacará una alerta en la pantalla con el error real de MySQL
+            javax.swing.JOptionPane.showMessageDialog(null, 
+                "¡Atrapamos a MySQL! El error real es:\n" + e.getMessage(), 
+                "Error en Base de Datos", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+                
             return false;
         }
     }
@@ -299,8 +311,8 @@ public class ResidenteDAO implements IResidenteDAO {
     @Override
     public boolean insertarSolicitud(SolicitudIngresoEntidad entidad) {
         String sql = "INSERT INTO SolicitudesIngreso "
-                   + "(curpResidente, tipoPago, montoPago, nombreCompanero, idCompanero) "
-                   + "VALUES (?, ?, ?, ?, ?)";
+                + "(curpResidente, tipoPago, montoPago, nombreCompanero, idCompanero) "
+                + "VALUES (?, ?, ?, ?, ?)";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -325,7 +337,7 @@ public class ResidenteDAO implements IResidenteDAO {
 
         } catch (SQLException e) {
             System.err.println("Error al insertar la solicitud en la base de datos: " + e.getMessage());
-            e.printStackTrace(); 
+            e.printStackTrace();
             return false;
         }
     }

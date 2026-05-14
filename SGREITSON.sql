@@ -129,3 +129,4 @@ CREATE TABLE SolicitudesIngreso (
     nombreCompanero VARCHAR(150) NOT NULL
 );
 
+DROP DATABASE sistemaresidencias;

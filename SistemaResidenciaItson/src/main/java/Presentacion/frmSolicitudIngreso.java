@@ -210,9 +210,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                 // si se escojio el mismo parentesco, los datos se copian
                 if (!parentescoElegido.toLowerCase().contains("selecciona")
                         && parentescoElegido.equals(dtoTemporal.getParentescoTutor())) {
-
                     panelEmergencia.autocompletarConTutor(dtoTemporal);
-
                 }
             }
         });

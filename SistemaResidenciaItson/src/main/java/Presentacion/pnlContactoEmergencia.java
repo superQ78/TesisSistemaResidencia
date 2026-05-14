@@ -210,12 +210,10 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         dto.setDomicilioEmergencia(txtDomicilioEmergencia.getText().trim());
 
         //ciudad, estado y país
-        dto.setLugarEmergencia(txtCiudadEstadoPaisEmergencia.getText().trim());
-
-        //concatenar el código de país con el celular
         String codigoPais = cmbCodigoPaisEmergencia.getSelectedItem().toString();
-        dto.setCelularEmergencia(codigoPais + " " + txtCelularEmergencia.getText().trim());
-
+        String celularLimpio = txtCelularEmergencia.getText().replaceAll("[^0-9]", "");
+        dto.setCelularEmergencia(codigoPais + " " + celularLimpio);
+        dto.setLugarEmergencia(txtCiudadEstadoPaisEmergencia.getText().trim());
         dto.setTelefonoEmergencia(txtTelefonoEmergencia.getText().trim());
         dto.setCorreoEmergencia(txtCorreoEmergencia.getText().trim());
     }
@@ -231,9 +229,28 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         txtNombreEmergencia.setText(dto.getNombreEmergencia() != null ? dto.getNombreEmergencia() : "");
         txtDomicilioEmergencia.setText(dto.getDomicilioEmergencia() != null ? dto.getDomicilioEmergencia() : "");
         txtCiudadEstadoPaisEmergencia.setText(dto.getLugarEmergencia() != null ? dto.getLugarEmergencia() : "");
-        txtCelularEmergencia.setText(dto.getCelularEmergencia() != null ? dto.getCelularEmergencia() : "");
         txtTelefonoEmergencia.setText(dto.getTelefonoEmergencia() != null ? dto.getTelefonoEmergencia() : "");
         txtCorreoEmergencia.setText(dto.getCorreoEmergencia() != null ? dto.getCorreoEmergencia() : "");
+
+        if (dto.getCelularEmergencia() != null && !dto.getCelularEmergencia().trim().isEmpty()) {
+            String celCompleto = dto.getCelularEmergencia();
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", "");
+
+            if (soloNumeros.length() >= 10) {
+                String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
+                txtCelularEmergencia.setText(numeroFinal);
+
+                if (soloNumeros.length() > 10) {
+                    String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
+                    if (codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2);
+                    }
+                    cmbCodigoPaisEmergencia.setSelectedItem("+" + codigoFinal);
+                }
+            } else {
+                txtCelularEmergencia.setText(celCompleto);
+            }
+        }
 
         if (dto.getParentescoEmergencia() != null) {
             cmbParentescoEmergencia.setSelectedItem(dto.getParentescoEmergencia());
@@ -252,7 +269,11 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
     }
 
     private boolean comboEsValido(javax.swing.JComboBox combo) {
-        boolean valido = combo.getSelectedIndex() > 0 && !combo.getSelectedItem().toString().toLowerCase().contains("selecciona");
+        if (combo.getSelectedItem() == null) {
+            return false;
+        }
+        String textoElegido = combo.getSelectedItem().toString().toLowerCase();
+        boolean valido = !textoElegido.contains("selecciona") && !textoElegido.contains("código");
         marcarError(combo, valido);
         return valido;
     }
@@ -332,18 +353,28 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
 
         txtDomicilioEmergencia.setText(dto.getDomicilioEmergencia());
         txtCiudadEstadoPaisEmergencia.setText(dto.getLugarEmergencia());
-
-        String celular = dto.getCelularEmergencia();
-        if (celular != null && celular.contains(" ")) {
-            String[] partes = celular.split(" ", 2);
-            cmbCodigoPaisEmergencia.setSelectedItem(partes[0]);
-            txtCelularEmergencia.setText(partes[1]);
-        } else {
-            txtCelularEmergencia.setText(celular);
-        }
-
         txtTelefonoEmergencia.setText(dto.getTelefonoEmergencia());
         txtCorreoEmergencia.setText(dto.getCorreoEmergencia());
+
+        if (dto.getCelularEmergencia() != null && !dto.getCelularEmergencia().trim().isEmpty()) {
+            String celCompleto = dto.getCelularEmergencia();
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", "");
+
+            if (soloNumeros.length() >= 10) {
+                String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
+                txtCelularEmergencia.setText(numeroFinal);
+
+                if (soloNumeros.length() > 10) {
+                    String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
+                    if (codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2);
+                    }
+                    cmbCodigoPaisEmergencia.setSelectedItem("+" + codigoFinal);
+                }
+            } else {
+                txtCelularEmergencia.setText(celCompleto);
+            }
+        }
     }
 
     /**

@@ -34,6 +34,7 @@ public class frmRDP extends javax.swing.JFrame {
         configurarTabs();
         configurarScrolls();
         configurarEstiloGeneral();
+        configurarAutocompletadoEmergencia();
 
         tabDatosRegistroResi.revalidate();
         tabDatosRegistroResi.repaint();
@@ -47,6 +48,7 @@ public class frmRDP extends javax.swing.JFrame {
         configurarTabs();
         configurarScrolls();
         configurarEstiloGeneral();
+        configurarAutocompletadoEmergencia();
 
         // Guardamos el ID
         this.idResidenteEdicion = idSeleccionado;
@@ -68,6 +70,7 @@ public class frmRDP extends javax.swing.JFrame {
         configurarTabs();
         configurarScrolls();
         configurarEstiloGeneral();
+        configurarAutocompletadoEmergencia();
 
         // guarda los datos que se pasaron
         this.dtoCompartido = dtoMemoria;
@@ -108,6 +111,30 @@ public class frmRDP extends javax.swing.JFrame {
             // Usamos tu Coordinador para sacarlo de ahí y regresarlo a la tabla
             coordinadorVistas.mostrarModificarResidente(this);
         }
+    }
+    
+    /**
+     * Si el usaurio escoje el mismo parentesco que el del tutor, copia todos
+     * los datos automaticamente.
+     */
+    private void configurarAutocompletadoEmergencia() {
+        panelEmergencia.getCmbParentescoEmergencia().addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+                // ve que parentesco se elige en emergencia
+                String parentescoElegido = panelEmergencia.getCmbParentescoEmergencia().getSelectedItem().toString();
+
+                // pide al panel del tutor que de los datos actuales
+                Negocio.DTOs.ResidenteDTO dtoTemporal = new Negocio.DTOs.ResidenteDTO();
+                panelTutor.empaquetarDatosTutor(dtoTemporal);
+
+                // si se escojio el mismo parentesco, los datos se copian
+                if (!parentescoElegido.toLowerCase().contains("selecciona")
+                        && parentescoElegido.equals(dtoTemporal.getParentescoTutor())) {
+                    panelEmergencia.autocompletarConTutor(dtoTemporal);
+                }
+            }
+        });
     }
 
     /**

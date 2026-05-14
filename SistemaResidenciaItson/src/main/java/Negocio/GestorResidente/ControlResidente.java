@@ -30,48 +30,64 @@ public class ControlResidente {
         return bo.consultarResidentePorId(idAcademico);
     }
 
+    //reglas de negocioo
     private boolean aplicarReglasNegocio(ResidenteDTO dto) {
         if (dto.getFechaNacimiento() == null) {
+            System.out.println("Falla en: Fecha de Nacimiento");
             return false;
         }
 
+        // Datos Personales
         if (!esValido(dto.getNombreCompleto()) || !esValido(dto.getDomicilio())
                 || !esValido(dto.getCurp()) || !esValido(dto.getLugarResidencia())
                 || !esValido(dto.getNss()) || !esValido(dto.getCelular())
-                || !esValido(dto.getTelefono()) || !esValido(dto.getCorreo())
-                || !esValido(dto.getSexo())) {
+                || !esValido(dto.getCorreo()) || !esValido(dto.getSexo())) {
+            System.out.println("Falla en: Datos Personales");
             return false;
         }
 
+        // Academicos
         if (!esValido(dto.getIdAcademico()) || !esValido(dto.getCorreoInstitucional())
                 || !esValido(dto.getCarrera()) || !esValido(dto.getSemestre())
                 || !esValido(dto.getBuscaAyudaAcademica()) || !esValido(dto.getEfectividadEstudio())
                 || !esValido(dto.getEfectividadTiempo()) || !esValido(dto.getAspectosMejoraAcademica())) {
+            System.out.println("Falla en: Datos Académicos");
             return false;
         }
 
-        // Datos Tutor
+        // Datos tutor
         if (!esValido(dto.getNombreTutor()) || !esValido(dto.getParentescoTutor())
                 || !esValido(dto.getDomicilioTutor()) || !esValido(dto.getLugarTutor())
-                || !esValido(dto.getCelularTutor()) || !esValido(dto.getTelefonoTutor())
-                || !esValido(dto.getCorreoTutor())) {
+                || !esValido(dto.getCelularTutor()) || !esValido(dto.getCorreoTutor())) {
+            System.out.println("Falla en: Datos del Tutor");
             return false;
         }
 
-        // Contacto emergencia.
+        // Contacto emergencia 
         if (!esValido(dto.getNombreEmergencia()) || !esValido(dto.getParentescoEmergencia())
                 || !esValido(dto.getDomicilioEmergencia()) || !esValido(dto.getLugarEmergencia())
-                || !esValido(dto.getCelularEmergencia()) || !esValido(dto.getTelefonoEmergencia())
-                || !esValido(dto.getCorreoEmergencia())) {
+                || !esValido(dto.getCelularEmergencia()) || !esValido(dto.getCorreoEmergencia())) {
+            
+            // ¡EL CHISMOSO! Nos dirá qué variable exacta está vacía
+            System.out.println("--- DIAGNÓSTICO DE EMERGENCIA ---");
+            System.out.println("Nombre: [" + dto.getNombreEmergencia() + "]");
+            System.out.println("Parentesco: [" + dto.getParentescoEmergencia() + "]");
+            System.out.println("Domicilio: [" + dto.getDomicilioEmergencia() + "]");
+            System.out.println("Lugar: [" + dto.getLugarEmergencia() + "]");
+            System.out.println("Celular: [" + dto.getCelularEmergencia() + "]");
+            System.out.println("Correo: [" + dto.getCorreoEmergencia() + "]");
+            System.out.println("---------------------------------");
+            
             return false;
         }
-
-        // Datos Medicos
+        // Datos medicos
         if (!esValido(dto.getEstadoSalud()) || !esValido(dto.getTipoSangre())
-                || !esValido(dto.getAspectosSaludMejora()) || !esValido(dto.getOtraInformacionSalud())) {
+                || !esValido(dto.getAspectosSaludMejora())) {
+            System.out.println("Falla en: Datos Médicos Base");
             return false;
         }
 
+        // datos medicos condicionales
         if (dto.isTieneDeficienciaVista() && !esValido(dto.getEspecificarVista())) {
             return false;
         }
@@ -100,20 +116,31 @@ public class ControlResidente {
             return false;
         }
 
+        // convivencia y habitos
         if (!esValido(dto.getDecisionResidencia()) || !esValido(dto.getRazonesVivirResidencia())
                 || !esValido(dto.getAdaptacion()) || !esValido(dto.getEstiloConvivencia())
                 || !esValido(dto.getSituacionesNoDeseadas()) || !esValido(dto.getHoraDormir())
                 || !esValido(dto.getImportanciaOrden()) || !esValido(dto.getHabitosHigiene())
-                || !esValido(dto.getIniciativaActividades()) || !esValido(dto.getTipoGrupo())
-                || !esValido(dto.getActividadesRealizadasGrupo()) || !esValido(dto.getAspectosMejoraPersona())
-                || !esValido(dto.getOtraInformacion())) {
+                || !esValido(dto.getIniciativaActividades()) || !esValido(dto.getAspectosMejoraPersona())) {
+            System.out.println("Falla en: Convivencia y Hábitos");
             return false;
         }
 
+        // validacion de condicional de grupos
+        if (dto.isParticipacionGrupo()) {
+            if (!esValido(dto.getTipoGrupo()) || !esValido(dto.getActividadesRealizadasGrupo())) {
+                System.out.println("Falla en: Participación de grupo (Elijó SÍ, pero lo dejó vacío)");
+                return false;
+            }
+        }
+
+        // vaidacion de tiempo vivido fuera
         if (dto.isHaVividoFuera() && !esValido(dto.getTiempoVividoFuera())) {
+            System.out.println("Falla en: Tiempo vivido fuera (Elijó SÍ, pero lo dejó vacío)");
             return false;
         }
-        return true;
+
+        return true; 
     }
 
     /**
@@ -138,7 +165,6 @@ public class ControlResidente {
         return bo.actualizarRDP(dto);
     }
 
-    
     // metodos de solicitud
     public boolean procesarSolicitudIngreso(SolicitudIngresoDTO dto) {
         if (!aplicarReglasNegocio(dto)) {

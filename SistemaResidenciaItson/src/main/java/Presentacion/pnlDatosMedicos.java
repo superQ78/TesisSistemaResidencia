@@ -529,10 +529,9 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
         return valido;
     }
 
-    // Método especial para las cajitas que tienen texto fantasma en gris
+    // Método especial para las cajitas que tienen texto en girs
     private boolean campoConPlaceholderEsValido(javax.swing.JTextField campo) {
         String texto = campo.getText().trim();
-        // Es inválido si está vacío, o si todavía dice "Especificar..." o "Motivo..."
         boolean valido = !texto.isEmpty() && !texto.contains("Especificar") && !texto.contains("Motivo");
         marcarError(campo, valido);
         return valido;
@@ -557,15 +556,11 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
      * que haya especificado en la caja de texto.
      */
     private boolean validacionCondicionalCompleta(javax.swing.JCheckBox chkSi, javax.swing.JCheckBox chkNo, javax.swing.JTextField campo) {
-        // 1. Revisamos que haya contestado la pregunta obligatoria (Sí o No)
         boolean respondio = grupoChecksEsValido(chkSi, chkNo);
-
-        // 2. Si eligió que Sí, revisamos la cajita
         if (chkSi.isSelected()) {
             boolean campoLleno = campoConPlaceholderEsValido(campo);
             return respondio && campoLleno;
         } else {
-            // Si eligió No o no ha contestado, la cajita debe verse normal
             marcarError(campo, true);
             return respondio;
         }
