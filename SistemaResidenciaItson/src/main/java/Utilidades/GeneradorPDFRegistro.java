@@ -319,7 +319,7 @@ public class GeneradorPDFRegistro {
             documento.add(tabFirmas);
 
             // Pie de página
-            documento.add(new Paragraph("\nFavor de imprimir, firmar y entregar en recepción.")
+            documento.add(new Paragraph("\nFavor de imprimir, firmar para subir a sistema.")
                     .setTextAlignment(TextAlignment.CENTER).setFontSize(8).setItalic());
 
             documento.close();
@@ -332,7 +332,6 @@ public class GeneradorPDFRegistro {
 
     }
 
-    // --- MÉTODOS AUXILIARES ---
     private static void agregarCelda(Table tabla, String texto, boolean esNegrita) {
         agregarCelda(tabla, texto, esNegrita, 1);
     }

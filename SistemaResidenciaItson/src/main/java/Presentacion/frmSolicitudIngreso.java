@@ -228,6 +228,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnVaciarCampos = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         lblSubTitulo = new javax.swing.JLabel();
@@ -259,6 +260,16 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
             }
         });
 
+        btnImprimir.setBackground(new java.awt.Color(0, 153, 255));
+        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -268,7 +279,9 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(420, 420, 420))
+                .addGap(42, 42, 42)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +289,8 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -400,8 +414,6 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
             limpiarComponentes(panelEmergencia);
             limpiarComponentes(panelPago);
             limpiarComponentes(panelCompanero);
-            // borra la memoria del programa para que no intente
-            // volver a cargar los datos viejos si cambiamos de pestaña.
             this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
             //   this.idResidenteEdicion = null; // si esta editanto, lo convierte en nuevo
 
@@ -409,39 +421,121 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVaciarCamposActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        boolean solValido = panelSolicitante.validarCampos();
+        boolean tutValido = panelTutor.validarCampos();
+        boolean emeValido = panelEmergencia.validarCampos();
+        boolean pagoValido = panelPago.validarCampos();
+        boolean companeroValido = panelCompanero.validarCampos();
+
+        if (!solValido || !tutValido || !emeValido || !pagoValido || !companeroValido) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Primero llena todos los campos obligatorios antes de generar el PDF.",
+                    "Campos incompletos",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+
+        panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
+        panelTutor.empaquetarDatosTutor(this.dtoCompartido);
+        panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
+
+        Negocio.DTOs.SolicitudIngresoDTO dtoSolicitud = new Negocio.DTOs.SolicitudIngresoDTO();
+        dtoSolicitud.setCurpResidente(this.dtoCompartido.getCurp());
+
+        panelPago.empaquetarDatosPago(dtoSolicitud);
+        panelCompanero.empaquetarDatosCompanero(dtoSolicitud);
+
+        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+        chooser.setDialogTitle("Guardar Solicitud de Ingreso en PDF");
+        chooser.setSelectedFile(new java.io.File("SIR_" + texto(this.dtoCompartido.getIdAcademico()) + ".pdf"));
+
+        int seleccion = chooser.showSaveDialog(this);
+
+        if (seleccion != javax.swing.JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+
+        java.io.File archivo = chooser.getSelectedFile();
+        String ruta = archivo.getAbsolutePath();
+
+        if (!ruta.toLowerCase().endsWith(".pdf")) {
+            ruta += ".pdf";
+        }
+
+        try {
+            Utilidades.GeneradorPDFSolicitudIngreso.generarSolicitudIngreso(
+                    ruta,
+                    this.dtoCompartido,
+                    dtoSolicitud
+            );
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "PDF generado correctamente.\nAhora puedes abrirlo, imprimirlo, firmarlo y después subirlo como SIR Firmada.",
+                    "PDF generado",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            abrirArchivoPDF(ruta);
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al generar el PDF:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private String texto(String valor) {
+        return valor != null ? valor : "";
+    }
+
+    private void abrirArchivoPDF(String ruta) {
+        try {
+            java.io.File archivo = new java.io.File(ruta);
+
+            if (java.awt.Desktop.isDesktopSupported()) {
+                java.awt.Desktop.getDesktop().open(archivo);
+            }
+        } catch (Exception e) {
+            System.out.println("No se pudo abrir automáticamente el PDF: " + e.getMessage());
+        }
+    }
+
     /**
      * Metodo recursivo que busca todas las cajas de texto, combos y fechas
      * dentro de un panel y los vacia.
      */
     private void limpiarComponentes(java.awt.Container contenedor) {
         for (java.awt.Component comp : contenedor.getComponents()) {
-            
+
             if (comp instanceof javax.swing.JTextField) {
                 ((javax.swing.JTextField) comp).setText("");
-            } 
-            else if (comp instanceof javax.swing.JTextArea) {
+            } else if (comp instanceof javax.swing.JTextArea) {
                 ((javax.swing.JTextArea) comp).setText("");
-            } 
-            else if (comp instanceof javax.swing.JComboBox) {
+            } else if (comp instanceof javax.swing.JComboBox) {
                 if (((javax.swing.JComboBox<?>) comp).getItemCount() > 0) {
                     ((javax.swing.JComboBox<?>) comp).setSelectedIndex(0); // Vuelve a seleccionar
                 }
-            } 
-            else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
+            } else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
                 javax.swing.AbstractButton boton = (javax.swing.AbstractButton) comp;
                 boton.setSelected(false);
-                
+
                 if (boton.getModel() instanceof javax.swing.DefaultButtonModel) {
                     javax.swing.ButtonGroup grupo = ((javax.swing.DefaultButtonModel) boton.getModel()).getGroup();
                     if (grupo != null) {
                         grupo.clearSelection();
                     }
                 }
-            } 
-            else if (comp instanceof com.toedter.calendar.JDateChooser) {
+            } else if (comp instanceof com.toedter.calendar.JDateChooser) {
                 ((com.toedter.calendar.JDateChooser) comp).setDate(null);
             }
-            
+
             if (comp instanceof java.awt.Container) {
                 limpiarComponentes((java.awt.Container) comp);
             }
@@ -494,6 +588,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
     private javax.swing.JLabel lblTitulo;

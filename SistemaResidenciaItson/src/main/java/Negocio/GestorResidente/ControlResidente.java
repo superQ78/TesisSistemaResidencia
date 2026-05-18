@@ -67,9 +67,9 @@ public class ControlResidente {
         if (!esValido(dto.getNombreEmergencia()) || !esValido(dto.getParentescoEmergencia())
                 || !esValido(dto.getDomicilioEmergencia()) || !esValido(dto.getLugarEmergencia())
                 || !esValido(dto.getCelularEmergencia()) || !esValido(dto.getCorreoEmergencia())) {
-            
+
             System.out.println("Falla en: Contacto de emergencias");
-                    
+
             return false;
         }
         // Datos medicos
@@ -132,7 +132,7 @@ public class ControlResidente {
             return false;
         }
 
-        return true; 
+        return true;
     }
 
     /**
@@ -172,5 +172,34 @@ public class ControlResidente {
             return false;
         }
         return true;
+    }
+
+    public boolean procesarSubidaDocumento(Negocio.DTOs.DocumentoDTO dto) {
+        if (dto.getIdAcademico() == null || dto.getArchivo() == null || dto.getArchivo().length == 0) {
+            System.out.println("Error: Archivo o ID del residente vacío.");
+            return false;
+        }
+
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.guardarDocumento(dto);
+    }
+
+    public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico) {
+        if (idAcademico == null || idAcademico.trim().isEmpty()) {
+            return new java.util.ArrayList<>();
+        }
+
+        ResidenteBO bo = new ResidenteBO();
+        return bo.consultarDocumentos(idAcademico);
+    }
+
+    public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento) {
+        if (idAcademico == null || idAcademico.trim().isEmpty()
+                || tipoDocumento == null || tipoDocumento.trim().isEmpty()) {
+            return null;
+        }
+
+        ResidenteBO bo = new ResidenteBO();
+        return bo.consultarDocumento(idAcademico, tipoDocumento);
     }
 }

@@ -22,7 +22,8 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }
 
     /**
-     * Atrapa el ID que envía frmConsultarResidente para ver los datos del recidnete
+     * Atrapa el ID que envía frmConsultarResidente para ver los datos del
+     * recidnete
      */
     public frmPerfilResidente(String idResidenteSeleccionado) {
         initComponents();
@@ -32,8 +33,10 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         this.idResidente = idResidenteSeleccionado;
 
         cargarDatosGenerales();
-    }
+        cargarFotoFormal();
 
+    }
+                                                                
     /**
      * Consulta la BD con el ID del residente y llena los Labels de los datos
      * con la infromacion del recidente.
@@ -59,6 +62,83 @@ public class frmPerfilResidente extends javax.swing.JFrame {
                     "No se pudo cargar la información de este residente.",
                     "Error",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void previsualizarDocumento(String tipoDocumento) {
+        if (this.idResidente == null || this.idResidente.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No hay un ID de residente cargado.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        Negocio.DTOs.DocumentoDTO doc = fachada.consultarDocumento(this.idResidente, tipoDocumento);
+
+        if (doc == null || doc.getArchivo() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Este documento todavía no está cargado: " + tipoDocumento,
+                    "Documento no encontrado",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        String nombre = doc.getNombreArchivo() != null ? doc.getNombreArchivo().toLowerCase() : "";
+
+        try {
+            if (nombre.endsWith(".jpg") || nombre.endsWith(".jpeg") || nombre.endsWith(".png")) {
+                mostrarImagenEnVentana(doc);
+            } else if (nombre.endsWith(".pdf")) {
+                mostrarPdfTemporal(doc);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No se puede previsualizar este tipo de archivo: " + nombre,
+                        "Formato no compatible",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al previsualizar el documento:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarFotoFormal() {
+        if (this.idResidente == null || this.idResidente.trim().isEmpty()) {
+            return;
+        }
+
+        try {
+            Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+
+            Negocio.DTOs.DocumentoDTO foto = fachada.consultarDocumento(
+                    this.idResidente,
+                    "Foto formal"
+            );
+
+            if (foto == null || foto.getArchivo() == null || foto.getArchivo().length == 0) {
+                // No hace nada. Se queda la imagen de ejemplo que ya tienes en el JLabel.
+                return;
+            }
+
+            javax.swing.ImageIcon iconoOriginal = new javax.swing.ImageIcon(foto.getArchivo());
+
+            java.awt.Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
+                    lblFotoPerfil.getWidth(),
+                    lblFotoPerfil.getHeight(),
+                    java.awt.Image.SCALE_SMOOTH
+            );
+
+            lblFotoPerfil.setIcon(new javax.swing.ImageIcon(imagenEscalada));
+            lblFotoPerfil.setText("");
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar foto formal: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -315,15 +395,16 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnComprobantePagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprobantePagoActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("Comprobante pago");
+
     }//GEN-LAST:event_btnComprobantePagoActionPerformed
 
     private void btnComprobanteDomicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprobanteDomicilioActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("Comprobante domicilio");
     }//GEN-LAST:event_btnComprobanteDomicilioActionPerformed
 
     private void btnRpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRpdActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("RDP Firmada");
     }//GEN-LAST:event_btnRpdActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
@@ -331,19 +412,19 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnIneTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIneTutorActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("INE Tutor");
     }//GEN-LAST:event_btnIneTutorActionPerformed
 
     private void btnSolicitudIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSolicitudIngresoActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("SIR Firmada");
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
     private void btnIneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIneActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("INE/Identificación");
     }//GEN-LAST:event_btnIneActionPerformed
 
     private void btnActaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActaNacimientoActionPerformed
-        // TODO add your handling code here:
+        previsualizarDocumento("Acta de nacimiento");
     }//GEN-LAST:event_btnActaNacimientoActionPerformed
 
     public void configurarYcargarTabla() {
@@ -373,13 +454,54 @@ public class frmPerfilResidente extends javax.swing.JFrame {
                 new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActasAdmin, rutaBoton)
         );
 
-        // 3. Ajuste de anchos para que se parezca a la imagen
+        // Ajuste de anchos para que se parezca a la imagen
         tblActasAdmin.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
         tblActasAdmin.getColumnModel().getColumn(1).setPreferredWidth(250); // fecha
         tblActasAdmin.getColumnModel().getColumn(2).setPreferredWidth(100); // Botón
 
-        // 4. Cargar datos de prueba
+        // Cargar datos de prueba
         llenarTablaEjemplo();
+    }
+
+    private void mostrarImagenEnVentana(Negocio.DTOs.DocumentoDTO doc) throws Exception {
+        byte[] bytes = doc.getArchivo();
+
+        javax.swing.ImageIcon iconoOriginal = new javax.swing.ImageIcon(bytes);
+
+        java.awt.Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
+                800,
+                600,
+                java.awt.Image.SCALE_SMOOTH
+        );
+
+        javax.swing.JLabel lblImagen = new javax.swing.JLabel(new javax.swing.ImageIcon(imagenEscalada));
+        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.JScrollPane scroll = new javax.swing.JScrollPane(lblImagen);
+
+        javax.swing.JDialog dialogo = new javax.swing.JDialog(this, "Previsualización - " + doc.getTipoDocumento(), true);
+        dialogo.add(scroll);
+        dialogo.setSize(900, 700);
+        dialogo.setLocationRelativeTo(this);
+        dialogo.setVisible(true);
+    }
+
+    private void mostrarPdfTemporal(Negocio.DTOs.DocumentoDTO doc) throws Exception {
+        String nombre = doc.getNombreArchivo();
+
+        java.io.File archivoTemporal = java.io.File.createTempFile("preview_", "_" + nombre);
+        java.nio.file.Files.write(archivoTemporal.toPath(), doc.getArchivo());
+
+        archivoTemporal.deleteOnExit();
+
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop.getDesktop().open(archivoTemporal);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Tu sistema no permite abrir archivos PDF automáticamente.",
+                    "No se pudo abrir PDF",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     /**

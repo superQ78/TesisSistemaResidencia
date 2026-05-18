@@ -279,24 +279,24 @@ public class frmCrearUsuario extends javax.swing.JFrame {
             exito = fachada.registrar(dto);
         } else {
             exito = fachada.actualizarUsuario(dto);
-
-            //checamos la respuesta en esta parte
-            if (exito) {
-                String mensaje = (this.idUsuarioEdicion == -1) ? "Usuario registrado exitosamente." : "Usuario modificado exitosamente.";
-                JOptionPane.showMessageDialog(this, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
-
-                if (this.idUsuarioEdicion == -1) {
-                    btnLimpiarCamposActionPerformed(evt);
-                    coordinadorVistas.mostrarAdminInicio(this);
-                } else {
-                    coordinadorVistas.mostrarConsultarUsuarios(this);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this,
-                        "No se pudo guardar. Verifica que los campos obligatorios estén llenos.",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-            }
         }
+
+        if (exito) {
+            String mensaje = (this.idUsuarioEdicion == -1) ? "Usuario registrado exitosamente." : "Usuario modificado exitosamente.";
+            JOptionPane.showMessageDialog(this, mensaje, "Exito", JOptionPane.INFORMATION_MESSAGE);
+
+            if (this.idUsuarioEdicion == -1) {
+                btnLimpiarCamposActionPerformed(evt);
+                coordinadorVistas.mostrarAdminInicio(this);
+            } else {
+                coordinadorVistas.mostrarConsultarUsuarios(this);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "No se pudo guardar. Verifica que los campos obligatorios estén llenos.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
 
@@ -357,16 +357,24 @@ public class frmCrearUsuario extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCrearUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCrearUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCrearUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmCrearUsuario.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

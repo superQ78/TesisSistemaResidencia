@@ -26,17 +26,35 @@ public class ResidenteFachada implements IResidente {
         ControlResidente control = new ControlResidente();
         return control.consultarResidentes();
     }
-    
+
     @Override
     public boolean actualizarRDP(ResidenteDTO dto) {
         ControlResidente control = new ControlResidente();
         return control.actualizarRDP(dto);
     }
-    
+
     //metodo de solicitud
     @Override
     public boolean registrarSolicitud(SolicitudIngresoDTO dto) {
         ControlResidente control = new ControlResidente();
-        return control.procesarSolicitudIngreso(dto); 
+        return control.procesarSolicitudIngreso(dto);
+    }
+
+    @Override
+    public boolean subirDocumento(Negocio.DTOs.DocumentoDTO dto) {
+        ControlResidente control = new ControlResidente();
+        return control.procesarSubidaDocumento(dto);
+    }
+
+    @Override
+    public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico) {
+        ControlResidente control = new ControlResidente();
+        return control.consultarDocumentos(idAcademico);
+    }
+
+    @Override
+    public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento) {
+        ControlResidente control = new ControlResidente();
+        return control.consultarDocumento(idAcademico, tipoDocumento);
     }
 }

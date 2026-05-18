@@ -149,13 +149,13 @@ public class ResidenteDAO implements IResidenteDAO {
             // Esto imprimirá el error en rojo en la consola de NetBeans
             System.err.println("Error al insertar RDP en BD: " + e.getMessage());
             e.printStackTrace();
-            
+
             // ¡NUEVO! Esto te sacará una alerta en la pantalla con el error real de MySQL
-            javax.swing.JOptionPane.showMessageDialog(null, 
-                "¡Atrapamos a MySQL! El error real es:\n" + e.getMessage(), 
-                "Error en Base de Datos", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-                
+            javax.swing.JOptionPane.showMessageDialog(null,
+                    "¡Atrapamos a MySQL! El error real es:\n" + e.getMessage(),
+                    "Error en Base de Datos",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+
             return false;
         }
     }
@@ -419,7 +419,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setBoolean(78, entidad.isDeseaActArtisticas());
             ps.setString(79, entidad.getAspectosMejoraPersona());
             ps.setString(80, entidad.getOtraInformacion());
-            
+
             ps.setString(81, entidad.getIdAcademico());
 
             int filasActualizadas = ps.executeUpdate();
@@ -466,4 +466,92 @@ public class ResidenteDAO implements IResidenteDAO {
             return false;
         }
     }
+
+    @Override
+    public boolean insertarDocumento(Persistencia.Entidades.DocumentoEntidad entidad) {
+        String sql = "INSERT INTO Documentos (idAcademico, tipoDocumento, nombreArchivo, archivo) VALUES (?, ?, ?, ?)";
+
+        // Utilizamos tu clase de Conexion directamente, como en los demás métodos
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, entidad.getIdAcademico());
+            ps.setString(2, entidad.getTipoDocumento());
+            ps.setString(3, entidad.getNombreArchivo());
+            ps.setBytes(4, entidad.getArchivo());
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.err.println("Error al guardar documento en BD: " + e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public List<Persistencia.Entidades.DocumentoEntidad> consultarDocumentos(String idAcademico) {
+        List<Persistencia.Entidades.DocumentoEntidad> lista = new ArrayList<>();
+
+        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo "
+                + "FROM Documentos WHERE idAcademico = ?";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, idAcademico);
+
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Persistencia.Entidades.DocumentoEntidad entidad = new Persistencia.Entidades.DocumentoEntidad();
+
+                    entidad.setIdDocumento(rs.getInt("idDocumento"));
+                    entidad.setIdAcademico(rs.getString("idAcademico"));
+                    entidad.setTipoDocumento(rs.getString("tipoDocumento"));
+                    entidad.setNombreArchivo(rs.getString("nombreArchivo"));
+
+                    lista.add(entidad);
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error al consultar documentos: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return lista;
+    }
+
+    @Override
+    public Persistencia.Entidades.DocumentoEntidad consultarDocumento(String idAcademico, String tipoDocumento) {
+        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo, archivo "
+                + "FROM Documentos "
+                + "WHERE idAcademico = ? AND tipoDocumento = ? "
+                + "ORDER BY fechaSubida DESC "
+                + "LIMIT 1";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, idAcademico);
+            ps.setString(2, tipoDocumento);
+
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Persistencia.Entidades.DocumentoEntidad entidad = new Persistencia.Entidades.DocumentoEntidad();
+
+                    entidad.setIdDocumento(rs.getInt("idDocumento"));
+                    entidad.setIdAcademico(rs.getString("idAcademico"));
+                    entidad.setTipoDocumento(rs.getString("tipoDocumento"));
+                    entidad.setNombreArchivo(rs.getString("nombreArchivo"));
+                    entidad.setArchivo(rs.getBytes("archivo"));
+
+                    return entidad;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error al consultar documento: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

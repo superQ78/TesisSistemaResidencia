@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import Utilidades.RenderImagen;
@@ -45,11 +44,11 @@ public class frmModificarResidente extends javax.swing.JFrame {
                 String nacionalidad = res.getLugarResidencia() != null ? res.getLugarResidencia() : "N/A";
 
                 Object[] fila = {
-                    res.getIdAcademico(), 
+                    res.getIdAcademico(),
                     res.getNombreCompleto(),
                     nacionalidad,
-                    "", 
-                    "" 
+                    "",
+                    ""
                 };
                 modelo.addRow(fila);
             }
@@ -79,7 +78,15 @@ public class frmModificarResidente extends javax.swing.JFrame {
 
                     if (columna == 3) {
                         // Clic en EDITAR
-                        coordinadorVistas.mostrarModificarRDP(frmModificarResidente.this, idSeleccionado);
+                        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+                        Negocio.DTOs.ResidenteDTO residenteMemoria = fachada.consultarResidentePorId(idSeleccionado);
+                        if (residenteMemoria != null) {
+                            coordinadorVistas.mostrarRegistrarResidenteConDatos(frmModificarResidente.this, residenteMemoria);
+                        } else {
+                            javax.swing.JOptionPane.showMessageDialog(null,
+                                    "Hubo un problema al cargar los datos del residente.",
+                                    "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                        }
 
                     } else if (columna == 4) {
                         // Clic en INHABILITAR

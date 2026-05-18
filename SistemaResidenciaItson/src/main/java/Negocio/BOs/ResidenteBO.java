@@ -351,12 +351,11 @@ public class ResidenteBO {
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.actualizar(entidad);
     }
-    
-    
+
     //metodos de solicitud
     public boolean registrarSolicitud(SolicitudIngresoDTO dto) {
         SolicitudIngresoEntidad entidad = convertirSolicitudAEntidad(dto);
-        
+
         IResidenteDAO dao = new ResidenteDAO();
         return dao.insertarSolicitud(entidad);
     }
@@ -369,5 +368,53 @@ public class ResidenteBO {
         entidad.setNombreCompanero(dto.getNombreCompanero());
         entidad.setIdCompanero(dto.getIdCompanero());
         return entidad;
+    }
+
+    public boolean guardarDocumento(Negocio.DTOs.DocumentoDTO dto) {
+        Persistencia.Entidades.DocumentoEntidad entidad = new Persistencia.Entidades.DocumentoEntidad();
+        entidad.setIdAcademico(dto.getIdAcademico());
+        entidad.setTipoDocumento(dto.getTipoDocumento());
+        entidad.setNombreArchivo(dto.getNombreArchivo());
+        entidad.setArchivo(dto.getArchivo());
+
+        Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        return dao.insertarDocumento(entidad);
+    }
+
+    public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico) {
+        Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        java.util.List<Persistencia.Entidades.DocumentoEntidad> entidades = dao.consultarDocumentos(idAcademico);
+
+        java.util.List<Negocio.DTOs.DocumentoDTO> dtos = new java.util.ArrayList<>();
+
+        for (Persistencia.Entidades.DocumentoEntidad entidad : entidades) {
+            Negocio.DTOs.DocumentoDTO dto = new Negocio.DTOs.DocumentoDTO();
+            dto.setIdAcademico(entidad.getIdAcademico());
+            dto.setTipoDocumento(entidad.getTipoDocumento());
+            dto.setNombreArchivo(entidad.getNombreArchivo());
+
+            // No cargamos el archivo completo para solo pintar la tabla.
+            // dto.setArchivo(entidad.getArchivo());
+            dtos.add(dto);
+        }
+
+        return dtos;
+    }
+
+    public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento) {
+        Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        Persistencia.Entidades.DocumentoEntidad entidad = dao.consultarDocumento(idAcademico, tipoDocumento);
+
+        if (entidad == null) {
+            return null;
+        }
+
+        Negocio.DTOs.DocumentoDTO dto = new Negocio.DTOs.DocumentoDTO();
+        dto.setIdAcademico(entidad.getIdAcademico());
+        dto.setTipoDocumento(entidad.getTipoDocumento());
+        dto.setNombreArchivo(entidad.getNombreArchivo());
+        dto.setArchivo(entidad.getArchivo());
+
+        return dto;
     }
 }

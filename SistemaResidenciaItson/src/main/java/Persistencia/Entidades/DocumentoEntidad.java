@@ -2,30 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Negocio.DTOs;
+package Persistencia.Entidades;
 
 /**
  *
  * @author cesar
  */
-public class DocumentoDTO {
-    
-  private String idAcademico;
+public class DocumentoEntidad {
+
+    private String idAcademico;
+    private int idDocumento;
     private String tipoDocumento;
     private String nombreArchivo;
-    private byte[] archivo;  
+    private byte[] archivo;
 
-    public DocumentoDTO(String idAcademico, String tipoDocumento, String nombreArchivo, byte[] archivo) {
+    public DocumentoEntidad() {
+    }
+
+    public DocumentoEntidad(String idAcademico, int idDocumento, String tipoDocumento, String nombreArchivo, byte[] archivo) {
         this.idAcademico = idAcademico;
         this.tipoDocumento = tipoDocumento;
         this.nombreArchivo = nombreArchivo;
         this.archivo = archivo;
+        this.idDocumento = idDocumento;
+
     }
 
-    public DocumentoDTO() {
+    public int getIdDocumento() {
+        return idDocumento;
     }
 
-    
+    public void setIdDocumento(int idDocumento) {
+        this.idDocumento = idDocumento;
+    }
+
     public String getIdAcademico() {
         return idAcademico;
     }
@@ -60,7 +70,7 @@ public class DocumentoDTO {
 
     @Override
     public String toString() {
-        return "DocumentoDTO{" + "idAcademico=" + idAcademico + ", tipoDocumento=" + tipoDocumento + ", nombreArchivo=" + nombreArchivo + ", archivo=" + archivo + '}';
+        return "DocumentoEntidad{" + "idAcademico=" + idAcademico + ", tipoDocumento=" + tipoDocumento + ", nombreArchivo=" + nombreArchivo + ", archivo=" + archivo + '}';
     }
-    
+
 }

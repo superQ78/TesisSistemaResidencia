@@ -26,37 +26,132 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         configurarTabla();
 
-        // se guardan los datos en la recepción
         this.dtoCompartido = dtoMemoria;
+        cargarDocumentosSubidos();
     }
 
     private void configurarTabla() {
         String[] columnas = {"Documento", "Nombre", "Estado", "Subir"};
         Object[][] datos = {
-            {"INE/Identificación", "", "", "Subir"},
-            {"INE Tutor", "", "", "Subir"},
-            {"Acta de nacimiento", "", "", "Subir"},
-            {"Comprobante domicilio", "", "", "Subir"},
-            {"Comprobante pago", "", "", "Subir"},
-            {"Foto formal", "", "", "Subir"},
-            {"SIR Firmada", "", "", "Subir"},
-            {"RDP Firmada", "", "", "Subir"}
+            {"INE/Identificación", "", "Pendiente", ""},
+            {"INE Tutor", "", "Pendiente", ""},
+            {"Acta de nacimiento", "", "Pendiente", ""},
+            {"Comprobante domicilio", "", "Pendiente", ""},
+            {"Comprobante pago", "", "Pendiente", ""},
+            {"Foto formal", "", "Pendiente", ""},
+            {"SIR Firmada", "", "Pendiente", ""},
+            {"RDP Firmada", "", "Pendiente", ""}
         };
 
-        // Creamos el modelo y hacemos que solo la columna 3 sea editable (para el clic)
+        // Creamos el modelo bloqueando la edición directa
         javax.swing.table.DefaultTableModel modelo = new javax.swing.table.DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 3;
+                return false; // Bloqueamos todo. Los clics los manejaremos con un MouseListener
             }
         };
 
         tblRegistroResidente.setModel(modelo);
         tblRegistroResidente.setRowHeight(51);
         tblRegistroResidente.setBackground(java.awt.Color.WHITE);
+
+        // Configuramos la imagen del botón en la columna 3
         tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblRegistroResidente, "/imagenes/SubirArchivo.png"));
         tblRegistroResidente.getColumnModel().getColumn(3).setPreferredWidth(50);
+
+        // Agregamos el escuchador de clics para abrir el buscador de archivos
+        tblRegistroResidente.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblRegistroResidente.rowAtPoint(evt.getPoint());
+                int columna = tblRegistroResidente.columnAtPoint(evt.getPoint());
+
+                // Verificamos que haya dado clic específicamente en la columna del icono de Subir
+                if (fila >= 0 && columna == 3) {
+                    abrirSelectorDeArchivos(fila);
+                }
+            }
+        });
+    }
+
+    /**
+     * Abre un JFileChooser para que el usuario seleccione un documento y lo
+     * sube a la BD.
+     */
+    private void abrirSelectorDeArchivos(int filaSeleccionada) {
+        if (this.dtoCompartido == null || this.dtoCompartido.getIdAcademico() == null || this.dtoCompartido.getIdAcademico().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor, asegúrate de haber llenado al menos el Registro de Datos Personales (RDP) para tener un ID de residente antes de subir documentos.",
+                    "Falta ID del Residente",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        javax.swing.filechooser.FileNameExtensionFilter filtro = new javax.swing.filechooser.FileNameExtensionFilter("Archivos PDF e Imágenes", "pdf", "jpg", "jpeg", "png");
+        fileChooser.setFileFilter(filtro);
+        fileChooser.setDialogTitle("Seleccionar Documento");
+
+        int seleccion = fileChooser.showOpenDialog(this);
+
+        if (seleccion == javax.swing.JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
+
+            try {
+                // 3. Convertimos el archivo físico en un arreglo de bytes (byte[])
+                byte[] bytesArchivo = java.nio.file.Files.readAllBytes(archivoSeleccionado.toPath());
+
+                // Obtenemos el nombre del documento según la fila de la tabla (Ej. "INE/Identificación")
+                String tipoDocumento = tblRegistroResidente.getValueAt(filaSeleccionada, 0).toString();
+
+                // 4. Empaquetamos todo en el DTO
+                Negocio.DTOs.DocumentoDTO documentoDTO = new Negocio.DTOs.DocumentoDTO();
+                documentoDTO.setIdAcademico(this.dtoCompartido.getIdAcademico());
+                documentoDTO.setTipoDocumento(tipoDocumento);
+                documentoDTO.setNombreArchivo(archivoSeleccionado.getName());
+                documentoDTO.setArchivo(bytesArchivo);
+
+                // 5. ¡Enviamos a la base de datos a través de la Fachada!
+                Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+                boolean exito = fachada.subirDocumento(documentoDTO);
+
+                if (exito) {
+                    // Actualizamos la tabla para dar feedback visual
+                    tblRegistroResidente.setValueAt(archivoSeleccionado.getName(), filaSeleccionada, 1); // Columna Nombre
+                    tblRegistroResidente.setValueAt("Cargado", filaSeleccionada, 2); // Columna Estado
+
+                    javax.swing.JOptionPane.showMessageDialog(this, "Archivo subido exitosamente a la base de datos.");
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Error al guardar el archivo en la base de datos.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (java.io.IOException e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error al leer el archivo de tu computadora.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private void cargarDocumentosSubidos() {
+        if (this.dtoCompartido == null
+                || this.dtoCompartido.getIdAcademico() == null
+                || this.dtoCompartido.getIdAcademico().trim().isEmpty()) {
+            return;
+        }
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        java.util.List<Negocio.DTOs.DocumentoDTO> documentos = fachada.consultarDocumentos(this.dtoCompartido.getIdAcademico());
+
+        for (Negocio.DTOs.DocumentoDTO doc : documentos) {
+            for (int fila = 0; fila < tblRegistroResidente.getRowCount(); fila++) {
+                String tipoTabla = tblRegistroResidente.getValueAt(fila, 0).toString();
+
+                if (tipoTabla.equalsIgnoreCase(doc.getTipoDocumento())) {
+                    tblRegistroResidente.setValueAt(doc.getNombreArchivo(), fila, 1);
+                    tblRegistroResidente.setValueAt("Cargado", fila, 2);
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -181,9 +276,15 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        frmAdminInicio fradm = new frmAdminInicio();
-        fradm.setVisible(true);
-        this.dispose();
+        // Verificamos si estamos editando (si la mochila tiene un ID)
+        if (this.dtoCompartido != null && this.dtoCompartido.getIdAcademico() != null && !this.dtoCompartido.getIdAcademico().isEmpty()) {
+            // Venimos de editar, regresamos a la tabla de Modificar
+            coordinadorVistas.mostrarModificarResidente(this);
+        } else {
+            // Venimos de crear uno nuevo. 
+            // El Coordinador lee la sesión global (Admin o Trabajador) y decide a qué menú mandarlo.
+            coordinadorVistas.regresarMenuPrincipal(this);
+        }
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**

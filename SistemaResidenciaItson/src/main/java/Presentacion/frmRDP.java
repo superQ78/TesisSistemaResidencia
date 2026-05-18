@@ -278,6 +278,7 @@ public class frmRDP extends javax.swing.JFrame {
         pnlBotones = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnVaciarCampos = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         pnlTitulo = new javax.swing.JPanel();
         lblSubTitulo = new javax.swing.JLabel();
         lblSubTitulo1 = new javax.swing.JLabel();
@@ -309,6 +310,17 @@ public class frmRDP extends javax.swing.JFrame {
             }
         });
 
+        btnImprimir.setBackground(new java.awt.Color(0, 153, 255));
+        btnImprimir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnImprimir.setForeground(new java.awt.Color(255, 255, 255));
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.setToolTipText("");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
@@ -318,15 +330,18 @@ public class frmRDP extends javax.swing.JFrame {
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(420, 420, 420))
+                .addGap(46, 46, 46)
+                .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(245, 245, 245))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBotonesLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(btnVaciarCampos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -369,11 +384,7 @@ public class frmRDP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        if (this.idResidenteEdicion == null) {
-            coordinadorVistas.mostrarAdminInicio(this); // Regresa al menú si estaba creando
-        } else {
-            coordinadorVistas.mostrarModificarResidente(this); // Regresa a la tabla si estaba editando
-        }
+        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -387,7 +398,7 @@ public class frmRDP extends javax.swing.JFrame {
 
         if (!solValido || !tutValido || !emeValido || !perValido || !acaValido || !medValido) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                    "Hay campos obligatorios vacíos.",
+                    "Hay campos obligatorios vacios.",
                     "Campos incompletos",
                     javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
@@ -462,39 +473,256 @@ public class frmRDP extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVaciarCamposActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        boolean solValido = panelSolicitante.validarCampos();
+        boolean tutValido = panelTutor.validarCampos();
+        boolean emeValido = panelEmergencia.validarCampos();
+        boolean perValido = panelPersonales.validarCampos();
+        boolean acaValido = panelAcademicos.validarCampos();
+        boolean medValido = panelMedicos.validarCampos();
+
+        if (!solValido || !tutValido || !emeValido || !perValido || !acaValido || !medValido) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Primero llena todos los campos obligatorios antes de generar el PDF.",
+                    "Campos incompletos",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        ResidenteDTO dtoPDF = (this.dtoCompartido != null) ? this.dtoCompartido : new ResidenteDTO();
+
+        panelSolicitante.empaquetarDatosPersonales(dtoPDF);
+        panelTutor.empaquetarDatosTutor(dtoPDF);
+        panelEmergencia.empaquetarDatosEmergencia(dtoPDF);
+        panelPersonales.empaquetarDatosPersonales(dtoPDF);
+        panelAcademicos.empaquetarDatosAcademicos(dtoPDF);
+        panelMedicos.empaquetarDatosMedicos(dtoPDF);
+
+        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+        chooser.setDialogTitle("Guardar RDP en PDF");
+        chooser.setSelectedFile(new java.io.File("RDP_" + texto(dtoPDF.getIdAcademico()) + ".pdf"));
+
+        int seleccion = chooser.showSaveDialog(this);
+
+        if (seleccion != javax.swing.JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+
+        java.io.File archivo = chooser.getSelectedFile();
+        String ruta = archivo.getAbsolutePath();
+
+        if (!ruta.toLowerCase().endsWith(".pdf")) {
+            ruta += ".pdf";
+        }
+
+        try {
+            Utilidades.GeneradorPDFRegistro.generarRegistroResidente(
+                    ruta,
+                    texto(dtoPDF.getNombreCompleto()),
+                    texto(dtoPDF.getIdAcademico()),
+                    texto(dtoPDF.getCarrera()),
+                    texto(dtoPDF.getSemestre()),
+                    texto(dtoPDF.getCorreo()),
+                    fecha(dtoPDF.getFechaNacimiento()),
+                    texto(dtoPDF.getSexo()),
+                    texto(dtoPDF.getCurp()),
+                    texto(dtoPDF.getNss()),
+                    texto(dtoPDF.getDomicilio()),
+                    texto(dtoPDF.getLugarResidencia()),
+                    texto(dtoPDF.getTelefono()),
+                    texto(dtoPDF.getCelular()),
+                    texto(dtoPDF.getNombreTutor()),
+                    texto(dtoPDF.getDomicilioTutor()),
+                    texto(dtoPDF.getLugarTutor()),
+                    texto(dtoPDF.getTelefonoTutor()),
+                    texto(dtoPDF.getCelularTutor()),
+                    texto(dtoPDF.getCorreoTutor()),
+                    texto(dtoPDF.getNombreEmergencia()),
+                    "", 
+                    texto(dtoPDF.getParentescoEmergencia()),
+                    texto(dtoPDF.getDomicilioEmergencia()),
+                    texto(dtoPDF.getLugarEmergencia()),
+                    texto(dtoPDF.getTelefonoEmergencia()),
+                    texto(dtoPDF.getCelularEmergencia()),
+                    texto(dtoPDF.getCorreoEmergencia()),
+                    // Aspectos personales
+                    siNo(dtoPDF.isHaVividoFuera()),
+                    texto(dtoPDF.getTiempoVividoFuera()),
+                    texto(dtoPDF.getDecisionResidencia()),
+                    texto(dtoPDF.getRazonesVivirResidencia()),
+                    texto(dtoPDF.getAdaptacion()),
+                    texto(dtoPDF.getEstiloConvivencia()),
+                    texto(dtoPDF.getSituacionesNoDeseadas()),
+                    preferenciasCompanero(dtoPDF),
+                    texto(dtoPDF.getHoraDormir()),
+                    siNo(dtoPDF.isToleraRuido()),
+                    texto(dtoPDF.getImportanciaOrden()),
+                    texto(dtoPDF.getHabitosHigiene()),
+                    objetosTraera(dtoPDF),
+                    texto(dtoPDF.getIniciativaActividades()),
+                    siNo(dtoPDF.isParticipacionGrupo()),
+                    texto(dtoPDF.getTipoGrupo()),
+                    texto(dtoPDF.getActividadesRealizadasGrupo()),
+                    actividadesDeseadas(dtoPDF),
+                    texto(dtoPDF.getAspectosMejoraPersona()),
+                    texto(dtoPDF.getOtraInformacion()),
+                    // Aspectos académicos
+                    texto(dtoPDF.getBuscaAyudaAcademica()),
+                    texto(dtoPDF.getEfectividadEstudio()),
+                    texto(dtoPDF.getEfectividadTiempo()),
+                    texto(dtoPDF.getAspectosMejoraAcademica()),
+                    // Datos médicos
+                    texto(dtoPDF.getEstadoSalud()),
+                    detalleSiNo(dtoPDF.isTieneDeficienciaVista(), dtoPDF.getEspecificarVista()),
+                    detalleSiNo(dtoPDF.isTieneDeficienciaAuditiva(), dtoPDF.getEspecificarAuditiva()),
+                    detalleSiNo(dtoPDF.isTieneDiscapacidadFisica(), dtoPDF.getEspecificarFisica()),
+                    detalleSiNo(dtoPDF.isTieneLesionesGraves(), dtoPDF.getEspecificarLesiones()),
+                    detalleSiNo(dtoPDF.isTienePadecimientos(), dtoPDF.getEspecificarPadecimientos()),
+                    detalleSiNo(dtoPDF.isTieneTratamientosPsicologicos(), dtoPDF.getMotivoTratamientosPsicologicos()),
+                    detalleSiNo(dtoPDF.isTieneMedicamentosControlados(), dtoPDF.getEspecificarMedicamentos()),
+                    detalleSiNo(dtoPDF.isTieneAlergias(), dtoPDF.getEspecificarAlergias()),
+                    detalleSiNo(dtoPDF.isTieneTratamientosExternos(), dtoPDF.getMotivoTratamientosExternos()),
+                    texto(dtoPDF.getTipoSangre()),
+                    texto(dtoPDF.getAspectosSaludMejora()),
+                    texto(dtoPDF.getOtraInformacionSalud())
+            );
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "PDF generado correctamente.\nAhora puedes imprimirlo, firmarlo y después subirlo como RDP Firmada.",
+                    "PDF generado",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            abrirArchivoPDF(ruta);
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al generar el PDF:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private String texto(String valor) {
+        return valor != null ? valor : "";
+    }
+
+    private String fecha(java.time.LocalDate fecha) {
+        if (fecha == null) {
+            return "";
+        }
+        return fecha.toString();
+    }
+
+    private String siNo(boolean valor) {
+        return valor ? "Sí" : "No";
+    }
+
+    private String detalleSiNo(boolean valor, String detalle) {
+        if (!valor) {
+            return "No";
+        }
+
+        if (detalle == null || detalle.trim().isEmpty()) {
+            return "Sí";
+        }
+
+        return "Sí. " + detalle;
+    }
+
+    private String preferenciasCompanero(ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isBuscaCompaneroExtranjero()) {
+            lista.add("Extranjero");
+        }
+        if (dto.isBuscaCompaneroMexicano()) {
+            lista.add("Mexicano");
+        }
+        if (dto.isBuscaCompaneroReingreso()) {
+            lista.add("Reingreso");
+        }
+
+        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
+    }
+
+    private String objetosTraera(ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isTraeAuto()) {
+            lista.add("Auto");
+        }
+        if (dto.isTraeComputadora()) {
+            lista.add("Computadora");
+        }
+        if (dto.isTraeTv()) {
+            lista.add("TV");
+        }
+        if (dto.isTraeFrigobar()) {
+            lista.add("Frigobar");
+        }
+
+        return lista.isEmpty() ? "Ninguno" : String.join(", ", lista);
+    }
+
+    private String actividadesDeseadas(ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isDeseaActDeportivas()) {
+            lista.add("Deportivas");
+        }
+        if (dto.isDeseaActCulturales()) {
+            lista.add("Culturales");
+        }
+        if (dto.isDeseaActArtisticas()) {
+            lista.add("Artísticas");
+        }
+
+        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
+    }
+
+    private void abrirArchivoPDF(String ruta) {
+        try {
+            java.io.File archivo = new java.io.File(ruta);
+
+            if (java.awt.Desktop.isDesktopSupported()) {
+                java.awt.Desktop.getDesktop().open(archivo);
+            }
+        } catch (Exception e) {
+            System.out.println("No se pudo abrir automáticamente el PDF: " + e.getMessage());
+        }
+    }
+
     /**
      * Metodo recursivo que busca todas las cajas de texto, combos y fechas
      * dentro de un panel y los vacia.
      */
     private void limpiarComponentes(java.awt.Container contenedor) {
         for (java.awt.Component comp : contenedor.getComponents()) {
-            
+
             if (comp instanceof javax.swing.JTextField) {
                 ((javax.swing.JTextField) comp).setText("");
-            } 
-            else if (comp instanceof javax.swing.JTextArea) {
+            } else if (comp instanceof javax.swing.JTextArea) {
                 ((javax.swing.JTextArea) comp).setText("");
-            } 
-            else if (comp instanceof javax.swing.JComboBox) {
+            } else if (comp instanceof javax.swing.JComboBox) {
                 if (((javax.swing.JComboBox<?>) comp).getItemCount() > 0) {
                     ((javax.swing.JComboBox<?>) comp).setSelectedIndex(0); // Vuelve a "Selecciona..."
                 }
-            } 
-            else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
+            } else if (comp instanceof javax.swing.JCheckBox || comp instanceof javax.swing.JRadioButton) {
                 javax.swing.AbstractButton boton = (javax.swing.AbstractButton) comp;
                 boton.setSelected(false);
-                
+
                 if (boton.getModel() instanceof javax.swing.DefaultButtonModel) {
                     javax.swing.ButtonGroup grupo = ((javax.swing.DefaultButtonModel) boton.getModel()).getGroup();
                     if (grupo != null) {
                         grupo.clearSelection();
                     }
                 }
-            } 
-            else if (comp instanceof com.toedter.calendar.JDateChooser) {
+            } else if (comp instanceof com.toedter.calendar.JDateChooser) {
                 ((com.toedter.calendar.JDateChooser) comp).setDate(null);
             }
-            
+
             if (comp instanceof java.awt.Container) {
                 limpiarComponentes((java.awt.Container) comp);
             }
@@ -540,6 +768,7 @@ public class frmRDP extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnVaciarCampos;
     private javax.swing.JLabel lblSubTitulo;
     private javax.swing.JLabel lblSubTitulo1;

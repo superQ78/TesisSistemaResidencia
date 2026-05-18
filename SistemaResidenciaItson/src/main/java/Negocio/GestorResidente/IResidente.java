@@ -14,8 +14,14 @@ public interface IResidente {
     public ResidenteDTO consultarResidentePorId(String idAcademico);
 
     public java.util.List<ResidenteDTO> consultarResidentes();
-    
+
     public boolean actualizarRDP(ResidenteDTO dto);
-    
+
     boolean registrarSolicitud(SolicitudIngresoDTO dto);
+
+    public boolean subirDocumento(Negocio.DTOs.DocumentoDTO dto);
+
+    public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico);
+
+    public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento);
 }
