@@ -598,7 +598,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
      * Este metodo recibe los datos de la base de datos y rellena los campos
      * visuales de Datos Médicos.
      */
-    public void cargarDatos(ResidenteDTO dto) {
+    public void cargarDatosMedicos(ResidenteDTO dto) {
         if (dto == null) {
             return;
         }

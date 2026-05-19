@@ -829,7 +829,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
      * Este método recibe los datos de la base de datos y rellena los campos
      * visuales de Aspectos Personales.
      */
-    public void cargarDatos(ResidenteDTO dto) {
+    public void cargarDatosPersonales(ResidenteDTO dto) {
         if (dto == null) {
             return;
         }

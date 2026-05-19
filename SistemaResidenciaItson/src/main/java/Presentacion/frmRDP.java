@@ -78,9 +78,12 @@ public class frmRDP extends javax.swing.JFrame {
 
         // se estraen los datos a los paneles comunes
         if (this.dtoCompartido != null) {
-            panelSolicitante.cargarDatosPersonales(this.dtoCompartido);
+            panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
             panelTutor.cargarDatosTutor(this.dtoCompartido);
             panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+            panelPersonales.cargarDatosPersonales(this.dtoCompartido);
+            panelAcademicos.cargarDatosAcademicos(this.dtoCompartido);
+            panelMedicos.cargarDatosMedicos(this.dtoCompartido);
         }
     }
 
@@ -98,9 +101,9 @@ public class frmRDP extends javax.swing.JFrame {
             panelSolicitante.cargarDatos(residente);
             panelTutor.cargarDatos(residente);
             panelEmergencia.cargarDatos(residente);
-            panelPersonales.cargarDatos(residente);
-            panelAcademicos.cargarDatos(residente);
-            panelMedicos.cargarDatos(residente);
+            panelPersonales.cargarDatosPersonales(residente);
+            panelAcademicos.cargarDatosAcademicos(residente);
+            panelMedicos.cargarDatosMedicos(residente);
 
         } else {
             // Si por alguna razón el ID no existe o hubo un error de conexión
@@ -384,6 +387,17 @@ public class frmRDP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        // se guarda todo lo que se haya escrito en la pantalla actual
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+        panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
+        panelTutor.empaquetarDatosTutor(this.dtoCompartido);
+        panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
+        panelPersonales.empaquetarDatosPersonales(this.dtoCompartido);
+        panelAcademicos.empaquetarDatosAcademicos(this.dtoCompartido);
+        panelMedicos.empaquetarDatosMedicos(this.dtoCompartido);
+
         coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
     }//GEN-LAST:event_btnAtrasActionPerformed
 

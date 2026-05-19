@@ -57,14 +57,18 @@
                               </Group>
                               <Component id="chkCuatroPagosHermanos" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="chkCincuentaInicial" min="-2" pref="310" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="chkCincuentaInicial" min="-2" pref="173" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtMontoCincuentaInicial" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="173" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtMontoTresPagos" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabel3" min="-2" pref="134" max="-2" attributes="0"/>
-                                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtMontoCuatroPagosHermanos" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -94,12 +98,16 @@
                       <Component id="chkContadoIndividual" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="txtMontoContadoIndividual" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="chkCincuentaInicial" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="txtMontoCincuentaInicial" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtMontoCincuentaInicial" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtMontoTresPagos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="chkCuatroPagosIguales" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="txtMontoCuatroPagosIguales" min="-2" pref="30" max="-2" attributes="0"/>
@@ -149,8 +157,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="50 % inicial + 3 pagos de:  $"/>
+            <Property name="text" type="java.lang.String" value="50 % inicial : $"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkCincuentaInicialActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkCuatroPagosIguales">
           <Properties>
@@ -207,6 +218,16 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nota informativa: Todo ingreso requiere dep&#xf3;sito-garant&#xed;a (no reembolsable en caso de cancelaci&#xf3;n)."/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="22" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="+ 3 pagos de:  $"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtMontoTresPagos">
         </Component>
       </SubComponents>
     </Container>
