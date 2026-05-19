@@ -8,16 +8,68 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author User
+ * @author Tesis
  */
 public class frmCrearActaAdministrativa extends javax.swing.JFrame {
+
+    private String idResidenteActual;
 
     /**
      * Creates new form frmCrearActaAdministrativa
      */
-    public frmCrearActaAdministrativa() {
+    public frmCrearActaAdministrativa(String idResidente) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        this.idResidenteActual = idResidente;
+        cargarDatosAutomatizados();
+    }
+
+    /**
+     * Trae los datos de la base de datos y pone la fecha del sistema.
+     */
+    private void cargarDatosAutomatizados() {
+        java.time.LocalDate fechaActual = java.time.LocalDate.now();
+        java.time.format.DateTimeFormatter formato = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        txtFechaActa.setText(fechaActual.format(formato));
+        txtFechaActa.setEditable(false); // Se bloquea para evitar modificaciones por error
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        Negocio.DTOs.ResidenteDTO residente = fachada.consultarResidentePorId(this.idResidenteActual);
+
+        if (residente != null) {
+            txtIdEstudiante.setText(residente.getIdAcademico());
+            txtIdEstudiante.setEditable(false);
+
+            txtNombreAlumno.setText(residente.getNombreCompleto());
+            txtNombreAlumno.setEditable(false);
+
+         
+            cmbCarreraAlumno.removeAllItems(); 
+            String carrera = residente.getCarrera() != null ? residente.getCarrera() : "No registrada";
+            cmbCarreraAlumno.addItem(carrera); 
+            cmbCarreraAlumno.setEnabled(false); 
+            
+            String semestre = residente.getSemestre();
+            if (semestre != null) {
+                semestre = semestre.toLowerCase();
+                if (semestre.contains("agosto") || semestre.contains("diciembre") || semestre.contains("agosto-diciembre")) {
+                    chkSemestreAgostoDic.setSelected(true);
+                    chkSemestreEneroMayo.setSelected(false);
+                } else if (semestre.contains("enero") || semestre.contains("mayo") || semestre.contains("enero-mayo")) {
+                    chkSemestreEneroMayo.setSelected(true);
+                    chkSemestreAgostoDic.setSelected(false);
+                }
+            }
+
+            chkSemestreAgostoDic.setEnabled(false);
+            chkSemestreEneroMayo.setEnabled(false);
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Hubo un problema al cargar la informacion del residente.",
+                    "Error de carga", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -258,40 +310,6 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImprimirActaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCrearActaAdministrativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCrearActaAdministrativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCrearActaAdministrativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCrearActaAdministrativa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmCrearActaAdministrativa().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;

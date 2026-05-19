@@ -118,65 +118,86 @@ public class frmConsultarActa extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-    /**
-     * Configura el modelo de las columnas y carga datos de ejemplo.
-     */
-    public void configurarYcargarTabla() {
-        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
-        String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};
+   public void configurarYcargarTabla() {
+        // 1. Títulos de las 5 columnas
+        String[] titulos = {"ID", "Nombre residente", "Lugar de Residencia", "", ""};
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Solo la columna 3 (donde va el botón SELECT) es editable para recibir clics
-                return column == 3;
+                return false; // Bloqueamos edición directa
             }
         };
 
         tblActas.setModel(modeloUsuarios);
-        tblActas.setRowHeight(55); // Un poco más alto para que quepa bien el botón azul
+        tblActas.setRowHeight(55); 
         tblActas.setBackground(java.awt.Color.WHITE);
 
-        // 2. Configurar Render y Editor solo para la Columna 3 (Índice 3)
-        // Usamos la ruta forzada para asegurar que salga el botón "SELECT"
-        String rutaBoton = "/Imagenes/cursor.png"; // Asegúrate que tu imagen se llame así
-
+        // 2. Columna 3 (Botón SELECT)
         tblActas.getColumnModel().getColumn(3).setCellRenderer(
-                new Utilidades.RenderImagen(rutaBoton)
+                new Utilidades.RenderImagen("/Imagenes/cursor.png") // Ajusta el nombre de tu imagen
+        );
+        
+        // 3. Columna 4 (Botón SUBIR)
+        tblActas.getColumnModel().getColumn(4).setCellRenderer(
+                new Utilidades.RenderImagen("/Imagenes/SubirArchivo.png") // Ajusta el nombre de tu imagen
         );
 
-        tblActas.getColumnModel().getColumn(3).setCellEditor(
-                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActas, rutaBoton)
-        );
-
-        // 3. Ajuste de anchos para que se parezca a la imagen
+        // 4. Ajuste de anchos
         tblActas.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
-        tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre (más ancho)
+        tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre 
         tblActas.getColumnModel().getColumn(2).setPreferredWidth(100); // Nacionalidad
-        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100); // Botón
+        tblActas.getColumnModel().getColumn(3).setPreferredWidth(80);  // Select
+        tblActas.getColumnModel().getColumn(4).setPreferredWidth(80);  // Subir
 
-        // 4. Cargar datos de prueba
-        llenarTablaEjemplo();
+        // 5. Cargar datos reales de la BD
+        cargarDatosDesdeBD();
+
+        // 6. Escuchador de clics inteligente
+        tblActas.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblActas.rowAtPoint(evt.getPoint());
+                int columna = tblActas.columnAtPoint(evt.getPoint());
+
+                if (fila >= 0) {
+                    String idSeleccionado = tblActas.getValueAt(fila, 0).toString();
+
+                    if (columna == 3) {
+                        coordinadorVistas.mostrarCrearActaAdministrativa(frmConsultarActa.this, idSeleccionado);
+                        
+                    } else if (columna == 4) {
+                        javax.swing.JOptionPane.showMessageDialog(null, "Próximamente: Subir acta firmada para el ID " + idSeleccionado);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Carga datos simulados de usuarios en el modelo de la tabla.
-     * Posteriormente, esta función se modificará para consultar tu base de
-     * datos.
+     * Trae los residentes reales de la base de datos a la tabla.
      */
-    private void llenarTablaEjemplo() {
-        // Datos extraídos visualmente de tu imagen
-        Object[] fila1 = {"00000226088", "panfilo filomeno", "Méxicana", "SELECT"};
-        Object[] fila2 = {"00000226089", "Cesar Adrian Duran Avalos", "Méxicana", "SELECT"};
-        Object[] fila3 = {"00000226090", "Georgina Aviles", "Colombiano", "SELECT"};
-        Object[] fila4 = {"00000226091", "Jose Duran", "Colombiano", "SELECT"};
+    private void cargarDatosDesdeBD() {
+        modeloUsuarios.setRowCount(0); 
+        
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        java.util.List<Negocio.DTOs.ResidenteDTO> listaResidentes = fachada.consultarResidentes();
 
-        modeloUsuarios.addRow(fila1);
-        modeloUsuarios.addRow(fila2);
-        modeloUsuarios.addRow(fila3);
-        modeloUsuarios.addRow(fila4);
+        if (listaResidentes != null) {
+            for (Negocio.DTOs.ResidenteDTO res : listaResidentes) {
+                String lugar = res.getLugarResidencia() != null ? res.getLugarResidencia() : "N/A";
+                
+                Object[] fila = {
+                    res.getIdAcademico(),
+                    res.getNombreCompleto(),
+                    lugar,
+                    "", // Espacio para la imagen Select
+                    ""  // Espacio para la imagen Subir
+                };
+                modeloUsuarios.addRow(fila);
+            }
+        }
     }
-
 
 /**
  * @param args the command line arguments

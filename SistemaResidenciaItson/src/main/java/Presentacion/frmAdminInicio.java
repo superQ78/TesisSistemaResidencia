@@ -161,6 +161,11 @@ public class frmAdminInicio extends javax.swing.JFrame {
         btnSeleccionarOpcionActaAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSeleccionarOpcionActaAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnSeleccionarOpcionActaAdmin.setText("Seleccionar");
+        btnSeleccionarOpcionActaAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarOpcionActaAdminActionPerformed(evt);
+            }
+        });
         jplAdminInicio.add(btnSeleccionarOpcionActaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 540, 190, 50));
 
         jplGTNActasAdmin.setBackground(new java.awt.Color(119, 180, 241));
@@ -298,6 +303,31 @@ public class frmAdminInicio extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnSeleccionarOpcionResidenteActionPerformed
+
+    private void btnSeleccionarOpcionActaAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarOpcionActaAdminActionPerformed
+        // Leer qué opción seleccionó el usuario en el ComboBox de Actas
+        String opcionSeleccionada = cmbxGestionActas.getSelectedItem().toString();
+
+        // if para abrir la pantalla correcta
+        if (opcionSeleccionada.equals("Crear/Subir acta")) {
+            frmConsultarActa fActa = new frmConsultarActa();
+            fActa.setVisible(true);
+            // Cierra el menú principal
+            this.dispose();
+
+        } else if (opcionSeleccionada.equals("Eliminar acta")) {
+            frmEliminarActa fEliminar = new frmEliminarActa();
+            fEliminar.setVisible(true);
+            this.dispose();
+
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Por favor, selecciona una acción del menú desplegable.",
+                    "Aviso",
+                    javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+    
+    }//GEN-LAST:event_btnSeleccionarOpcionActaAdminActionPerformed
 
     /**
      * @param args the command line arguments

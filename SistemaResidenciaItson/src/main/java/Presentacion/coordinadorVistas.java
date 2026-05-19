@@ -154,4 +154,10 @@ public class coordinadorVistas {
         pantallaPerfil.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
+
+    public static void mostrarCrearActaAdministrativa(JFrame ventanaActual, String idResidente) {
+        frmCrearActaAdministrativa crearActa = new frmCrearActaAdministrativa(idResidente);
+        crearActa.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
 }
