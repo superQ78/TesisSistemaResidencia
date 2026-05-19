@@ -1,5 +1,7 @@
 package Presentacion;
 
+import Negocio.DTOs.SolicitudIngresoDTO;
+
 /**
  *
  * @author Valeria
@@ -38,6 +40,8 @@ public class pnlFormaPago extends javax.swing.JPanel {
         txtMontoCincuentaInicial = new javax.swing.JTextField();
         txtMontoContadoIndividual = new javax.swing.JTextField();
         lblNotaInformativaPago = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtMontoTresPagos = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -53,7 +57,12 @@ public class pnlFormaPago extends javax.swing.JPanel {
         });
 
         chkCincuentaInicial.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        chkCincuentaInicial.setText("50 % inicial + 3 pagos de:  $");
+        chkCincuentaInicial.setText("50 % inicial : $");
+        chkCincuentaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkCincuentaInicialActionPerformed(evt);
+            }
+        });
 
         chkCuatroPagosIguales.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         chkCuatroPagosIguales.setText(" 4 pagos iguales de: $");
@@ -81,6 +90,9 @@ public class pnlFormaPago extends javax.swing.JPanel {
         lblNotaInformativaPago.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNotaInformativaPago.setText("Nota informativa: Todo ingreso requiere depósito-garantía (no reembolsable en caso de cancelación).");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel1.setText("+ 3 pagos de:  $");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,13 +115,17 @@ public class pnlFormaPago extends javax.swing.JPanel {
                                 .addComponent(txtMontoCuatroPagosIguales, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(chkCuatroPagosHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(chkCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(txtMontoCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(chkCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMontoCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMontoTresPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(16, 16, 16)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(txtMontoCuatroPagosHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(chkContadoHermanos, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,11 +145,14 @@ public class pnlFormaPago extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkContadoIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMontoContadoIndividual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(chkCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMontoCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtMontoCincuentaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMontoTresPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkCuatroPagosIguales, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMontoCuatroPagosIguales, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -176,12 +195,13 @@ public class pnlFormaPago extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoCuatroPagosHermanosActionPerformed
 
+    private void chkCincuentaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCincuentaInicialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkCincuentaInicialActionPerformed
+
     private void configurarDinamismo() {
-        // Al arrancar, forzamos a que todas se apaguen y digan 0.00
         actualizarCajasPago();
 
-        // Le ponemos un "escuchador" a cada checkbox. Cuando le den clic a cualquiera,
-        // se revisan todas las cajas para ver cuál se enciende y cuáles se apagan.
         java.awt.event.ActionListener accionListener = evt -> actualizarCajasPago();
 
         chkContadoIndividual.addActionListener(accionListener);
@@ -193,26 +213,29 @@ public class pnlFormaPago extends javax.swing.JPanel {
 
     private void actualizarCajasPago() {
         manejarCaja(chkContadoIndividual, txtMontoContadoIndividual);
-        manejarCaja(chkCincuentaInicial, txtMontoCincuentaInicial);
+        manejarCaja(chkCincuentaInicial, txtMontoCincuentaInicial, txtMontoTresPagos);
         manejarCaja(chkCuatroPagosIguales, txtMontoCuatroPagosIguales);
         manejarCaja(chkContadoHermanos, txtMontoContadoHermanos);
         manejarCaja(chkCuatroPagosHermanos, txtMontoCuatroPagosHermanos);
     }
 
-    private void manejarCaja(javax.swing.JCheckBox chk, javax.swing.JTextField txt) {
+    private void manejarCaja(javax.swing.JCheckBox chk, javax.swing.JTextField... txts) {
         if (chk.isSelected()) {
-            txt.setEnabled(true);
-            txt.setForeground(java.awt.Color.BLACK);
-            // Si tiene el texto por defecto, lo limpiamos para que el usuario escriba
-            if (txt.getText().equals("0.00")) {
-                txt.setText("");
+            for (javax.swing.JTextField txt : txts) {
+                txt.setEnabled(true);
+                txt.setForeground(java.awt.Color.BLACK);
+                if (txt.getText().equals("0.00")) {
+                    txt.setText("");
+                }
             }
-            txt.requestFocus(); // Manda el cursor ahí automáticamente
+            txts[0].requestFocus();
         } else {
-            txt.setEnabled(false);
-            txt.setText("0.00");
-            txt.setForeground(new java.awt.Color(153, 153, 153)); // Color gris
-            marcarError(txt, true); // Le quitamos el fondo rosa si estaba marcado como error
+            for (javax.swing.JTextField txt : txts) {
+                txt.setEnabled(false);
+                txt.setText("0.00");
+                txt.setForeground(new java.awt.Color(153, 153, 153));
+                marcarError(txt, true);
+            }
         }
     }
 
@@ -222,16 +245,16 @@ public class pnlFormaPago extends javax.swing.JPanel {
      *
      * @param dtoSol
      */
-    public void empaquetarDatosPago(Negocio.DTOs.SolicitudIngresoDTO dtoSol) {
+    public void empaquetarDatosPago(SolicitudIngresoDTO dtoSol) {
 
-        // Forma de pago (Checkboxes y sus textos)
         if (chkContadoIndividual.isSelected()) {
             dtoSol.setTipoPago("Contado (individual)");
             dtoSol.setMontoPago(txtMontoContadoIndividual.getText().trim());
 
         } else if (chkCincuentaInicial.isSelected()) {
             dtoSol.setTipoPago("50% inicial + 3 pagos");
-            dtoSol.setMontoPago(txtMontoCincuentaInicial.getText().trim());
+            String montoJunto = txtMontoCincuentaInicial.getText().trim() + ";" + txtMontoTresPagos.getText().trim();
+            dtoSol.setMontoPago(montoJunto);
 
         } else if (chkCuatroPagosIguales.isSelected()) {
             dtoSol.setTipoPago("4 pagos iguales");
@@ -245,10 +268,54 @@ public class pnlFormaPago extends javax.swing.JPanel {
             dtoSol.setTipoPago("4 pagos (hermanos)");
             dtoSol.setMontoPago(txtMontoCuatroPagosHermanos.getText().trim());
         } else {
-            // Por si el usuario no selecciona nada
             dtoSol.setTipoPago("");
             dtoSol.setMontoPago("");
         }
+    }
+
+    public void cargarDatos(SolicitudIngresoDTO dtoSol) {
+        if (dtoSol == null || dtoSol.getTipoPago() == null) {
+            return;
+        }
+
+        chkContadoIndividual.setSelected(false);
+        chkCincuentaInicial.setSelected(false);
+        chkCuatroPagosIguales.setSelected(false);
+        chkContadoHermanos.setSelected(false);
+        chkCuatroPagosHermanos.setSelected(false);
+
+        String tipo = dtoSol.getTipoPago();
+        String monto = dtoSol.getMontoPago() != null ? dtoSol.getMontoPago() : "";
+
+        if (tipo.equals("Contado (individual)")) {
+            chkContadoIndividual.setSelected(true);
+            txtMontoContadoIndividual.setText(monto);
+
+        } else if (tipo.equals("50% inicial + 3 pagos")) {
+            chkCincuentaInicial.setSelected(true);
+
+            String[] partes = monto.split(";");
+            if (partes.length > 0) {
+                txtMontoCincuentaInicial.setText(partes[0]);
+            }
+            if (partes.length > 1) {
+                txtMontoTresPagos.setText(partes[1]);
+            }
+
+        } else if (tipo.equals("4 pagos iguales")) {
+            chkCuatroPagosIguales.setSelected(true);
+            txtMontoCuatroPagosIguales.setText(monto);
+
+        } else if (tipo.equals("Contado (hermanos)")) {
+            chkContadoHermanos.setSelected(true);
+            txtMontoContadoHermanos.setText(monto);
+
+        } else if (tipo.equals("4 pagos (hermanos)")) {
+            chkCuatroPagosHermanos.setSelected(true);
+            txtMontoCuatroPagosHermanos.setText(monto);
+        }
+
+        actualizarCajasPago();
     }
 
     //metodos ayudantes de validación
@@ -277,9 +344,15 @@ public class pnlFormaPago extends javax.swing.JPanel {
         return alMenosUno;
     }
 
-    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField campo) {
+    private boolean campoCondicionalEsValido(javax.swing.JCheckBox checkSi, javax.swing.JTextField... campos) {
         if (checkSi.isSelected()) {
-            return campoEsValido(campo);
+            boolean todosValidos = true;
+            for (javax.swing.JTextField campo : campos) {
+                if (!campoEsValido(campo)) {
+                    todosValidos = false;
+                }
+            }
+            return todosValidos;
         }
         return true;
     }
@@ -293,7 +366,7 @@ public class pnlFormaPago extends javax.swing.JPanel {
                 chkCuatroPagosIguales, chkContadoHermanos, chkCuatroPagosHermanos);
 
         boolean v2 = campoCondicionalEsValido(chkContadoIndividual, txtMontoContadoIndividual);
-        boolean v3 = campoCondicionalEsValido(chkCincuentaInicial, txtMontoCincuentaInicial);
+        boolean v3 = campoCondicionalEsValido(chkCincuentaInicial, txtMontoCincuentaInicial, txtMontoTresPagos);
         boolean v4 = campoCondicionalEsValido(chkCuatroPagosIguales, txtMontoCuatroPagosIguales);
         boolean v5 = campoCondicionalEsValido(chkContadoHermanos, txtMontoContadoHermanos);
         boolean v6 = campoCondicionalEsValido(chkCuatroPagosHermanos, txtMontoCuatroPagosHermanos);
@@ -335,6 +408,7 @@ public class pnlFormaPago extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkContadoIndividual;
     private javax.swing.JCheckBox chkCuatroPagosHermanos;
     private javax.swing.JCheckBox chkCuatroPagosIguales;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNotaInformativaPago;
@@ -344,5 +418,6 @@ public class pnlFormaPago extends javax.swing.JPanel {
     private javax.swing.JTextField txtMontoContadoIndividual;
     private javax.swing.JTextField txtMontoCuatroPagosHermanos;
     private javax.swing.JTextField txtMontoCuatroPagosIguales;
+    private javax.swing.JTextField txtMontoTresPagos;
     // End of variables declaration//GEN-END:variables
 }

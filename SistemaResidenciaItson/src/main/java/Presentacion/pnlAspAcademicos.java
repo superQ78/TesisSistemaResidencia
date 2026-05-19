@@ -365,7 +365,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
      * Este metodo recibe los datos de la base de datos y rellena los campos
      * visuales de aspectos académicos.
      */
-    public void cargarDatos(ResidenteDTO dto) {
+    public void cargarDatosAcademicos(ResidenteDTO dto) {
         if (dto == null) {
             return;
         }

@@ -61,7 +61,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
         // Si trae datos, aparecen en los paneles
         if (this.dtoCompartido != null) {
-            panelSolicitante.cargarDatosPersonales(this.dtoCompartido);
+            panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
             panelTutor.cargarDatosTutor(this.dtoCompartido);
             panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
         }
@@ -333,6 +333,14 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        // se guarda todo lo que se hayan ingresado en la pantalla actual
+        if (this.dtoCompartido == null) {
+            this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
+        }
+        panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
+        panelTutor.empaquetarDatosTutor(this.dtoCompartido);
+        panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
+
         coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
     }//GEN-LAST:event_btnAtrasActionPerformed
 

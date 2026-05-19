@@ -431,7 +431,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     /**
      * Este metodo recibe un DTO y rellena los campos automáticamente.
      */
-    public void cargarDatosPersonales(ResidenteDTO dto) {
+    public void cargarDatosSolicitante(ResidenteDTO dto) {
         if (dto == null) {
             return; // Si el maletín viene vacío, no hacemos nada
         }

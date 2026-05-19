@@ -29,6 +29,23 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         this.dtoCompartido = dtoMemoria;
         cargarDocumentosSubidos();
     }
+    
+    /**
+     * consultor de para modificar
+     */
+    public frmRegistrarResidente(String idResidenteAEditar) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarTabla();
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        this.dtoCompartido = fachada.consultarResidentePorId(idResidenteAEditar);
+
+        if(this.dtoCompartido == null) {
+            this.dtoCompartido = new ResidenteDTO();
+        }
+        cargarDocumentosSubidos();
+    }
 
     private void configurarTabla() {
         String[] columnas = {"Documento", "Nombre", "Estado", "Subir"};

@@ -1,5 +1,7 @@
 package Presentacion;
 
+import Negocio.DTOs.SolicitudIngresoDTO;
+
 /**
  *
  * @author User
@@ -136,9 +138,22 @@ public class pnlCompanero extends javax.swing.JPanel {
      *
      * @param dtoSol
      */
-    public void empaquetarDatosCompanero(Negocio.DTOs.SolicitudIngresoDTO dtoSol) {
+    public void empaquetarDatosCompanero(SolicitudIngresoDTO dtoSol) {
         dtoSol.setIdCompanero(txtIdCompanero.getText().trim());
         dtoSol.setNombreCompanero(txtNombreCompanero.getText().trim());
+    }
+
+    /**
+     * recibe los datos y rellena los campos visuales del Compañero.
+     */
+    public void cargarDatos(SolicitudIngresoDTO dtoSol) {
+        if (dtoSol == null) {
+            return;
+        }
+
+        // Ponemos el ID y el Nombre. Si vienen nulos, ponemos texto vacío ""
+        txtIdCompanero.setText(dtoSol.getIdCompanero() != null ? dtoSol.getIdCompanero() : "");
+        txtNombreCompanero.setText(dtoSol.getNombreCompanero() != null ? dtoSol.getNombreCompanero() : "");
     }
 
     /**
