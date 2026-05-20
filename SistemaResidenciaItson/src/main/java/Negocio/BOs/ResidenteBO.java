@@ -417,4 +417,22 @@ public class ResidenteBO {
 
         return dto;
     }
+
+    // Para consultar la solicitud por la CURP
+    public Negocio.DTOs.SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
+        Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        return dao.consultarSolicitudPorCurp(curp);
+    }
+
+    // Para actualizar los datos de la solicitud
+    public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
+        Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        return dao.actualizarSolicitud(dto);
+    }
+    
+    // Para el cambiar estado inhabilitar/habilitar
+    public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
+        Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
+        return dao.cambiarEstadoResidente(idAcademico, nuevoEstado);
+    }
 }

@@ -1,6 +1,9 @@
 package Presentacion;
 
 import Negocio.DTOs.ResidenteDTO;
+import Negocio.DTOs.SolicitudIngresoDTO;
+import Negocio.GestorResidente.IResidente;
+import Negocio.GestorResidente.ResidenteFachada;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -56,14 +59,28 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         tabSolicitud.revalidate();
         tabSolicitud.repaint();
 
-        // guarda los daots
+        // Guarda los datos 
         this.dtoCompartido = dtoMemoria;
 
-        // Si trae datos, aparecen en los paneles
+        // Si trae datos, los carga en los paneles correspondientes
         if (this.dtoCompartido != null) {
             panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
             panelTutor.cargarDatosTutor(this.dtoCompartido);
             panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+
+            // Si el residente ya tiene una curp registrada,
+            // busca la informacion del compañero y el pago
+            if (this.dtoCompartido.getCurp() != null && !this.dtoCompartido.getCurp().trim().isEmpty()) {
+
+                IResidente fachada = new ResidenteFachada();
+
+                SolicitudIngresoDTO solicitudCargada = fachada.consultarSolicitudPorCurp(this.dtoCompartido.getCurp());
+
+                if (solicitudCargada != null) {
+                    panelPago.cargarDatos(solicitudCargada);
+                    panelCompanero.cargarDatos(solicitudCargada);
+                }
+            }
         }
     }
 
@@ -386,11 +403,29 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         panelCompanero.empaquetarDatosCompanero(dtoSolicitud);
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-        boolean exito = fachada.registrarSolicitud(dtoSolicitud);
+     
+        Negocio.DTOs.SolicitudIngresoDTO solicitudExistente = fachada.consultarSolicitudPorCurp(dtoSolicitud.getCurpResidente());
+        
+        boolean exito = false;
+        boolean esModificacion = false; 
+        
+        // si no existe es un insert
+        if (solicitudExistente == null) {
+            exito = fachada.registrarSolicitud(dtoSolicitud);
+        } 
+        // si ya existe es modificar
+        else {
+            exito = fachada.actualizarSolicitud(dtoSolicitud);
+            esModificacion = true; 
+        }
 
         if (exito) {
+            // mensaje 
+            String mensaje = esModificacion ? "Solicitud de ingreso modificada correctamente." 
+                                            : "Solicitud de ingreso guardada correctamente en la Base de Datos.";
+                                            
             javax.swing.JOptionPane.showMessageDialog(this,
-                    "Solicitud de ingreso guardada correctamente en la Base de Datos.",
+                    mensaje,
                     "Éxito",
                     javax.swing.JOptionPane.INFORMATION_MESSAGE);
 

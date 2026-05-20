@@ -57,4 +57,25 @@ public class ResidenteFachada implements IResidente {
         ControlResidente control = new ControlResidente();
         return control.consultarDocumento(idAcademico, tipoDocumento);
     }
+    
+    // Para consultar la solicitud por la CURP
+    @Override
+    public SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
+        ControlResidente control = new ControlResidente();
+        return control.consultarSolicitudPorCurp(curp);
+    }
+    
+    // Para actualizar los datos de la solicitud
+    @Override
+    public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
+        ControlResidente control = new ControlResidente();
+        return control.actualizarSolicitud(dto);
+    }
+    
+     // Para el cambiar estado inhabilitar/habilitar
+    @Override
+    public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
+        ControlResidente control = new ControlResidente();
+        return control.cambiarEstadoResidente(idAcademico, nuevoEstado);
+    }
 }

@@ -202,4 +202,22 @@ public class ControlResidente {
         ResidenteBO bo = new ResidenteBO();
         return bo.consultarDocumento(idAcademico, tipoDocumento);
     }
+    
+    // Para consultar la solicitud por la CURP
+    public SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.consultarSolicitudPorCurp(curp);
+    }
+    
+    // Para actualizar los datos de la solicitud
+    public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.actualizarSolicitud(dto);
+    }
+    
+    // Para el cambiar estado inhabilitar/habilitar
+    public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
+        Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
+        return bo.cambiarEstadoResidente(idAcademico, nuevoEstado);
+    }
 }

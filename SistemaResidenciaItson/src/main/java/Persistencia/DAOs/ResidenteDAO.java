@@ -554,4 +554,76 @@ public class ResidenteDAO implements IResidenteDAO {
         return null;
     }
 
+    // Para consultar la solicitud por la CURP
+    @Override
+    public Negocio.DTOs.SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
+        String sql = "SELECT * FROM SolicitudesIngreso WHERE curpResidente = ?";
+
+        try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, curp);
+
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    // Si encuentra la solicitud, armamos el maletín con los datos de la base de datos
+                    Negocio.DTOs.SolicitudIngresoDTO dto = new Negocio.DTOs.SolicitudIngresoDTO();
+
+                    dto.setCurpResidente(rs.getString("curpResidente"));
+                    dto.setTipoPago(rs.getString("tipoPago"));
+                    dto.setMontoPago(rs.getString("montoPago"));
+                    dto.setIdCompanero(rs.getString("idCompanero"));
+                    dto.setNombreCompanero(rs.getString("nombreCompanero"));
+
+                    return dto;
+                }
+            }
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al consultar la Solicitud por CURP: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        // Si no existe, devuelve null
+        return null;
+    }
+
+    // Para actualizar los datos de la solicitud
+    @Override
+    public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
+        String sql = "UPDATE SolicitudesIngreso SET tipoPago = ?, montoPago = ?, idCompanero = ?, nombreCompanero = ? WHERE curpResidente = ?";
+
+        try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, dto.getTipoPago());
+            ps.setString(2, dto.getMontoPago());
+            ps.setString(3, dto.getIdCompanero());
+            ps.setString(4, dto.getNombreCompanero());
+            ps.setString(5, dto.getCurpResidente());
+
+            int filasActualizadas = ps.executeUpdate();
+            return filasActualizadas > 0;
+
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al actualizar la Solicitud en BD: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Para el cambiar estado inhabilitar/habilitar
+    @Override
+    public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
+        String sql = "UPDATE Residentes SET estado = ? WHERE idAcademico = ?";
+        try (java.sql.Connection con = Conexion.getConexion(); java.sql.PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, nuevoEstado);
+            ps.setString(2, idAcademico);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (java.sql.SQLException e) {
+            System.err.println("Error al cambiar estado: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

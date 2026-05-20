@@ -123,6 +123,7 @@ CREATE TABLE Residentes (
     fechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE Residentes ADD COLUMN estado ENUM('Activo', 'Inhabilitado') DEFAULT 'Activo';
 
 -- =========================
 -- TABLA SOLICITUDES DE INGRESO

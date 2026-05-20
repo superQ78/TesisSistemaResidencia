@@ -24,4 +24,13 @@ public interface IResidente {
     public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico);
 
     public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento);
+
+    // Para consultar la solicitud por la CURP
+    public Negocio.DTOs.SolicitudIngresoDTO consultarSolicitudPorCurp(String curp);
+
+    // Para actualizar los datos de la solicitud
+    public boolean actualizarSolicitud(SolicitudIngresoDTO dto);
+
+    // Para el cambiar estado inhabilitar/habilitar
+    public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado);
 }
