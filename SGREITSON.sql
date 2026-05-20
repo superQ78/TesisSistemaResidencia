@@ -92,7 +92,7 @@ CREATE TABLE Residentes (
 
     -- ASPECTOS PERSONALES Y CONVIVENCIA
     haVividoFuera BOOLEAN,
-    tiempoVividoFuera VARCHAR(50),
+    tiempoVividoFuera TEXT,
     decisionResidencia VARCHAR(50),
     razonesVivirResidencia TEXT,
     adaptacion VARCHAR(50),
