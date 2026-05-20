@@ -491,7 +491,7 @@ public class ResidenteDAO implements IResidenteDAO {
     public List<Persistencia.Entidades.DocumentoEntidad> consultarDocumentos(String idAcademico) {
         List<Persistencia.Entidades.DocumentoEntidad> lista = new ArrayList<>();
 
-        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo "
+        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo, fechaSubida "
                 + "FROM Documentos WHERE idAcademico = ?";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -506,6 +506,7 @@ public class ResidenteDAO implements IResidenteDAO {
                     entidad.setIdAcademico(rs.getString("idAcademico"));
                     entidad.setTipoDocumento(rs.getString("tipoDocumento"));
                     entidad.setNombreArchivo(rs.getString("nombreArchivo"));
+                    entidad.setFechaSubida(rs.getString("fechaSubida"));
 
                     lista.add(entidad);
                 }
@@ -521,7 +522,7 @@ public class ResidenteDAO implements IResidenteDAO {
 
     @Override
     public Persistencia.Entidades.DocumentoEntidad consultarDocumento(String idAcademico, String tipoDocumento) {
-        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo, archivo "
+        String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo, archivo, fechaSubida "
                 + "FROM Documentos "
                 + "WHERE idAcademico = ? AND tipoDocumento = ? "
                 + "ORDER BY fechaSubida DESC "
@@ -541,6 +542,7 @@ public class ResidenteDAO implements IResidenteDAO {
                     entidad.setTipoDocumento(rs.getString("tipoDocumento"));
                     entidad.setNombreArchivo(rs.getString("nombreArchivo"));
                     entidad.setArchivo(rs.getBytes("archivo"));
+                    entidad.setFechaSubida(rs.getString("fechaSubida"));
 
                     return entidad;
                 }

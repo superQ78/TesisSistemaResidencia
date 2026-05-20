@@ -1,16 +1,18 @@
 package Presentacion;
 
+import Negocio.DTOs.ResidenteDTO;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class frmPerfilResidente extends javax.swing.JFrame {
 
     private DefaultTableModel modeloActaResidentes;
     private String idResidente;
+    private ResidenteDTO residenteActual;
 
     /**
      * Creates new form frmPerfilResidente
@@ -43,21 +45,20 @@ public class frmPerfilResidente extends javax.swing.JFrame {
      */
     private void cargarDatosGenerales() {
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-        Negocio.DTOs.ResidenteDTO residente = fachada.consultarResidentePorId(this.idResidente);
+        this.residenteActual = fachada.consultarResidentePorId(this.idResidente);
 
-        if (residente != null) {
+        if (this.residenteActual != null) {
 
             // Usa un operador ternario por si algun dato viene nulo, que ponga "N/A"
-            lblNombreValor.setText(residente.getNombreCompleto() != null ? residente.getNombreCompleto() : "N/A");
-            lblIdValor.setText(residente.getIdAcademico() != null ? residente.getIdAcademico() : "N/A");
-            lblCelularValor.setText(residente.getCelular() != null ? residente.getCelular() : "N/A");
-            lblCorreoValor.setText(residente.getCorreo() != null ? residente.getCorreo() : "N/A");
-            lblImssValor.setText(residente.getNss() != null ? residente.getNss() : "N/A");
-            lblSemestresValor.setText(residente.getSemestre() != null ? residente.getSemestre() : "N/A");
-            lblCarreraValor.setText(residente.getCarrera() != null ? residente.getCarrera() : "N/A");
+            lblNombreValor.setText(this.residenteActual.getNombreCompleto() != null ? this.residenteActual.getNombreCompleto() : "N/A");
+            lblIdValor.setText(this.residenteActual.getIdAcademico() != null ? this.residenteActual.getIdAcademico() : "N/A");
+            lblCelularValor.setText(this.residenteActual.getCelular() != null ? this.residenteActual.getCelular() : "N/A");
+            lblCorreoValor.setText(this.residenteActual.getCorreo() != null ? this.residenteActual.getCorreo() : "N/A");
+            lblImssValor.setText(this.residenteActual.getNss() != null ? this.residenteActual.getNss() : "N/A");
+            lblSemestresValor.setText(this.residenteActual.getSemestre() != null ? this.residenteActual.getSemestre() : "N/A");
+            lblCarreraValor.setText(this.residenteActual.getCarrera() != null ? this.residenteActual.getCarrera() : "N/A");
 
         } else {
-            // Si por error no lo encuentra
             javax.swing.JOptionPane.showMessageDialog(this,
                     "No se pudo cargar la información de este residente.",
                     "Error",
@@ -408,7 +409,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRpdActionPerformed
 
     private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
-        // TODO add your handling code here:
+        coordinadorVistas.mostrarHistorialResidente(this, this.residenteActual);
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnIneTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIneTutorActionPerformed

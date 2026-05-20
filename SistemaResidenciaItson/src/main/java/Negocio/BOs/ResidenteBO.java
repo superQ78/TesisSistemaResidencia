@@ -376,6 +376,7 @@ public class ResidenteBO {
         entidad.setTipoDocumento(dto.getTipoDocumento());
         entidad.setNombreArchivo(dto.getNombreArchivo());
         entidad.setArchivo(dto.getArchivo());
+        entidad.setFechaSubida(entidad.getFechaSubida());
 
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.insertarDocumento(entidad);
@@ -414,6 +415,7 @@ public class ResidenteBO {
         dto.setTipoDocumento(entidad.getTipoDocumento());
         dto.setNombreArchivo(entidad.getNombreArchivo());
         dto.setArchivo(entidad.getArchivo());
+        dto.setFechaSubida(entidad.getFechaSubida());
 
         return dto;
     }

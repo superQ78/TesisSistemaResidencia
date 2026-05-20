@@ -599,7 +599,7 @@ public class pnlDatosMedicos extends javax.swing.JPanel {
      * visuales de Datos Médicos.
      */
     public void cargarDatosMedicos(ResidenteDTO dto) {
-        if (dto == null) {
+        if (dto == null || dto.getCurp() == null || dto.getCurp().trim().isEmpty()) {
             return;
         }
 

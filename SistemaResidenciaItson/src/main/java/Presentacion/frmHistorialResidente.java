@@ -1,25 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
+import Negocio.DTOs.DocumentoDTO;
+import Negocio.DTOs.ResidenteDTO;
+import java.io.File;
+import java.io.FileOutputStream;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author User
+ * @author Valeria
  */
 public class frmHistorialResidente extends javax.swing.JFrame {
 
-     private DefaultTableModel modeloHistorialRecidente;
+    private DefaultTableModel modeloHistorialRecidente;
+    private ResidenteDTO residenteActual;
+
     /**
      * Creates new form frmHistorialResidente
      */
     public frmHistorialResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarYcargarTabla();
+    }
+
+    /**
+     * Recibe al residente para mostrar su información y buscar sus documentos
+     */
+    public frmHistorialResidente(ResidenteDTO residente) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        this.residenteActual = residente;
+
+        if (this.residenteActual != null) {
+            lblNombreResidente.setText(this.residenteActual.getNombreCompleto());
+            lblIdResidente.setText(this.residenteActual.getIdAcademico());
+        }
+
         configurarYcargarTabla();
     }
 
@@ -43,7 +62,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         lblFotoPerfil = new javax.swing.JLabel();
         lblNombreResidente = new javax.swing.JLabel();
-        lblResidente = new javax.swing.JLabel();
+        lblIdResidente = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
 
@@ -108,9 +127,9 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         lblNombreResidente.setText("nombre");
         pnlHistorialResidente.add(lblNombreResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 25));
 
-        lblResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblResidente.setText("id");
-        pnlHistorialResidente.add(lblResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, 25));
+        lblIdResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblIdResidente.setText("id");
+        pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
@@ -131,68 +150,148 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmPerfilResidente volver = new frmPerfilResidente();
-        volver.setVisible(true);
-        this.dispose();
+       if (this.residenteActual != null) {
+            coordinadorVistas.mostrarPerfilResidente(this, this.residenteActual.getIdAcademico()); 
+        } else {
+            coordinadorVistas.regresarMenuPrincipal(this);
+        }
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-     public void configurarYcargarTabla() {
-        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
-        String[] titulos = {"ID", "Fecha", "Descargar", "Visualizar"};
+    public void configurarYcargarTabla() {
+        String[] titulos = {"Documento", "Fecha", "Descargar", "Visualizar"};
 
         modeloHistorialRecidente = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 2 || column == 3;
+                return false;
             }
         };
 
         tblHistorial.setModel(modeloHistorialRecidente);
-        tblHistorial.setRowHeight(55); 
+        tblHistorial.setRowHeight(55);
         tblHistorial.setBackground(java.awt.Color.WHITE);
 
-        // Usamos la ruta para asegurar que salga el botón seleccionar
-        String rutaBotonDesc = "/Imagenes/descargar.png"; 
-        String rutaBotonVisu = "/Imagenes/vision.png"; 
-        
+        String rutaBotonDesc = "/Imagenes/descargar.png";
+        String rutaBotonVisu = "/Imagenes/vision.png";
+
         tblHistorial.getColumnModel().getColumn(2).setCellRenderer(
                 new Utilidades.RenderImagen(rutaBotonDesc)
         );
-
-        tblHistorial.getColumnModel().getColumn(2).setCellEditor(
-                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblHistorial, rutaBotonDesc)
-        );
-        
         tblHistorial.getColumnModel().getColumn(3).setCellRenderer(
                 new Utilidades.RenderImagen(rutaBotonVisu)
         );
 
-        tblHistorial.getColumnModel().getColumn(3).setCellEditor(
-                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblHistorial, rutaBotonVisu)
-        );
+        tblHistorial.getColumnModel().getColumn(0).setPreferredWidth(150);
+        tblHistorial.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tblHistorial.getColumnModel().getColumn(2).setPreferredWidth(80);
+        tblHistorial.getColumnModel().getColumn(3).setPreferredWidth(80);
 
-        // 3. Ajuste de anchos para que se parezca a la imagen
-        tblHistorial.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
-        tblHistorial.getColumnModel().getColumn(1).setPreferredWidth(100); // fecha
-        tblHistorial.getColumnModel().getColumn(2).setPreferredWidth(100); // Botón
-        tblHistorial.getColumnModel().getColumn(2).setPreferredWidth(100); // Botón visualizar
+        // carga los docuemntos desde la base de datos
+        llenarTablaDocumentos();
 
-        // 4. Cargar datos de prueba
-        llenarTablaEjemplo();
+        tblHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblHistorial.rowAtPoint(evt.getPoint());
+                int columna = tblHistorial.columnAtPoint(evt.getPoint());
+
+                if (fila >= 0 && (columna == 2 || columna == 3)) {
+                    String tipoDocumento = tblHistorial.getValueAt(fila, 0).toString();
+
+                    if (columna == 2) {
+                        descargarDocumento(tipoDocumento);
+                    } else if (columna == 3) {
+                        visualizarDocumento(tipoDocumento);
+                    }
+                }
+            }
+        });
     }
 
     /**
-     * Simula los datos mostrados en la imagen.
+     * Busca los documentos del residente en la BD y los pone en la tabla
      */
-    private void llenarTablaEjemplo() {
-        // Datos extraídos visualmente de tu imagen
-        Object[] fila1 = {"01", "20/10/2023", "Descargar", "Visualizar"};
-        Object[] fila2 = {"02", "01/05/2024", "Descargar", "Visualizar"};
+    private void llenarTablaDocumentos() {
+        modeloHistorialRecidente.setRowCount(0);
 
-        modeloHistorialRecidente.addRow(fila1);
-        modeloHistorialRecidente.addRow(fila2);
+        if (this.residenteActual == null || this.residenteActual.getIdAcademico() == null) {
+            return;
+        }
+
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        java.util.List<DocumentoDTO> listaDocs = fachada.consultarDocumentos(this.residenteActual.getIdAcademico());
+
+        if (listaDocs != null) {
+            for (DocumentoDTO doc : listaDocs) {
+                String fecha = doc.getFechaSubida() != null ? doc.getFechaSubida().toString() : "Reciente";
+
+                Object[] fila = {
+                    doc.getTipoDocumento(),
+                    fecha,
+                    "",
+                    ""
+                };
+                modeloHistorialRecidente.addRow(fila);
+            }
+        }
     }
-    
+
+    /**
+     * logica para descargar el docuemnto
+     */
+    private void descargarDocumento(String tipoDocumento) {
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        DocumentoDTO doc = fachada.consultarDocumento(this.residenteActual.getIdAcademico(), tipoDocumento);
+
+        if (doc == null || doc.getArchivo() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo recuperar el archivo de la base de datos.");
+            return;
+        }
+
+        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+        chooser.setDialogTitle("Guardar Documento");
+        chooser.setSelectedFile(new File(doc.getNombreArchivo()));
+
+        if (chooser.showSaveDialog(this) == javax.swing.JFileChooser.APPROVE_OPTION) {
+            File archivoDestino = chooser.getSelectedFile();
+            try (FileOutputStream fos = new FileOutputStream(archivoDestino)) {
+                fos.write(doc.getArchivo());
+                javax.swing.JOptionPane.showMessageDialog(this, "Archivo guardado con éxito.");
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error al guardar el archivo: " + e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * logica para Abrir el PDF sin descargarlo
+     */
+    private void visualizarDocumento(String tipoDocumento) {
+        Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+        DocumentoDTO doc = fachada.consultarDocumento(this.residenteActual.getIdAcademico(), tipoDocumento);
+
+        if (doc == null || doc.getArchivo() == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo recuperar el archivo de la base de datos.");
+            return;
+        }
+
+        try {
+            File archivoTemp = File.createTempFile("VistaPrevia_", "_" + doc.getNombreArchivo());
+            archivoTemp.deleteOnExit();
+
+            try (FileOutputStream fos = new FileOutputStream(archivoTemp)) {
+                fos.write(doc.getArchivo());
+            }
+
+            if (java.awt.Desktop.isDesktopSupported()) {
+                java.awt.Desktop.getDesktop().open(archivoTemp);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al abrir el visualizador: " + e.getMessage());
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -234,10 +333,10 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFotoPerfil;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblIdResidente;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreResidente;
-    private javax.swing.JLabel lblResidente;
     private javax.swing.JLabel lblSubtitulo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnlHistorialResidente;

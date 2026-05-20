@@ -830,7 +830,7 @@ public class pnlAspPersonales extends javax.swing.JPanel {
      * visuales de Aspectos Personales.
      */
     public void cargarDatosPersonales(ResidenteDTO dto) {
-        if (dto == null) {
+        if (dto == null || dto.getCurp() == null || dto.getCurp().trim().isEmpty()) {
             return;
         }
 

@@ -366,7 +366,7 @@ public class pnlAspAcademicos extends javax.swing.JPanel {
      * visuales de aspectos académicos.
      */
     public void cargarDatosAcademicos(ResidenteDTO dto) {
-        if (dto == null) {
+        if (dto == null || dto.getCurp() == null || dto.getCurp().trim().isEmpty()) {
             return;
         }
 

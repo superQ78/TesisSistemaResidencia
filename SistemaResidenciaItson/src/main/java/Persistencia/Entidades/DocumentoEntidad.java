@@ -15,17 +15,17 @@ public class DocumentoEntidad {
     private String tipoDocumento;
     private String nombreArchivo;
     private byte[] archivo;
+    private String fechaSubida;
 
-    public DocumentoEntidad() {
-    }
-
-    public DocumentoEntidad(String idAcademico, int idDocumento, String tipoDocumento, String nombreArchivo, byte[] archivo) {
+    public DocumentoEntidad(String idAcademico, String tipoDocumento, String nombreArchivo, byte[] archivo, String fechaSubida) {
         this.idAcademico = idAcademico;
         this.tipoDocumento = tipoDocumento;
         this.nombreArchivo = nombreArchivo;
         this.archivo = archivo;
-        this.idDocumento = idDocumento;
+        this.fechaSubida = fechaSubida;
+    }
 
+    public DocumentoEntidad() {
     }
 
     public int getIdDocumento() {
@@ -66,6 +66,14 @@ public class DocumentoEntidad {
 
     public void setArchivo(byte[] archivo) {
         this.archivo = archivo;
+    }
+
+    public String getFechaSubida() {
+        return fechaSubida;
+    }
+
+    public void setFechaSubida(String fechaSubida) {
+        this.fechaSubida = fechaSubida;
     }
 
     @Override

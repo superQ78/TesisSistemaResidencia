@@ -149,7 +149,6 @@ public class coordinadorVistas {
      * busque su información.
      */
     public static void mostrarPerfilResidente(JFrame ventanaActual, String idResidente) {
-        // 1. Creamos la nueva pantalla y le damos el ID
         frmPerfilResidente pantallaPerfil = new frmPerfilResidente(idResidente);
         pantallaPerfil.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
@@ -159,5 +158,11 @@ public class coordinadorVistas {
         frmCrearActaAdministrativa crearActa = new frmCrearActaAdministrativa(idResidente);
         crearActa.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
+    }
+
+    public static void mostrarHistorialResidente(JFrame ventanaActual, ResidenteDTO residente) {
+        Presentacion.frmHistorialResidente historial = new Presentacion.frmHistorialResidente(residente);
+        historial.setVisible(true);
+        ventanaActual.dispose();
     }
 }

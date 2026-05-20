@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Negocio.DTOs;
 
 /**
@@ -9,23 +5,24 @@ package Negocio.DTOs;
  * @author cesar
  */
 public class DocumentoDTO {
-    
-  private String idAcademico;
+
+    private String idAcademico;
     private String tipoDocumento;
     private String nombreArchivo;
-    private byte[] archivo;  
+    private byte[] archivo;
+    private String fechaSubida;
 
-    public DocumentoDTO(String idAcademico, String tipoDocumento, String nombreArchivo, byte[] archivo) {
+    public DocumentoDTO(String idAcademico, String tipoDocumento, String nombreArchivo, byte[] archivo, String fechaSubida) {
         this.idAcademico = idAcademico;
         this.tipoDocumento = tipoDocumento;
         this.nombreArchivo = nombreArchivo;
         this.archivo = archivo;
+        this.fechaSubida = fechaSubida;
     }
 
     public DocumentoDTO() {
     }
 
-    
     public String getIdAcademico() {
         return idAcademico;
     }
@@ -58,9 +55,17 @@ public class DocumentoDTO {
         this.archivo = archivo;
     }
 
+    public String getFechaSubida() {
+        return fechaSubida;
+    }
+
+    public void setFechaSubida(String fechaSubida) {
+        this.fechaSubida = fechaSubida;
+    }
+
     @Override
     public String toString() {
         return "DocumentoDTO{" + "idAcademico=" + idAcademico + ", tipoDocumento=" + tipoDocumento + ", nombreArchivo=" + nombreArchivo + ", archivo=" + archivo + '}';
     }
-    
+
 }
