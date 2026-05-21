@@ -4,10 +4,18 @@
  */
 package Persistencia.Interfaces;
 
+import Persistencia.Entidades.ActaEntidad;
+import java.util.List;
+
 /**
  *
  * @author cesar
  */
-public class IActaDAO {
-    
+public interface   IActaDAO {
+
+    boolean insertarActa(ActaEntidad acta);
+
+    List<ActaEntidad> consultarTodas();
+
+    boolean eliminarActa(int idActa);
 }

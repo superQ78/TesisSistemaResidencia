@@ -4,10 +4,18 @@
  */
 package Negocio.GestorActa;
 
+import Negocio.DTOs.ActaDTO;
+import java.util.List;
+
 /**
  *
  * @author cesar
  */
 public interface IActa {
-    
+
+    boolean registrarActa(ActaDTO acta);
+
+    List<ActaDTO> consultarActas();
+
+    boolean eliminarActa(int idActa);
 }
