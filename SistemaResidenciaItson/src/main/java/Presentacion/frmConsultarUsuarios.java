@@ -15,6 +15,7 @@ import Negocio.GestorUsuario.UsuarioFachada;
 public class frmConsultarUsuarios extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
+    private javax.swing.table.TableRowSorter<DefaultTableModel> sorter;
 
     /**
      * Creates new form frmConsultarUsuarios
@@ -134,12 +135,16 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-
                 return false;
             }
         };
 
         tblUsuarios.setModel(modeloUsuarios);
+        
+        // Conecta el filtro a la tabla
+        sorter = new javax.swing.table.TableRowSorter<>(modeloUsuarios);
+        tblUsuarios.setRowSorter(sorter);
+
         tblUsuarios.setRowHeight(40);
         tblUsuarios.setBackground(java.awt.Color.WHITE);
 
@@ -150,27 +155,43 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
         }
 
         llenarTablaReal();
-        // Le ponemos un escuchador a la tabla para detectar los clics en los botones
+
+        // buscador dinamico 
+        txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+
+            private void filtrarTabla() {
+                String texto = txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
+
         tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // Sacamos la fila y columna exacta donde el usuario dio el clic
-                int fila = tblUsuarios.rowAtPoint(evt.getPoint());
+                int filaVisual = tblUsuarios.rowAtPoint(evt.getPoint());
                 int columna = tblUsuarios.columnAtPoint(evt.getPoint());
 
-                // Checamos que no le haya dado clic al vacio y que sea en las columnas de los botones 
-                if (fila >= 0 && columna >= 3) {
+                if (filaVisual >= 0 && columna >= 3) {
 
-                    // Extraemos el id y el nombre de esa fila para saber a quien seleccionamos
-                    int idSeleccionado = Integer.parseInt(tblUsuarios.getValueAt(fila, 0).toString());
-                    String nombreSeleccionado = tblUsuarios.getValueAt(fila, 1).toString();
+                    int filaReal = tblUsuarios.convertRowIndexToModel(filaVisual);
+
+                    int idSeleccionado = Integer.parseInt(tblUsuarios.getModel().getValueAt(filaReal, 0).toString());
+                    String nombreSeleccionado = tblUsuarios.getModel().getValueAt(filaReal, 1).toString();
 
                     if (columna == 3) {
-                        // Le dio al boton de consultar
                         coordinadorVistas.mostrarInformacionUsuario(frmConsultarUsuarios.this, idSeleccionado);
 
                     } else if (columna == 4) {
-                        // Le dio al boton de editar
                         coordinadorVistas.mostrarModificarUsuario(frmConsultarUsuarios.this, idSeleccionado);
 
                     } else if (columna == 5) {

@@ -244,6 +244,8 @@ public class ResidenteBO {
             dto.setIdAcademico(entidad.getIdAcademico());
             dto.setNombreCompleto(entidad.getNombreCompleto());
             dto.setLugarResidencia(entidad.getLugarResidencia());
+            dto.setEstado(entidad.getEstado());
+            
             dtos.add(dto);
         }
         return dtos;
@@ -393,9 +395,8 @@ public class ResidenteBO {
             dto.setIdAcademico(entidad.getIdAcademico());
             dto.setTipoDocumento(entidad.getTipoDocumento());
             dto.setNombreArchivo(entidad.getNombreArchivo());
+            dto.setFechaSubida(entidad.getFechaSubida());
 
-            // No cargamos el archivo completo para solo pintar la tabla.
-            // dto.setArchivo(entidad.getArchivo());
             dtos.add(dto);
         }
 
@@ -431,7 +432,7 @@ public class ResidenteBO {
         Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.actualizarSolicitud(dto);
     }
-    
+
     // Para el cambiar estado inhabilitar/habilitar
     public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
         Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();

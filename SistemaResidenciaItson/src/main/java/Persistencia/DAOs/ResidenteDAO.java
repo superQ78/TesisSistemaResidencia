@@ -164,7 +164,7 @@ public class ResidenteDAO implements IResidenteDAO {
     public List<ResidenteEntidad> consultarTodos() {
         List<ResidenteEntidad> lista = new ArrayList<>();
         // Solo traemos a todos para cargar la tabla
-        String sql = "SELECT idAcademico, nombreCompleto, lugarResidencia FROM residentes";
+        String sql = "SELECT idAcademico, nombreCompleto, lugarResidencia, estado FROM residentes";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql); java.sql.ResultSet rs = ps.executeQuery()) {
 
@@ -173,6 +173,7 @@ public class ResidenteDAO implements IResidenteDAO {
                 entidad.setIdAcademico(rs.getString("idAcademico"));
                 entidad.setNombreCompleto(rs.getString("nombreCompleto"));
                 entidad.setLugarResidencia(rs.getString("lugarResidencia"));
+                entidad.setEstado(rs.getString("estado"));
                 lista.add(entidad);
             }
         } catch (SQLException e) {

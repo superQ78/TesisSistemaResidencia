@@ -145,6 +145,16 @@ public class coordinadorVistas {
     }
 
     /**
+     * abre la pantalla de registrar recidente pasandole el id del residente
+     * para que cargue toda su informacion
+     */
+    public static void mostrarRegistrarResidenteEdicion(JFrame ventanaActual, String idResidente) {
+        frmRegistrarResidente edicion = new frmRegistrarResidente(idResidente);
+        edicion.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
      * abre la pantalla del Perfil del Residente, pasándole el ID para que
      * busque su información.
      */

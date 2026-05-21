@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmModificarResidente extends javax.swing.JFrame {
 
+    private javax.swing.table.TableRowSorter<DefaultTableModel> sorter;
     /**
      * Creates new form frmModificarResidente
      */
@@ -19,6 +20,25 @@ public class frmModificarResidente extends javax.swing.JFrame {
 
         // Llama al metodo para configurar la tabla
         configurarTabla();
+        
+        // buscador dinamico, detecta cambios en el txt en tiempo real
+        txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+
+            private void filtrarTabla() {
+                String texto = txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
     }
 
     private void configurarTabla() {
@@ -26,7 +46,7 @@ public class frmModificarResidente extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return column == 3 || column == 4; // Solo los botones son clicables
+                return column == 3 || column == 4;
             }
         };
 
@@ -65,6 +85,11 @@ public class frmModificarResidente extends javax.swing.JFrame {
         }
 
         tblModResisdentes.setModel(modelo);
+        
+        // filtro a la tabla
+        sorter = new javax.swing.table.TableRowSorter<>(modelo);
+        tblModResisdentes.setRowSorter(sorter);
+        
         tblModResisdentes.setRowHeight(40);
 
         // boton editar
@@ -98,24 +123,26 @@ public class frmModificarResidente extends javax.swing.JFrame {
             }
         });
 
-   
         tblModResisdentes.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int fila = tblModResisdentes.rowAtPoint(evt.getPoint());
+                int filaVisual = tblModResisdentes.rowAtPoint(evt.getPoint());
                 int columna = tblModResisdentes.columnAtPoint(evt.getPoint());
 
-                if (fila >= 0 && (columna == 3 || columna == 4)) {
-                    String idSeleccionado = tblModResisdentes.getValueAt(fila, 0).toString();
-                    String nombreSeleccionado = tblModResisdentes.getValueAt(fila, 1).toString();
+                if (filaVisual >= 0 && (columna == 3 || columna == 4)) {
+                  
+                    int filaReal = tblModResisdentes.convertRowIndexToModel(filaVisual);
+                    
+                    String idSeleccionado = tblModResisdentes.getModel().getValueAt(filaReal, 0).toString();
+                    String nombreSeleccionado = tblModResisdentes.getModel().getValueAt(filaReal, 1).toString();
 
                     if (columna == 3) {
                         // clic en editar
-                        coordinadorVistas.mostrarModificarRDP(frmModificarResidente.this, idSeleccionado);
+                        coordinadorVistas.mostrarRegistrarResidenteEdicion(frmModificarResidente.this, idSeleccionado);
 
                     } else if (columna == 4) {
-                        // clic en inhabilitar / abilitar
-                        String estadoActual = tblModResisdentes.getValueAt(fila, 4).toString();
+                        // clic en inhabilitar / habilitar
+                        String estadoActual = tblModResisdentes.getModel().getValueAt(filaReal, 4).toString();
                         String accion = estadoActual.equals("Activo") ? "inhabilitar" : "habilitar";
                         String nuevoEstado = estadoActual.equals("Activo") ? "Inhabilitado" : "Activo";
 

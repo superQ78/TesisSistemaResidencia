@@ -15,6 +15,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
 
     private DefaultTableModel modeloHistorialRecidente;
     private ResidenteDTO residenteActual;
+    private javax.swing.table.TableRowSorter<DefaultTableModel> sorter;
 
     /**
      * Creates new form frmHistorialResidente
@@ -40,6 +41,35 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         }
 
         configurarYcargarTabla();
+        cargarFotoFormal();
+        
+        
+        // buscador dinamico, detecta cambios en el txt en tiempo real
+        txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+            
+            private void filtrarTabla() {
+                String texto = txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorter.setRowFilter(null); 
+                } else {
+                    sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
     }
 
     /**
@@ -96,7 +126,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHistorial);
 
-        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 1080, 230));
+        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 1080, 370));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -132,8 +162,8 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
-        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 770, 35));
+        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 770, 35));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,7 +173,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHistorialResidente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlHistorialResidente, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
         );
 
         pack();
@@ -168,6 +198,11 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         };
 
         tblHistorial.setModel(modeloHistorialRecidente);
+        
+        //  para filtrar la busqueda
+        sorter = new javax.swing.table.TableRowSorter<>(modeloHistorialRecidente);
+        tblHistorial.setRowSorter(sorter);
+
         tblHistorial.setRowHeight(55);
         tblHistorial.setBackground(java.awt.Color.WHITE);
 
@@ -189,14 +224,43 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         // carga los docuemntos desde la base de datos
         llenarTablaDocumentos();
 
+        // ba buscando al ir escribiendo
+        txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+            
+            private void filtrarTabla() {
+                String texto = txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorter.setRowFilter(null); 
+                } else {
+                    sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
+
         tblHistorial.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int fila = tblHistorial.rowAtPoint(evt.getPoint());
+                int filaVisual = tblHistorial.rowAtPoint(evt.getPoint());
                 int columna = tblHistorial.columnAtPoint(evt.getPoint());
 
-                if (fila >= 0 && (columna == 2 || columna == 3)) {
-                    String tipoDocumento = tblHistorial.getValueAt(fila, 0).toString();
+                if (filaVisual >= 0 && (columna == 2 || columna == 3)) {
+
+                    int filaReal = tblHistorial.convertRowIndexToModel(filaVisual);
+                    String tipoDocumento = tblHistorial.getModel().getValueAt(filaReal, 0).toString();
 
                     if (columna == 2) {
                         descargarDocumento(tipoDocumento);
@@ -233,6 +297,43 @@ public class frmHistorialResidente extends javax.swing.JFrame {
                 };
                 modeloHistorialRecidente.addRow(fila);
             }
+        }
+    }
+    
+    /**
+     * Consulta la foto del residente en la BD y para mostrarla en el perfil
+     */
+    private void cargarFotoFormal() {
+        if (this.residenteActual == null || this.residenteActual.getIdAcademico() == null || this.residenteActual.getIdAcademico().trim().isEmpty()) {
+            return; // Si no hay ID, no hacemos nada
+        }
+
+        try {
+            Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
+
+            Negocio.DTOs.DocumentoDTO foto = fachada.consultarDocumento(
+                    this.residenteActual.getIdAcademico(),
+                    "Foto formal"
+            );
+
+            if (foto == null || foto.getArchivo() == null || foto.getArchivo().length == 0) {
+                return;
+            }
+
+            javax.swing.ImageIcon iconoOriginal = new javax.swing.ImageIcon(foto.getArchivo());
+
+            java.awt.Image imagenEscalada = iconoOriginal.getImage().getScaledInstance(
+                    lblFotoPerfil.getWidth(),
+                    lblFotoPerfil.getHeight(),
+                    java.awt.Image.SCALE_SMOOTH
+            );
+
+            lblFotoPerfil.setIcon(new javax.swing.ImageIcon(imagenEscalada));
+            lblFotoPerfil.setText("");
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar foto formal en historial: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmConsultarResidente extends javax.swing.JFrame {
 
     private DefaultTableModel modeloResidentes;
+    private javax.swing.table.TableRowSorter<DefaultTableModel> sorter;
 
     /**
      * Creates new form frmConsultarResidente
@@ -107,10 +108,10 @@ public class frmConsultarResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
-     * Configura el modelo de las columnas y carga datos de ejemplo.
+     * Configura el modelo de las columnas y carga datos de ejemplo
      */
     public void configurarYcargarTabla() {
-        // Títulos de columnas
+        // Titulos de columnas
         String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};
 
         modeloResidentes = new javax.swing.table.DefaultTableModel(null, titulos) {
@@ -121,6 +122,11 @@ public class frmConsultarResidente extends javax.swing.JFrame {
         };
 
         tblActas.setModel(modeloResidentes);
+
+        // conecta e filtro de buscar a la tabla
+        sorter = new javax.swing.table.TableRowSorter<>(modeloResidentes);
+        tblActas.setRowSorter(sorter);
+
         tblActas.setRowHeight(55);
         tblActas.setBackground(java.awt.Color.WHITE);
 
@@ -138,22 +144,52 @@ public class frmConsultarResidente extends javax.swing.JFrame {
         tblActas.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
         tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre
         tblActas.getColumnModel().getColumn(2).setPreferredWidth(100); // Nacionalidad
-        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100); // Botón
+        tblActas.getColumnModel().getColumn(3).setPreferredWidth(100); // Boton
 
         // cargar datos
         cargarResidentes();
-        
+
+        // va filtrando depende a lo que escriban
+        txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            private void filtrarTabla() {
+                String texto = txtBuscar.getText().trim();
+                if (texto.isEmpty()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    //permite buscar sin importar mayúsculas o minúsculas
+                    sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
+                }
+            }
+        });
+
         tblActas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int fila = tblActas.rowAtPoint(evt.getPoint());
+                int filaVisual = tblActas.rowAtPoint(evt.getPoint());
                 int columna = tblActas.columnAtPoint(evt.getPoint());
 
-                if (fila >= 0 && columna == 3) {
+                if (filaVisual >= 0 && columna == 3) {
 
-                    // extrae el id del residente de esa fila
-                    String idSeleccionado = tblActas.getValueAt(fila, 0).toString();
-                    
+                    int filaReal = tblActas.convertRowIndexToModel(filaVisual);
+
+                    // extrae el id del residente de la fila real
+                    String idSeleccionado = tblActas.getModel().getValueAt(filaReal, 0).toString();
+
                     coordinadorVistas.mostrarPerfilResidente(frmConsultarResidente.this, idSeleccionado);
                 }
             }
