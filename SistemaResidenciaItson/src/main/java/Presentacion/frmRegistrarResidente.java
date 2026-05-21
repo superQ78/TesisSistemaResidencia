@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 public class frmRegistrarResidente extends javax.swing.JFrame {
 
     private ResidenteDTO dtoCompartido = null;
+    private boolean modoEdicion = false;
 
     /**
      * Creates new form frmRegistrarResidente
@@ -17,6 +18,8 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.modoEdicion = false;
+
         configurarTabla();
 
     }
@@ -24,24 +27,34 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente(ResidenteDTO dtoMemoria) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        configurarTabla();
+
+       // Si el dto ya tiene id, asume que viene de la tabla de modificar
+        if (dtoMemoria != null && dtoMemoria.getIdAcademico() != null && !dtoMemoria.getIdAcademico().isEmpty()) {
+            this.modoEdicion = true;
+        } else {
+            this.modoEdicion = false;
+        }
 
         this.dtoCompartido = dtoMemoria;
+        configurarTabla();
         cargarDocumentosSubidos();
     }
-    
+
     /**
      * consultor de para modificar
      */
     public frmRegistrarResidente(String idResidenteAEditar) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        // entra desde la tabla, sí esta editando
+        this.modoEdicion = true;
         configurarTabla();
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
         this.dtoCompartido = fachada.consultarResidentePorId(idResidenteAEditar);
 
-        if(this.dtoCompartido == null) {
+        if (this.dtoCompartido == null) {
             this.dtoCompartido = new ResidenteDTO();
         }
         cargarDocumentosSubidos();
@@ -293,13 +306,11 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // Verificamos si estamos editando (si la mochila tiene un ID)
-        if (this.dtoCompartido != null && this.dtoCompartido.getIdAcademico() != null && !this.dtoCompartido.getIdAcademico().isEmpty()) {
-            // Venimos de editar, regresamos a la tabla de Modificar
+        if (this.modoEdicion) {
+            // si entra desde modificar
             coordinadorVistas.mostrarModificarResidente(this);
         } else {
-            // Venimos de crear uno nuevo. 
-            // El Coordinador lee la sesión global (Admin o Trabajador) y decide a qué menú mandarlo.
+            // si entra desde el menu adminInicio
             coordinadorVistas.regresarMenuPrincipal(this);
         }
     }//GEN-LAST:event_btnVolverActionPerformed
