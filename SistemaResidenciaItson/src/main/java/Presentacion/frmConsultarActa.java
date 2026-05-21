@@ -191,8 +191,8 @@ public class frmConsultarActa extends javax.swing.JFrame {
                     res.getIdAcademico(),
                     res.getNombreCompleto(),
                     lugar,
-                    "", // Espacio para la imagen Select
-                    ""  // Espacio para la imagen Subir
+                    "", 
+                    ""  
                 };
                 modeloUsuarios.addRow(fila);
             }

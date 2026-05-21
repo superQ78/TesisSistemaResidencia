@@ -23,6 +23,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
 
         this.idResidenteActual = idResidente;
         cargarDatosAutomatizados();
+        cargarLineamientos();
     }
 
     /**
@@ -69,6 +70,19 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Hubo un problema al cargar la informacion del residente.",
                     "Error de carga", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    /**
+     * Llena el ComboBox con los 59 números de lineamientos oficiales.
+     */
+    private void cargarLineamientos() {
+        cmbxLineamiento.removeAllItems();
+        cmbxLineamiento.addItem("Selecciona un lineamiento...");
+
+        // Ciclo del 1 al 59 para generar la lista
+        for (int i = 1; i <= 59; i++) {
+            cmbxLineamiento.addItem("Lineamiento #" + i);
         }
     }
 
@@ -294,17 +308,93 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdEstudianteActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.regresarMenuPrincipal(this);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarCamposActionPerformed
-        // TODO add your handling code here:
+        cmbxLineamiento.setSelectedIndex(0);
+        txtDescripcion.setText("");
     }//GEN-LAST:event_btnLimpiarCamposActionPerformed
 
     private void btnImprimirActaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActaActionPerformed
-        // TODO add your handling code here:
+        //Extraer los datos de la pantalla
+        String fecha = txtFechaActa.getText();
+        String nombre = txtNombreAlumno.getText();
+        String idEstudiante = txtIdEstudiante.getText();
+        String semestre = chkSemestreAgostoDic.isSelected() ? "Agosto - Diciembre" : (chkSemestreEneroMayo.isSelected() ? "Enero - Mayo" : "No especificado");
+        String carrera = txtCarreraAlumno.getText();
+        String lineamientoNumero = cmbxLineamiento.getSelectedItem().toString();
+        String descripcionAcontecimiento = txtDescripcion.getText(); // Tu JTextArea
+
+        // Validaciones de seguridad
+        if (lineamientoNumero.contains("Selecciona") || descripcionAcontecimiento.trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, selecciona un lineamiento y redacta la descripción del acontecimiento.", "Campos incompletos", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        //Preguntar dónde guardar el PDF
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        fileChooser.setDialogTitle("Guardar Acta Administrativa");
+        fileChooser.setSelectedFile(new java.io.File("Acta_" + idEstudiante + ".pdf"));
+
+        int seleccion = fileChooser.showSaveDialog(this);
+
+        if (seleccion == javax.swing.JFileChooser.APPROVE_OPTION) {
+            java.io.File archivoDestino = fileChooser.getSelectedFile();
+
+            try {
+                com.itextpdf.text.Document documento = new com.itextpdf.text.Document();
+                com.itextpdf.text.pdf.PdfWriter.getInstance(documento, new java.io.FileOutputStream(archivoDestino));
+                documento.open();
+
+                com.itextpdf.text.Font fuenteNormal = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 12, com.itextpdf.text.Font.NORMAL);
+                com.itextpdf.text.Font fuenteNegrita = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 12, com.itextpdf.text.Font.BOLD);
+                com.itextpdf.text.Paragraph parrafoFecha = new com.itextpdf.text.Paragraph("Cd. Obregón, Sonora. A " + fecha + ".\n\n", fuenteNormal);
+                parrafoFecha.setAlignment(com.itextpdf.text.Element.ALIGN_RIGHT);
+                documento.add(parrafoFecha);
+
+                documento.add(new com.itextpdf.text.Paragraph("Residencias Estudiantiles ITSON:\n\n", fuenteNegrita));
+
+                String textoCuerpo = "Por medio del presente hago constar que yo, " + nombre + ", como residente, incumplí los Lineamientos de Vida Comunitaria establecidos en Residencias Estudiantiles ITSON, los cuales hacen referencia a lo siguiente:\n\n";
+                com.itextpdf.text.Paragraph pCuerpo = new com.itextpdf.text.Paragraph(textoCuerpo, fuenteNormal);
+                pCuerpo.setAlignment(com.itextpdf.text.Element.ALIGN_JUSTIFIED);
+                documento.add(pCuerpo);
+
+                // Solo imprimimos el Numero del Lineamiento
+                com.itextpdf.text.Paragraph pNumeroLineamiento = new com.itextpdf.text.Paragraph("(" + lineamientoNumero + ")\n\n", fuenteNegrita);
+                pNumeroLineamiento.setAlignment(com.itextpdf.text.Element.ALIGN_CENTER);
+                documento.add(pNumeroLineamiento);
+
+                // Descripción del administrador
+                com.itextpdf.text.Paragraph pAcontecimiento = new com.itextpdf.text.Paragraph("ACONTECIMIENTO:\n" + descripcionAcontecimiento + "\n\n", fuenteNormal);
+                pAcontecimiento.setAlignment(com.itextpdf.text.Element.ALIGN_JUSTIFIED);
+                documento.add(pAcontecimiento);
+
+                String textoCierre = "Por lo anterior, acepto recibir las consecuencias/acciones correspondientes aplicables a mi persona que la Administración de Residencias Estudiantiles ITSON considere, estando consciente de que pudiera tener afectación en mi historial académico ITSON, así como en la continuidad de mi estancia actual o futura.\n\n"
+                        + "Sin más que agregar, se expide la presente en Cd. Obregón, Sonora, a los " + fecha + ".\n\n\n\n";
+                com.itextpdf.text.Paragraph pCierre = new com.itextpdf.text.Paragraph(textoCierre, fuenteNormal);
+                pCierre.setAlignment(com.itextpdf.text.Element.ALIGN_JUSTIFIED);
+                documento.add(pCierre);
+
+                // Firmas y Datos
+                com.itextpdf.text.Paragraph pFirma = new com.itextpdf.text.Paragraph("Atentamente:\n\n___________________________\n" + nombre + "\n\n", fuenteNormal);
+                pFirma.setAlignment(com.itextpdf.text.Element.ALIGN_CENTER);
+                documento.add(pFirma);
+
+                documento.add(new com.itextpdf.text.Paragraph("Residente Semestre: " + semestre, fuenteNormal));
+                documento.add(new com.itextpdf.text.Paragraph("Estudiante de la carrera: " + carrera, fuenteNormal));
+                documento.add(new com.itextpdf.text.Paragraph("ID: " + idEstudiante, fuenteNormal));
+
+                documento.close();
+
+                javax.swing.JOptionPane.showMessageDialog(this, "Acta generada con éxito.\nImprímela para firma.", "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                coordinadorVistas.regresarMenuPrincipal(this);
+
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Error al generar el PDF: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
     }//GEN-LAST:event_btnImprimirActaActionPerformed
 
 
