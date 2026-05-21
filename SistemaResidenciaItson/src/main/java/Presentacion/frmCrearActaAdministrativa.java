@@ -44,12 +44,12 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
             txtNombreAlumno.setText(residente.getNombreCompleto());
             txtNombreAlumno.setEditable(false);
 
-         
-            cmbCarreraAlumno.removeAllItems(); 
             String carrera = residente.getCarrera() != null ? residente.getCarrera() : "No registrada";
-            cmbCarreraAlumno.addItem(carrera); 
-            cmbCarreraAlumno.setEnabled(false); 
-            
+            txtCarreraAlumno.setText(carrera);
+            txtCarreraAlumno.setEditable(false);
+            txtCarreraAlumno.setOpaque(false);
+            txtCarreraAlumno.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+
             String semestre = residente.getSemestre();
             if (semestre != null) {
                 semestre = semestre.toLowerCase();
@@ -90,7 +90,6 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         lblFechaActa = new javax.swing.JLabel();
         txtFechaActa = new javax.swing.JTextField();
-        cmbCarreraAlumno = new javax.swing.JComboBox<>();
         lblInstituto = new javax.swing.JLabel();
         lblPagina = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
@@ -110,6 +109,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
         btnLimpiarCampos = new javax.swing.JButton();
         btnImprimirActa = new javax.swing.JButton();
+        txtCarreraAlumno = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,10 +150,6 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
 
         txtFechaActa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jPanel1.add(txtFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 260, 32));
-
-        cmbCarreraAlumno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cmbCarreraAlumno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 210, 32));
 
         lblInstituto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblInstituto.setText("Instituto Tecnológico de Sonora");
@@ -251,7 +247,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnLimpiarCamposActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 750, 170, 40));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 690, 170, 40));
 
         btnImprimirActa.setBackground(new java.awt.Color(51, 153, 255));
         btnImprimirActa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -262,7 +258,8 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnImprimirActaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 750, 150, 40));
+        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 690, 150, 40));
+        jPanel1.add(txtCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 512, 170, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -317,7 +314,6 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiarCampos;
     private javax.swing.JCheckBox chkSemestreAgostoDic;
     private javax.swing.JCheckBox chkSemestreEneroMayo;
-    private javax.swing.JComboBox<String> cmbCarreraAlumno;
     private javax.swing.JComboBox<String> cmbxLineamiento;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -337,6 +333,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JScrollPane txaDescripcionActa;
+    private javax.swing.JTextField txtCarreraAlumno;
     private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtFechaActa;
     private javax.swing.JTextField txtIdEstudiante;
