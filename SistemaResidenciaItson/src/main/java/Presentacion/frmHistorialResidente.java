@@ -104,11 +104,11 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de residentes");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnlHistorialResidente.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        pnlHistorialResidente.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubtitulo.setText("Historial de residente");
-        pnlHistorialResidente.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, -1, -1));
+        pnlHistorialResidente.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
 
         tblHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,7 +126,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHistorial);
 
-        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 1080, 370));
+        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1080, 370));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -144,26 +144,26 @@ public class frmHistorialResidente extends javax.swing.JFrame {
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombre.setText("Nombre:");
-        pnlHistorialResidente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, 25));
+        pnlHistorialResidente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, 25));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblId.setText("ID:");
-        pnlHistorialResidente.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 25));
+        pnlHistorialResidente.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, 25));
 
         lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfilRecidente.png"))); // NOI18N
-        pnlHistorialResidente.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 130, -1));
+        pnlHistorialResidente.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 130, -1));
 
         lblNombreResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNombreResidente.setText("nombre");
-        pnlHistorialResidente.add(lblNombreResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 25));
+        pnlHistorialResidente.add(lblNombreResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, 25));
 
         lblIdResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblIdResidente.setText("id");
-        pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, 25));
+        pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
-        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 770, 35));
+        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 770, 35));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

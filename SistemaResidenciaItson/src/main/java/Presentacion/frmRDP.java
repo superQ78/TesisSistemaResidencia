@@ -355,11 +355,11 @@ public class frmRDP extends javax.swing.JFrame {
 
         lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
-        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubTitulo1.setText("Registrar residente");
-        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 243, -1));
+        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 243, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);

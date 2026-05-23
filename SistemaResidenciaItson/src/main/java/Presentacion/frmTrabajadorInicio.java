@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -50,15 +47,15 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
 
         txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         txtTitulodmin.setText("Residencias ITSON – Panel Trabajador ");
-        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblBienvenidAdmin.setText("Bienvenido");
-        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, -1, -1));
+        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
 
         lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblNombreAdmin.setText("¨Trabajador¨");
-        jPanel1.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
+        jPanel1.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, -1, -1));
 
         lblLogoResiAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoResix.jpg"))); // NOI18N
         jPanel1.add(lblLogoResiAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));

@@ -62,7 +62,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         txtTitulodmin.setText("Residencias ITSON – Panel de Administración");
-        jplAdminInicio.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
+        jplAdminInicio.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblNombreAdmin.setText("Nombre");
@@ -76,7 +76,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         lblGestionEmpleadosAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionEmpleadosAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionEmpleadosAdmin.setText("GESTION DE EMPLEADOS");
+        lblGestionEmpleadosAdmin.setText("GESTIÓN DE EMPLEADOS");
 
         javax.swing.GroupLayout jplGTNEmpleadosLayout = new javax.swing.GroupLayout(jplGTNEmpleados);
         jplGTNEmpleados.setLayout(jplGTNEmpleadosLayout);
@@ -84,7 +84,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
             jplGTNEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNEmpleadosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblGestionEmpleadosAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblGestionEmpleadosAdmin)
                 .addContainerGap())
         );
         jplGTNEmpleadosLayout.setVerticalGroup(
@@ -116,7 +116,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         lblGestionResidentesAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionResidentesAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionResidentesAdmin.setText("GESTION RESIDENTES");
+        lblGestionResidentesAdmin.setText("GESTIÓN RESIDENTES");
 
         javax.swing.GroupLayout jplGTNResidentesLayout = new javax.swing.GroupLayout(jplGTNResidentes);
         jplGTNResidentes.setLayout(jplGTNResidentesLayout);
@@ -124,15 +124,15 @@ public class frmAdminInicio extends javax.swing.JFrame {
             jplGTNResidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNResidentesLayout.createSequentialGroup()
                 .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(lblGestionResidentesAdmin)
+                .addComponent(lblGestionResidentesAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
         );
         jplGTNResidentesLayout.setVerticalGroup(
             jplGTNResidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNResidentesLayout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(lblGestionResidentesAdmin)
-                .addGap(21, 21, 21))
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(lblGestionResidentesAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
 
         jplAdminInicio.add(jplGTNResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 230, 70));
@@ -166,7 +166,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
                 btnSeleccionarOpcionActaAdminActionPerformed(evt);
             }
         });
-        jplAdminInicio.add(btnSeleccionarOpcionActaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 540, 190, 50));
+        jplAdminInicio.add(btnSeleccionarOpcionActaAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 540, 190, 50));
 
         jplGTNActasAdmin.setBackground(new java.awt.Color(119, 180, 241));
 
@@ -176,30 +176,30 @@ public class frmAdminInicio extends javax.swing.JFrame {
 
         lblGestionActasAdmin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblGestionActasAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionActasAdmin.setText("GESTION DE ACTAS ");
+        lblGestionActasAdmin.setText("GESTIÓN DE ACTAS ");
 
         javax.swing.GroupLayout jplGTNActasAdminLayout = new javax.swing.GroupLayout(jplGTNActasAdmin);
         jplGTNActasAdmin.setLayout(jplGTNActasAdminLayout);
         jplGTNActasAdminLayout.setHorizontalGroup(
             jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNActasAdminLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblGestionActasAdmin)
-                    .addComponent(lblGestionActasAdmins))
-                .addGap(26, 26, 26))
+                    .addComponent(lblGestionActasAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGestionActasAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
         jplGTNActasAdminLayout.setVerticalGroup(
             jplGTNActasAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNActasAdminLayout.createSequentialGroup()
-                .addGap(0, 9, Short.MAX_VALUE)
-                .addComponent(lblGestionActasAdmin)
+                .addGap(10, 10, 10)
+                .addComponent(lblGestionActasAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblGestionActasAdmins, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addComponent(lblGestionActasAdmins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
         );
 
-        jplAdminInicio.add(jplGTNActasAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 240, 230, -1));
+        jplAdminInicio.add(jplGTNActasAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 240, 230, 70));
 
         cmbxGestionActas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxGestionActas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Crear/Subir acta", "Eliminar acta" }));
@@ -208,7 +208,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
                 cmbxGestionActasActionPerformed(evt);
             }
         });
-        jplAdminInicio.add(cmbxGestionActas, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 310, 230, 40));
+        jplAdminInicio.add(cmbxGestionActas, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 230, 40));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLOgOut .png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +219,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplAdminInicio.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 650, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel1.setText("Cerrar Sesion");
+        jLabel1.setText("Cerrar Sesión");
         jplAdminInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

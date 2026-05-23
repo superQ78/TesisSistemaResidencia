@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -36,20 +33,21 @@ public class frmLogin extends javax.swing.JFrame {
 
         jplLogin = new javax.swing.JPanel();
         txtCorreoLogin = new javax.swing.JTextField();
-        txtContraLogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lblContraseñaLogin = new javax.swing.JLabel();
         lblCorreoElectronicoLogin = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnIniciarSeion = new javax.swing.JButton();
+        txtContraLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jplLogin.setBackground(new java.awt.Color(255, 255, 255));
         jplLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCorreoLogin.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jplLogin.add(txtCorreoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 390, 310, 50));
-        jplLogin.add(txtContraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 520, 310, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Login.png"))); // NOI18N
         jplLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, -1, -1));
@@ -59,7 +57,7 @@ public class frmLogin extends javax.swing.JFrame {
         jplLogin.add(lblContraseñaLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 480, -1, -1));
 
         lblCorreoElectronicoLogin.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        lblCorreoElectronicoLogin.setText("Correo electronico");
+        lblCorreoElectronicoLogin.setText("Correo electrónico");
         jplLogin.add(lblCorreoElectronicoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoResixxx.png"))); // NOI18N
@@ -79,6 +77,9 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         jplLogin.add(btnIniciarSeion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 600, 160, 40));
+
+        txtContraLogin.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jplLogin.add(txtContraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 510, 310, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +174,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jplLogin;
     private javax.swing.JLabel lblContraseñaLogin;
     private javax.swing.JLabel lblCorreoElectronicoLogin;
-    private javax.swing.JTextField txtContraLogin;
+    private javax.swing.JPasswordField txtContraLogin;
     private javax.swing.JTextField txtCorreoLogin;
     // End of variables declaration//GEN-END:variables
 }
