@@ -187,5 +187,6 @@ SELECT * FROM Usuarios;
 SELECT * FROM Residentes;
 SELECT * FROM SolicitudesIngreso;
 SELECT * FROM Documentos;
+SELECT * FROM ActasAdministrativas;
 
 DESCRIBE ActasAdministrativas;
