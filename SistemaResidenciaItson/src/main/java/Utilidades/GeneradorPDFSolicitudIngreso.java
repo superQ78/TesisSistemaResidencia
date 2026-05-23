@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Utilidades;
 
 import Negocio.DTOs.ResidenteDTO;
@@ -16,12 +12,14 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Div; 
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.properties.VerticalAlignment;
 import java.net.URL;
 
 /**
@@ -39,38 +37,65 @@ public class GeneradorPDFSolicitudIngreso {
             PdfWriter writer = new PdfWriter(rutaArchivo);
             PdfDocument pdfDoc = new PdfDocument(writer);
             Document documento = new Document(pdfDoc, PageSize.LETTER);
-            documento.setMargins(25, 25, 25, 25);
+            documento.setMargins(20, 20, 20, 20); 
 
+            // Encabezado de 3 columnas: logo - titulos - logo
             try {
-                URL urlLogo = GeneradorPDFSolicitudIngreso.class.getResource("/Imagenes/LogoResidencia.jpg");
-                if (urlLogo != null) {
-                    ImageData data = ImageDataFactory.create(urlLogo);
-                    Image img = new Image(data);
-                    img.scaleToFit(80, 80);
-                    img.setHorizontalAlignment(HorizontalAlignment.RIGHT);
-                    documento.add(img);
+                URL urlIzq = GeneradorPDFSolicitudIngreso.class.getResource("/Imagenes/LogoLetrasChico.png");
+                URL urlDer = GeneradorPDFSolicitudIngreso.class.getResource("/Imagenes/LogoItsonCam.png");
+
+                // tabla de 3 columnas (Proporción: 20% izquierda, 60% centro, 20% derecha)
+                Table tabCabecera = new Table(UnitValue.createPercentArray(new float[]{2, 6, 2})).useAllAvailableWidth();
+                tabCabecera.setBorder(Border.NO_BORDER);
+
+                // Logo izquierdo
+                Cell celdaIzq = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                if (urlIzq != null) {
+                    Image imgIzquierda = new Image(ImageDataFactory.create(urlIzq));
+                    imgIzquierda.scaleToFit(110f, 60f); 
+                    imgIzquierda.setHorizontalAlignment(HorizontalAlignment.LEFT);
+                    celdaIzq.add(imgIzquierda);
                 }
+                tabCabecera.addCell(celdaIzq);
+
+                // Titulos en el centro
+                Cell celdaCentro = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                celdaCentro.setTextAlignment(TextAlignment.CENTER);
+                
+                celdaCentro.add(new Paragraph("RESIDENCIAS ESTUDIANTILES ITSON")
+                        .setFontSize(14).setBold().setMarginBottom(0));
+                celdaCentro.add(new Paragraph("Solicitud de Ingreso a Residencias")
+                        .setFontSize(13).setBold().setMarginTop(0).setMarginBottom(0));
+                
+                tabCabecera.addCell(celdaCentro);
+
+                // logo derecho
+                Cell celdaDer = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                celdaDer.setTextAlignment(TextAlignment.RIGHT);
+                if (urlDer != null) {
+                    Image imgDerecha = new Image(ImageDataFactory.create(urlDer));
+                    imgDerecha.scaleToFit(90f, 60f);
+                    imgDerecha.setHorizontalAlignment(HorizontalAlignment.RIGHT);
+                    celdaDer.add(imgDerecha);
+                }
+                tabCabecera.addCell(celdaDer);
+
+                documento.add(tabCabecera);
+
             } catch (Exception e) {
-                System.out.println("No se pudo cargar el logo.");
+                System.err.println("Error cargando logos en cabecera: " + e.getMessage());
             }
 
-            documento.add(new Paragraph("Residencias ITSON – Panel de Gestión de residentes")
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setFontSize(14)
-                    .setBold());
-
-            documento.add(new Paragraph("Solicitud de Ingreso a Residencias")
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setFontSize(13)
-                    .setBold());
-
+            // texto indicativo de impirmir y firmar
             documento.add(new Paragraph("Documento para imprimir, firmar y subir al sistema como SIR Firmada.")
                     .setTextAlignment(TextAlignment.CENTER)
                     .setFontSize(9)
-                    .setItalic());
+                    .setItalic()
+                    .setMarginTop(5f));
 
             documento.add(new Paragraph("\n"));
 
+            // DATOS DEL SOLICITANTE
             documento.add(new Paragraph("Datos del Solicitante")
                     .setBold()
                     .setFontSize(11)
@@ -95,7 +120,7 @@ public class GeneradorPDFSolicitudIngreso {
             agregarCelda(tablaSolicitante, texto(residente.getSemestre()), false);
 
             agregarCelda(tablaSolicitante, "Periodo de residencia:", true);
-            agregarCelda(tablaSolicitante, texto(residente.getPeriodoResidencia()), false);
+            agregarCelda(tablaSolicitante, texto(residente.getPeriodoResidencia()), false); 
 
             agregarCelda(tablaSolicitante, "Correo:", true);
             agregarCelda(tablaSolicitante, texto(residente.getCorreo()), false);
@@ -112,6 +137,7 @@ public class GeneradorPDFSolicitudIngreso {
             documento.add(tablaSolicitante);
             documento.add(new Paragraph("\n"));
 
+            // === DATOS DEL TUTOR ===
             documento.add(new Paragraph("Datos del Tutor")
                     .setBold()
                     .setFontSize(11)
@@ -141,6 +167,7 @@ public class GeneradorPDFSolicitudIngreso {
             documento.add(tablaTutor);
             documento.add(new Paragraph("\n"));
 
+            // === CONTACTO DE EMERGENCIA ===
             documento.add(new Paragraph("Contacto de Emergencia")
                     .setBold()
                     .setFontSize(11)
@@ -170,6 +197,7 @@ public class GeneradorPDFSolicitudIngreso {
             documento.add(tablaEmergencia);
             documento.add(new Paragraph("\n"));
 
+            // === DATOS DE LA SOLICITUD ===
             documento.add(new Paragraph("Datos de la Solicitud")
                     .setBold()
                     .setFontSize(11)
@@ -185,18 +213,21 @@ public class GeneradorPDFSolicitudIngreso {
 
             documento.add(tablaSolicitud);
 
-            documento.add(new Paragraph("\n\n\n"));
+            // === 📝 CONTENEDOR INSEPARABLE DE FIRMAS Y PIE DE PÁGINA ===
+            Div contenedorFirmas = new Div();
+            contenedorFirmas.setKeepTogether(true); // 🛡️ Evita que las firmas queden huérfanas en una hoja nueva
+            contenedorFirmas.setMarginTop(20f);    // Espacio de separación corto y controlado con la tabla de arriba
 
             Table tabFirmas = new Table(UnitValue.createPercentArray(new float[]{1, 0.2f, 1}))
                     .useAllAvailableWidth();
-
             tabFirmas.setBorder(Border.NO_BORDER);
 
-            Cell lineaFirma1 = new Cell().add(new Paragraph("\n"))
+            // Línea de firma compacta usando altura fija
+            Cell lineaFirma1 = new Cell().setHeight(25f)
                     .setBorder(Border.NO_BORDER)
                     .setBorderBottom(new SolidBorder(ColorConstants.BLACK, 1));
 
-            Cell lineaFirma2 = new Cell().add(new Paragraph("\n"))
+            Cell lineaFirma2 = new Cell().setHeight(25f)
                     .setBorder(Border.NO_BORDER)
                     .setBorderBottom(new SolidBorder(ColorConstants.BLACK, 1));
 
@@ -214,12 +245,16 @@ public class GeneradorPDFSolicitudIngreso {
                     .setTextAlignment(TextAlignment.CENTER)
                     .setFontSize(9)).setBorder(Border.NO_BORDER));
 
-            documento.add(tabFirmas);
+            contenedorFirmas.add(tabFirmas);
 
-            documento.add(new Paragraph("\nFavor de imprimir, firmar y subir al sistema como SIR Firmada.")
+            // Mensaje de pie de página indexado en la misma caja
+            contenedorFirmas.add(new Paragraph("Favor de imprimir, firmar y subir al sistema como SIR Firmada.")
                     .setTextAlignment(TextAlignment.CENTER)
                     .setFontSize(8)
-                    .setItalic());
+                    .setItalic()
+                    .setMarginTop(8f));
+
+            documento.add(contenedorFirmas);
 
             documento.close();
 
@@ -254,5 +289,4 @@ public class GeneradorPDFSolicitudIngreso {
     private static String texto(String valor) {
         return valor != null ? valor : "";
     }
-
 }
