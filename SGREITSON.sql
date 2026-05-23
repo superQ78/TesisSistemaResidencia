@@ -175,6 +175,11 @@ CREATE TABLE ActasAdministrativas (
     FOREIGN KEY (idAcademico) REFERENCES Residentes(idAcademico) ON DELETE CASCADE
 );
 
+ALTER TABLE ActasAdministrativas
+ADD COLUMN nombreArchivoFirmado VARCHAR(255) NULL;
+
+ALTER TABLE Residentes
+ADD COLUMN periodoResidencia VARCHAR(50);
 -- =========================
 -- CONSULTAS DE PRUEBA
 -- =========================
@@ -182,3 +187,5 @@ SELECT * FROM Usuarios;
 SELECT * FROM Residentes;
 SELECT * FROM SolicitudesIngreso;
 SELECT * FROM Documentos;
+
+DESCRIBE ActasAdministrativas;
