@@ -213,10 +213,9 @@ public class GeneradorPDFSolicitudIngreso {
 
             documento.add(tablaSolicitud);
 
-            // === 📝 CONTENEDOR INSEPARABLE DE FIRMAS Y PIE DE PÁGINA ===
             Div contenedorFirmas = new Div();
-            contenedorFirmas.setKeepTogether(true); // 🛡️ Evita que las firmas queden huérfanas en una hoja nueva
-            contenedorFirmas.setMarginTop(20f);    // Espacio de separación corto y controlado con la tabla de arriba
+            contenedorFirmas.setKeepTogether(true); 
+            contenedorFirmas.setMarginTop(20f);    
 
             Table tabFirmas = new Table(UnitValue.createPercentArray(new float[]{1, 0.2f, 1}))
                     .useAllAvailableWidth();
