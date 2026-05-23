@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Utilidades;
 
+import Negocio.DTOs.ResidenteDTO;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.ColorConstants;
@@ -12,96 +9,24 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
-import java.io.File;
+import com.itextpdf.layout.properties.VerticalAlignment;
 import java.net.URL;
 
-
 /**
- * 
- * @author Tesis
+ * * @author Tesis
  */
-
 public class GeneradorPDFRegistro {
 
-    public static void generarRegistroResidente(
-            String rutaArchivo,
-            String nombreCompleto,
-            String idItson,
-            String carrera,
-            String semestre,
-            String email,
-            String fechaNacimiento,
-            String sexo,
-            String curp,
-            String numeroIMSS,
-            String domicilio,
-            String ciudadProcedencia,
-            String telefono,
-            String celular,
-            String nombreTutor,
-            String domicilioTutor,
-            String ciudadTutor,
-            String telefonoTutor,
-            String celularTutor,
-            String emailTutor,
-            String nombreEmergencia,
-            String edadEmergencia,
-            String parentescoEmergencia,
-            String domicilioEmergencia,
-            String ciudadEmergencia,
-            String telefonoEmergencia,
-            String celularEmergencia,
-            String emailEmergencia,
-            // Aspectos personales
-            String vividoFuera,
-            String tiempoVivido,
-            String decisionVivienda,
-            String razonesResidencia,
-            String adaptacion,
-            String convivenciaPreferencia,
-            String noLeGustaria,
-            String caracteristicasCompanero,
-            String horaDomir,
-            String toleraRuido,
-            String importanciaOrden,
-            String habitosHigiene,
-            String traera,
-            String participaActividades,
-            String grupoClubEquipo,
-            String tipoGrupo,
-            String descripcionActividades,
-            String actividadesDeseaRealizar,
-            String prepararseMejor,
-            String informacionAdicional,
-            // Aspectos académicos
-            String ayudaAcademica,
-            String metodoEstudio,
-            String administracionTiempo,
-            String preparacionAcademica,
-            // Datos médicos
-            String estadoSalud,
-            String deficienciaVista,
-            String deficienciaAuditiva,
-            String discapacidadFisica,
-            String lesionesGraves,
-            String padecimiento,
-            String tratamientoMedico,
-            String medicamentoControlado,
-            String alergias,
-            String tratamientosExternos,
-            String tipoSangre,
-            String preparacionSalud,
-            String informacionSalud) {
+    public static void generarRegistroResidente(String rutaArchivo, ResidenteDTO residente) {
 
         try {
             // Inicializar PDF
@@ -110,78 +35,105 @@ public class GeneradorPDFRegistro {
             Document documento = new Document(pdfDoc, PageSize.LETTER);
             documento.setMargins(20, 20, 20, 20);
 
-            // --- INTENTO DE CARGAR LOGO (Opcional) ---
+            // Encabezado de 3 columnas: logo - titulos - logo
             try {
-                URL urlLogo = GeneradorPDFRegistro.class.getResource("/Imagenes/LogoResidencia.jpg");
-                if (urlLogo != null) {
-                    ImageData data = ImageDataFactory.create(urlLogo);
-                    Image img = new Image(data);
-                    img.scaleToFit(80, 80);
-                    img.setHorizontalAlignment(HorizontalAlignment.RIGHT);
-                    documento.add(img);
+                URL urlIzq = GeneradorPDFRegistro.class.getResource("/Imagenes/LogoLetrasChico.png");
+                URL urlDer = GeneradorPDFRegistro.class.getResource("/Imagenes/LogoItsonCam.png");
+
+                Table tabCabecera = new Table(UnitValue.createPercentArray(new float[]{2, 6, 2})).useAllAvailableWidth();
+                tabCabecera.setBorder(Border.NO_BORDER);
+
+                // Logo izquierdo
+                Cell celdaIzq = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                if (urlIzq != null) {
+                    Image imgIzquierda = new Image(ImageDataFactory.create(urlIzq));
+                    imgIzquierda.scaleToFit(110f, 60f);
+                    imgIzquierda.setHorizontalAlignment(HorizontalAlignment.LEFT);
+                    celdaIzq.add(imgIzquierda);
                 }
+                tabCabecera.addCell(celdaIzq);
+
+                // Titulos en el centro
+                Cell celdaCentro = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                celdaCentro.setTextAlignment(TextAlignment.CENTER);
+
+                celdaCentro.add(new Paragraph("RESIDENCIAS ESTUDIANTILES ITSON")
+                        .setFontSize(14).setBold().setMarginBottom(0));
+                celdaCentro.add(new Paragraph("Registro de Datos Personales (RDP)")
+                        .setFontSize(12).setBold().setMarginTop(0).setMarginBottom(0));
+                celdaCentro.add(new Paragraph("RESI-POP-FO-05-06")
+                        .setFontSize(8).setItalic().setMarginTop(0));
+
+                tabCabecera.addCell(celdaCentro);
+
+                // logo derecho
+                Cell celdaDer = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
+                celdaDer.setTextAlignment(TextAlignment.RIGHT);
+                if (urlDer != null) {
+                    Image imgDerecha = new Image(ImageDataFactory.create(urlDer));
+                    imgDerecha.scaleToFit(90f, 60f);
+                    imgDerecha.setHorizontalAlignment(HorizontalAlignment.RIGHT);
+                    celdaDer.add(imgDerecha);
+                }
+                tabCabecera.addCell(celdaDer);
+
+                documento.add(tabCabecera);
+
             } catch (Exception e) {
-                System.out.println("No se pudo cargar el logo (continuando sin él).");
+                System.err.println("Error cargando logos: " + e.getMessage());
             }
 
-            // --- ENCABEZADO ---
-            documento.add(new Paragraph("Residencias ITSON – Panel de Gestión de residentes")
-                    .setTextAlignment(TextAlignment.CENTER).setFontSize(14).setBold());
-            documento.add(new Paragraph("Registro de Datos Personales (RDP)")
-                    .setTextAlignment(TextAlignment.CENTER).setFontSize(12).setBold());
-            documento.add(new Paragraph("RESI-POP-FO-05-06")
-                    .setTextAlignment(TextAlignment.CENTER).setFontSize(8).setItalic());
-            documento.add(new Paragraph("\n")); // Espacio
-
+            // Texto de confidencialidad
             documento.add(new Paragraph("La información proporcionada es confidencial y para uso interno de Residencias Estudiantiles ITSON.")
-                    .setFontSize(9).setItalic().setTextAlignment(TextAlignment.JUSTIFIED));
+                    .setFontSize(9).setItalic().setTextAlignment(TextAlignment.CENTER).setMarginTop(5f));
+
             documento.add(new Paragraph("\n"));
 
             // === DATOS DEL SOLICITANTE ===
             documento.add(new Paragraph("Datos del Solicitante").setBold().setFontSize(10));
-
-            // Tabla de 4 columnas que ocupa el 100% del ancho disponible
             Table tabSolicitante = new Table(UnitValue.createPercentArray(new float[]{2, 3, 2, 3})).useAllAvailableWidth();
 
-            // Método auxiliar para agregar celdas rápido (ver abajo)
             agregarCelda(tabSolicitante, "Nombre completo:", true);
-            agregarCelda(tabSolicitante, nombreCompleto, false, 3); // Colspan 3
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getNombreCompleto()), false, 3);
 
             agregarCelda(tabSolicitante, "Carrera:", true);
-            agregarCelda(tabSolicitante, carrera, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getCarrera()), false);
 
             agregarCelda(tabSolicitante, "Semestre:", true);
-            agregarCelda(tabSolicitante, semestre, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getSemestre()), false);
+
+            agregarCelda(tabSolicitante, "Periodo de residencia:", true);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getPeriodoResidencia()), false, 3);
 
             agregarCelda(tabSolicitante, "ID (ITSON):", true);
-            agregarCelda(tabSolicitante, idItson, false, 3);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getIdAcademico()), false, 3);
 
             agregarCelda(tabSolicitante, "Fecha de nacimiento:", true);
-            agregarCelda(tabSolicitante, fechaNacimiento, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.fecha(residente.getFechaNacimiento()), false);
 
             agregarCelda(tabSolicitante, "Sexo:", true);
-            agregarCelda(tabSolicitante, sexo, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getSexo()), false);
 
             agregarCelda(tabSolicitante, "CURP:", true);
-            agregarCelda(tabSolicitante, curp, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getCurp()), false);
 
             agregarCelda(tabSolicitante, "Número afiliación IMSS:", true);
-            agregarCelda(tabSolicitante, numeroIMSS, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getNss()), false);
 
             agregarCelda(tabSolicitante, "Domicilio:", true);
-            agregarCelda(tabSolicitante, domicilio, false, 3);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getDomicilio()), false, 3);
 
             agregarCelda(tabSolicitante, "Ciudad:", true);
-            agregarCelda(tabSolicitante, ciudadProcedencia, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getLugarResidencia()), false);
 
             agregarCelda(tabSolicitante, "Teléfono:", true);
-            agregarCelda(tabSolicitante, telefono, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getTelefono()), false);
 
             agregarCelda(tabSolicitante, "Celular:", true);
-            agregarCelda(tabSolicitante, celular, false);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getCelular()), false);
 
             agregarCelda(tabSolicitante, "Email:", true);
-            agregarCelda(tabSolicitante, email, false, 3);
+            agregarCelda(tabSolicitante, UtilidadPDF.texto(residente.getCorreo()), false, 3);
 
             documento.add(tabSolicitante);
             documento.add(new Paragraph("\n"));
@@ -191,22 +143,22 @@ public class GeneradorPDFRegistro {
             Table tabTutor = new Table(UnitValue.createPercentArray(new float[]{2, 4, 2, 4})).useAllAvailableWidth();
 
             agregarCelda(tabTutor, "Nombre:", true);
-            agregarCelda(tabTutor, nombreTutor, false, 3);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getNombreTutor()), false, 3);
 
             agregarCelda(tabTutor, "Domicilio:", true);
-            agregarCelda(tabTutor, domicilioTutor, false, 3);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getDomicilioTutor()), false, 3);
 
             agregarCelda(tabTutor, "Ciudad:", true);
-            agregarCelda(tabTutor, ciudadTutor, false);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getLugarTutor()), false);
 
             agregarCelda(tabTutor, "Teléfono:", true);
-            agregarCelda(tabTutor, telefonoTutor, false);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getTelefonoTutor()), false);
 
             agregarCelda(tabTutor, "Celular:", true);
-            agregarCelda(tabTutor, celularTutor, false);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getCelularTutor()), false);
 
             agregarCelda(tabTutor, "Email:", true);
-            agregarCelda(tabTutor, emailTutor, false);
+            agregarCelda(tabTutor, UtilidadPDF.texto(residente.getCorreoTutor()), false);
 
             documento.add(tabTutor);
             documento.add(new Paragraph("\n"));
@@ -216,67 +168,65 @@ public class GeneradorPDFRegistro {
             Table tabEmergencia = new Table(UnitValue.createPercentArray(new float[]{2, 4, 2, 4})).useAllAvailableWidth();
 
             agregarCelda(tabEmergencia, "Nombre:", true);
-            agregarCelda(tabEmergencia, nombreEmergencia, false, 3);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getNombreEmergencia()), false, 3);
 
             agregarCelda(tabEmergencia, "Parentesco:", true);
-            agregarCelda(tabEmergencia, parentescoEmergencia, false);
-            agregarCelda(tabEmergencia, "Edad:", true);
-            agregarCelda(tabEmergencia, edadEmergencia, false);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getParentescoEmergencia()), false);
 
             agregarCelda(tabEmergencia, "Domicilio:", true);
-            agregarCelda(tabEmergencia, domicilioEmergencia, false, 3);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getDomicilioEmergencia()), false, 3);
 
             agregarCelda(tabEmergencia, "Ciudad:", true);
-            agregarCelda(tabEmergencia, ciudadEmergencia, false);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getLugarEmergencia()), false);
+
             agregarCelda(tabEmergencia, "Email:", true);
-            agregarCelda(tabEmergencia, emailEmergencia, false);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getCorreoEmergencia()), false);
 
             agregarCelda(tabEmergencia, "Teléfono:", true);
-            agregarCelda(tabEmergencia, telefonoEmergencia, false);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getTelefonoEmergencia()), false);
+
             agregarCelda(tabEmergencia, "Celular:", true);
-            agregarCelda(tabEmergencia, celularEmergencia, false);
+            agregarCelda(tabEmergencia, UtilidadPDF.texto(residente.getCelularEmergencia()), false);
 
             documento.add(tabEmergencia);
             documento.add(new Paragraph("\n"));
 
             // === ASPECTOS PERSONALES Y CONVIVENCIA ===
             documento.add(new Paragraph("Aspectos Personales y de Convivencia").setBold().setFontSize(11).setBackgroundColor(ColorConstants.LIGHT_GRAY));
-            // estructura de columnas, 60% pregunta, 40% respuesta
             Table tabPersonal = new Table(UnitValue.createPercentArray(new float[]{6, 4})).useAllAvailableWidth();
 
-            agregarPregunta(tabPersonal, "¿Ha vivido fuera anteriormente?", vividoFuera);
-            agregarPregunta(tabPersonal, "¿Por cuánto tiempo?", tiempoVivido);
-            agregarPregunta(tabPersonal, "Decisión de vivir en residencias:", decisionVivienda);
-            agregarPregunta(tabPersonal, "Razones principales:", razonesResidencia);
-            agregarPregunta(tabPersonal, "¿Se adapta a situaciones nuevas?", adaptacion);
-            agregarPregunta(tabPersonal, "Preferencia en convivencia:", convivenciaPreferencia);
-            agregarPregunta(tabPersonal, "¿Qué NO le gustaría vivir?", noLeGustaria);
-            agregarPregunta(tabPersonal, "Características de compañero ideal:", caracteristicasCompanero);
-            agregarPregunta(tabPersonal, "Hora de dormir:", horaDomir);
-            agregarPregunta(tabPersonal, "¿Tolera ruido al estudiar?", toleraRuido);
-            agregarPregunta(tabPersonal, "Importancia del orden:", importanciaOrden);
-            agregarPregunta(tabPersonal, "Hábitos de higiene:", habitosHigiene);
-            agregarPregunta(tabPersonal, "Objetos que traerá:", traera);
-            agregarPregunta(tabPersonal, "Iniciativa en actividades:", participaActividades);
-            agregarPregunta(tabPersonal, "Participación en grupos/clubes:", grupoClubEquipo);
-            agregarPregunta(tabPersonal, "Tipo de grupo:", tipoGrupo);
-            agregarPregunta(tabPersonal, "Descripción actividades:", descripcionActividades);
-            agregarPregunta(tabPersonal, "Actividades de interés:", actividadesDeseaRealizar);
-            agregarPregunta(tabPersonal, "Áreas de desarrollo:", prepararseMejor);
-            agregarPregunta(tabPersonal, "Información adicional:", informacionAdicional);
+            agregarPregunta(tabPersonal, "¿Ha vivido fuera anteriormente?", UtilidadPDF.siNo(residente.isHaVividoFuera()));
+            agregarPregunta(tabPersonal, "¿Por cuánto tiempo?", UtilidadPDF.texto(residente.getTiempoVividoFuera()));
+            agregarPregunta(tabPersonal, "Decisión de vivir en residencias:", UtilidadPDF.texto(residente.getDecisionResidencia()));
+            agregarPregunta(tabPersonal, "Razones principales:", UtilidadPDF.texto(residente.getRazonesVivirResidencia()));
+            agregarPregunta(tabPersonal, "¿Se adapta a situaciones nuevas?", UtilidadPDF.texto(residente.getAdaptacion()));
+            agregarPregunta(tabPersonal, "Preferencia en convivencia:", UtilidadPDF.texto(residente.getEstiloConvivencia()));
+            agregarPregunta(tabPersonal, "¿Qué NO le gustaría vivir?", UtilidadPDF.texto(residente.getSituacionesNoDeseadas()));
+            agregarPregunta(tabPersonal, "Características de compañero ideal:", preferenciasCompanero(residente));
+            agregarPregunta(tabPersonal, "Hora de dormir:", UtilidadPDF.texto(residente.getHoraDormir()));
+            agregarPregunta(tabPersonal, "¿Tolera ruido al estudiar?", UtilidadPDF.siNo(residente.isToleraRuido()));
+            agregarPregunta(tabPersonal, "Importancia del orden:", UtilidadPDF.texto(residente.getImportanciaOrden()));
+            agregarPregunta(tabPersonal, "Hábitos de higiene:", UtilidadPDF.texto(residente.getHabitosHigiene()));
+            agregarPregunta(tabPersonal, "Objetos que traerá:", objetosTraera(residente));
+            agregarPregunta(tabPersonal, "Iniciativa en actividades:", UtilidadPDF.texto(residente.getIniciativaActividades()));
+            agregarPregunta(tabPersonal, "Participación en grupos/clubes:", UtilidadPDF.siNo(residente.isParticipacionGrupo()));
+            agregarPregunta(tabPersonal, "Tipo de grupo:", UtilidadPDF.texto(residente.getTipoGrupo()));
+            agregarPregunta(tabPersonal, "Descripción actividades:", UtilidadPDF.texto(residente.getActividadesRealizadasGrupo()));
+            agregarPregunta(tabPersonal, "Actividades de interés:", actividadesDeseadas(residente));
+            agregarPregunta(tabPersonal, "Áreas de desarrollo:", UtilidadPDF.texto(residente.getAspectosMejoraPersona()));
+            agregarPregunta(tabPersonal, "Información adicional:", UtilidadPDF.texto(residente.getOtraInformacion()));
 
             documento.add(tabPersonal);
             documento.add(new Paragraph("\n"));
 
             // === ASPECTOS ACADÉMICOS ===
             documento.add(new Paragraph("Aspectos Académicos").setBold().setFontSize(11).setBackgroundColor(ColorConstants.LIGHT_GRAY));
-
-            // estructura de columnas, 60% pregunta, 40% respuesta
             Table tabAcademico = new Table(UnitValue.createPercentArray(new float[]{6, 4})).useAllAvailableWidth();
-            agregarPregunta(tabAcademico, "Búsqueda de ayuda:", ayudaAcademica);
-            agregarPregunta(tabAcademico, "Efectividad de estudio:", metodoEstudio);
-            agregarPregunta(tabAcademico, "Admin. del tiempo:", administracionTiempo);
-            agregarPregunta(tabAcademico, "Áreas a reforzar:", preparacionAcademica);
+
+            agregarPregunta(tabAcademico, "Búsqueda de ayuda:", UtilidadPDF.texto(residente.getBuscaAyudaAcademica()));
+            agregarPregunta(tabAcademico, "Efectividad de estudio:", UtilidadPDF.texto(residente.getEfectividadEstudio()));
+            agregarPregunta(tabAcademico, "Admin. del tiempo:", UtilidadPDF.texto(residente.getEfectividadTiempo()));
+            agregarPregunta(tabAcademico, "Áreas a reforzar:", UtilidadPDF.texto(residente.getAspectosMejoraAcademica()));
 
             documento.add(tabAcademico);
             documento.add(new Paragraph("\n"));
@@ -285,49 +235,47 @@ public class GeneradorPDFRegistro {
             documento.add(new Paragraph("Datos Médicos y Salud").setBold().setFontSize(11).setBackgroundColor(ColorConstants.LIGHT_GRAY));
             Table tabMedico = new Table(UnitValue.createPercentArray(new float[]{6, 4})).useAllAvailableWidth();
 
-            agregarPregunta(tabMedico, "Estado de salud:", estadoSalud);
-            agregarPregunta(tabMedico, "Deficiencia visual:", deficienciaVista);
-            agregarPregunta(tabMedico, "Deficiencia auditiva:", deficienciaAuditiva);
-            agregarPregunta(tabMedico, "Discapacidad física:", discapacidadFisica);
-            agregarPregunta(tabMedico, "Lesiones graves:", lesionesGraves);
-            agregarPregunta(tabMedico, "Padecimientos:", padecimiento);
-            agregarPregunta(tabMedico, "Tratamiento médico/psic.:", tratamientoMedico);
-            agregarPregunta(tabMedico, "Medicamento controlado:", medicamentoControlado);
-            agregarPregunta(tabMedico, "Alergias:", alergias);
-            agregarPregunta(tabMedico, "Tratamientos externos:", tratamientosExternos);
-            agregarPregunta(tabMedico, "Tipo de sangre:", tipoSangre);
-            agregarPregunta(tabMedico, "Áreas salud a reforzar:", preparacionSalud);
-            agregarPregunta(tabMedico, "Información adicional de salud:", informacionSalud);
+            agregarPregunta(tabMedico, "Estado de salud:", UtilidadPDF.texto(residente.getEstadoSalud()));
+            agregarPregunta(tabMedico, "Deficiencia visual:", UtilidadPDF.detalleSiNo(residente.isTieneDeficienciaVista(), residente.getEspecificarVista()));
+            agregarPregunta(tabMedico, "Deficiencia auditiva:", UtilidadPDF.detalleSiNo(residente.isTieneDeficienciaAuditiva(), residente.getEspecificarAuditiva()));
+            agregarPregunta(tabMedico, "Discapacidad física:", UtilidadPDF.detalleSiNo(residente.isTieneDiscapacidadFisica(), residente.getEspecificarFisica()));
+            agregarPregunta(tabMedico, "Lesiones graves:", UtilidadPDF.detalleSiNo(residente.isTieneLesionesGraves(), residente.getEspecificarLesiones()));
+            agregarPregunta(tabMedico, "Padecimientos:", UtilidadPDF.detalleSiNo(residente.isTienePadecimientos(), residente.getEspecificarPadecimientos()));
+            agregarPregunta(tabMedico, "Tratamiento médico/psic.:", UtilidadPDF.detalleSiNo(residente.isTieneTratamientosPsicologicos(), residente.getMotivoTratamientosPsicologicos()));
+            agregarPregunta(tabMedico, "Medicamento controlado:", UtilidadPDF.detalleSiNo(residente.isTieneMedicamentosControlados(), residente.getEspecificarMedicamentos()));
+            agregarPregunta(tabMedico, "Alergias:", UtilidadPDF.detalleSiNo(residente.isTieneAlergias(), residente.getEspecificarAlergias()));
+            agregarPregunta(tabMedico, "Tratamientos externos:", UtilidadPDF.detalleSiNo(residente.isTieneTratamientosExternos(), residente.getMotivoTratamientosExternos()));
+            agregarPregunta(tabMedico, "Tipo de sangre:", UtilidadPDF.texto(residente.getTipoSangre()));
+            agregarPregunta(tabMedico, "Áreas salud a reforzar:", UtilidadPDF.texto(residente.getAspectosSaludMejora()));
+            agregarPregunta(tabMedico, "Información adicional de salud:", UtilidadPDF.texto(residente.getOtraInformacionSalud()));
 
             documento.add(tabMedico);
-            documento.add(new Paragraph("\n\n")); // Espacio para firmas
 
-            // firmas
+            // Contenedor de firmas y pie de pagina
+            Div contenedorFirmas = new Div();
+            contenedorFirmas.setKeepTogether(true);
+            contenedorFirmas.setMarginTop(15f);
+
             Table tabFirmas = new Table(UnitValue.createPercentArray(new float[]{1, 0.2f, 1})).useAllAvailableWidth();
             tabFirmas.setBorder(Border.NO_BORDER);
 
-            // Crear línea sólida para la firma
-            Cell lineaFirma = new Cell().add(new Paragraph("\n")).setBorder(Border.NO_BORDER);
+            Cell lineaFirma = new Cell().setHeight(25f).setBorder(Border.NO_BORDER);
             lineaFirma.setBorderBottom(new SolidBorder(ColorConstants.BLACK, 1));
 
-            // Firma Alumno
             tabFirmas.addCell(lineaFirma);
-            tabFirmas.addCell(new Cell().setBorder(Border.NO_BORDER)); // Espacio vacío
-
-            // Firma Tutor
+            tabFirmas.addCell(new Cell().setBorder(Border.NO_BORDER));
             tabFirmas.addCell(lineaFirma.clone(true));
 
-            // Nombres debajo de la línea
             tabFirmas.addCell(new Cell().add(new Paragraph("Firma del Alumno").setTextAlignment(TextAlignment.CENTER).setFontSize(9)).setBorder(Border.NO_BORDER));
             tabFirmas.addCell(new Cell().setBorder(Border.NO_BORDER));
             tabFirmas.addCell(new Cell().add(new Paragraph("Firma del Tutor/Padre").setTextAlignment(TextAlignment.CENTER).setFontSize(9)).setBorder(Border.NO_BORDER));
 
-            documento.add(tabFirmas);
+            contenedorFirmas.add(tabFirmas);
 
-            // Pie de página
-            documento.add(new Paragraph("\nFavor de imprimir, firmar para subir a sistema.")
-                    .setTextAlignment(TextAlignment.CENTER).setFontSize(8).setItalic());
+            contenedorFirmas.add(new Paragraph("Favor de imprimir, firmar para subir a sistema.")
+                    .setTextAlignment(TextAlignment.CENTER).setFontSize(8).setItalic().setMarginTop(5f));
 
+            documento.add(contenedorFirmas);
             documento.close();
             System.out.println("¡PDF Generado con éxito en: " + rutaArchivo);
 
@@ -335,7 +283,6 @@ public class GeneradorPDFRegistro {
             System.err.println("Error al generar el PDF: " + e.getMessage());
             e.printStackTrace();
         }
-
     }
 
     private static void agregarCelda(Table tabla, String texto, boolean esNegrita) {
@@ -349,93 +296,17 @@ public class GeneradorPDFRegistro {
         } else {
             p.setFontSize(9);
         }
-
         Cell celda = new Cell(1, colspan).add(p).setPadding(3);
         tabla.addCell(celda);
     }
 
-    // Método especial para Pregunta - Respuesta 
     private static void agregarPregunta(Table tabla, String pregunta, String respuesta) {
-        // Celda Pregunta
         tabla.addCell(new Cell().add(new Paragraph(pregunta).setBold().setFontSize(9)).setPadding(2));
-        // Celda Respuesta
         tabla.addCell(new Cell().add(new Paragraph(respuesta != null ? respuesta : " ").setFontSize(9)).setPadding(2));
-    }
-
-    public static void generarDesdeDTO(String ruta, Negocio.DTOs.ResidenteDTO dtoPDF) {
-
-        generarRegistroResidente(
-                ruta,
-                UtilidadPDF.texto(dtoPDF.getNombreCompleto()),
-                UtilidadPDF.texto(dtoPDF.getIdAcademico()),
-                UtilidadPDF.texto(dtoPDF.getCarrera()),
-                UtilidadPDF.texto(dtoPDF.getSemestre()),
-                UtilidadPDF.texto(dtoPDF.getCorreo()),
-                UtilidadPDF.fecha(dtoPDF.getFechaNacimiento()),
-                UtilidadPDF.texto(dtoPDF.getSexo()),
-                UtilidadPDF.texto(dtoPDF.getCurp()),
-                UtilidadPDF.texto(dtoPDF.getNss()),
-                UtilidadPDF.texto(dtoPDF.getDomicilio()),
-                UtilidadPDF.texto(dtoPDF.getLugarResidencia()),
-                UtilidadPDF.texto(dtoPDF.getTelefono()),
-                UtilidadPDF.texto(dtoPDF.getCelular()),
-                UtilidadPDF.texto(dtoPDF.getNombreTutor()),
-                UtilidadPDF.texto(dtoPDF.getDomicilioTutor()),
-                UtilidadPDF.texto(dtoPDF.getLugarTutor()),
-                UtilidadPDF.texto(dtoPDF.getTelefonoTutor()),
-                UtilidadPDF.texto(dtoPDF.getCelularTutor()),
-                UtilidadPDF.texto(dtoPDF.getCorreoTutor()),
-                UtilidadPDF.texto(dtoPDF.getNombreEmergencia()),
-                "",
-                UtilidadPDF.texto(dtoPDF.getParentescoEmergencia()),
-                UtilidadPDF.texto(dtoPDF.getDomicilioEmergencia()),
-                UtilidadPDF.texto(dtoPDF.getLugarEmergencia()),
-                UtilidadPDF.texto(dtoPDF.getTelefonoEmergencia()),
-                UtilidadPDF.texto(dtoPDF.getCelularEmergencia()),
-                UtilidadPDF.texto(dtoPDF.getCorreoEmergencia()),
-                UtilidadPDF.siNo(dtoPDF.isHaVividoFuera()),
-                UtilidadPDF.texto(dtoPDF.getTiempoVividoFuera()),
-                UtilidadPDF.texto(dtoPDF.getDecisionResidencia()),
-                UtilidadPDF.texto(dtoPDF.getRazonesVivirResidencia()),
-                UtilidadPDF.texto(dtoPDF.getAdaptacion()),
-                UtilidadPDF.texto(dtoPDF.getEstiloConvivencia()),
-                UtilidadPDF.texto(dtoPDF.getSituacionesNoDeseadas()),
-                preferenciasCompanero(dtoPDF),
-                UtilidadPDF.texto(dtoPDF.getHoraDormir()),
-                UtilidadPDF.siNo(dtoPDF.isToleraRuido()),
-                UtilidadPDF.texto(dtoPDF.getImportanciaOrden()),
-                UtilidadPDF.texto(dtoPDF.getHabitosHigiene()),
-                objetosTraera(dtoPDF),
-                UtilidadPDF.texto(dtoPDF.getIniciativaActividades()),
-                UtilidadPDF.siNo(dtoPDF.isParticipacionGrupo()),
-                UtilidadPDF.texto(dtoPDF.getTipoGrupo()),
-                UtilidadPDF.texto(dtoPDF.getActividadesRealizadasGrupo()),
-                actividadesDeseadas(dtoPDF),
-                UtilidadPDF.texto(dtoPDF.getAspectosMejoraPersona()),
-                UtilidadPDF.texto(dtoPDF.getOtraInformacion()),
-                UtilidadPDF.texto(dtoPDF.getBuscaAyudaAcademica()),
-                UtilidadPDF.texto(dtoPDF.getEfectividadEstudio()),
-                UtilidadPDF.texto(dtoPDF.getEfectividadTiempo()),
-                UtilidadPDF.texto(dtoPDF.getAspectosMejoraAcademica()),
-                UtilidadPDF.texto(dtoPDF.getEstadoSalud()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDeficienciaVista(), dtoPDF.getEspecificarVista()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDeficienciaAuditiva(), dtoPDF.getEspecificarAuditiva()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDiscapacidadFisica(), dtoPDF.getEspecificarFisica()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneLesionesGraves(), dtoPDF.getEspecificarLesiones()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTienePadecimientos(), dtoPDF.getEspecificarPadecimientos()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneTratamientosPsicologicos(), dtoPDF.getMotivoTratamientosPsicologicos()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneMedicamentosControlados(), dtoPDF.getEspecificarMedicamentos()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneAlergias(), dtoPDF.getEspecificarAlergias()),
-                UtilidadPDF.detalleSiNo(dtoPDF.isTieneTratamientosExternos(), dtoPDF.getMotivoTratamientosExternos()),
-                UtilidadPDF.texto(dtoPDF.getTipoSangre()),
-                UtilidadPDF.texto(dtoPDF.getAspectosSaludMejora()),
-                UtilidadPDF.texto(dtoPDF.getOtraInformacionSalud())
-        );
     }
 
     private static String preferenciasCompanero(Negocio.DTOs.ResidenteDTO dto) {
         java.util.List<String> lista = new java.util.ArrayList<>();
-
         if (dto.isBuscaCompaneroExtranjero()) {
             lista.add("Extranjero");
         }
@@ -445,13 +316,11 @@ public class GeneradorPDFRegistro {
         if (dto.isBuscaCompaneroReingreso()) {
             lista.add("Reingreso");
         }
-
         return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
     }
 
     private static String objetosTraera(Negocio.DTOs.ResidenteDTO dto) {
         java.util.List<String> lista = new java.util.ArrayList<>();
-
         if (dto.isTraeAuto()) {
             lista.add("Auto");
         }
@@ -464,13 +333,11 @@ public class GeneradorPDFRegistro {
         if (dto.isTraeFrigobar()) {
             lista.add("Frigobar");
         }
-
         return lista.isEmpty() ? "Ninguno" : String.join(", ", lista);
     }
 
     private static String actividadesDeseadas(Negocio.DTOs.ResidenteDTO dto) {
         java.util.List<String> lista = new java.util.ArrayList<>();
-
         if (dto.isDeseaActDeportivas()) {
             lista.add("Deportivas");
         }
@@ -480,7 +347,6 @@ public class GeneradorPDFRegistro {
         if (dto.isDeseaActArtisticas()) {
             lista.add("Artísticas");
         }
-
         return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
     }
 }

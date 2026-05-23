@@ -523,7 +523,7 @@ public class frmRDP extends javax.swing.JFrame {
         }
 
         try {
-            Utilidades.GeneradorPDFRegistro.generarDesdeDTO(ruta, dtoPDF);
+            Utilidades.GeneradorPDFRegistro.generarRegistroResidente(ruta, dtoPDF);
 
             Utilidades.UtilidadPDF.mostrarExito(
                     this,
