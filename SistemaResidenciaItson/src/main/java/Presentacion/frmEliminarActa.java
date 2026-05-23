@@ -2,14 +2,19 @@ package Presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author User
+ * @author Tesis
  */
 public class frmEliminarActa extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
+    private TableRowSorter<DefaultTableModel> sorter;
 
     /**
      * Creates new form frmEliminarActa
@@ -115,53 +120,172 @@ public class frmEliminarActa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        frmAdminInicio volver = new frmAdminInicio();
-        volver.setVisible(true);
-        this.dispose();
+        coordinadorVistas.mostrarAdminInicio(this);
+
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     public void configurarYcargarTabla() {
         String[] titulos = {
-            "ID", "Nombre residente", "Fecha", "Eliminar"
+            "Id Acta", "ID Académico", "Nombre residente", "Fecha", "Estado", "Eliminar"
         };
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Ahora solo la columna 3 (Eliminar) es editable
-                return column == 3;
+                return false;
             }
         };
 
         tblUsuarios.setModel(modeloUsuarios);
 
-        // Alto de filas 
-        tblUsuarios.setRowHeight(35);
+        sorter = new TableRowSorter<>(modeloUsuarios);
+        tblUsuarios.setRowSorter(sorter);
+        configurarBuscadorDinamico();
 
-        tblUsuarios.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen());
-        tblUsuarios.getColumnModel().getColumn(3).setCellEditor(new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblUsuarios));
+        tblUsuarios.setRowHeight(45);
+
+        tblUsuarios.getColumnModel().getColumn(0).setPreferredWidth(70);
+        tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(120);
+        tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(250);
         tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tblUsuarios.getColumnModel().getColumn(4).setPreferredWidth(120);
+        tblUsuarios.getColumnModel().getColumn(5).setPreferredWidth(80);
 
-        llenarTablaEjemplo();
+        tblUsuarios.getColumnModel().getColumn(5).setCellRenderer(
+                new Utilidades.RenderImagen("/Imagenes/borrar.png")
+        );
+
+        cargarActasDesdeBD();
+
+        tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblUsuarios.rowAtPoint(evt.getPoint());
+                int columna = tblUsuarios.columnAtPoint(evt.getPoint());
+
+                if (fila >= 0 && columna == 5) {
+                    int filaModelo = tblUsuarios.convertRowIndexToModel(fila);
+
+                    int idActa = Integer.parseInt(modeloUsuarios.getValueAt(filaModelo, 0).toString());
+                    String nombre = modeloUsuarios.getValueAt(filaModelo, 2).toString();
+
+                    eliminarActaSeleccionada(idActa, nombre);
+                }
+            }
+        });
     }
 
-    /**
-     * Carga datos simulados de usuarios en el modelo de la tabla.
-     * Posteriormente, esta función se modificará para consultar tu base de
-     * datos.
-     */
-    private void llenarTablaEjemplo() {
+    private void configurarBuscadorDinamico() {
+        txtBuscar.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+        });
+    }
+
+    private void filtrarTabla() {
+        String texto = txtBuscar.getText().trim();
+
+        if (texto.isEmpty()) {
+            sorter.setRowFilter(null);
+            return;
+        }
+
+        sorter.setRowFilter(
+                RowFilter.regexFilter(
+                        "(?i)" + java.util.regex.Pattern.quote(texto),
+                        0, 1, 2, 3, 4
+                )
+        );
+    }
+
+    private void cargarActasDesdeBD() {
         modeloUsuarios.setRowCount(0);
 
-        Object[][] datosEjemplo = {
-            {"0000226088", "panfilo filomeno", "12/12/2025", "ELIMINAR"},
-            {"0000226088", "Cesar Adrian Avalos", "12/12/2025", "ELIMINAR"},
-            {"0000226088", "Georgina Aviles", "15/12/2025", "ELIMINAR"},
-            {"0000226088", "Jose Duran", "16/12/2025", "ELIMINAR"}
-        };
+        try {
+            Negocio.GestorActa.IActa gestorActa = new Negocio.GestorActa.ActaFachada();
 
-        for (Object[] fila : datosEjemplo) {
-            modeloUsuarios.addRow(fila);
+            java.util.List<Negocio.DTOs.ActaDTO> listaActas = gestorActa.consultarActas();
+
+            if (listaActas == null || listaActas.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No hay actas registradas para eliminar.",
+                        "Sin actas",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+
+            for (Negocio.DTOs.ActaDTO acta : listaActas) {
+                Object[] fila = {
+                    acta.getIdActa(),
+                    acta.getIdAcademico(),
+                    acta.getNombreResidente(),
+                    acta.getFecha(),
+                    acta.getEstado(),
+                    ""
+                };
+
+                modeloUsuarios.addRow(fila);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al cargar actas:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+
+    private void eliminarActaSeleccionada(int idActa, String nombreResidente) {
+        int respuesta = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Seguro que deseas eliminar el acta de " + nombreResidente + "?\n"
+                + "Esta acción no se puede deshacer.",
+                "Confirmar eliminación",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+
+        if (respuesta != javax.swing.JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            Negocio.GestorActa.IActa gestorActa = new Negocio.GestorActa.ActaFachada();
+
+            boolean eliminado = gestorActa.eliminarActa(idActa);
+
+            if (eliminado) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Acta eliminada correctamente.",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                cargarActasDesdeBD();
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No se pudo eliminar el acta.",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al eliminar el acta:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
         }
     }
 

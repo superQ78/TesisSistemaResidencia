@@ -26,7 +26,7 @@ import java.net.URL;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public class GeneradorPDFSolicitudIngreso {
 
@@ -93,6 +93,9 @@ public class GeneradorPDFSolicitudIngreso {
 
             agregarCelda(tablaSolicitante, "Semestre:", true);
             agregarCelda(tablaSolicitante, texto(residente.getSemestre()), false);
+
+            agregarCelda(tablaSolicitante, "Periodo de residencia:", true);
+            agregarCelda(tablaSolicitante, texto(residente.getPeriodoResidencia()), false);
 
             agregarCelda(tablaSolicitante, "Correo:", true);
             agregarCelda(tablaSolicitante, texto(residente.getCorreo()), false);

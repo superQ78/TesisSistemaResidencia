@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public class frmSolicitudIngreso extends javax.swing.JFrame {
 
@@ -86,7 +86,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
     /**
      * Configura el diseño visual del componente JTabbedPane. Se personaliza la
-     * apariencia de las pestañas, incluyendo: Colores de fondo, cambio de tipo
+     * apariencia de las pestañas, incluyendo, colores de fondo, cambio de tipo
      * de letra, centrado de texto, eliminación de bordes separación mediante
      * líneas entre pestañas.
      */
@@ -195,9 +195,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     }
 
     /**
-     * Configura el estilo general de la ventana y los paneles internos. color
-     * de fondo neutro para la ventana principal y un fondo blanco para cada
-     * panel
+     * Configura el estilo general de la ventana y los paneles internos.
      */
     private void configurarEstiloGeneral() {
         getContentPane().setBackground(new java.awt.Color(240, 242, 245));
@@ -403,27 +401,26 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         panelCompanero.empaquetarDatosCompanero(dtoSolicitud);
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
-     
+
         Negocio.DTOs.SolicitudIngresoDTO solicitudExistente = fachada.consultarSolicitudPorCurp(dtoSolicitud.getCurpResidente());
-        
+
         boolean exito = false;
-        boolean esModificacion = false; 
-        
+        boolean esModificacion = false;
+
         // si no existe es un insert
         if (solicitudExistente == null) {
             exito = fachada.registrarSolicitud(dtoSolicitud);
-        } 
-        // si ya existe es modificar
+        } // si ya existe es modificar
         else {
             exito = fachada.actualizarSolicitud(dtoSolicitud);
-            esModificacion = true; 
+            esModificacion = true;
         }
 
         if (exito) {
             // mensaje 
-            String mensaje = esModificacion ? "Solicitud de ingreso modificada correctamente." 
-                                            : "Solicitud de ingreso guardada correctamente en la Base de Datos.";
-                                            
+            String mensaje = esModificacion ? "Solicitud de ingreso modificada correctamente."
+                    : "Solicitud de ingreso guardada correctamente en la Base de Datos.";
+
             javax.swing.JOptionPane.showMessageDialog(this,
                     mensaje,
                     "Éxito",
@@ -458,13 +455,13 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
             limpiarComponentes(panelPago);
             limpiarComponentes(panelCompanero);
             this.dtoCompartido = new Negocio.DTOs.ResidenteDTO();
-            //   this.idResidenteEdicion = null; // si esta editanto, lo convierte en nuevo
 
             javax.swing.JOptionPane.showMessageDialog(this, "Se borraron todos los datos ingresados.");
         }
     }//GEN-LAST:event_btnVaciarCamposActionPerformed
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+
         boolean solValido = panelSolicitante.validarCampos();
         boolean tutValido = panelTutor.validarCampos();
         boolean emeValido = panelEmergencia.validarCampos();
@@ -487,27 +484,20 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         panelTutor.empaquetarDatosTutor(this.dtoCompartido);
         panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
 
-        Negocio.DTOs.SolicitudIngresoDTO dtoSolicitud = new Negocio.DTOs.SolicitudIngresoDTO();
+        SolicitudIngresoDTO dtoSolicitud = new SolicitudIngresoDTO();
         dtoSolicitud.setCurpResidente(this.dtoCompartido.getCurp());
 
         panelPago.empaquetarDatosPago(dtoSolicitud);
         panelCompanero.empaquetarDatosCompanero(dtoSolicitud);
 
-        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
-        chooser.setDialogTitle("Guardar Solicitud de Ingreso en PDF");
-        chooser.setSelectedFile(new java.io.File("SIR_" + texto(this.dtoCompartido.getIdAcademico()) + ".pdf"));
+        String ruta = Utilidades.UtilidadPDF.seleccionarRutaPDF(
+                this,
+                "Guardar Solicitud de Ingreso en PDF",
+                "SIR_" + Utilidades.UtilidadPDF.texto(this.dtoCompartido.getIdAcademico()) + ".pdf"
+        );
 
-        int seleccion = chooser.showSaveDialog(this);
-
-        if (seleccion != javax.swing.JFileChooser.APPROVE_OPTION) {
+        if (ruta == null) {
             return;
-        }
-
-        java.io.File archivo = chooser.getSelectedFile();
-        String ruta = archivo.getAbsolutePath();
-
-        if (!ruta.toLowerCase().endsWith(".pdf")) {
-            ruta += ".pdf";
         }
 
         try {
@@ -517,12 +507,11 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                     dtoSolicitud
             );
 
-            javax.swing.JOptionPane.showMessageDialog(this,
+            Utilidades.UtilidadPDF.mostrarExito(
+                    this,
                     "PDF generado correctamente.\nAhora puedes abrirlo, imprimirlo, firmarlo y después subirlo como SIR Firmada.",
-                    "PDF generado",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-            abrirArchivoPDF(ruta);
+                    ruta
+            );
 
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this,
@@ -534,25 +523,9 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private String texto(String valor) {
-        return valor != null ? valor : "";
-    }
-
-    private void abrirArchivoPDF(String ruta) {
-        try {
-            java.io.File archivo = new java.io.File(ruta);
-
-            if (java.awt.Desktop.isDesktopSupported()) {
-                java.awt.Desktop.getDesktop().open(archivo);
-            }
-        } catch (Exception e) {
-            System.out.println("No se pudo abrir automáticamente el PDF: " + e.getMessage());
-        }
-    }
-
-    /**
+     /**
      * Metodo recursivo que busca todas las cajas de texto, combos y fechas
-     * dentro de un panel y los vacia.
+     * dentro del panel y los vacia.
      */
     private void limpiarComponentes(java.awt.Container contenedor) {
         for (java.awt.Component comp : contenedor.getComponents()) {

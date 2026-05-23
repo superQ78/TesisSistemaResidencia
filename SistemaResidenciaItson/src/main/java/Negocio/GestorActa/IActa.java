@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public interface IActa {
 
@@ -18,4 +18,11 @@ public interface IActa {
     List<ActaDTO> consultarActas();
 
     boolean eliminarActa(int idActa);
+
+    boolean subirActaFirmada(Negocio.DTOs.ActaDTO acta);
+
+    List<ActaDTO> consultarActasPorIdAcademico(String idAcademico);
+
+    ActaDTO consultarArchivoActaFirmada(int idActa);
+
 }

@@ -10,9 +10,10 @@ import java.util.List;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public class ControlActa {
+
     private ActaBO actaBO;
 
     public ControlActa() {
@@ -49,5 +50,41 @@ public class ControlActa {
         }
 
         return actaBO.eliminarActa(idActa);
+    }
+
+    public boolean procesarSubidaActaFirmada(ActaDTO acta) {
+        if (acta == null) {
+            return false;
+        }
+
+        if (acta.getIdAcademico() == null || acta.getIdAcademico().trim().isEmpty()) {
+            return false;
+        }
+
+        if (acta.getArchivoFirmado() == null || acta.getArchivoFirmado().length == 0) {
+            return false;
+        }
+
+        if (acta.getNombreArchivoFirmado() == null || acta.getNombreArchivoFirmado().trim().isEmpty()) {
+            return false;
+        }
+
+        return actaBO.subirActaFirmada(acta);
+    }
+
+    public List<ActaDTO> procesarConsultaActasPorIdAcademico(String idAcademico) {
+        if (idAcademico == null || idAcademico.trim().isEmpty()) {
+            return new java.util.ArrayList<>();
+        }
+
+        return actaBO.obtenerActasPorIdAcademico(idAcademico);
+    }
+
+    public ActaDTO procesarConsultaArchivoActaFirmada(int idActa) {
+        if (idActa <= 0) {
+            return null;
+        }
+
+        return actaBO.obtenerArchivoActaFirmada(idActa);
     }
 }

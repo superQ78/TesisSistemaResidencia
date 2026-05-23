@@ -5,7 +5,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public class frmConsultarResidente extends javax.swing.JFrame {
 
@@ -107,9 +107,7 @@ public class frmConsultarResidente extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * Configura el modelo de las columnas y carga datos de ejemplo
-     */
+    
     public void configurarYcargarTabla() {
         // Titulos de columnas
         String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};

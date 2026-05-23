@@ -112,22 +112,24 @@ public class ResidenteDTO {
     private String otraInformacion;
     private String estado;
 
-    public ResidenteDTO(String nombreCompleto, String sexo, LocalDate fechaNacimiento, String domicilio, String curp, String lugarResidencia, 
-            String nss, String celular, String telefono, String correo, String idAcademico, String correoInstitucional, String carrera, 
-            String semestre, String buscaAyudaAcademica, String efectividadEstudio, String efectividadTiempo, String aspectosMejoraAcademica, 
-            String nombreEmergencia, String parentescoEmergencia, String domicilioEmergencia, String lugarEmergencia, String celularEmergencia, 
-            String telefonoEmergencia, String correoEmergencia, String nombreTutor, String parentescoTutor, String domicilioTutor, String lugarTutor, 
-            String celularTutor, String telefonoTutor, String correoTutor, String estadoSalud, boolean tieneDeficienciaVista, String especificarVista, 
-            boolean tieneDeficienciaAuditiva, String especificarAuditiva, boolean tieneDiscapacidadFisica, String especificarFisica, 
-            boolean tieneLesionesGraves, String especificarLesiones, boolean tienePadecimientos, String especificarPadecimientos, boolean tieneTratamientosPsicologicos, 
-            String motivoTratamientosPsicologicos, boolean tieneMedicamentosControlados, String especificarMedicamentos, boolean tieneAlergias, 
-            String especificarAlergias, boolean tieneTratamientosExternos, String motivoTratamientosExternos, String tipoSangre, String aspectosSaludMejora, 
-            String otraInformacionSalud, boolean haVividoFuera, String tiempoVividoFuera, String decisionResidencia, String razonesVivirResidencia, 
-            String adaptacion, String estiloConvivencia, String situacionesNoDeseadas, boolean buscaCompaneroExtranjero, boolean buscaCompaneroMexicano, 
-            boolean buscaCompaneroReingreso, String horaDormir, boolean toleraRuido, String importanciaOrden, String habitosHigiene, boolean traeAuto, 
-            boolean traeComputadora, boolean traeTv, boolean traeFrigobar, String iniciativaActividades, boolean participacionGrupo, String tipoGrupo, 
-            String actividadesRealizadasGrupo, boolean deseaActDeportivas, boolean deseaActCulturales, boolean deseaActArtisticas, String aspectosMejoraPersona, 
-            String otraInformacion, String estado) {
+    private String periodoResidencia;
+
+    public ResidenteDTO(String nombreCompleto, String sexo, LocalDate fechaNacimiento, String domicilio, String curp, String lugarResidencia,
+            String nss, String celular, String telefono, String correo, String idAcademico, String correoInstitucional, String carrera,
+            String semestre, String buscaAyudaAcademica, String efectividadEstudio, String efectividadTiempo, String aspectosMejoraAcademica,
+            String nombreEmergencia, String parentescoEmergencia, String domicilioEmergencia, String lugarEmergencia, String celularEmergencia,
+            String telefonoEmergencia, String correoEmergencia, String nombreTutor, String parentescoTutor, String domicilioTutor, String lugarTutor,
+            String celularTutor, String telefonoTutor, String correoTutor, String estadoSalud, boolean tieneDeficienciaVista, String especificarVista,
+            boolean tieneDeficienciaAuditiva, String especificarAuditiva, boolean tieneDiscapacidadFisica, String especificarFisica,
+            boolean tieneLesionesGraves, String especificarLesiones, boolean tienePadecimientos, String especificarPadecimientos, boolean tieneTratamientosPsicologicos,
+            String motivoTratamientosPsicologicos, boolean tieneMedicamentosControlados, String especificarMedicamentos, boolean tieneAlergias,
+            String especificarAlergias, boolean tieneTratamientosExternos, String motivoTratamientosExternos, String tipoSangre, String aspectosSaludMejora,
+            String otraInformacionSalud, boolean haVividoFuera, String tiempoVividoFuera, String decisionResidencia, String razonesVivirResidencia,
+            String adaptacion, String estiloConvivencia, String situacionesNoDeseadas, boolean buscaCompaneroExtranjero, boolean buscaCompaneroMexicano,
+            boolean buscaCompaneroReingreso, String horaDormir, boolean toleraRuido, String importanciaOrden, String habitosHigiene, boolean traeAuto,
+            boolean traeComputadora, boolean traeTv, boolean traeFrigobar, String iniciativaActividades, boolean participacionGrupo, String tipoGrupo,
+            String actividadesRealizadasGrupo, boolean deseaActDeportivas, boolean deseaActCulturales, boolean deseaActArtisticas, String aspectosMejoraPersona,
+            String otraInformacion, String estado, String periodoResidencia) {
         this.nombreCompleto = nombreCompleto;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
@@ -210,6 +212,7 @@ public class ResidenteDTO {
         this.aspectosMejoraPersona = aspectosMejoraPersona;
         this.otraInformacion = otraInformacion;
         this.estado = estado;
+        this.periodoResidencia = periodoResidencia;
     }
 
     public ResidenteDTO() {
@@ -870,7 +873,13 @@ public class ResidenteDTO {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
+    public String getPeriodoResidencia() {
+        return periodoResidencia;
+    }
+
+    public void setPeriodoResidencia(String periodoResidencia) {
+        this.periodoResidencia = periodoResidencia;
+    }
 
 }

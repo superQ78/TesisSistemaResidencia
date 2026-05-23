@@ -19,6 +19,33 @@ public class ActaDTO {
     private String lineamiento;
     private String descripcion;
     private String estado;
+    private byte[] archivoFirmado;
+    private String nombreResidente;
+    private String nombreArchivoFirmado;
+
+    public byte[] getArchivoFirmado() {
+        return archivoFirmado;
+    }
+
+    public void setArchivoFirmado(byte[] archivoFirmado) {
+        this.archivoFirmado = archivoFirmado;
+    }
+
+    public String getNombreArchivoFirmado() {
+        return nombreArchivoFirmado;
+    }
+
+    public void setNombreArchivoFirmado(String nombreArchivoFirmado) {
+        this.nombreArchivoFirmado = nombreArchivoFirmado;
+    }
+
+    public String getNombreResidente() {
+        return nombreResidente;
+    }
+
+    public void setNombreResidente(String nombreResidente) {
+        this.nombreResidente = nombreResidente;
+    }
 
     public ActaDTO() {
     }

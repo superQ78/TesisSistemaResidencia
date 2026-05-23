@@ -30,15 +30,14 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     public frmPerfilResidente(String idResidenteSeleccionado) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        configurarYcargarTabla();
 
         this.idResidente = idResidenteSeleccionado;
 
         cargarDatosGenerales();
         cargarFotoFormal();
-
+        configurarYcargarTabla();
     }
-                                                                
+
     /**
      * Consulta la BD con el ID del residente y llena los Labels de los datos
      * con la infromacion del recidente.
@@ -429,14 +428,12 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActaNacimientoActionPerformed
 
     public void configurarYcargarTabla() {
-        // 1. Títulos de columnas basados en la imagen (Solo 4 columnas)
-        String[] titulos = {"ID", "Fecha", "Seleccionar"};
+        String[] titulos = {"Id Acta", "Fecha", "Estado", "Seleccionar"};
 
         modeloActaResidentes = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // Solo la columna 3 del boton de seleccionar es editable para recibir clics
-                return column == 2;
+                return false;
             }
         };
 
@@ -444,24 +441,31 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         tblActasAdmin.setRowHeight(55);
         tblActasAdmin.setBackground(java.awt.Color.WHITE);
 
-        // Usamos la ruta para asegurar que salga el botón seleccionar
         String rutaBoton = "/Imagenes/cursor.png";
 
-        tblActasAdmin.getColumnModel().getColumn(2).setCellRenderer(
+        tblActasAdmin.getColumnModel().getColumn(3).setCellRenderer(
                 new Utilidades.RenderImagen(rutaBoton)
         );
 
-        tblActasAdmin.getColumnModel().getColumn(2).setCellEditor(
-                new Utilidades.EditorImagen(new javax.swing.JCheckBox(), tblActasAdmin, rutaBoton)
-        );
+        tblActasAdmin.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tblActasAdmin.getColumnModel().getColumn(1).setPreferredWidth(150);
+        tblActasAdmin.getColumnModel().getColumn(2).setPreferredWidth(150);
+        tblActasAdmin.getColumnModel().getColumn(3).setPreferredWidth(100);
 
-        // Ajuste de anchos para que se parezca a la imagen
-        tblActasAdmin.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
-        tblActasAdmin.getColumnModel().getColumn(1).setPreferredWidth(250); // fecha
-        tblActasAdmin.getColumnModel().getColumn(2).setPreferredWidth(100); // Botón
+        cargarActasAdministrativas();
 
-        // Cargar datos de prueba
-        llenarTablaEjemplo();
+        tblActasAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int fila = tblActasAdmin.rowAtPoint(evt.getPoint());
+                int columna = tblActasAdmin.columnAtPoint(evt.getPoint());
+
+                if (fila >= 0 && columna == 3) {
+                    int idActa = Integer.parseInt(tblActasAdmin.getValueAt(fila, 0).toString());
+                    previsualizarActaAdministrativa(idActa);
+                }
+            }
+        });
     }
 
     private void mostrarImagenEnVentana(Negocio.DTOs.DocumentoDTO doc) throws Exception {
@@ -505,18 +509,86 @@ public class frmPerfilResidente extends javax.swing.JFrame {
         }
     }
 
-    /**
-     * Simula los datos mostrados en la imagen.
-     */
-    private void llenarTablaEjemplo() {
-        // Datos extraídos visualmente de tu imagen
-        Object[] fila1 = {"01", "20/10/2023", "SELECT"};
-        Object[] fila2 = {"02", "01/05/2024", "SELECT"};
-        Object[] fila3 = {"03", "25/12/2024", "SELECT"};
+    private void cargarActasAdministrativas() {
+        modeloActaResidentes.setRowCount(0);
 
-        modeloActaResidentes.addRow(fila1);
-        modeloActaResidentes.addRow(fila2);
-        modeloActaResidentes.addRow(fila3);
+        if (this.residenteActual == null || this.residenteActual.getIdAcademico() == null) {
+            return;
+        }
+
+        try {
+            String idAcademico = this.residenteActual.getIdAcademico();
+
+            Negocio.GestorActa.IActa gestorActa = new Negocio.GestorActa.ActaFachada();
+
+            java.util.List<Negocio.DTOs.ActaDTO> listaActas
+                    = gestorActa.consultarActasPorIdAcademico(idAcademico);
+
+            if (listaActas == null || listaActas.isEmpty()) {
+                return;
+            }
+
+            for (Negocio.DTOs.ActaDTO acta : listaActas) {
+                Object[] fila = {
+                    acta.getIdActa(),
+                    acta.getFecha(),
+                    acta.getEstado(),
+                    ""
+                };
+
+                modeloActaResidentes.addRow(fila);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al cargar actas administrativas:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+
+    private void previsualizarActaAdministrativa(int idActa) {
+        try {
+            Negocio.GestorActa.IActa gestorActa = new Negocio.GestorActa.ActaFachada();
+
+            Negocio.DTOs.ActaDTO acta = gestorActa.consultarArchivoActaFirmada(idActa);
+
+            if (acta == null || acta.getArchivoFirmado() == null || acta.getArchivoFirmado().length == 0) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Esta acta todavía no tiene archivo firmado cargado.",
+                        "Acta sin archivo",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            String nombreArchivo = acta.getNombreArchivoFirmado();
+
+            if (nombreArchivo == null || nombreArchivo.trim().isEmpty()) {
+                nombreArchivo = "Acta_" + idActa + ".pdf";
+            }
+
+            java.io.File archivoTemporal = java.io.File.createTempFile("acta_" + idActa + "_", "_" + nombreArchivo);
+            java.nio.file.Files.write(archivoTemporal.toPath(), acta.getArchivoFirmado());
+
+            archivoTemporal.deleteOnExit();
+
+            if (java.awt.Desktop.isDesktopSupported()) {
+                java.awt.Desktop.getDesktop().open(archivoTemporal);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Tu sistema no permite abrir archivos PDF automáticamente.",
+                        "No se pudo abrir PDF",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al previsualizar el acta:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
     }
 
     /**

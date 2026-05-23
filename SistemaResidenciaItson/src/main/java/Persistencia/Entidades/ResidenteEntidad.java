@@ -112,6 +112,8 @@ public class ResidenteEntidad {
     private String otraInformacion;
     private String estado;
 
+    private String periodoResidencia;
+
     public ResidenteEntidad(String nombreCompleto, String sexo, LocalDate fechaNacimiento, String domicilio, String curp, String lugarResidencia,
             String nss, String celular, String telefono, String correo, String idAcademico, String correoInstitucional, String carrera, String semestre,
             String buscaAyudaAcademica, String efectividadEstudio, String efectividadTiempo, String aspectosMejoraAcademica, String nombreEmergencia,
@@ -127,7 +129,7 @@ public class ResidenteEntidad {
             boolean buscaCompaneroMexicano, boolean buscaCompaneroReingreso, String horaDormir, boolean toleraRuido, String importanciaOrden,
             String habitosHigiene, boolean traeAuto, boolean traeComputadora, boolean traeTv, boolean traeFrigobar, String iniciativaActividades,
             boolean participacionGrupo, String tipoGrupo, String actividadesRealizadasGrupo, boolean deseaActDeportivas, boolean deseaActCulturales,
-            boolean deseaActArtisticas, String aspectosMejoraPersona, String otraInformacion, String estado) {
+            boolean deseaActArtisticas, String aspectosMejoraPersona, String otraInformacion, String estado, String periodoResidencia) {
         this.nombreCompleto = nombreCompleto;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
@@ -210,6 +212,7 @@ public class ResidenteEntidad {
         this.aspectosMejoraPersona = aspectosMejoraPersona;
         this.otraInformacion = otraInformacion;
         this.estado = estado;
+        this.periodoResidencia = periodoResidencia;
     }
 
     public ResidenteEntidad() {
@@ -869,6 +872,14 @@ public class ResidenteEntidad {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getPeriodoResidencia() {
+        return periodoResidencia;
+    }
+
+    public void setPeriodoResidencia(String periodoResidencia) {
+        this.periodoResidencia = periodoResidencia;
     }
 
 }

@@ -9,13 +9,19 @@ import java.util.List;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
-public interface   IActaDAO {
+public interface IActaDAO {
 
     boolean insertarActa(ActaEntidad acta);
 
     List<ActaEntidad> consultarTodas();
 
     boolean eliminarActa(int idActa);
+
+    boolean subirActaFirmada(ActaEntidad acta);
+
+    List<ActaEntidad> consultarPorIdAcademico(String idAcademico);
+
+    ActaEntidad consultarArchivoFirmado(int idActa);
 }

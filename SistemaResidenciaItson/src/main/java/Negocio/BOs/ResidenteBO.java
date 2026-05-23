@@ -40,6 +40,7 @@ public class ResidenteBO {
         entidad.setEfectividadEstudio(dto.getEfectividadEstudio());
         entidad.setEfectividadTiempo(dto.getEfectividadTiempo());
         entidad.setAspectosMejoraAcademica(dto.getAspectosMejoraAcademica());
+        entidad.setPeriodoResidencia(dto.getPeriodoResidencia());
 
         // Contacto Emergencia
         entidad.setNombreEmergencia(dto.getNombreEmergencia());
@@ -148,6 +149,7 @@ public class ResidenteBO {
             dto.setCarrera(entidad.getCarrera());
             dto.setSemestre(entidad.getSemestre());
             dto.setBuscaAyudaAcademica(entidad.getBuscaAyudaAcademica());
+            dto.setPeriodoResidencia(entidad.getPeriodoResidencia());
             dto.setEfectividadEstudio(entidad.getEfectividadEstudio());
             dto.setEfectividadTiempo(entidad.getEfectividadTiempo());
             dto.setAspectosMejoraAcademica(entidad.getAspectosMejoraAcademica());
@@ -245,7 +247,7 @@ public class ResidenteBO {
             dto.setNombreCompleto(entidad.getNombreCompleto());
             dto.setLugarResidencia(entidad.getLugarResidencia());
             dto.setEstado(entidad.getEstado());
-            
+
             dtos.add(dto);
         }
         return dtos;
@@ -272,6 +274,7 @@ public class ResidenteBO {
         entidad.setCarrera(dto.getCarrera());
         entidad.setSemestre(dto.getSemestre());
         entidad.setBuscaAyudaAcademica(dto.getBuscaAyudaAcademica());
+        entidad.setPeriodoResidencia(dto.getPeriodoResidencia());
         entidad.setEfectividadEstudio(dto.getEfectividadEstudio());
         entidad.setEfectividadTiempo(dto.getEfectividadTiempo());
         entidad.setAspectosMejoraAcademica(dto.getAspectosMejoraAcademica());

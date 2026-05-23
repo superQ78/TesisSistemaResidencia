@@ -2,6 +2,10 @@ package Presentacion;
 
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -10,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class frmConsultarActa extends javax.swing.JFrame {
 
     private DefaultTableModel modeloUsuarios;
+    private TableRowSorter<DefaultTableModel> sorter;
 
     /**
      * Creates new form frmConsultarActa
@@ -118,8 +123,8 @@ public class frmConsultarActa extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
-   public void configurarYcargarTabla() {
-        // 1. Títulos de las 5 columnas
+    public void configurarYcargarTabla() {
+        // Titulos de las 5 columnas
         String[] titulos = {"ID", "Nombre residente", "Lugar de Residencia", "", ""};
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
@@ -130,30 +135,33 @@ public class frmConsultarActa extends javax.swing.JFrame {
         };
 
         tblActas.setModel(modeloUsuarios);
-        tblActas.setRowHeight(55); 
+        sorter = new TableRowSorter<>(modeloUsuarios);
+        tblActas.setRowSorter(sorter);
+        configurarBuscadorDinamico();
+        tblActas.setRowHeight(55);
         tblActas.setBackground(java.awt.Color.WHITE);
 
-        // 2. Columna 3 (Botón SELECT)
+        // Boton select
         tblActas.getColumnModel().getColumn(3).setCellRenderer(
                 new Utilidades.RenderImagen("/Imagenes/cursor.png") // Ajusta el nombre de tu imagen
         );
-        
-        // 3. Columna 4 (Botón SUBIR)
+
+        // Boton subir
         tblActas.getColumnModel().getColumn(4).setCellRenderer(
                 new Utilidades.RenderImagen("/Imagenes/SubirArchivo.png") // Ajusta el nombre de tu imagen
         );
 
-        // 4. Ajuste de anchos
+        // Ajuste de anchos
         tblActas.getColumnModel().getColumn(0).setPreferredWidth(100); // ID
         tblActas.getColumnModel().getColumn(1).setPreferredWidth(250); // Nombre 
         tblActas.getColumnModel().getColumn(2).setPreferredWidth(100); // Nacionalidad
         tblActas.getColumnModel().getColumn(3).setPreferredWidth(80);  // Select
         tblActas.getColumnModel().getColumn(4).setPreferredWidth(80);  // Subir
 
-        // 5. Cargar datos reales de la BD
+        //Cargar datos de la BD
         cargarDatosDesdeBD();
 
-        // 6. Escuchador de clics inteligente
+        //Escuchador de clics 
         tblActas.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,48 +169,126 @@ public class frmConsultarActa extends javax.swing.JFrame {
                 int columna = tblActas.columnAtPoint(evt.getPoint());
 
                 if (fila >= 0) {
-                    String idSeleccionado = tblActas.getValueAt(fila, 0).toString();
+                    int filaModelo = tblActas.convertRowIndexToModel(fila);
+                    String idSeleccionado = modeloUsuarios.getValueAt(filaModelo, 0).toString();
 
                     if (columna == 3) {
                         coordinadorVistas.mostrarCrearActaAdministrativa(frmConsultarActa.this, idSeleccionado);
-                        
+
                     } else if (columna == 4) {
-                        javax.swing.JOptionPane.showMessageDialog(null, "Próximamente: Subir acta firmada para el ID " + idSeleccionado);
+                        subirActaFirmada(idSeleccionado);
                     }
                 }
             }
         });
     }
 
+    private void configurarBuscadorDinamico() {
+        txtBuscar.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filtrarTabla();
+            }
+        });
+    }
+
+    private void filtrarTabla() {
+        String texto = txtBuscar.getText().trim();
+
+        if (texto.isEmpty()) {
+            sorter.setRowFilter(null);
+            return;
+        }
+
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + java.util.regex.Pattern.quote(texto), 0, 1, 2));
+    }
+
+    private void subirActaFirmada(String idAcademico) {
+        try {
+            java.io.File archivoPDF = Utilidades.SelectorArchivoPDF.seleccionarPDF(this);
+
+            if (archivoPDF == null) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No seleccionaste ningún archivo PDF válido.",
+                        "Archivo no seleccionado",
+                        javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            byte[] archivoBytes = Utilidades.SelectorArchivoPDF.convertirABytes(archivoPDF);
+
+            Negocio.DTOs.ActaDTO acta = new Negocio.DTOs.ActaDTO();
+            acta.setIdAcademico(idAcademico);
+            acta.setArchivoFirmado(archivoBytes);
+            acta.setNombreArchivoFirmado(archivoPDF.getName());
+
+            Negocio.GestorActa.IActa gestorActa = new Negocio.GestorActa.ActaFachada();
+
+            boolean exito = gestorActa.subirActaFirmada(acta);
+
+            if (exito) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Acta firmada subida correctamente.",
+                        "Éxito",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+                cargarDatosDesdeBD();
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "No se pudo subir el acta firmada.\nVerifica que el residente tenga un acta registrada previamente.",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al subir el acta firmada:\n" + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }
+
     /**
-     * Trae los residentes reales de la base de datos a la tabla.
+     * Trae los residentes de la base de datos a la tabla.
      */
     private void cargarDatosDesdeBD() {
-        modeloUsuarios.setRowCount(0); 
-        
+        modeloUsuarios.setRowCount(0);
+
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
         java.util.List<Negocio.DTOs.ResidenteDTO> listaResidentes = fachada.consultarResidentes();
 
         if (listaResidentes != null) {
             for (Negocio.DTOs.ResidenteDTO res : listaResidentes) {
                 String lugar = res.getLugarResidencia() != null ? res.getLugarResidencia() : "N/A";
-                
+
                 Object[] fila = {
                     res.getIdAcademico(),
                     res.getNombreCompleto(),
                     lugar,
-                    "", 
-                    ""  
+                    "",
+                    ""
                 };
                 modeloUsuarios.addRow(fila);
             }
         }
     }
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -213,29 +299,24 @@ public static void main(String args[]) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+            java.util.logging.Logger.getLogger(frmConsultarActa.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsultarActa.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(frmConsultarActa.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

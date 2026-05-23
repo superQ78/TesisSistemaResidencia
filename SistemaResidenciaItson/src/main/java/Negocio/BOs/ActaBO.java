@@ -53,6 +53,8 @@ public class ActaBO {
         entidad.setLineamiento(dto.getLineamiento());
         entidad.setDescripcion(dto.getDescripcion());
         entidad.setEstado(dto.getEstado());
+        entidad.setArchivoFirmado(dto.getArchivoFirmado());
+        entidad.setNombreArchivoFirmado(dto.getNombreArchivoFirmado());
 
         return entidad;
     }
@@ -67,7 +69,37 @@ public class ActaBO {
         dto.setLineamiento(entidad.getLineamiento());
         dto.setDescripcion(entidad.getDescripcion());
         dto.setEstado(entidad.getEstado());
+        dto.setNombreResidente(entidad.getNombreResidente());
+        dto.setArchivoFirmado(entidad.getArchivoFirmado());
+        dto.setNombreArchivoFirmado(entidad.getNombreArchivoFirmado());
 
         return dto;
     }
+
+    public boolean subirActaFirmada(ActaDTO dto) {
+        ActaEntidad entidad = convertirAEntidad(dto);
+        return actaDAO.subirActaFirmada(entidad);
+    }
+
+    public List<ActaDTO> obtenerActasPorIdAcademico(String idAcademico) {
+        List<ActaEntidad> entidades = actaDAO.consultarPorIdAcademico(idAcademico);
+        List<ActaDTO> dtos = new ArrayList<>();
+
+        for (ActaEntidad entidad : entidades) {
+            dtos.add(convertirADTO(entidad));
+        }
+
+        return dtos;
+    }
+
+    public ActaDTO obtenerArchivoActaFirmada(int idActa) {
+        ActaEntidad entidad = actaDAO.consultarArchivoFirmado(idActa);
+
+        if (entidad == null) {
+            return null;
+        }
+
+        return convertirADTO(entidad);
+    }
+
 }

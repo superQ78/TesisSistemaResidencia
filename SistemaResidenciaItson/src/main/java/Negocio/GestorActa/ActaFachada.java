@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author cesar
+ * @author Tesis
  */
 public class ActaFachada implements IActa {
 
@@ -29,6 +29,21 @@ public class ActaFachada implements IActa {
 
     public boolean eliminarActa(int idActa) {
         return control.procesarEliminacionActa(idActa);
+    }
+
+    @Override
+    public boolean subirActaFirmada(ActaDTO acta) {
+        return control.procesarSubidaActaFirmada(acta);
+    }
+
+    @Override
+    public List<ActaDTO> consultarActasPorIdAcademico(String idAcademico) {
+        return control.procesarConsultaActasPorIdAcademico(idAcademico);
+    }
+
+    @Override
+    public ActaDTO consultarArchivoActaFirmada(int idActa) {
+        return control.procesarConsultaArchivoActaFirmada(idActa);
     }
 
 }

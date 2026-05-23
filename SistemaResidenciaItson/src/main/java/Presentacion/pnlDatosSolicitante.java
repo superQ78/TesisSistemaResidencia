@@ -79,6 +79,9 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         lblCorreoInstitucional = new javax.swing.JLabel();
         txtCorreoInstitucional = new javax.swing.JTextField();
         pnlContenedorFecha = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        chkEneroMayo = new javax.swing.JCheckBox();
+        chkAgostoDiciembre = new javax.swing.JCheckBox();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -190,6 +193,15 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
         pnlContenedorFecha.setLayout(new java.awt.BorderLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel1.setText("Periodo en Residencia: ");
+
+        chkEneroMayo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        chkEneroMayo.setText("Ene - May");
+
+        chkAgostoDiciembre.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        chkAgostoDiciembre.setText("Ago - Dic");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -216,28 +228,6 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addComponent(chkSexoMasculino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(chkSexoFemenino, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblNssSolicitante)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtNssSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblCelularSolicitante)
-                        .addGap(5, 5, 5)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbCodigoPaisCelSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(txtCelularSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)
-                        .addComponent(lblTelefonoSolicitante)
-                        .addGap(28, 28, 28)
-                        .addComponent(txtTelefonoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblCorreoSolicitante)
-                        .addGap(5, 5, 5)
-                        .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -278,7 +268,38 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                                 .addGap(26, 26, 26)
                                 .addComponent(lblDomicilioSolicitante)
                                 .addGap(21, 21, 21)
-                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(txtDomicilioSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblNssSolicitante)
+                                .addGap(4, 4, 4)
+                                .addComponent(txtNssSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCorreoSolicitante)
+                                .addGap(5, 5, 5)
+                                .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCelularSolicitante)
+                                .addGap(5, 5, 5)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbCodigoPaisCelSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(70, 70, 70)
+                                        .addComponent(txtCelularSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkEneroMayo)))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTelefonoSolicitante)
+                            .addComponent(chkAgostoDiciembre))
+                        .addGap(28, 28, 28)
+                        .addComponent(txtTelefonoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +343,11 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCorreoSolicitante)
-                            .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCorreoSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addComponent(chkEneroMayo)
+                                .addComponent(chkAgostoDiciembre)))
                         .addGap(20, 20, 20)
                         .addComponent(jLabel3)
                         .addGap(20, 20, 20)
@@ -340,7 +365,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pnlContenedorFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -409,6 +434,9 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         dto.setCarrera(txtCarreraSolicitante.getText().trim());
         dto.setSemestre(cmbSemestreSolicitante.getSelectedItem().toString());
 
+        // periodo residencia
+        dto.setPeriodoResidencia(obtenerPeriodoResidencia());
+
         //  Sexo (Checkboxes)
         if (chkSexoMasculino.isSelected()) {
             dto.setSexo("Masculino");
@@ -428,12 +456,41 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         }
     }
 
+    public String obtenerPeriodoResidencia() {
+        if (chkEneroMayo.isSelected()) {
+            return "Enero - Mayo";
+        }
+
+        if (chkAgostoDiciembre.isSelected()) {
+            return "Agosto - Diciembre";
+        }
+
+        return null;
+    }
+
+    public void cargarPeriodoResidencia(String periodoResidencia) {
+        chkEneroMayo.setSelected(false);
+        chkAgostoDiciembre.setSelected(false);
+
+        if (periodoResidencia == null) {
+            return;
+        }
+
+        String periodo = periodoResidencia.toLowerCase();
+
+        if (periodo.contains("enero") || periodo.contains("mayo")) {
+            chkEneroMayo.setSelected(true);
+        } else if (periodo.contains("agosto") || periodo.contains("diciembre")) {
+            chkAgostoDiciembre.setSelected(true);
+        }
+    }
+
     /**
      * Este metodo recibe un DTO y rellena los campos automáticamente.
      */
     public void cargarDatosSolicitante(ResidenteDTO dto) {
         if (dto == null) {
-            return; // Si el maletín viene vacío, no hacemos nada
+            return;
         }
         // carga los datos personales
         txtNombreSolicitante.setText(dto.getNombreCompleto() != null ? dto.getNombreCompleto() : "");
@@ -471,6 +528,8 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         } else {
             cmbSemestreSolicitante.setSelectedIndex(0);
         }
+
+        cargarPeriodoResidencia(dto.getPeriodoResidencia());
 
         // Cargar el JDateChooser
         if (dto.getFechaNacimiento() != null) {
@@ -618,9 +677,10 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         boolean v12 = campoEsValido(txtCorreoInstitucional);
         boolean v13 = campoEsValido(txtCarreraSolicitante);
         boolean v14 = comboEsValido(cmbSemestreSolicitante);
+        boolean v15 = grupoChecksEsValido(chkEneroMayo, chkAgostoDiciembre);
 
         // si alguno de los componentes está vacio o sin seleccionar, resegra flase
-        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14) {
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14 || !v15) {
             return false;
         }
 
@@ -649,21 +709,21 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         // Manejo del celular
         if (dto.getCelular() != null && !dto.getCelular().trim().isEmpty()) {
             String celCompleto = dto.getCelular();
-            
-            String soloNumeros = celCompleto.replaceAll("[^0-9]", ""); 
-            
+
+            String soloNumeros = celCompleto.replaceAll("[^0-9]", "");
+
             if (soloNumeros.length() >= 10) {
                 String numeroFinal = soloNumeros.substring(soloNumeros.length() - 10);
                 txtCelularSolicitante.setText(numeroFinal);
                 if (soloNumeros.length() > 10) {
                     String codigoFinal = soloNumeros.substring(0, soloNumeros.length() - 10);
-                    if(codigoFinal.length() > 3) {
-                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2); 
+                    if (codigoFinal.length() > 3) {
+                        codigoFinal = codigoFinal.substring(codigoFinal.length() - 2);
                     }
                     cmbCodigoPaisCelSolicitante.setSelectedItem("+" + codigoFinal);
                 }
             } else {
-                txtCelularSolicitante.setText(celCompleto); 
+                txtCelularSolicitante.setText(celCompleto);
             }
         }
 
@@ -674,6 +734,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         if (dto.getSemestre() != null) {
             cmbSemestreSolicitante.setSelectedItem(dto.getSemestre());
         }
+        cargarPeriodoResidencia(dto.getPeriodoResidencia());
 
         // Sexo
         if ("Masculino".equalsIgnoreCase(dto.getSexo())) {
@@ -707,6 +768,8 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
 
     private void agruparCasillas() {
         crearGrupo(chkSexoMasculino, chkSexoFemenino);
+        crearGrupo(chkEneroMayo, chkAgostoDiciembre);
+
     }
 
     /**
@@ -729,10 +792,13 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chkAgostoDiciembre;
+    private javax.swing.JCheckBox chkEneroMayo;
     private javax.swing.JCheckBox chkSexoFemenino;
     private javax.swing.JCheckBox chkSexoMasculino;
     private javax.swing.JComboBox<String> cmbCodigoPaisCelSolicitante;
     private javax.swing.JComboBox<String> cmbSemestreSolicitante;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

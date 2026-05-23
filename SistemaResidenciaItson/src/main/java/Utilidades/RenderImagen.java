@@ -9,19 +9,17 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * Renderizador universal para el sistema ITSON. Gestiona iconos y estilos para
- * todas las acciones de tabla.
+ *  Gestiona iconos y estilos para todas las acciones de tabla.
  */
 public class RenderImagen extends JButton implements TableCellRenderer {
 
     private String rutaForzada = null;
 
-    // Constructor 1: Automático (Detecta por texto de la celda)
     public RenderImagen() {
         configurarBoton();
     }
 
-    // Constructor 2: Manual (Tú le dices qué imagen usar desde el JFrame)
+    // Constructor 
     public RenderImagen(String rutaImagen) {
         this.rutaForzada = rutaImagen;
         configurarBoton();
@@ -30,7 +28,6 @@ public class RenderImagen extends JButton implements TableCellRenderer {
     private void configurarBoton() {
         setOpaque(true);
         setName("btnImagen");
-        // Borde sutil o sin borde según prefieras
         setBorderPainted(false);
         setContentAreaFilled(false);
     }
@@ -50,7 +47,7 @@ public class RenderImagen extends JButton implements TableCellRenderer {
             // Si usamos el constructor con ruta, usamos esa imagen siempre
             ruta = this.rutaForzada;
         } else {
-            // Si no, detectamos automáticamente según el texto
+            // Si no detectamos automáticamente según el texto
             if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("X") || texto.equalsIgnoreCase("INHABILITAR")) {
                 ruta = "/Imagenes/BtnInhabilitar.png";
             } else if (texto.equalsIgnoreCase("EDITAR")) {

@@ -25,6 +25,12 @@ import com.itextpdf.layout.properties.UnitValue;
 import java.io.File;
 import java.net.URL;
 
+
+/**
+ * 
+ * @author Tesis
+ */
+
 public class GeneradorPDFRegistro {
 
     public static void generarRegistroResidente(
@@ -296,7 +302,7 @@ public class GeneradorPDFRegistro {
             documento.add(tabMedico);
             documento.add(new Paragraph("\n\n")); // Espacio para firmas
 
-        // === FIRMAS ===
+            // firmas
             Table tabFirmas = new Table(UnitValue.createPercentArray(new float[]{1, 0.2f, 1})).useAllAvailableWidth();
             tabFirmas.setBorder(Border.NO_BORDER);
 
@@ -354,5 +360,127 @@ public class GeneradorPDFRegistro {
         tabla.addCell(new Cell().add(new Paragraph(pregunta).setBold().setFontSize(9)).setPadding(2));
         // Celda Respuesta
         tabla.addCell(new Cell().add(new Paragraph(respuesta != null ? respuesta : " ").setFontSize(9)).setPadding(2));
+    }
+
+    public static void generarDesdeDTO(String ruta, Negocio.DTOs.ResidenteDTO dtoPDF) {
+
+        generarRegistroResidente(
+                ruta,
+                UtilidadPDF.texto(dtoPDF.getNombreCompleto()),
+                UtilidadPDF.texto(dtoPDF.getIdAcademico()),
+                UtilidadPDF.texto(dtoPDF.getCarrera()),
+                UtilidadPDF.texto(dtoPDF.getSemestre()),
+                UtilidadPDF.texto(dtoPDF.getCorreo()),
+                UtilidadPDF.fecha(dtoPDF.getFechaNacimiento()),
+                UtilidadPDF.texto(dtoPDF.getSexo()),
+                UtilidadPDF.texto(dtoPDF.getCurp()),
+                UtilidadPDF.texto(dtoPDF.getNss()),
+                UtilidadPDF.texto(dtoPDF.getDomicilio()),
+                UtilidadPDF.texto(dtoPDF.getLugarResidencia()),
+                UtilidadPDF.texto(dtoPDF.getTelefono()),
+                UtilidadPDF.texto(dtoPDF.getCelular()),
+                UtilidadPDF.texto(dtoPDF.getNombreTutor()),
+                UtilidadPDF.texto(dtoPDF.getDomicilioTutor()),
+                UtilidadPDF.texto(dtoPDF.getLugarTutor()),
+                UtilidadPDF.texto(dtoPDF.getTelefonoTutor()),
+                UtilidadPDF.texto(dtoPDF.getCelularTutor()),
+                UtilidadPDF.texto(dtoPDF.getCorreoTutor()),
+                UtilidadPDF.texto(dtoPDF.getNombreEmergencia()),
+                "",
+                UtilidadPDF.texto(dtoPDF.getParentescoEmergencia()),
+                UtilidadPDF.texto(dtoPDF.getDomicilioEmergencia()),
+                UtilidadPDF.texto(dtoPDF.getLugarEmergencia()),
+                UtilidadPDF.texto(dtoPDF.getTelefonoEmergencia()),
+                UtilidadPDF.texto(dtoPDF.getCelularEmergencia()),
+                UtilidadPDF.texto(dtoPDF.getCorreoEmergencia()),
+                UtilidadPDF.siNo(dtoPDF.isHaVividoFuera()),
+                UtilidadPDF.texto(dtoPDF.getTiempoVividoFuera()),
+                UtilidadPDF.texto(dtoPDF.getDecisionResidencia()),
+                UtilidadPDF.texto(dtoPDF.getRazonesVivirResidencia()),
+                UtilidadPDF.texto(dtoPDF.getAdaptacion()),
+                UtilidadPDF.texto(dtoPDF.getEstiloConvivencia()),
+                UtilidadPDF.texto(dtoPDF.getSituacionesNoDeseadas()),
+                preferenciasCompanero(dtoPDF),
+                UtilidadPDF.texto(dtoPDF.getHoraDormir()),
+                UtilidadPDF.siNo(dtoPDF.isToleraRuido()),
+                UtilidadPDF.texto(dtoPDF.getImportanciaOrden()),
+                UtilidadPDF.texto(dtoPDF.getHabitosHigiene()),
+                objetosTraera(dtoPDF),
+                UtilidadPDF.texto(dtoPDF.getIniciativaActividades()),
+                UtilidadPDF.siNo(dtoPDF.isParticipacionGrupo()),
+                UtilidadPDF.texto(dtoPDF.getTipoGrupo()),
+                UtilidadPDF.texto(dtoPDF.getActividadesRealizadasGrupo()),
+                actividadesDeseadas(dtoPDF),
+                UtilidadPDF.texto(dtoPDF.getAspectosMejoraPersona()),
+                UtilidadPDF.texto(dtoPDF.getOtraInformacion()),
+                UtilidadPDF.texto(dtoPDF.getBuscaAyudaAcademica()),
+                UtilidadPDF.texto(dtoPDF.getEfectividadEstudio()),
+                UtilidadPDF.texto(dtoPDF.getEfectividadTiempo()),
+                UtilidadPDF.texto(dtoPDF.getAspectosMejoraAcademica()),
+                UtilidadPDF.texto(dtoPDF.getEstadoSalud()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDeficienciaVista(), dtoPDF.getEspecificarVista()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDeficienciaAuditiva(), dtoPDF.getEspecificarAuditiva()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneDiscapacidadFisica(), dtoPDF.getEspecificarFisica()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneLesionesGraves(), dtoPDF.getEspecificarLesiones()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTienePadecimientos(), dtoPDF.getEspecificarPadecimientos()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneTratamientosPsicologicos(), dtoPDF.getMotivoTratamientosPsicologicos()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneMedicamentosControlados(), dtoPDF.getEspecificarMedicamentos()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneAlergias(), dtoPDF.getEspecificarAlergias()),
+                UtilidadPDF.detalleSiNo(dtoPDF.isTieneTratamientosExternos(), dtoPDF.getMotivoTratamientosExternos()),
+                UtilidadPDF.texto(dtoPDF.getTipoSangre()),
+                UtilidadPDF.texto(dtoPDF.getAspectosSaludMejora()),
+                UtilidadPDF.texto(dtoPDF.getOtraInformacionSalud())
+        );
+    }
+
+    private static String preferenciasCompanero(Negocio.DTOs.ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isBuscaCompaneroExtranjero()) {
+            lista.add("Extranjero");
+        }
+        if (dto.isBuscaCompaneroMexicano()) {
+            lista.add("Mexicano");
+        }
+        if (dto.isBuscaCompaneroReingreso()) {
+            lista.add("Reingreso");
+        }
+
+        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
+    }
+
+    private static String objetosTraera(Negocio.DTOs.ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isTraeAuto()) {
+            lista.add("Auto");
+        }
+        if (dto.isTraeComputadora()) {
+            lista.add("Computadora");
+        }
+        if (dto.isTraeTv()) {
+            lista.add("TV");
+        }
+        if (dto.isTraeFrigobar()) {
+            lista.add("Frigobar");
+        }
+
+        return lista.isEmpty() ? "Ninguno" : String.join(", ", lista);
+    }
+
+    private static String actividadesDeseadas(Negocio.DTOs.ResidenteDTO dto) {
+        java.util.List<String> lista = new java.util.ArrayList<>();
+
+        if (dto.isDeseaActDeportivas()) {
+            lista.add("Deportivas");
+        }
+        if (dto.isDeseaActCulturales()) {
+            lista.add("Culturales");
+        }
+        if (dto.isDeseaActArtisticas()) {
+            lista.add("Artísticas");
+        }
+
+        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
     }
 }

@@ -512,101 +512,24 @@ public class frmRDP extends javax.swing.JFrame {
         panelAcademicos.empaquetarDatosAcademicos(dtoPDF);
         panelMedicos.empaquetarDatosMedicos(dtoPDF);
 
-        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
-        chooser.setDialogTitle("Guardar RDP en PDF");
-        chooser.setSelectedFile(new java.io.File("RDP_" + texto(dtoPDF.getIdAcademico()) + ".pdf"));
+        String ruta = Utilidades.UtilidadPDF.seleccionarRutaPDF(
+                this,
+                "Guardar RDP en PDF",
+                "RDP_" + Utilidades.UtilidadPDF.texto(dtoPDF.getIdAcademico()) + ".pdf"
+        );
 
-        int seleccion = chooser.showSaveDialog(this);
-
-        if (seleccion != javax.swing.JFileChooser.APPROVE_OPTION) {
+        if (ruta == null) {
             return;
         }
 
-        java.io.File archivo = chooser.getSelectedFile();
-        String ruta = archivo.getAbsolutePath();
-
-        if (!ruta.toLowerCase().endsWith(".pdf")) {
-            ruta += ".pdf";
-        }
-
         try {
-            Utilidades.GeneradorPDFRegistro.generarRegistroResidente(
-                    ruta,
-                    texto(dtoPDF.getNombreCompleto()),
-                    texto(dtoPDF.getIdAcademico()),
-                    texto(dtoPDF.getCarrera()),
-                    texto(dtoPDF.getSemestre()),
-                    texto(dtoPDF.getCorreo()),
-                    fecha(dtoPDF.getFechaNacimiento()),
-                    texto(dtoPDF.getSexo()),
-                    texto(dtoPDF.getCurp()),
-                    texto(dtoPDF.getNss()),
-                    texto(dtoPDF.getDomicilio()),
-                    texto(dtoPDF.getLugarResidencia()),
-                    texto(dtoPDF.getTelefono()),
-                    texto(dtoPDF.getCelular()),
-                    texto(dtoPDF.getNombreTutor()),
-                    texto(dtoPDF.getDomicilioTutor()),
-                    texto(dtoPDF.getLugarTutor()),
-                    texto(dtoPDF.getTelefonoTutor()),
-                    texto(dtoPDF.getCelularTutor()),
-                    texto(dtoPDF.getCorreoTutor()),
-                    texto(dtoPDF.getNombreEmergencia()),
-                    "", 
-                    texto(dtoPDF.getParentescoEmergencia()),
-                    texto(dtoPDF.getDomicilioEmergencia()),
-                    texto(dtoPDF.getLugarEmergencia()),
-                    texto(dtoPDF.getTelefonoEmergencia()),
-                    texto(dtoPDF.getCelularEmergencia()),
-                    texto(dtoPDF.getCorreoEmergencia()),
-                    // Aspectos personales
-                    siNo(dtoPDF.isHaVividoFuera()),
-                    texto(dtoPDF.getTiempoVividoFuera()),
-                    texto(dtoPDF.getDecisionResidencia()),
-                    texto(dtoPDF.getRazonesVivirResidencia()),
-                    texto(dtoPDF.getAdaptacion()),
-                    texto(dtoPDF.getEstiloConvivencia()),
-                    texto(dtoPDF.getSituacionesNoDeseadas()),
-                    preferenciasCompanero(dtoPDF),
-                    texto(dtoPDF.getHoraDormir()),
-                    siNo(dtoPDF.isToleraRuido()),
-                    texto(dtoPDF.getImportanciaOrden()),
-                    texto(dtoPDF.getHabitosHigiene()),
-                    objetosTraera(dtoPDF),
-                    texto(dtoPDF.getIniciativaActividades()),
-                    siNo(dtoPDF.isParticipacionGrupo()),
-                    texto(dtoPDF.getTipoGrupo()),
-                    texto(dtoPDF.getActividadesRealizadasGrupo()),
-                    actividadesDeseadas(dtoPDF),
-                    texto(dtoPDF.getAspectosMejoraPersona()),
-                    texto(dtoPDF.getOtraInformacion()),
-                    // Aspectos académicos
-                    texto(dtoPDF.getBuscaAyudaAcademica()),
-                    texto(dtoPDF.getEfectividadEstudio()),
-                    texto(dtoPDF.getEfectividadTiempo()),
-                    texto(dtoPDF.getAspectosMejoraAcademica()),
-                    // Datos médicos
-                    texto(dtoPDF.getEstadoSalud()),
-                    detalleSiNo(dtoPDF.isTieneDeficienciaVista(), dtoPDF.getEspecificarVista()),
-                    detalleSiNo(dtoPDF.isTieneDeficienciaAuditiva(), dtoPDF.getEspecificarAuditiva()),
-                    detalleSiNo(dtoPDF.isTieneDiscapacidadFisica(), dtoPDF.getEspecificarFisica()),
-                    detalleSiNo(dtoPDF.isTieneLesionesGraves(), dtoPDF.getEspecificarLesiones()),
-                    detalleSiNo(dtoPDF.isTienePadecimientos(), dtoPDF.getEspecificarPadecimientos()),
-                    detalleSiNo(dtoPDF.isTieneTratamientosPsicologicos(), dtoPDF.getMotivoTratamientosPsicologicos()),
-                    detalleSiNo(dtoPDF.isTieneMedicamentosControlados(), dtoPDF.getEspecificarMedicamentos()),
-                    detalleSiNo(dtoPDF.isTieneAlergias(), dtoPDF.getEspecificarAlergias()),
-                    detalleSiNo(dtoPDF.isTieneTratamientosExternos(), dtoPDF.getMotivoTratamientosExternos()),
-                    texto(dtoPDF.getTipoSangre()),
-                    texto(dtoPDF.getAspectosSaludMejora()),
-                    texto(dtoPDF.getOtraInformacionSalud())
-            );
+            Utilidades.GeneradorPDFRegistro.generarDesdeDTO(ruta, dtoPDF);
 
-            javax.swing.JOptionPane.showMessageDialog(this,
+            Utilidades.UtilidadPDF.mostrarExito(
+                    this,
                     "PDF generado correctamente.\nAhora puedes imprimirlo, firmarlo y después subirlo como RDP Firmada.",
-                    "PDF generado",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-            abrirArchivoPDF(ruta);
+                    ruta
+            );
 
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this,
@@ -617,96 +540,6 @@ public class frmRDP extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnImprimirActionPerformed
-
-    private String texto(String valor) {
-        return valor != null ? valor : "";
-    }
-
-    private String fecha(java.time.LocalDate fecha) {
-        if (fecha == null) {
-            return "";
-        }
-        return fecha.toString();
-    }
-
-    private String siNo(boolean valor) {
-        return valor ? "Sí" : "No";
-    }
-
-    private String detalleSiNo(boolean valor, String detalle) {
-        if (!valor) {
-            return "No";
-        }
-
-        if (detalle == null || detalle.trim().isEmpty()) {
-            return "Sí";
-        }
-
-        return "Sí. " + detalle;
-    }
-
-    private String preferenciasCompanero(ResidenteDTO dto) {
-        java.util.List<String> lista = new java.util.ArrayList<>();
-
-        if (dto.isBuscaCompaneroExtranjero()) {
-            lista.add("Extranjero");
-        }
-        if (dto.isBuscaCompaneroMexicano()) {
-            lista.add("Mexicano");
-        }
-        if (dto.isBuscaCompaneroReingreso()) {
-            lista.add("Reingreso");
-        }
-
-        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
-    }
-
-    private String objetosTraera(ResidenteDTO dto) {
-        java.util.List<String> lista = new java.util.ArrayList<>();
-
-        if (dto.isTraeAuto()) {
-            lista.add("Auto");
-        }
-        if (dto.isTraeComputadora()) {
-            lista.add("Computadora");
-        }
-        if (dto.isTraeTv()) {
-            lista.add("TV");
-        }
-        if (dto.isTraeFrigobar()) {
-            lista.add("Frigobar");
-        }
-
-        return lista.isEmpty() ? "Ninguno" : String.join(", ", lista);
-    }
-
-    private String actividadesDeseadas(ResidenteDTO dto) {
-        java.util.List<String> lista = new java.util.ArrayList<>();
-
-        if (dto.isDeseaActDeportivas()) {
-            lista.add("Deportivas");
-        }
-        if (dto.isDeseaActCulturales()) {
-            lista.add("Culturales");
-        }
-        if (dto.isDeseaActArtisticas()) {
-            lista.add("Artísticas");
-        }
-
-        return lista.isEmpty() ? "No especificado" : String.join(", ", lista);
-    }
-
-    private void abrirArchivoPDF(String ruta) {
-        try {
-            java.io.File archivo = new java.io.File(ruta);
-
-            if (java.awt.Desktop.isDesktopSupported()) {
-                java.awt.Desktop.getDesktop().open(archivo);
-            }
-        } catch (Exception e) {
-            System.out.println("No se pudo abrir automáticamente el PDF: " + e.getMessage());
-        }
-    }
 
     /**
      * Metodo recursivo que busca todas las cajas de texto, combos y fechas
