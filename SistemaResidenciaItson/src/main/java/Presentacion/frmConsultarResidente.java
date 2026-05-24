@@ -102,12 +102,10 @@ public class frmConsultarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        frmAdminInicio adm = new frmAdminInicio();
-        adm.setVisible(true);
-        this.dispose();
+        coordinadorVistas.regresarMenuPrincipal(this);
+
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    
     public void configurarYcargarTabla() {
         // Titulos de columnas
         String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};

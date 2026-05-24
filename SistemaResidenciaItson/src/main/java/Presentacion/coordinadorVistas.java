@@ -117,14 +117,14 @@ public class coordinadorVistas {
         cerrarVentanaAnterior(ventanaActual);
     }
 
-    /**
-     * Abre la tabla para consultar a los residentes (si ya la tienes creada)
-     */
-    public static void mostrarConsultarResidentes(JFrame ventanaActual) {
-        // frmConsultarResidentes consulta = new frmConsultarResidentes();
-        // consulta.setVisible(true);
-        // cerrarVentanaAnterior(ventanaActual);
-    }
+//    /**
+//     * Abre la tabla para consultar a los residentes (si ya la tienes creada)
+//     */
+//    public static void mostrarConsultarResidentes(JFrame ventanaActual) {
+//        // frmConsultarResidentes consulta = new frmConsultarResidentes();
+//        // consulta.setVisible(true);
+//        // cerrarVentanaAnterior(ventanaActual);
+//    }
 
     /**
      * Abre la tabla de Modificar Residentes
@@ -174,5 +174,25 @@ public class coordinadorVistas {
         Presentacion.frmHistorialResidente historial = new Presentacion.frmHistorialResidente(residente);
         historial.setVisible(true);
         ventanaActual.dispose();
+    }
+
+    /**
+     * Abre la pantalla para crear un residente nuevo.
+     */
+    public static void mostrarCrearResidente(JFrame ventanaActual) {
+        ResidenteDTO dtoNuevo = new ResidenteDTO();
+
+        frmRegistrarResidente registrar = new frmRegistrarResidente(dtoNuevo);
+        registrar.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
+    }
+
+    /**
+     * Abre la pantalla para consultar residentes.
+     */
+    public static void mostrarConsultarResidente(JFrame ventanaActual) {
+        frmConsultarResidente consulta = new frmConsultarResidente();
+        consulta.setVisible(true);
+        cerrarVentanaAnterior(ventanaActual);
     }
 }
