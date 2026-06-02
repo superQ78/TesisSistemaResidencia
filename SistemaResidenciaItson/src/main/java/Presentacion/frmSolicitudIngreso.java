@@ -20,7 +20,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
     pnlFormaPago panelPago = new pnlFormaPago();
     pnlCompanero panelCompanero = new pnlCompanero();
 
-    // dto compartido, para rellenar datos
+    private boolean modoEdicion = false;
     private ResidenteDTO dtoCompartido = null;
 
     /**
@@ -28,60 +28,24 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
      */
     public frmSolicitudIngreso() {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarPantalla();
 
-        tabSolicitud.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-
-        configurarTabs();
-        configurarScrolls();
-        configurarEstiloGeneral();
-        configurarAutocompletadoEmergencia();
-
-        tabSolicitud.revalidate();
-        tabSolicitud.repaint();
+        this.dtoCompartido = new ResidenteDTO();
+        this.modoEdicion = false;
     }
 
-    /**
-     * Constructor para recibir datos compartidos desde el RDP (o empezar uno
-     * nuevo)
-     */
     public frmSolicitudIngreso(ResidenteDTO dtoMemoria) {
+        this(dtoMemoria, false);
+    }
+
+    public frmSolicitudIngreso(ResidenteDTO dtoMemoria, boolean modoEdicion) {
         initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        configurarPantalla();
 
-        tabSolicitud.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        this.dtoCompartido = (dtoMemoria != null) ? dtoMemoria : new ResidenteDTO();
+        this.modoEdicion = modoEdicion;
 
-        configurarTabs();
-        configurarScrolls();
-        configurarEstiloGeneral();
-        configurarAutocompletadoEmergencia();
-
-        tabSolicitud.revalidate();
-        tabSolicitud.repaint();
-
-        // Guarda los datos 
-        this.dtoCompartido = dtoMemoria;
-
-        // Si trae datos, los carga en los paneles correspondientes
-        if (this.dtoCompartido != null) {
-            panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
-            panelTutor.cargarDatosTutor(this.dtoCompartido);
-            panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
-
-            // Si el residente ya tiene una curp registrada,
-            // busca la informacion del compañero y el pago
-            if (this.dtoCompartido.getCurp() != null && !this.dtoCompartido.getCurp().trim().isEmpty()) {
-
-                IResidente fachada = new ResidenteFachada();
-
-                SolicitudIngresoDTO solicitudCargada = fachada.consultarSolicitudPorCurp(this.dtoCompartido.getCurp());
-
-                if (solicitudCargada != null) {
-                    panelPago.cargarDatos(solicitudCargada);
-                    panelCompanero.cargarDatos(solicitudCargada);
-                }
-            }
-        }
+        cargarDatosEnPaneles();
     }
 
     /**
@@ -231,6 +195,44 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         });
     }
 
+    private void configurarPantalla() {
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        tabSolicitud.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        configurarTabs();
+        configurarScrolls();
+        configurarEstiloGeneral();
+        configurarAutocompletadoEmergencia();
+
+        tabSolicitud.revalidate();
+        tabSolicitud.repaint();
+    }
+
+    private void cargarDatosEnPaneles() {
+        if (this.dtoCompartido == null) {
+            return;
+        }
+
+        panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
+        panelTutor.cargarDatosTutor(this.dtoCompartido);
+        panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+
+        if (this.dtoCompartido.getCurp() != null
+                && !this.dtoCompartido.getCurp().trim().isEmpty()) {
+
+            IResidente fachada = new ResidenteFachada();
+
+            SolicitudIngresoDTO solicitudCargada
+                    = fachada.consultarSolicitudPorCurp(this.dtoCompartido.getCurp());
+
+            if (solicitudCargada != null) {
+                panelPago.cargarDatos(solicitudCargada);
+                panelCompanero.cargarDatos(solicitudCargada);
+            }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -356,7 +358,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         panelTutor.empaquetarDatosTutor(this.dtoCompartido);
         panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
 
-        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
+        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido, this.modoEdicion);
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -426,8 +428,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                     "Éxito",
                     javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
-            coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
-
+            coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido, this.modoEdicion);
         } else {
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Error al guardar la solicitud en BD. Revisa tu conexión o los datos ingresados.",
@@ -523,7 +524,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-     /**
+    /**
      * Metodo recursivo que busca todas las cajas de texto, combos y fechas
      * dentro del panel y los vacia.
      */

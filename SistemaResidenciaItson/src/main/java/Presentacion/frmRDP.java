@@ -21,12 +21,70 @@ public class frmRDP extends javax.swing.JFrame {
     pnlDatosMedicos panelMedicos = new pnlDatosMedicos();
     private String idResidenteEdicion = null;
     private ResidenteDTO dtoCompartido = null;
+    private boolean modoEdicion = false;
 
     /**
      * Creates new form frmCrearResidente
      */
     public frmRDP() {
         initComponents();
+        configurarPantalla();
+
+        this.dtoCompartido = new ResidenteDTO();
+        this.modoEdicion = false;
+        this.idResidenteEdicion = null;
+    }
+
+    public frmRDP(ResidenteDTO dtoMemoria) {
+        this(dtoMemoria, false);
+    }
+
+    public frmRDP(ResidenteDTO dtoMemoria, boolean modoEdicion) {
+        initComponents();
+        configurarPantalla();
+
+        this.dtoCompartido = (dtoMemoria != null) ? dtoMemoria : new ResidenteDTO();
+        this.modoEdicion = modoEdicion;
+
+        if (this.modoEdicion) {
+            this.idResidenteEdicion = this.dtoCompartido.getIdAcademico();
+            lblSubTitulo1.setText("Modificar Datos del Residente");
+        } else {
+            this.idResidenteEdicion = null;
+            lblSubTitulo1.setText("Registrar residente");
+        }
+
+        cargarDatosEnPaneles();
+    }
+
+    public frmRDP(String idSeleccionado) {
+        initComponents();
+        configurarPantalla();
+
+        this.modoEdicion = true;
+        this.idResidenteEdicion = idSeleccionado;
+
+        lblSubTitulo1.setText("Modificar Datos del Residente");
+
+        Negocio.GestorResidente.IResidente fachada
+                = new Negocio.GestorResidente.ResidenteFachada();
+
+        this.dtoCompartido = fachada.consultarResidentePorId(idSeleccionado);
+
+        if (this.dtoCompartido == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontró la información del residente en la Base de Datos.",
+                    "Error de Carga",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+
+            coordinadorVistas.mostrarModificarResidente(this);
+            return;
+        }
+
+        cargarDatosEnPaneles();
+    }
+
+    private void configurarPantalla() {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         tabDatosRegistroResi.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -38,53 +96,6 @@ public class frmRDP extends javax.swing.JFrame {
 
         tabDatosRegistroResi.revalidate();
         tabDatosRegistroResi.repaint();
-    }
-
-    //Constructor para modificar informacion de recidentes
-    public frmRDP(String idSeleccionado) {
-        initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        tabDatosRegistroResi.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-
-        configurarTabs();
-        configurarScrolls();
-        configurarEstiloGeneral();
-        configurarAutocompletadoEmergencia();
-
-        // Guardamos el ID
-        this.idResidenteEdicion = idSeleccionado;
-
-        // Cambiamos el texto visual para que el usuario sepa que está editando
-        lblSubTitulo1.setText("Modificar Datos del Residente");
-
-        cargarDatosParaEditar();
-    }
-
-    /**
-     * Constructor para recibir datos compartidos desde la pantalla de Solicitud
-     */
-    public frmRDP(ResidenteDTO dtoMemoria) {
-        initComponents();
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        tabDatosRegistroResi.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-
-        configurarTabs();
-        configurarScrolls();
-        configurarEstiloGeneral();
-        configurarAutocompletadoEmergencia();
-
-        // guarda los datos que se pasaron
-        this.dtoCompartido = dtoMemoria;
-
-        // se estraen los datos a los paneles comunes
-        if (this.dtoCompartido != null) {
-            panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
-            panelTutor.cargarDatosTutor(this.dtoCompartido);
-            panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
-            panelPersonales.cargarDatosPersonales(this.dtoCompartido);
-            panelAcademicos.cargarDatosAcademicos(this.dtoCompartido);
-            panelMedicos.cargarDatosMedicos(this.dtoCompartido);
-        }
     }
 
     private void cargarDatosParaEditar() {
@@ -115,6 +126,19 @@ public class frmRDP extends javax.swing.JFrame {
             // Usamos tu Coordinador para sacarlo de ahí y regresarlo a la tabla
             coordinadorVistas.mostrarModificarResidente(this);
         }
+    }
+
+    private void cargarDatosEnPaneles() {
+        if (this.dtoCompartido == null) {
+            return;
+        }
+
+        panelSolicitante.cargarDatosSolicitante(this.dtoCompartido);
+        panelTutor.cargarDatosTutor(this.dtoCompartido);
+        panelEmergencia.cargarDatosEmergencia(this.dtoCompartido);
+        panelPersonales.cargarDatosPersonales(this.dtoCompartido);
+        panelAcademicos.cargarDatosAcademicos(this.dtoCompartido);
+        panelMedicos.cargarDatosMedicos(this.dtoCompartido);
     }
 
     /**
@@ -387,10 +411,10 @@ public class frmRDP extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        // se guarda todo lo que se haya escrito en la pantalla actual
         if (this.dtoCompartido == null) {
             this.dtoCompartido = new ResidenteDTO();
         }
+
         panelSolicitante.empaquetarDatosPersonales(this.dtoCompartido);
         panelTutor.empaquetarDatosTutor(this.dtoCompartido);
         panelEmergencia.empaquetarDatosEmergencia(this.dtoCompartido);
@@ -398,7 +422,8 @@ public class frmRDP extends javax.swing.JFrame {
         panelAcademicos.empaquetarDatosAcademicos(this.dtoCompartido);
         panelMedicos.empaquetarDatosMedicos(this.dtoCompartido);
 
-        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
+        coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido, this.modoEdicion
+        );
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
@@ -433,27 +458,38 @@ public class frmRDP extends javax.swing.JFrame {
         // Empezamos asumiendo que es falso para que el if de abajo haga la llamada de verdad
         boolean exito = false;
 
-        if (this.idResidenteEdicion == null) {
-            // Es nuevo hacemos INSERT
-            exito = fachada.registrarRDP(dtoGuardar);
-        } else {
-            // Es modificacion aseguramos que lleve el ID original a actualizar
+        if (this.modoEdicion) {
             dtoGuardar.setIdAcademico(this.idResidenteEdicion);
             exito = fachada.actualizarRDP(dtoGuardar);
+        } else {
+            exito = fachada.registrarRDP(dtoGuardar);
         }
 
         if (exito) {
-            String msj = (this.idResidenteEdicion == null) ? "¡Residente registrado con éxito!" : "¡Datos actualizados con éxito!";
-            javax.swing.JOptionPane.showMessageDialog(this, msj, "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            this.dtoCompartido = dtoGuardar;
 
-            if (this.idResidenteEdicion == null) {
-                coordinadorVistas.mostrarRegistrarResidenteConDatos(this, this.dtoCompartido);
-            } else {
-                coordinadorVistas.mostrarModificarResidente(this);
-            }
+            String msj = this.modoEdicion
+                    ? "¡Datos actualizados con éxito!"
+                    : "¡Residente registrado con éxito!";
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    msj,
+                    "Éxito",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            coordinadorVistas.mostrarRegistrarResidenteConDatos(
+                    this,
+                    this.dtoCompartido,
+                    this.modoEdicion
+            );
 
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al guardar en la BD. Revisa que el ID o CURP no existan ya.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    this.modoEdicion
+                            ? "No se pudo actualizar el residente."
+                            : "Ocurrió un error al registrar. Revisa que el ID o CURP no existan ya.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed

@@ -24,18 +24,24 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
 
     }
 
+    public frmRegistrarResidente(ResidenteDTO dtoMemoria, boolean modoEdicion) {
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        this.dtoCompartido = dtoMemoria;
+        this.modoEdicion = modoEdicion;
+
+        configurarTabla();
+        cargarDocumentosSubidos();
+    }
+
     public frmRegistrarResidente(ResidenteDTO dtoMemoria) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-       // Si el dto ya tiene id, asume que viene de la tabla de modificar
-        if (dtoMemoria != null && dtoMemoria.getIdAcademico() != null && !dtoMemoria.getIdAcademico().isEmpty()) {
-            this.modoEdicion = true;
-        } else {
-            this.modoEdicion = false;
-        }
-
         this.dtoCompartido = dtoMemoria;
+        this.modoEdicion = false;
+
         configurarTabla();
         cargarDocumentosSubidos();
     }
@@ -46,17 +52,21 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente(String idResidenteAEditar) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        // entra desde la tabla, sí esta editando
+
         this.modoEdicion = true;
-        configurarTabla();
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
         this.dtoCompartido = fachada.consultarResidentePorId(idResidenteAEditar);
 
         if (this.dtoCompartido == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "No se encontró la información del residente.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
             this.dtoCompartido = new ResidenteDTO();
         }
+
+        configurarTabla();
         cargarDocumentosSubidos();
     }
 
@@ -290,11 +300,11 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRDPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRDPActionPerformed
-        // Si no hay datos, lleva a llenar la rdp. Si hay, se lo pasamos.
         if (this.dtoCompartido == null) {
             this.dtoCompartido = new ResidenteDTO();
         }
-        coordinadorVistas.mostrarRDP(this, this.dtoCompartido);
+
+        coordinadorVistas.mostrarRDP(this, this.dtoCompartido, this.modoEdicion);
 
     }//GEN-LAST:event_btnRDPActionPerformed
 
@@ -302,7 +312,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         if (this.dtoCompartido == null) {
             this.dtoCompartido = new ResidenteDTO();
         }
-        coordinadorVistas.mostrarSolicitud(this, this.dtoCompartido);
+        coordinadorVistas.mostrarSolicitud(this, this.dtoCompartido, this.modoEdicion);
     }//GEN-LAST:event_btnSolicitudIngresoActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed

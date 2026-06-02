@@ -316,7 +316,7 @@ public class ResidenteDAO implements IResidenteDAO {
                 + "haVividoFuera=?, tiempoVividoFuera=?, decisionResidencia=?, razonesVivirResidencia=?, adaptacion=?, estiloConvivencia=?, situacionesNoDeseadas=?, "
                 + "buscaCompaneroExtranjero=?, buscaCompaneroMexicano=?, buscaCompaneroReingreso=?, horaDormir=?, toleraRuido=?, importanciaOrden=?, habitosHigiene=?, "
                 + "traeAuto=?, traeComputadora=?, traeTv=?, traeFrigobar=?, iniciativaActividades=?, participacionGrupo=?, tipoGrupo=?, actividadesRealizadasGrupo=?, "
-                + "deseaActDeportivas=?, deseaActCulturales=?, deseaActArtisticas=?, aspectosMejoraPersona=?, otraInformacion=?, , periodoResidencia=? "
+                + "deseaActDeportivas=?, deseaActCulturales=?, deseaActArtisticas=?, aspectosMejoraPersona=?, otraInformacion=?, periodoResidencia=? "
                 + "WHERE idAcademico = ?";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -629,7 +629,7 @@ public class ResidenteDAO implements IResidenteDAO {
         } catch (java.sql.SQLException e) {
             System.err.println("Error al cambiar estado: " + e.getMessage());
             return false;
-        }
+        }   
     }
 
 }

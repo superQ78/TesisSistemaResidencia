@@ -98,6 +98,11 @@ public class coordinadorVistas {
         rdp.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
+    public static void mostrarRDP(JFrame ventanaActual, ResidenteDTO dtoMemoria, boolean modoEdicion) {
+    frmRDP rdp = new frmRDP(dtoMemoria, modoEdicion);
+    rdp.setVisible(true);
+    cerrarVentanaAnterior(ventanaActual);
+}
 
     /**
      * Abre Solicitud y le pasa los datos que se hayan llenado en RDP
@@ -107,6 +112,12 @@ public class coordinadorVistas {
         solicitud.setVisible(true);
         cerrarVentanaAnterior(ventanaActual);
     }
+    
+    public static void mostrarSolicitud(JFrame ventanaActual, ResidenteDTO dtoMemoria, boolean modoEdicion) {
+    frmSolicitudIngreso solicitud = new frmSolicitudIngreso(dtoMemoria, modoEdicion);
+    solicitud.setVisible(true);
+    cerrarVentanaAnterior(ventanaActual);
+}
 
     /**
      * Abre el menú de Registrar Residente llevándose el maletín de datos
@@ -117,15 +128,11 @@ public class coordinadorVistas {
         cerrarVentanaAnterior(ventanaActual);
     }
 
-//    /**
-//     * Abre la tabla para consultar a los residentes (si ya la tienes creada)
-//     */
-//    public static void mostrarConsultarResidentes(JFrame ventanaActual) {
-//        // frmConsultarResidentes consulta = new frmConsultarResidentes();
-//        // consulta.setVisible(true);
-//        // cerrarVentanaAnterior(ventanaActual);
-//    }
-
+    public static void mostrarRegistrarResidenteConDatos(JFrame ventanaActual, ResidenteDTO dtoMemoria, boolean modoEdicion) {
+    frmRegistrarResidente registrar = new frmRegistrarResidente(dtoMemoria, modoEdicion);
+    registrar.setVisible(true);
+    cerrarVentanaAnterior(ventanaActual);
+}
     /**
      * Abre la tabla de Modificar Residentes
      */

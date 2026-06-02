@@ -1,4 +1,3 @@
-
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -98,8 +97,7 @@ public class frmLogin extends javax.swing.JFrame {
     private void btnIniciarSeionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeionActionPerformed
         // Obtener los datos que el usuario escribio en la pantalla
         String correo = txtCorreoLogin.getText();
-        String contra = txtContraLogin.getText();
-
+        String contra = new String(txtContraLogin.getPassword());
         // Juntar los datos en el DTO
         UsuarioDTO dto = new UsuarioDTO();
         dto.setEmail(correo);
@@ -111,7 +109,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         // Validar el resultado y decidir que pantalla abrir
         if (usuarioLogueado != null) {
-            
+
             coordinadorVistas.rolLogueado = usuarioLogueado.getRol();
 
             if ("Administrador".equals(usuarioLogueado.getRol())) {

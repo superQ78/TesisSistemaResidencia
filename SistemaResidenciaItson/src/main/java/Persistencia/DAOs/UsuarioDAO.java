@@ -18,24 +18,34 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     @Override
     public UsuarioEntidad consultarCredenciales(UsuarioEntidad entidad) {
-        String sql = "SELECT * FROM Usuarios WHERE email = ? AND contrasena = ?";
+        String sql = "SELECT * FROM Usuarios "
+                + "WHERE email = ? AND contrasena = ? AND estado = 'Activo'";
+
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, entidad.getEmail());
             ps.setString(2, entidad.getContrasena());
 
             ResultSet rs = ps.executeQuery();
+
             if (rs.next()) {
                 UsuarioEntidad usuarioFound = new UsuarioEntidad();
+
                 usuarioFound.setId(rs.getInt("idUsuario"));
                 usuarioFound.setNombre(rs.getString("nombreCompleto"));
+                usuarioFound.setEmail(rs.getString("email"));
+                usuarioFound.setContrasena(rs.getString("contrasena"));
                 usuarioFound.setRol(rs.getString("rol"));
+                usuarioFound.setTelefono(rs.getString("telefono"));
+                usuarioFound.setFotoPerfil(rs.getBytes("fotoPerfil"));
+
                 return usuarioFound;
             }
+
         } catch (SQLException e) {
-            System.err.println("Error en DAO: " + e.getMessage());
+            System.err.println("Error en DAO al consultar credenciales: " + e.getMessage());
         }
-        //returna nada si en caso de que no encuentre nada o que haya un error
+
         return null;
     }
 
