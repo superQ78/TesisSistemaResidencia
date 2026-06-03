@@ -323,10 +323,10 @@ public class pnlContactoEmergencia extends javax.swing.JPanel {
         boolean v5 = campoEsValido(txtCelularEmergencia);
         boolean v6 = campoEsValido(txtCorreoEmergencia);
         boolean v7 = comboEsValido(cmbCodigoPaisEmergencia);
-        boolean v8 = campoEsValido(txtTelefonoEmergencia);
+      //  boolean v8 = campoEsValido(txtTelefonoEmergencia);
 
         // si alguno de los componentes está vacio o sin seleccionar, resegra flase
-        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8) {
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7) {
             return false;
         }
 

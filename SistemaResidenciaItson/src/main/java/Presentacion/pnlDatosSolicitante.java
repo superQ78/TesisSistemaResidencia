@@ -668,7 +668,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         boolean v5 = campoEsValido(txtNssSolicitante);
         boolean v6 = campoEsValido(txtCelularSolicitante);
         boolean v7 = campoEsValido(txtCorreoSolicitante);
-        boolean v8 = campoEsValido(txtTelefonoSolicitante);
+        //boolean v8 = campoEsValido(txtTelefonoSolicitante);
         boolean v9 = grupoChecksEsValido(chkSexoMasculino, chkSexoFemenino);
         boolean v10 = fechaEsValida(dateChooserNacimiento);
 
@@ -680,7 +680,7 @@ public class pnlDatosSolicitante extends javax.swing.JPanel {
         boolean v15 = grupoChecksEsValido(chkEneroMayo, chkAgostoDiciembre);
 
         // si alguno de los componentes está vacio o sin seleccionar, resegra flase
-        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14 || !v15) {
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v9 || !v10 || !v11 || !v12 || !v13 || !v14 || !v15) {
             return false;
         }
 
