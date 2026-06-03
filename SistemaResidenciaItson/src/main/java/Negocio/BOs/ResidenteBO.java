@@ -8,14 +8,36 @@ import Persistencia.Entidades.SolicitudIngresoEntidad;
 import Persistencia.Interfaces.IResidenteDAO;
 import java.util.List;
 
+/**
+ * Clase de objeto de negocio que gestiona la logica de los residentes. Se
+ * encarga del registro de datos personales, solicitudes de ingreso, carga de
+ * documentos y cambios de estado del residente.
+ *
+ * * @author Tesis
+ */
 public class ResidenteBO {
 
+    /**
+     * Registra un nuevo registro de datos personales en el sistema.
+     *
+     * * @param dto Objeto ResidenteDTO con toda la informacion ingresada en el
+     * formulario.
+     * @return true si el registro se inserto correctamente en la base de datos,
+     * false de lo contrario.
+     */
     public boolean registrarRDP(ResidenteDTO dto) {
         ResidenteEntidad entidad = convertirAEntidad(dto);
         IResidenteDAO dao = new ResidenteDAO();
         return dao.insertar(entidad);
     }
 
+    /**
+     * Metodo auxiliar que convierte un ResidenteDTO a una ResidenteEntidad para
+     * su posterior almacenamiento en la capa de persistencia.
+     *
+     * * @param dto El objeto de transferencia de datos del residente.
+     * @return La entidad de persistencia con los datos mapeados.
+     */
     private ResidenteEntidad convertirAEntidad(ResidenteDTO dto) {
         ResidenteEntidad entidad = new ResidenteEntidad();
 
@@ -124,6 +146,14 @@ public class ResidenteBO {
         return entidad;
     }
 
+    /**
+     * Consulta la informacion completa de un residente utilizando su id
+     * academico.
+     *
+     * * @param idAcademico El identificador unico institucional del residente.
+     * @return Un objeto ResidenteDTO con todos los datos cargados, o null si no
+     * existe.
+     */
     public ResidenteDTO consultarResidentePorId(String idAcademico) {
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         Persistencia.Entidades.ResidenteEntidad entidad = dao.consultarPorId(idAcademico);
@@ -236,6 +266,11 @@ public class ResidenteBO {
         return null;
     }
 
+    /**
+     * Consulta y obtiene la lista de todos los residentes registrados.
+     *
+     * * @return Lista de objetos ResidenteDTO con informacion parcial
+     */
     public List<ResidenteDTO> consultarResidentes() {
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         List<Persistencia.Entidades.ResidenteEntidad> entidades = dao.consultarTodos();
@@ -253,6 +288,14 @@ public class ResidenteBO {
         return dtos;
     }
 
+    /**
+     * Actualiza la informacion de un registro de datos personales existente
+     *
+     * * @param dto El objeto ResidenteDTO con las modificaciones hechas desde
+     * la pantalla.
+     * @return true si los cambios se guardaron con exito en la base de datos,
+     * false de lo contrario.
+     */
     public boolean actualizarRDP(ResidenteDTO dto) {
         Persistencia.Entidades.ResidenteEntidad entidad = new Persistencia.Entidades.ResidenteEntidad();
 
@@ -357,7 +400,14 @@ public class ResidenteBO {
         return dao.actualizar(entidad);
     }
 
-    //metodos de solicitud
+    /**
+     * Registra una nueva solicitud de ingreso ligada a la CURP de un residente.
+     *
+     * * @param dto El objeto SolicitudIngresoDTO con datos de pago y de
+     * companero.
+     * @return true si la solicitud se guardo correctamente en la base de datos,
+     * false de lo contrario.
+     */
     public boolean registrarSolicitud(SolicitudIngresoDTO dto) {
         SolicitudIngresoEntidad entidad = convertirSolicitudAEntidad(dto);
 
@@ -365,6 +415,13 @@ public class ResidenteBO {
         return dao.insertarSolicitud(entidad);
     }
 
+    /**
+     * Metodo auxiliar que mapea un SolicitudIngresoDTO a una
+     * SolicitudIngresoEntidad.
+     *
+     * * @param dto El DTO de la solicitud de ingreso.
+     * @return La entidad mapeada para la base de datos.
+     */
     private SolicitudIngresoEntidad convertirSolicitudAEntidad(SolicitudIngresoDTO dto) {
         SolicitudIngresoEntidad entidad = new SolicitudIngresoEntidad();
         entidad.setCurpResidente(dto.getCurpResidente());
@@ -375,6 +432,14 @@ public class ResidenteBO {
         return entidad;
     }
 
+    /**
+     * Guarda un archivo digital de un documento de requisitos
+     *
+     * * @param dto El objeto DocumentoDTO que incluye el arreglo de bytes del
+     * archivo.
+     * @return true si el archivo se almaceno correctamente en la base de datos,
+     * false en caso de error.
+     */
     public boolean guardarDocumento(Negocio.DTOs.DocumentoDTO dto) {
         Persistencia.Entidades.DocumentoEntidad entidad = new Persistencia.Entidades.DocumentoEntidad();
         entidad.setIdAcademico(dto.getIdAcademico());
@@ -387,6 +452,12 @@ public class ResidenteBO {
         return dao.insertarDocumento(entidad);
     }
 
+    /**
+     * Consulta la lista de documentos cargados de un residente.
+     *
+     * * @param idAcademico El id unico del estudiante.
+     * @return Lista de objetos DocumentoDTO asociados al residente.
+     */
     public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico) {
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         java.util.List<Persistencia.Entidades.DocumentoEntidad> entidades = dao.consultarDocumentos(idAcademico);
@@ -406,6 +477,16 @@ public class ResidenteBO {
         return dtos;
     }
 
+    /**
+     * Recupera un documento específico completo de un residente, incluyendo sus
+     * datos, utilizado para descargar o visualizar los archivos de requisitos
+     * subidos al sistema.
+     *
+     * * @param idAcademico El id unico del estudiante.
+     * @param tipoDocumento El nombre o tipo del documento solicitado
+     * @return Objeto DocumentoDTO cargado con el archivo en bytes, o null si no
+     * se localiza.
+     */
     public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento) {
         Persistencia.Interfaces.IResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         Persistencia.Entidades.DocumentoEntidad entidad = dao.consultarDocumento(idAcademico, tipoDocumento);
@@ -424,19 +505,42 @@ public class ResidenteBO {
         return dto;
     }
 
-    // Para consultar la solicitud por la CURP
+    /**
+     * Consulta los detalles de una solicitud de ingreso buscando por la CURP
+     * del residente.
+     *
+     * * @param curp La clave CURP del estudiante solicitante.
+     * @return Objeto SolicitudIngresoDTO cargado con los datos de pago
+     * encontrados, o null.
+     */
     public Negocio.DTOs.SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
         Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.consultarSolicitudPorCurp(curp);
     }
 
-    // Para actualizar los datos de la solicitud
+    /**
+     * Actualiza la informacion financiera o del compañero registrada en una
+     * solicitud de ingreso.
+     *
+     * * @param dto El objeto SolicitudIngresoDTO con las modificaciones
+     * hechas.
+     * @return true si la solicitud se actualizo con exito, false en caso de
+     * error.
+     */
     public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
         Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.actualizarSolicitud(dto);
     }
 
-    // Para el cambiar estado inhabilitar/habilitar
+    /**
+     * Modifica el estado logico de un residente en la base de datos (habilitar/inhabilitar). Permite
+     * controlar el acceso del residente a las pantallas o modulos del sistema.
+     *
+     * * @param idAcademico El id unico del estudiante.
+     * @param nuevoEstado El valor de la cadena del nuevo estado
+     * @return true si el estado se modifico correctamente en la base de datos,
+     * false de lo contrario.
+     */
     public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
         Persistencia.DAOs.ResidenteDAO dao = new Persistencia.DAOs.ResidenteDAO();
         return dao.cambiarEstadoResidente(idAcademico, nuevoEstado);

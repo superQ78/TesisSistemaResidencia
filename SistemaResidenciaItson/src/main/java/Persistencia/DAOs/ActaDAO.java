@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Persistencia.DAOs;
 
 import Persistencia.Conexion.Conexion;
@@ -14,11 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Clase que maneja el acceso a datos para la tabla de ActasAdministrativas en
+ * la base de datos.
  *
- * @author Tesis
+ * * @author Tesis
  */
 public class ActaDAO implements IActaDAO {
 
+    /**
+     * Inserta un nuevo registro de acta administrativa en la base de datos.
+     *
+     * * @param acta Objeto ActaEntidad que contiene los datos a registrar
+     * @return true si la insercion en la base de datos fue exitosa y false en
+     * caso de error.
+     */
     @Override
     public boolean insertarActa(ActaEntidad acta) {
         String sql = "INSERT INTO ActasAdministrativas "
@@ -43,6 +48,12 @@ public class ActaDAO implements IActaDAO {
         }
     }
 
+    /**
+     * Consulta todas las actas administrativas registradas en el sistema
+     *
+     * * @return Una lista de objetos ActaEntidad ordenados descendentemente
+     * por su id.
+     */
     @Override
     public List<ActaEntidad> consultarTodas() {
         List<ActaEntidad> lista = new ArrayList<>();
@@ -78,6 +89,12 @@ public class ActaDAO implements IActaDAO {
         return lista;
     }
 
+    /**
+     * Elimina un acta administrativa de la base de datos de manera definitiva.
+     *
+     * * @param idActa El id unico del acta que se desea eliminar.
+     * @return true si el borrado fue exitoso, false en caso contrario.
+     */
     @Override
     public boolean eliminarActa(int idActa) {
         String sql = "DELETE FROM ActasAdministrativas WHERE idActa = ?";
@@ -94,6 +111,16 @@ public class ActaDAO implements IActaDAO {
         }
     }
 
+    /**
+     * Actualiza un registro existente para adjuntar el archivo PDF del acta
+     * firmada, busca el acta mas reciente del residente indicado y le asigna el
+     * documento digital.
+     *
+     * * @param acta Objeto ActaEntidad que contiene el archivo en bytes, el
+     * nombre del archivo y el id del residente.
+     * @return true si el archivo se guardo correctamente, false si hubo un
+     * error.
+     */
     @Override
     public boolean subirActaFirmada(ActaEntidad acta) {
         String sql = "UPDATE ActasAdministrativas "
@@ -121,6 +148,14 @@ public class ActaDAO implements IActaDAO {
         }
     }
 
+    /**
+     * Consulta el historial de actas administrativas de un solo residente.
+     *
+     * * @param idAcademico El identificador institucional del residente a
+     * consultar.
+     * @return Una lista de objetos ActaEntidad pertenecientes exclusivamente a
+     * ese residente.
+     */
     @Override
     public List<ActaEntidad> consultarPorIdAcademico(String idAcademico) {
         List<ActaEntidad> lista = new ArrayList<>();
@@ -158,6 +193,15 @@ public class ActaDAO implements IActaDAO {
         return lista;
     }
 
+    /**
+     * Recupera exclusivamente los datos del documento PDF almacenado en un
+     * acta.
+     *
+     * * @param idActa El id unico del acta de la que se requiere extraer el
+     * documento.
+     * @return Objeto ActaEntidad cargado con el arreglo de bytes del archivo y
+     * su nombre, o null si no se encuentra.
+     */
     @Override
     public ActaEntidad consultarArchivoFirmado(int idActa) {
         String sql = "SELECT idActa, idAcademico, archivoFirmado, nombreArchivoFirmado "
