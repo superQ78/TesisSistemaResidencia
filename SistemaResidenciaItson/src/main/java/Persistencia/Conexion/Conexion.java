@@ -1,8 +1,11 @@
 package Persistencia.Conexion;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  *
@@ -10,16 +13,34 @@ import java.sql.SQLException;
  */
 public class Conexion {
 
-    private static final String URL
-            = "jdbc:mysql://192.168.1.69:3306/SistemaResidencias"
-            + "?useSSL=false"
-            + "&serverTimezone=UTC"
-            + "&allowPublicKeyRetrieval=true";
-
-    private static final String USER = "resi_user";
-    private static final String PASSWORD = "Resi12345";
+    private static final String ARCHIVO_CONFIG = "config.properties";
 
     public static Connection getConexion() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        Properties props = cargarConfiguracion();
+
+        String host = props.getProperty("db.host", "localhost");
+        String port = props.getProperty("db.port", "3306");
+        String name = props.getProperty("db.name", "SistemaResidencias");
+        String user = props.getProperty("db.user", "root");
+        String password = props.getProperty("db.password", "");
+
+        String url = "jdbc:mysql://" + host + ":" + port + "/" + name
+                + "?useSSL=false"
+                + "&serverTimezone=UTC"
+                + "&allowPublicKeyRetrieval=true";
+
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    private static Properties cargarConfiguracion() {
+        Properties props = new Properties();
+
+        try (FileInputStream fis = new FileInputStream(ARCHIVO_CONFIG)) {
+            props.load(fis);
+        } catch (IOException e) {
+            System.err.println("No se encontró config.properties. Usando configuración por defecto.");
+        }
+
+        return props;
     }
 }
