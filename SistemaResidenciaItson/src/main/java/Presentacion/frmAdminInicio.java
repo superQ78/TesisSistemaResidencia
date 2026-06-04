@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -18,7 +14,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
     public frmAdminInicio() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
     }
 
     /**
@@ -29,6 +25,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jplAdminInicio = new javax.swing.JPanel();
         lblLogoResiAdmin = new javax.swing.JLabel();
@@ -52,6 +49,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jplAdminInicio.setBackground(new java.awt.Color(255, 255, 255));
         jplAdminInicio.setPreferredSize(new java.awt.Dimension(1300, 760));
@@ -211,27 +209,25 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplAdminInicio.add(cmbxGestionActas, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 230, 40));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLOgOut .png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jplAdminInicio.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 650, -1, -1));
+        jplAdminInicio.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 680, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel1.setText("Cerrar Sesión");
-        jplAdminInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
+        jplAdminInicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 700, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplAdminInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplAdminInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 8;
+        gridBagConstraints.ipady = 39;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jplAdminInicio, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -326,7 +322,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
                     "Aviso",
                     javax.swing.JOptionPane.WARNING_MESSAGE);
         }
-    
+
     }//GEN-LAST:event_btnSeleccionarOpcionActaAdminActionPerformed
 
     /**
