@@ -23,6 +23,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     public frmHistorialResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         configurarYcargarTabla();
     }
 
@@ -80,6 +81,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         pnlHistorialResidente = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -97,18 +99,19 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         pnlHistorialResidente.setBackground(new java.awt.Color(255, 255, 255));
         pnlHistorialResidente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de residentes");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnlHistorialResidente.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        pnlHistorialResidente.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtitulo.setText("Historial de residente");
-        pnlHistorialResidente.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
+        pnlHistorialResidente.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, -1, -1));
 
         tblHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,7 +129,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblHistorial);
 
-        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 1080, 370));
+        pnlHistorialResidente.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 1080, 400));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -137,44 +140,40 @@ public class frmHistorialResidente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        pnlHistorialResidente.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        pnlHistorialResidente.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 40));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        pnlHistorialResidente.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 100, 150, 170));
+        pnlHistorialResidente.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 100, 150, 170));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblNombre.setText("Nombre:");
-        pnlHistorialResidente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, -1, 25));
+        pnlHistorialResidente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, 25));
 
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblId.setText("ID:");
-        pnlHistorialResidente.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, -1, 25));
+        pnlHistorialResidente.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, 25));
 
         lblFotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/perfilRecidente.png"))); // NOI18N
-        pnlHistorialResidente.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 130, -1));
+        pnlHistorialResidente.add(lblFotoPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 130, -1));
 
         lblNombreResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblNombreResidente.setText("nombre");
-        pnlHistorialResidente.add(lblNombreResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, 25));
+        pnlHistorialResidente.add(lblNombreResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, 25));
 
         lblIdResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblIdResidente.setText("id");
-        pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, 25));
+        pnlHistorialResidente.add(lblIdResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 25));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
-        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 770, 35));
+        pnlHistorialResidente.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
+        pnlHistorialResidente.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 770, 35));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHistorialResidente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlHistorialResidente, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(pnlHistorialResidente, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

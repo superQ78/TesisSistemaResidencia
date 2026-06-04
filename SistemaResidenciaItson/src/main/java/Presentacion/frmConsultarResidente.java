@@ -49,17 +49,17 @@ public class frmConsultarResidente extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         lblTituloGestionResi.setText("Residencias ITSON – Panel de Gestión de residentes");
-        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         lblSubtitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtitulo.setText("Consultar residente");
-        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 830, 35));
+        jPanel1.add(lblSubtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 830, 35));
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 40, -1));
+        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 40, -1));
 
         tblActas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,7 +88,7 @@ public class frmConsultarResidente extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 40));
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

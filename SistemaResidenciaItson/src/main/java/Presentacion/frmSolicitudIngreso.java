@@ -292,7 +292,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap(369, Short.MAX_VALUE)
+                .addContainerGap(485, Short.MAX_VALUE)
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,13 +316,13 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
         pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
         pnlTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 35)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
-        pnlTitulo.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        pnlTitulo.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubTitulo.setText("Solicitud de ingreso");
-        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 250, -1));
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 250, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -333,7 +333,7 @@ public class frmSolicitudIngreso extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
 
         getContentPane().add(pnlTitulo, java.awt.BorderLayout.PAGE_START);
 

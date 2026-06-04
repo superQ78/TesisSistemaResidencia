@@ -11,24 +11,33 @@ import javax.swing.table.DefaultTableModel;
 public class frmModificarResidente extends javax.swing.JFrame {
 
     private javax.swing.table.TableRowSorter<DefaultTableModel> sorter;
+
     /**
      * Creates new form frmModificarResidente
      */
     public frmModificarResidente() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         // Llama al metodo para configurar la tabla
         configurarTabla();
-        
+
         // buscador dinamico, detecta cambios en el txt en tiempo real
         txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             @Override
-            public void insertUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
             @Override
-            public void removeUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
+
             @Override
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { filtrarTabla(); }
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                filtrarTabla();
+            }
 
             private void filtrarTabla() {
                 String texto = txtBuscar.getText().trim();
@@ -85,11 +94,11 @@ public class frmModificarResidente extends javax.swing.JFrame {
         }
 
         tblModResisdentes.setModel(modelo);
-        
+
         // filtro a la tabla
         sorter = new javax.swing.table.TableRowSorter<>(modelo);
         tblModResisdentes.setRowSorter(sorter);
-        
+
         tblModResisdentes.setRowHeight(40);
 
         // boton editar
@@ -130,9 +139,9 @@ public class frmModificarResidente extends javax.swing.JFrame {
                 int columna = tblModResisdentes.columnAtPoint(evt.getPoint());
 
                 if (filaVisual >= 0 && (columna == 3 || columna == 4)) {
-                  
+
                     int filaReal = tblModResisdentes.convertRowIndexToModel(filaVisual);
-                    
+
                     String idSeleccionado = tblModResisdentes.getModel().getValueAt(filaReal, 0).toString();
                     String nombreSeleccionado = tblModResisdentes.getModel().getValueAt(filaReal, 1).toString();
 
@@ -178,6 +187,7 @@ public class frmModificarResidente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         lblTituloGestionResi = new javax.swing.JLabel();
@@ -190,24 +200,25 @@ public class frmModificarResidente extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTituloGestionResi.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         lblTituloGestionResi.setText("Residencias ITSON – Panel de Gestión de residentes");
-        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jPanel1.add(lblTituloGestionResi, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         lblSubtituloSoliIngre.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtituloSoliIngre.setText("Modificar residente");
-        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
-        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 740, 40));
+        jPanel1.add(lblSubtituloSoliIngre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
+        jPanel1.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 740, 40));
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        jPanel1.add(lblBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLetrasChico.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 60, -1, -1));
 
         tblModResisdentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -233,18 +244,15 @@ public class frmModificarResidente extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 56;
+        gridBagConstraints.ipady = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -14,7 +14,7 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
     public frmTrabajadorInicio() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
     }
 
     /**
@@ -25,11 +25,11 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         txtTitulodmin = new javax.swing.JLabel();
         lblBienvenidAdmin = new javax.swing.JLabel();
-        lblNombreAdmin = new javax.swing.JLabel();
         lblLogoResiAdmin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jplGTNResidentes = new javax.swing.JPanel();
@@ -40,64 +40,62 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        txtTitulodmin.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         txtTitulodmin.setText("Residencias ITSON – Panel Trabajador ");
-        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jPanel1.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
-        lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblBienvenidAdmin.setText("Bienvenido");
-        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
-
-        lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblNombreAdmin.setText("¨Trabajador¨");
-        jPanel1.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, -1, -1));
+        jPanel1.add(lblBienvenidAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, -1, -1));
 
         lblLogoResiAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoResix.jpg"))); // NOI18N
-        jPanel1.add(lblLogoResiAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel1.add(lblLogoResiAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 290, 100));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Proyecto recidencias.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 180, 710, 580));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 190, 710, 580));
 
         jplGTNResidentes.setBackground(new java.awt.Color(119, 180, 241));
 
-        lblGestionResidentesAdmin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblGestionResidentesAdmin.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         lblGestionResidentesAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblGestionResidentesAdmin.setText("GESTION RESIDENTES");
+        lblGestionResidentesAdmin.setText("GESTIÓN RESIDENTES");
 
         javax.swing.GroupLayout jplGTNResidentesLayout = new javax.swing.GroupLayout(jplGTNResidentes);
         jplGTNResidentes.setLayout(jplGTNResidentesLayout);
         jplGTNResidentesLayout.setHorizontalGroup(
             jplGTNResidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplGTNResidentesLayout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(lblGestionResidentesAdmin)
-                .addGap(41, 41, 41))
+                .addGap(35, 35, 35))
         );
         jplGTNResidentesLayout.setVerticalGroup(
             jplGTNResidentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jplGTNResidentesLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(34, 34, 34)
                 .addComponent(lblGestionResidentesAdmin)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jplGTNResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 280, 110));
+        jPanel1.add(jplGTNResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 220, 280, 90));
 
+        cmbxGestionResidentes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxGestionResidentes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opcion", "Registrar residente", "Consultar residente", "Modificar residente" }));
         cmbxGestionResidentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbxGestionResidentesActionPerformed(evt);
             }
         });
-        jPanel1.add(cmbxGestionResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 280, 80));
+        jPanel1.add(cmbxGestionResidentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 280, 40));
 
         btnSeleccionarOpcionResidente.setBackground(new java.awt.Color(0, 51, 204));
-        btnSeleccionarOpcionResidente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSeleccionarOpcionResidente.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         btnSeleccionarOpcionResidente.setForeground(new java.awt.Color(255, 255, 255));
         btnSeleccionarOpcionResidente.setText("Seleccionar");
         btnSeleccionarOpcionResidente.addActionListener(new java.awt.event.ActionListener() {
@@ -105,32 +103,28 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
                 btnSeleccionarOpcionResidenteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSeleccionarOpcionResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, 300, 90));
+        jPanel1.add(btnSeleccionarOpcionResidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 270, 60));
 
         btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoLOgOut .png"))); // NOI18N
         btnCerrarSesion.setBorder(null);
-        btnCerrarSesion.setBorderPainted(false);
+        btnCerrarSesion.setContentAreaFilled(false);
         btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarSesionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 650, -1, -1));
+        jPanel1.add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 680, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel2.setText("Cerrar Sesion");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
+        jLabel2.setText("Cerrar Sesión");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 700, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,7 +231,6 @@ public class frmTrabajadorInicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblBienvenidAdmin;
     private javax.swing.JLabel lblGestionResidentesAdmin;
     private javax.swing.JLabel lblLogoResiAdmin;
-    private javax.swing.JLabel lblNombreAdmin;
     private javax.swing.JLabel txtTitulodmin;
     // End of variables declaration//GEN-END:variables
 }
