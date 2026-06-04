@@ -152,7 +152,7 @@ public class frmEliminarActa extends javax.swing.JFrame {
         tblUsuarios.getColumnModel().getColumn(5).setPreferredWidth(80);
 
         tblUsuarios.getColumnModel().getColumn(5).setCellRenderer(
-                new Utilidades.RenderImagen("/Imagenes/borrar.png")
+                new Utilidades.RenderImagen("/Imagenes/BtnInhabilitar.png")
         );
 
         cargarActasDesdeBD();

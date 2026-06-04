@@ -106,7 +106,7 @@ public class frmConsultarResidente extends javax.swing.JFrame {
 
     public void configurarYcargarTabla() {
         // Titulos de columnas
-        String[] titulos = {"ID", "Nombre residente", "Nacionalidad", ""};
+        String[] titulos = {"ID", "Nombre residente", "Nacionalidad", "Seleccionar"};
 
         modeloResidentes = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
