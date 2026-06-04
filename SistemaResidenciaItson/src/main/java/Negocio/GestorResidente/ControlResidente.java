@@ -6,11 +6,20 @@ import Negocio.DTOs.SolicitudIngresoDTO;
 import java.util.List;
 
 /**
+ * Clase de control que gestiona las validaciones y reglas de negocio para los
+ * residentes.
  *
  * @author cesar
  */
 public class ControlResidente {
 
+    /**
+     * Valida y procesa el registro de un nuevo registro de datos personales.
+     *
+     * @param dto El objeto ResidenteDTO con los datos capturados.
+     * @return true si paso todas las validaciones y se guardo con exito, false
+     * en caso contrario.
+     */
     public boolean procesarRegistroRDP(ResidenteDTO dto) {
         if (!aplicarReglasNegocio(dto)) {
             System.out.println("Error: El formulario tiene datos obligatorios en blanco.");
@@ -22,6 +31,14 @@ public class ControlResidente {
         return bo.registrarRDP(dto);
     }
 
+    /**
+     * Valida el parametro de busqueda y solicita la información completa de un
+     * residente.
+     *
+     * @param idAcademico El id institucional del residente.
+     * @return Objeto ResidenteDTO cargado con la informacion, o null si el id
+     * es invalido.
+     */
     public ResidenteDTO consultarResidentePorId(String idAcademico) {
         if (idAcademico == null || idAcademico.trim().isEmpty()) {
             return null;
@@ -30,7 +47,14 @@ public class ControlResidente {
         return bo.consultarResidentePorId(idAcademico);
     }
 
-    //reglas de negocioo
+    /**
+     * Aplica las reglas de negocio verificando que todos los campos
+     * obligatorios del formulario RDP contengan informacion valida.
+     *
+     * @param dto El objeto ResidenteDTO a evaluar.
+     * @return true si todos los campos obligatorios cumplen las reglas, false
+     * si falta algun dato.
+     */
     private boolean aplicarReglasNegocio(ResidenteDTO dto) {
         if (dto.getFechaNacimiento() == null) {
             System.out.println("Falla en: Fecha de Nacimiento");
@@ -136,20 +160,39 @@ public class ControlResidente {
     }
 
     /**
-     * Metodo ayudante que revisa si un texto no es nulo y no está vacío.
+     * Metodo auxiliar que revisa si una cadena de texto no es nula, no esta
+     * vacia y no contiene el texto de marcador de posicion de "selecciona"
+     *
+     * @param texto La cadena a evaluar.
+     * @return true si el texto contiene informacion valida, false en caso
+     * contrario.
      */
     private boolean esValido(String texto) {
         return texto != null && !texto.trim().isEmpty() && !texto.toLowerCase().contains("selecciona");
     }
 
+    /**
+     * Procesa la solicitud para consultar la lista de todos los residentes
+     * registrados.
+     *
+     * @return Lista de objetos ResidenteDTO con información basica de los
+     * residentes.
+     */
     public List<ResidenteDTO> consultarResidentes() {
         Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
         return bo.consultarResidentes();
     }
 
+    /**
+     * Valida y procesa la actualización de los datos de un residente.
+     *
+     * @param dto El objeto ResidenteDTO con los nuevos datos capturados.
+     * @return true si las validaciones pasaron y la información se actualizo,
+     * false en caso de error.
+     */
     public boolean actualizarRDP(ResidenteDTO dto) {
         if (!aplicarReglasNegocio(dto)) {
-            System.out.println("Error: El formulario de actualización tiene datos obligatorios en blanco.");
+            System.out.println("Error: El formulario de actualizacion tiene datos obligatorios en blanco.");
             return false;
         }
 
@@ -157,7 +200,14 @@ public class ControlResidente {
         return bo.actualizarRDP(dto);
     }
 
-    // metodos de solicitud
+    /**
+     * Valida y procesa el registro de una nueva solicitud de ingreso.
+     *
+     * @param dto Objeto SolicitudIngresoDTO con los datos de pago y de
+     * companero.
+     * @return true si paso las validaciones y se guardo con exito, false en
+     * caso contrario.
+     */
     public boolean procesarSolicitudIngreso(SolicitudIngresoDTO dto) {
         if (!aplicarReglasNegocio(dto)) {
             return false;
@@ -167,6 +217,14 @@ public class ControlResidente {
         return bo.registrarSolicitud(dto);
     }
 
+    /**
+     * Aplica las reglas de negocio para validar los campos de una solicitud de
+     * ingreso.
+     *
+     * @param dto El objeto SolicitudIngresoDTO a evaluar.
+     * @return true si los campos requeridos no son nulos, false en caso
+     * contrario.
+     */
     private boolean aplicarReglasNegocio(SolicitudIngresoDTO dto) {
         if (dto.getCurpResidente() == null || dto.getTipoPago() == null) {
             return false;
@@ -174,9 +232,18 @@ public class ControlResidente {
         return true;
     }
 
+    /**
+     * Valida y procesa la subida de un documento de requisito para un
+     * residente.
+     *
+     * @param dto Objeto DocumentoDTO que contiene la información binaria del
+     * archivo.
+     * @return true si el documento es valido y se subio correctamente, false en
+     * caso contrario.
+     */
     public boolean procesarSubidaDocumento(Negocio.DTOs.DocumentoDTO dto) {
         if (dto.getIdAcademico() == null || dto.getArchivo() == null || dto.getArchivo().length == 0) {
-            System.out.println("Error: Archivo o ID del residente vacío.");
+            System.out.println("Error: Archivo o ID del residente vacio.");
             return false;
         }
 
@@ -184,6 +251,14 @@ public class ControlResidente {
         return bo.guardarDocumento(dto);
     }
 
+    /**
+     * Valida el id y solicita la lista de documentos subidos por un residente
+     * especifico.
+     *
+     * @param idAcademico El id institucional del residente.
+     * @return Lista de objetos DocumentoDTO encontrados, o lista vacia si el id
+     * es nulo.
+     */
     public java.util.List<Negocio.DTOs.DocumentoDTO> consultarDocumentos(String idAcademico) {
         if (idAcademico == null || idAcademico.trim().isEmpty()) {
             return new java.util.ArrayList<>();
@@ -193,6 +268,15 @@ public class ControlResidente {
         return bo.consultarDocumentos(idAcademico);
     }
 
+    /**
+     * Valida los parametros y solicita un documento digital especifico de un
+     * residente.
+     *
+     * @param idAcademico El id del estudiante al que pertenece el archivo.
+     * @param tipoDocumento El tipo o clasificacion del archivo
+     * @return Objeto DocumentoDTO cargado con el archivo binario, o null si los
+     * parametros son invalidos.
+     */
     public Negocio.DTOs.DocumentoDTO consultarDocumento(String idAcademico, String tipoDocumento) {
         if (idAcademico == null || idAcademico.trim().isEmpty()
                 || tipoDocumento == null || tipoDocumento.trim().isEmpty()) {
@@ -202,20 +286,43 @@ public class ControlResidente {
         ResidenteBO bo = new ResidenteBO();
         return bo.consultarDocumento(idAcademico, tipoDocumento);
     }
-    
-    // Para consultar la solicitud por la CURP
+
+    /**
+     * Solicita los datos de la Solicitud de Ingreso registrada a nombre de una
+     * CURP en especifico.
+     *
+     * @param curp La clave CURP del residente a buscar.
+     * @return Objeto SolicitudIngresoDTO con los datos de pago y companero, o
+     * null si no se encuentra.
+     */
     public SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
         Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
         return bo.consultarSolicitudPorCurp(curp);
     }
-    
-    // Para actualizar los datos de la solicitud
+
+    /**
+     * Procesa la solicitud para actualizar la información de una solicitud de
+     * ingreso existente.
+     *
+     * @param dto El objeto SolicitudIngresoDTO con la información a
+     * sobreescribir.
+     * @return true si la actualización en base de datos fue exitosa, false de
+     * lo contrario.
+     */
     public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
         Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
         return bo.actualizarSolicitud(dto);
     }
-    
-    // Para el cambiar estado inhabilitar/habilitar
+
+    /**
+     * Procesa el cambio de estado logico de un residente en el sistema
+     * (habilitar o inhabilitar).
+     *
+     * @param idAcademico El id institucional del residente a modificar.
+     * @param nuevoEstado El texto del estado que se le asignara.
+     * @return true si el estado fue cambiado exitosamente en la base de datos,
+     * false de lo contrario.
+     */
     public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
         Negocio.BOs.ResidenteBO bo = new Negocio.BOs.ResidenteBO();
         return bo.cambiarEstadoResidente(idAcademico, nuevoEstado);

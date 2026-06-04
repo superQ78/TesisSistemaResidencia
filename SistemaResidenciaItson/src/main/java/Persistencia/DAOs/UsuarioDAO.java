@@ -11,11 +11,23 @@ import java.util.List;
 import Persistencia.Interfaces.IUsuarioDAO;
 
 /**
+ * Clase que maneja el acceso a datos para la tabla de Usuarios en la base de
+ * datos.
  *
  * @author cesar
  */
 public class UsuarioDAO implements IUsuarioDAO {
 
+    /**
+     * Verifica las credenciales de un usuario en la base de datos para el
+     * inicio de sesion. Solo permite el acceso a usuarios que tengan el estado
+     * activo.
+     *
+     * @param entidad Objeto UsuarioEntidad que contiene el email y la
+     * contrasena a validar.
+     * @return Objeto UsuarioEntidad con los datos del usuario si las
+     * credenciales son correctas, o null si fallan.
+     */
     @Override
     public UsuarioEntidad consultarCredenciales(UsuarioEntidad entidad) {
         String sql = "SELECT * FROM Usuarios "
@@ -49,7 +61,13 @@ public class UsuarioDAO implements IUsuarioDAO {
         return null;
     }
 
-    // Metodo para agregar un nuevo usuario al sistema  
+    /**
+     * Inserta un nuevo registro de usuario en la base de datos.
+     *
+     * @param entidad Objeto UsuarioEntidad con los datos del usuario a
+     * registrar.
+     * @return true si la insercion fue exitosa, false en caso de error.
+     */
     @Override
     public boolean insertar(UsuarioEntidad entidad) {
         String sql = "INSERT INTO Usuarios (nombreCompleto, email, contrasena, rol, telefono, fotoPerfil) VALUES (?, ?, ?, ?, ?, ?)";
@@ -69,7 +87,13 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 
-    //Metodo para buscar todos los usuarios
+    /**
+     * Consulta y recupera todos los usuarios que se encuentran con estado
+     * activo en el sistema.
+     *
+     * @return Lista de objetos UsuarioEntidad con la informacion de los
+     * usuarios activos.
+     */
     @Override
     public List<UsuarioEntidad> buscarTodo() {
         List<UsuarioEntidad> listaUsuarios = new ArrayList<>();
@@ -94,7 +118,14 @@ public class UsuarioDAO implements IUsuarioDAO {
         return listaUsuarios;
     }
 
-    //Metodo para consultar a un usuario por id
+    /**
+     * Busca y recupera la informacion completa de un usuario utilizando su id
+     * unico.
+     *
+     * @param id El id numerico del usuario a consultar.
+     * @return Objeto UsuarioEntidad con los datos encontrados, o null si no
+     * existe.
+     */
     @Override
     public UsuarioEntidad consultarPorId(int id) {
         String sql = "SELECT * FROM Usuarios WHERE idUsuario = ?";
@@ -120,7 +151,13 @@ public class UsuarioDAO implements IUsuarioDAO {
         return null;
     }
 
-    //Metodo para actualizar un usuario
+    /**
+     * Actualiza la informacion de un usuario existente en la base de datos.
+     *
+     * @param entidad Objeto UsuarioEntidad con los datos modificados.
+     * @return true si los cambios fueron guardados exitosamente, false en caso
+     * de excepcion.
+     */
     @Override
     public boolean actualizar(UsuarioEntidad entidad) {
         String sql = "UPDATE Usuarios SET nombreCompleto = ?, email = ?, contrasena = ?, rol = ?, telefono = ?, fotoPerfil = ? WHERE idUsuario = ?";
@@ -143,7 +180,14 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 
-    //Metodo para Inhabiliatr un usuario
+    /**
+     * Realiza una baja logica de un usuario en el sistema, cambiando su estado
+     * a inhabilitado.
+     *
+     * @param id El id unico del usuario a inhabilitar.
+     * @return true si la actualizacion del estado fue exitosa, false de lo
+     * contrario.
+     */
     @Override
     public boolean eliminar(int id) {
         String sql = "UPDATE Usuarios SET estado = 'Inhabilitado' WHERE idUsuario = ?";
