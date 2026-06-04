@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Interfaz que define las operaciones de acceso a datos para la entidad Acta.
  *
- * * @author Tesis
+ * @author Tesis
  */
 public interface IActaDAO {
 
     /**
      * Inserta un nuevo registro de acta administrativa en la base de datos.
      *
-     * * @param acta Objeto ActaEntidad con los datos del incidente.
+     * @param acta Objeto ActaEntidad con los datos del incidente.
      * @return true si el registro se inserto correctamente, false en caso
      * contrario.
      */
@@ -23,15 +23,14 @@ public interface IActaDAO {
      * Consulta y recupera todas las actas administrativas almacenadas en la
      * base de datos.
      *
-     * * @return Una lista de objetos ActaEntidad con la informacion de cada
-     * acta.
+     * @return Una lista de objetos ActaEntidad con la informacion de cada acta.
      */
     List<ActaEntidad> consultarTodas();
 
     /**
      * Elimina fisicamente un registro de acta de la base de datos.
      *
-     * * @param idActa El id numericodel acta a eliminar.
+     * @param idActa El id numericodel acta a eliminar.
      * @return true si la eliminacion fue exitosa, false si ocurrio un error.
      */
     boolean eliminarActa(int idActa);
@@ -40,7 +39,7 @@ public interface IActaDAO {
      * Actualiza un registro existente en la base de datos para almacenar el PDF
      * del acta firmada.
      *
-     * * @param acta Objeto ActaEntidad que contiene el arreglo de bytes y el
+     * @param acta Objeto ActaEntidad que contiene el arreglo de bytes y el
      * nombre del archivo.
      * @return true si la base de datos se actualizo correctamente, false en
      * caso contrario.
@@ -51,7 +50,7 @@ public interface IActaDAO {
      * Busca y recupera todas las actas administrativas correspondientes a un
      * estudiante especifico.
      *
-     * * @param idAcademico El ID institucional del residente.
+     * @param idAcademico El ID institucional del residente.
      * @return Una lista de objetos ActaEntidad pertenecientes al residente
      * indicado.
      */
@@ -61,7 +60,7 @@ public interface IActaDAO {
      * Recupera exclusivamente los datos binarios del documento adjunto a un
      * acta especifica.
      *
-     * * @param idActa El identificador del acta a consultar.
+     * @param idActa El identificador del acta a consultar.
      * @return Objeto ActaEntidad cargado con el archivo binario, o null si no
      * existe.
      */
