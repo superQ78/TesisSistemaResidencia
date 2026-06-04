@@ -33,7 +33,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     public frmHistorialResidente(ResidenteDTO residente) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.residenteActual = residente;
 
         if (this.residenteActual != null) {
@@ -43,8 +43,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
 
         configurarYcargarTabla();
         cargarFotoFormal();
-        
-        
+
         // buscador dinamico, detecta cambios en el txt en tiempo real
         txtBuscar.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
             @Override
@@ -61,11 +60,11 @@ public class frmHistorialResidente extends javax.swing.JFrame {
             public void changedUpdate(javax.swing.event.DocumentEvent e) {
                 filtrarTabla();
             }
-            
+
             private void filtrarTabla() {
                 String texto = txtBuscar.getText().trim();
                 if (texto.isEmpty()) {
-                    sorter.setRowFilter(null); 
+                    sorter.setRowFilter(null);
                 } else {
                     sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
                 }
@@ -179,8 +178,8 @@ public class frmHistorialResidente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-       if (this.residenteActual != null) {
-            coordinadorVistas.mostrarPerfilResidente(this, this.residenteActual.getIdAcademico()); 
+        if (this.residenteActual != null) {
+            coordinadorVistas.mostrarPerfilResidente(this, this.residenteActual.getIdAcademico());
         } else {
             coordinadorVistas.regresarMenuPrincipal(this);
         }
@@ -197,7 +196,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
         };
 
         tblHistorial.setModel(modeloHistorialRecidente);
-        
+
         //  para filtrar la busqueda
         sorter = new javax.swing.table.TableRowSorter<>(modeloHistorialRecidente);
         tblHistorial.setRowSorter(sorter);
@@ -239,11 +238,11 @@ public class frmHistorialResidente extends javax.swing.JFrame {
             public void changedUpdate(javax.swing.event.DocumentEvent e) {
                 filtrarTabla();
             }
-            
+
             private void filtrarTabla() {
                 String texto = txtBuscar.getText().trim();
                 if (texto.isEmpty()) {
-                    sorter.setRowFilter(null); 
+                    sorter.setRowFilter(null);
                 } else {
                     sorter.setRowFilter(javax.swing.RowFilter.regexFilter("(?i)" + texto));
                 }
@@ -298,7 +297,7 @@ public class frmHistorialResidente extends javax.swing.JFrame {
             }
         }
     }
-    
+
     /**
      * Consulta la foto del residente en la BD y para mostrarla en el perfil
      */

@@ -31,7 +31,7 @@ public class frmPerfilResidente extends javax.swing.JFrame {
     public frmPerfilResidente(String idResidenteSeleccionado) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.idResidente = idResidenteSeleccionado;
 
         cargarDatosGenerales();

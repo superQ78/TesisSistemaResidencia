@@ -32,6 +32,7 @@ public class frmCrearUsuario extends javax.swing.JFrame {
     public frmCrearUsuario(int idSeleccionado) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
 
         // Guardamos el id que nos mandaron
         this.idUsuarioEdicion = idSeleccionado;

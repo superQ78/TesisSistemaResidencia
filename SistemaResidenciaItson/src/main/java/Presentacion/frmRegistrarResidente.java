@@ -28,7 +28,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente(ResidenteDTO dtoMemoria, boolean modoEdicion) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.dtoCompartido = dtoMemoria;
         this.modoEdicion = modoEdicion;
 
@@ -39,7 +39,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente(ResidenteDTO dtoMemoria) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.dtoCompartido = dtoMemoria;
         this.modoEdicion = false;
 
@@ -53,7 +53,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
     public frmRegistrarResidente(String idResidenteAEditar) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.modoEdicion = true;
 
         Negocio.GestorResidente.IResidente fachada = new Negocio.GestorResidente.ResidenteFachada();
