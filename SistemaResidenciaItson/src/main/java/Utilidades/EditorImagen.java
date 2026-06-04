@@ -80,9 +80,9 @@ public class EditorImagen extends DefaultCellEditor {
             ruta = this.rutaForzada;
         } else {
             if (textoAccion.equalsIgnoreCase("ELIMINAR") || textoAccion.equalsIgnoreCase("X") || textoAccion.equalsIgnoreCase("INHABILITAR")) {
-                ruta = "/Imagenes/borrar.png";
+                ruta = "/Imagenes/BtnInhabilitar.png";
             } else if (textoAccion.equalsIgnoreCase("EDITAR")) {
-                ruta = "/Imagenes/editar.png";
+                ruta = "/Imagenes/BtnEditar.png";
             } else if (textoAccion.equalsIgnoreCase("SUBIR")) {
                 ruta = "/Imagenes/SubirArchivo.png";
             }

@@ -96,7 +96,7 @@ public class frmRegistrarResidente extends javax.swing.JFrame {
         tblRegistroResidente.setBackground(java.awt.Color.WHITE);
 
         // Configuramos la imagen del botón en la columna 3
-        tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/imagenes/SubirArchivo.png"));
+        tblRegistroResidente.getColumnModel().getColumn(3).setCellRenderer(new Utilidades.RenderImagen("/Imagenes/SubirArchivo.png"));
         tblRegistroResidente.getColumnModel().getColumn(3).setPreferredWidth(50);
 
         // Agregamos el escuchador de clics para abrir el buscador de archivos

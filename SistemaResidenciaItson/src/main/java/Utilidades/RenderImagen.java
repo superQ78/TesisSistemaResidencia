@@ -51,7 +51,7 @@ public class RenderImagen extends JButton implements TableCellRenderer {
             if (texto.equalsIgnoreCase("ELIMINAR") || texto.equalsIgnoreCase("X") || texto.equalsIgnoreCase("INHABILITAR")) {
                 ruta = "/Imagenes/BtnInhabilitar.png";
             } else if (texto.equalsIgnoreCase("EDITAR")) {
-                ruta = "/Imagenes/Btneditar.png";
+                ruta = "/Imagenes/BtnEditar.png";
             } else if (texto.equalsIgnoreCase("SELECCIONAR") || texto.equalsIgnoreCase("SELECT")) {
                 ruta = "/Imagenes/cursor.png";
             } else if (texto.equalsIgnoreCase("SUBIR")) {

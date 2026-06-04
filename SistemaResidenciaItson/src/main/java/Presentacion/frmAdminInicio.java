@@ -65,7 +65,7 @@ public class frmAdminInicio extends javax.swing.JFrame {
         jplAdminInicio.add(txtTitulodmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         lblNombreAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
-        lblNombreAdmin.setText("Nombre");
+        lblNombreAdmin.setText("Administrador");
         jplAdminInicio.add(lblNombreAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, -1, -1));
 
         lblBienvenidAdmin.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N

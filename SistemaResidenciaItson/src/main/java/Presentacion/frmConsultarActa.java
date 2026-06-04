@@ -125,7 +125,7 @@ public class frmConsultarActa extends javax.swing.JFrame {
 
     public void configurarYcargarTabla() {
         // Titulos de las 5 columnas
-        String[] titulos = {"ID", "Nombre residente", "Lugar de Residencia", "", ""};
+        String[] titulos = {"ID", "Nombre residente", "Lugar de Residencia", "Seleccionar", "Subir"};
 
         modeloUsuarios = new javax.swing.table.DefaultTableModel(null, titulos) {
             @Override
