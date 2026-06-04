@@ -4,7 +4,6 @@ import Persistencia.Conexion.Conexion;
 import Persistencia.Entidades.ResidenteEntidad;
 import Persistencia.Entidades.SolicitudIngresoEntidad;
 import Persistencia.Interfaces.IResidenteDAO;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -12,8 +11,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que maneja el acceso a datos para la entidad Residente y entidades
+ * relacionadas, implementa las operaciones CRUD necesarias ejecutando
+ * sentencias SQL preparadas.
+ *
+ * @author cesar
+ */
 public class ResidenteDAO implements IResidenteDAO {
 
+    /**
+     * Inserta un nuevo registro completo de residente (RDP) en la base de
+     * datos.
+     *
+     * @param entidad Objeto ResidenteEntidad con los mas de 80 campos
+     * capturados.
+     * @return true si la insercion en la base de datos fue exitosa, false en
+     * caso de error.
+     */
     @Override
     public boolean insertar(ResidenteEntidad entidad) {
         String sql = "INSERT INTO residentes ("
@@ -55,7 +70,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(9, entidad.getTelefono());
             ps.setString(10, entidad.getCorreo());
 
-            // 11-18 Académicos
+            // 11-18 Academicos
             ps.setString(11, entidad.getIdAcademico());
             ps.setString(12, entidad.getCorreoInstitucional());
             ps.setString(13, entidad.getCarrera());
@@ -84,7 +99,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(32, entidad.getTelefonoTutor());
             ps.setString(33, entidad.getCorreoTutor());
 
-            // 33-54 Médicos
+            // 33-54 Medicos
             ps.setString(34, entidad.getEstadoSalud());
             ps.setBoolean(35, entidad.isTieneDeficienciaVista());
             ps.setString(36, entidad.getEspecificarVista());
@@ -117,7 +132,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(61, entidad.getEstiloConvivencia());
             ps.setString(62, entidad.getSituacionesNoDeseadas());
 
-            // 62-68 Compañeros y Hábitos
+            // 62-68 Companeros y Habitos
             ps.setBoolean(63, entidad.isBuscaCompaneroExtranjero());
             ps.setBoolean(64, entidad.isBuscaCompaneroMexicano());
             ps.setBoolean(65, entidad.isBuscaCompaneroReingreso());
@@ -147,13 +162,13 @@ public class ResidenteDAO implements IResidenteDAO {
             return filasInsertadas > 0;
 
         } catch (SQLException e) {
-            // Esto imprimirá el error en rojo en la consola de NetBeans
+            // Esto imprimira el error en rojo en la consola de NetBeans
             System.err.println("Error al insertar RDP en BD: " + e.getMessage());
             e.printStackTrace();
 
-            // ¡NUEVO! Esto te sacará una alerta en la pantalla con el error real de MySQL
+            // Esto te sacara una alerta en la pantalla con el error real de MySQL
             javax.swing.JOptionPane.showMessageDialog(null,
-                    "¡Atrapamos a MySQL! El error real es:\n" + e.getMessage(),
+                    "Atrapamos un error en MySQL! El error real es:\n" + e.getMessage(),
                     "Error en Base de Datos",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
 
@@ -161,6 +176,12 @@ public class ResidenteDAO implements IResidenteDAO {
         }
     }
 
+    /**
+     * Consulta y recupera a todos los residentes almacenados en el sistema.
+     *
+     * @return Lista de objetos ResidenteEntidad con los datos id, nombre, lugar
+     * y estado.
+     */
     @Override
     public List<ResidenteEntidad> consultarTodos() {
         List<ResidenteEntidad> lista = new ArrayList<>();
@@ -183,6 +204,13 @@ public class ResidenteDAO implements IResidenteDAO {
         return lista;
     }
 
+    /**
+     * Busca y recupera la informacion completa de un residente en especifico.
+     *
+     * @param idAcademico El id institucional del estudiante.
+     * @return Objeto ResidenteEntidad con todas las columnas de la tabla
+     * mapeadas, o null si no se encontro.
+     */
     @Override
     public ResidenteEntidad consultarPorId(String idAcademico) {
         String sql = "SELECT * FROM residentes WHERE idAcademico = ?"; // Usamos el id de estudiante
@@ -209,7 +237,7 @@ public class ResidenteDAO implements IResidenteDAO {
                 entidad.setTelefono(rs.getString("telefono"));
                 entidad.setCorreo(rs.getString("correo"));
 
-                //Académicos
+                //Academicos
                 entidad.setIdAcademico(rs.getString("idAcademico"));
                 entidad.setCorreoInstitucional(rs.getString("correoInstitucional"));
                 entidad.setCarrera(rs.getString("carrera"));
@@ -238,7 +266,7 @@ public class ResidenteDAO implements IResidenteDAO {
                 entidad.setTelefonoTutor(rs.getString("telefonoTutor"));
                 entidad.setCorreoTutor(rs.getString("correoTutor"));
 
-                //Médicos
+                //Medicos
                 entidad.setEstadoSalud(rs.getString("estadoSalud"));
                 entidad.setTieneDeficienciaVista(rs.getBoolean("tieneDeficienciaVista"));
                 entidad.setEspecificarVista(rs.getString("especificarVista"));
@@ -271,7 +299,7 @@ public class ResidenteDAO implements IResidenteDAO {
                 entidad.setEstiloConvivencia(rs.getString("estiloConvivencia"));
                 entidad.setSituacionesNoDeseadas(rs.getString("situacionesNoDeseadas"));
 
-                //Compañeros y habitos
+                //Companeros y habitos
                 entidad.setBuscaCompaneroExtranjero(rs.getBoolean("buscaCompaneroExtranjero"));
                 entidad.setBuscaCompaneroMexicano(rs.getBoolean("buscaCompaneroMexicano"));
                 entidad.setBuscaCompaneroReingreso(rs.getBoolean("buscaCompaneroReingreso"));
@@ -305,6 +333,15 @@ public class ResidenteDAO implements IResidenteDAO {
         return null;
     }
 
+    /**
+     * Actualiza la informacion completa de un registro de datos personales
+     * (RDP) existente.
+     *
+     * @param entidad Objeto ResidenteEntidad con los datos nuevos y el
+     * idAcademico como llave de actualizacion.
+     * @return true si el registro fue actualizado exitosamente en la BD, false
+     * de lo contrario.
+     */
     @Override
     public boolean actualizar(ResidenteEntidad entidad) {
         String sql = "UPDATE residentes SET "
@@ -337,7 +374,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(9, entidad.getTelefono());
             ps.setString(10, entidad.getCorreo());
 
-            // 11-17 Académicos
+            // 11-17 Academicos
             ps.setString(11, entidad.getCorreoInstitucional());
             ps.setString(12, entidad.getCarrera());
             ps.setString(13, entidad.getSemestre());
@@ -364,7 +401,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(30, entidad.getTelefonoTutor());
             ps.setString(31, entidad.getCorreoTutor());
 
-            // 32-53 Médicos
+            // 32-53 Medicos
             ps.setString(32, entidad.getEstadoSalud());
             ps.setBoolean(33, entidad.isTieneDeficienciaVista());
             ps.setString(34, entidad.getEspecificarVista());
@@ -397,7 +434,7 @@ public class ResidenteDAO implements IResidenteDAO {
             ps.setString(59, entidad.getEstiloConvivencia());
             ps.setString(60, entidad.getSituacionesNoDeseadas());
 
-            // 61-67 Compañeros y Hábitos
+            // 61-67 Companeros y Habitos
             ps.setBoolean(61, entidad.isBuscaCompaneroExtranjero());
             ps.setBoolean(62, entidad.isBuscaCompaneroMexicano());
             ps.setBoolean(63, entidad.isBuscaCompaneroReingreso());
@@ -436,7 +473,15 @@ public class ResidenteDAO implements IResidenteDAO {
         }
     }
 
-    // metodo solicitud
+    /**
+     * Registra una nueva solicitud de ingreso ligando la CURP del estudiante en
+     * la base de datos.
+     *
+     * @param entidad Objeto SolicitudIngresoEntidad con los detalles de pago y
+     * datos del companero.
+     * @return true si se inserto exitosamente la solicitud, false en caso de
+     * excepcion.
+     */
     @Override
     public boolean insertarSolicitud(SolicitudIngresoEntidad entidad) {
         String sql = "INSERT INTO SolicitudesIngreso "
@@ -471,11 +516,19 @@ public class ResidenteDAO implements IResidenteDAO {
         }
     }
 
+    /**
+     * Guarda un archivo digital como requisito vinculado a un residente en la
+     * base de datos.
+     *
+     * @param entidad Objeto DocumentoEntidad que contiene los bytes y detalles
+     * del archivo.
+     * @return true si la insercion del documento fue correcta, false en caso de
+     * fallo.
+     */
     @Override
     public boolean insertarDocumento(Persistencia.Entidades.DocumentoEntidad entidad) {
         String sql = "INSERT INTO Documentos (idAcademico, tipoDocumento, nombreArchivo, archivo) VALUES (?, ?, ?, ?)";
 
-        // Utilizamos tu clase de Conexion directamente, como en los demás métodos
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(1, entidad.getIdAcademico());
@@ -491,6 +544,13 @@ public class ResidenteDAO implements IResidenteDAO {
         }
     }
 
+    /**
+     * Obtiene el listado de documentos cargados por un residente.
+     *
+     * @param idAcademico id institucional del estudiante propietario.
+     * @return Lista de DocumentoEntidad con los datos del documento encontrado,
+     * o vacia si no existe.
+     */
     @Override
     public List<Persistencia.Entidades.DocumentoEntidad> consultarDocumentos(String idAcademico) {
         List<Persistencia.Entidades.DocumentoEntidad> lista = new ArrayList<>();
@@ -524,6 +584,15 @@ public class ResidenteDAO implements IResidenteDAO {
         return lista;
     }
 
+    /**
+     * Consulta y extrae de la base de datos un documento digital completo,
+     * incluyendo su contenido en bytes.
+     *
+     * @param idAcademico El id unico del estudiante.
+     * @param tipoDocumento La clasificacion o tipo de archivo buscado
+     * @return El objeto DocumentoEntidad con el archivo binario cargado, o null
+     * si no existe.
+     */
     @Override
     public Persistencia.Entidades.DocumentoEntidad consultarDocumento(String idAcademico, String tipoDocumento) {
         String sql = "SELECT idDocumento, idAcademico, tipoDocumento, nombreArchivo, archivo, fechaSubida "
@@ -560,7 +629,14 @@ public class ResidenteDAO implements IResidenteDAO {
         return null;
     }
 
-    // Para consultar la solicitud por la CURP
+    /**
+     * Busca la solicitud de ingreso de un estudiante basandose en su clave
+     * CURP.
+     *
+     * @param curp La CURP que sirvio de vinculo al momento del registro.
+     * @return Objeto SolicitudIngresoDTO con los datos de pago y de companero
+     * extraidos de BD, o null.
+     */
     @Override
     public Negocio.DTOs.SolicitudIngresoDTO consultarSolicitudPorCurp(String curp) {
         String sql = "SELECT * FROM SolicitudesIngreso WHERE curpResidente = ?";
@@ -571,7 +647,7 @@ public class ResidenteDAO implements IResidenteDAO {
 
             try (java.sql.ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    // Si encuentra la solicitud, armamos el maletín con los datos de la base de datos
+                    // Si encuentra la solicitud, armamos el maletin con los datos de la base de datos
                     Negocio.DTOs.SolicitudIngresoDTO dto = new Negocio.DTOs.SolicitudIngresoDTO();
 
                     dto.setCurpResidente(rs.getString("curpResidente"));
@@ -592,7 +668,15 @@ public class ResidenteDAO implements IResidenteDAO {
         return null;
     }
 
-    // Para actualizar los datos de la solicitud
+    /**
+     * Actualiza la informacion en base de datos de una solicitud de ingreso
+     * existente.
+     *
+     * @param dto El objeto SolicitudIngresoDTO con los campos actualizados por
+     * la pantalla.
+     * @return true si los cambios fueron guardados exitosamente en Bd, false de
+     * lo contrario.
+     */
     @Override
     public boolean actualizarSolicitud(Negocio.DTOs.SolicitudIngresoDTO dto) {
         String sql = "UPDATE SolicitudesIngreso SET tipoPago = ?, montoPago = ?, idCompanero = ?, nombreCompanero = ? WHERE curpResidente = ?";
@@ -615,7 +699,15 @@ public class ResidenteDAO implements IResidenteDAO {
         }
     }
 
-    // Para el cambiar estado inhabilitar/habilitar
+    /**
+     * Cambia el estado de un residente en el sistema
+     *
+     * @param idAcademico El id institucional del estudiante.
+     * @param nuevoEstado El texto del estado que se actualizara en la base de
+     * datos
+     * @return true si la fila fue afectada y el estado actualizado, false en
+     * caso de excepcion.
+     */
     @Override
     public boolean cambiarEstadoResidente(String idAcademico, String nuevoEstado) {
         String sql = "UPDATE Residentes SET estado = ? WHERE idAcademico = ?";
@@ -629,7 +721,7 @@ public class ResidenteDAO implements IResidenteDAO {
         } catch (java.sql.SQLException e) {
             System.err.println("Error al cambiar estado: " + e.getMessage());
             return false;
-        }   
+        }
     }
 
 }
