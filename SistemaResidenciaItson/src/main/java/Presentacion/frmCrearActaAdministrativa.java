@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Presentacion;
 
 import javax.swing.JFrame;
@@ -20,7 +16,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     public frmCrearActaAdministrativa(String idResidente) {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         this.idResidenteActual = idResidente;
         cargarDatosAutomatizados();
         cargarLineamientos();
@@ -99,6 +95,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -131,22 +128,23 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
         txtCarreraAlumno = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 40)); // NOI18N
         lblTitulo.setText("Residencias ITSON – Panel de gestión de actas");
         lblTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
-        lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        lblSubtituloCrear.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblSubtituloCrear.setText("Crear nueva acta");
-        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
+        jPanel1.add(lblSubtituloCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
 
         lblNombreAlumno.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblNombreAlumno.setText("Nombre completo:");
-        jPanel1.add(lblNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 32));
+        jPanel1.add(lblNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, 32));
 
         txtNombreAlumno.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtNombreAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -154,70 +152,70 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtNombreAlumnoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, 650, 32));
+        jPanel1.add(txtNombreAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 650, 32));
 
         lblCarreraAlumno.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblCarreraAlumno.setText("Carrera:");
-        jPanel1.add(lblCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, 32));
+        jPanel1.add(lblCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 32));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoVerticalLetras.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 60, 310, 300));
 
         lblFechaActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblFechaActa.setText("Fecha:");
-        jPanel1.add(lblFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, 36));
+        jPanel1.add(lblFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 36));
 
         txtFechaActa.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel1.add(txtFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 260, 32));
+        jPanel1.add(txtFechaActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 260, 32));
 
         lblInstituto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblInstituto.setText("Instituto Tecnológico de Sonora");
-        jPanel1.add(lblInstituto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        jPanel1.add(lblInstituto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
         lblPagina.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblPagina.setText("Página web: www.itson.mx");
-        jPanel1.add(lblPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jPanel1.add(lblPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, -1, -1));
 
         lblDireccion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblDireccion.setText("Dirección: 5 de Febrero No. 818 Sur");
-        jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         lblTelefono.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblTelefono.setText("Teléfono: (644) 410-90-00, ext. 3335");
-        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         lblCp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblCp.setText("C.P. 85000 Ciudad Obregón, Sonora, México");
-        jPanel1.add(lblCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jPanel1.add(lblCp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, 32));
 
-        chkSemestreAgostoDic.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        chkSemestreAgostoDic.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkSemestreAgostoDic.setText("Agosto - Diciembre");
         chkSemestreAgostoDic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkSemestreAgostoDicActionPerformed(evt);
             }
         });
-        jPanel1.add(chkSemestreAgostoDic, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, -1, 32));
+        jPanel1.add(chkSemestreAgostoDic, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, -1, 32));
 
-        chkSemestreEneroMayo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        chkSemestreEneroMayo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         chkSemestreEneroMayo.setText("Enero - Mayo");
         chkSemestreEneroMayo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkSemestreEneroMayoActionPerformed(evt);
             }
         });
-        jPanel1.add(chkSemestreEneroMayo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, -1, 32));
+        jPanel1.add(chkSemestreEneroMayo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, 32));
 
         lblSemestreActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblSemestreActa.setText("Periodo de residencia:");
-        jPanel1.add(lblSemestreActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, 32));
+        jPanel1.add(lblSemestreActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, 32));
 
         lblIdEstudiante.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblIdEstudiante.setText("Id de estudiante:");
-        jPanel1.add(lblIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 200, 32));
+        jPanel1.add(lblIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 460, 200, 32));
 
         txtIdEstudiante.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtIdEstudiante.addActionListener(new java.awt.event.ActionListener() {
@@ -225,26 +223,27 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 txtIdEstudianteActionPerformed(evt);
             }
         });
-        jPanel1.add(txtIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 510, 240, 32));
+        jPanel1.add(txtIdEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 460, 260, 32));
 
         lblLineamiento.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblLineamiento.setText("Lineamiento incumplido:");
-        jPanel1.add(lblLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, -1, 32));
+        jPanel1.add(lblLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, -1, 32));
 
         cmbxLineamiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         cmbxLineamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(cmbxLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, 230, 32));
+        jPanel1.add(cmbxLineamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 290, 32));
 
         lblDescripcionActa.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         lblDescripcionActa.setText("Descripción:");
-        jPanel1.add(lblDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, 32));
+        jPanel1.add(lblDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, -1, 32));
 
         txtDescripcion.setColumns(20);
-        txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDescripcion.setLineWrap(true);
         txtDescripcion.setRows(5);
         txaDescripcionActa.setViewportView(txtDescripcion);
 
-        jPanel1.add(txaDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 610, 690, 120));
+        jPanel1.add(txaDescripcionActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 560, 690, 120));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -255,7 +254,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 40));
 
         btnLimpiarCampos.setBackground(new java.awt.Color(255, 102, 102));
         btnLimpiarCampos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -266,7 +265,7 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnLimpiarCamposActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 690, 170, 40));
+        jPanel1.add(btnLimpiarCampos, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 640, 170, 40));
 
         btnImprimirActa.setBackground(new java.awt.Color(51, 153, 255));
         btnImprimirActa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -277,21 +276,17 @@ public class frmCrearActaAdministrativa extends javax.swing.JFrame {
                 btnImprimirActaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 690, 150, 40));
-        jPanel1.add(txtCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 512, 170, 30));
+        jPanel1.add(btnImprimirActa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 640, 150, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        txtCarreraAlumno.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel1.add(txtCarreraAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 290, 30));
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipady = 109;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -64,7 +64,7 @@ public class frmLogin extends javax.swing.JFrame {
         jplLogin.add(lblCorreoElectronicoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 360, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoResixxx.png"))); // NOI18N
-        jplLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 220));
+        jplLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 220));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jovenesEstudindo.png"))); // NOI18N
         jLabel1.setText("jLabel1");

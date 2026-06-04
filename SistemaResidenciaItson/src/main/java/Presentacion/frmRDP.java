@@ -353,7 +353,7 @@ public class frmRDP extends javax.swing.JFrame {
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
-                .addContainerGap(445, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVaciarCampos)
                 .addGap(62, 62, 62)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -366,7 +366,7 @@ public class frmRDP extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVaciarCampos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnImprimir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -377,13 +377,13 @@ public class frmRDP extends javax.swing.JFrame {
         pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
         pnlTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        lblSubTitulo.setFont(new java.awt.Font("Segoe UI", 1, 35)); // NOI18N
         lblSubTitulo.setText("Residencias ITSON – Panel de Gestión de residentes");
-        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
+        pnlTitulo.add(lblSubTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
         lblSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         lblSubTitulo1.setText("Registrar residente");
-        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 243, -1));
+        pnlTitulo.add(lblSubTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 243, -1));
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
         btnAtras.setBorder(null);
@@ -394,7 +394,7 @@ public class frmRDP extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 40));
+        pnlTitulo.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 40, 40));
 
         getContentPane().add(pnlTitulo, java.awt.BorderLayout.PAGE_START);
 
