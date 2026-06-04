@@ -23,6 +23,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     public frmConsultarUsuarios() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
         configurarYcargarTabla();
     }
 
@@ -34,6 +35,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -47,6 +49,7 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Panel de gestión de usuarios");
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,18 +101,15 @@ public class frmConsultarUsuarios extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 40, 40));
+        jPanel1.add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1328, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 18;
+        gridBagConstraints.ipady = 377;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
