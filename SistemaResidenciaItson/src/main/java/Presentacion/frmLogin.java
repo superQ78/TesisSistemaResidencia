@@ -18,6 +18,7 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.getContentPane().setBackground(java.awt.Color.WHITE);
 
     }
 
@@ -29,6 +30,7 @@ public class frmLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jplLogin = new javax.swing.JPanel();
         txtCorreoLogin = new javax.swing.JTextField();
@@ -41,6 +43,8 @@ public class frmLogin extends javax.swing.JFrame {
         txtContraLogin = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jplLogin.setBackground(new java.awt.Color(255, 255, 255));
         jplLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,12 +68,13 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jovenesEstudindo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jplLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 710, 510));
+        jplLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 710, 500));
 
         btnIniciarSeion.setBackground(new java.awt.Color(51, 153, 255));
         btnIniciarSeion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnIniciarSeion.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciarSeion.setText("Iniciar Sesion");
+        btnIniciarSeion.setText("Iniciar Sesión");
+        btnIniciarSeion.setToolTipText("");
         btnIniciarSeion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarSeionActionPerformed(evt);
@@ -80,16 +85,11 @@ public class frmLogin extends javax.swing.JFrame {
         txtContraLogin.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jplLogin.add(txtContraLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 510, 310, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jplLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jplLogin, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
