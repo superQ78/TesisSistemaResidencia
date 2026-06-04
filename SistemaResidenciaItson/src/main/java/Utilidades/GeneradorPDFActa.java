@@ -43,7 +43,7 @@ public class GeneradorPDFActa {
             try {
                 URL urlIzq = GeneradorPDFActa.class.getResource("/Imagenes/LogoLetrasChico.png");
                 URL urlDer = GeneradorPDFActa.class.getResource("/Imagenes/LogoItsonCam.png");
-                
+
                 Table tabCabecera = new Table(UnitValue.createPercentArray(new float[]{2.5f, 5f, 2.5f})).useAllAvailableWidth();
                 tabCabecera.setBorder(Border.NO_BORDER);
 
@@ -60,12 +60,12 @@ public class GeneradorPDFActa {
                 // Titulos en el centro
                 Cell celdaCentro = new Cell().setBorder(Border.NO_BORDER).setVerticalAlignment(VerticalAlignment.MIDDLE);
                 celdaCentro.setTextAlignment(TextAlignment.CENTER);
-                
+
                 celdaCentro.add(new Paragraph("RESIDENCIAS ESTUDIANTILES ITSON")
                         .setFontSize(13).setBold().setMarginBottom(0));
                 celdaCentro.add(new Paragraph("Acta Administrativa")
                         .setFontSize(12).setBold().setMarginTop(0).setMarginBottom(0));
-                
+
                 tabCabecera.addCell(celdaCentro);
 
                 // logo derecho
@@ -86,7 +86,6 @@ public class GeneradorPDFActa {
             }
 
             // Cuerpo del acta
-            
             // Fecha alineada a la derecha
             documento.add(new Paragraph("\nCd. Obregon, Sonora. A " + UtilidadPDF.fecha(acta.getFecha()) + ".")
                     .setTextAlignment(TextAlignment.RIGHT)
@@ -103,11 +102,19 @@ public class GeneradorPDFActa {
                     + "los cuales hacen referencia a lo siguiente:"
             ).setTextAlignment(TextAlignment.JUSTIFIED).setFontSize(11));
 
-            // Lineamiento roto
-            documento.add(new Paragraph("\n(" + acta.getLineamiento() + ")\n")
+            String textoLineamiento = Utilidades.LineamientosResidencias.obtenerTextoLineamiento(acta.getLineamiento());
+
+            documento.add(new Paragraph("\nLINEAMIENTO APLICADO:")
                     .setBold()
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setFontSize(12));
+                    .setFontSize(11)
+                    .setBackgroundColor(ColorConstants.LIGHT_GRAY)
+                    .setPadding(3f));
+
+            documento.add(new Paragraph(textoLineamiento)
+                    .setTextAlignment(TextAlignment.JUSTIFIED)
+                    .setFontSize(10.5f)
+                    .setMarginTop(5f)
+                    .setMarginBottom(10f));
 
             // Titulo de acontecimiento
             documento.add(new Paragraph("ACONTECIMIENTO:")
@@ -135,7 +142,6 @@ public class GeneradorPDFActa {
                     + UtilidadPDF.fecha(acta.getFecha()) + "."
             ).setTextAlignment(TextAlignment.JUSTIFIED).setFontSize(11));
 
-            
             // Firmas y datos
             Div contenedorFirmas = new Div();
             contenedorFirmas.setKeepTogether(true);
@@ -151,11 +157,11 @@ public class GeneradorPDFActa {
             tabFirma.setMarginTop(40f);
 
             Cell lineaFirma = new Cell().setBorder(Border.NO_BORDER).setBorderBottom(new SolidBorder(ColorConstants.BLACK, 1));
-            
+
             tabFirma.addCell(new Cell().setBorder(Border.NO_BORDER));
             tabFirma.addCell(lineaFirma);
             tabFirma.addCell(new Cell().setBorder(Border.NO_BORDER));
-            
+
             contenedorFirmas.add(tabFirma);
 
             // Nombre del residente
